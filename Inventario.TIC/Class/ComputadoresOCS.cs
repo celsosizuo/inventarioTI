@@ -8,7 +8,7 @@ namespace Inventario.TIC.Class
 {
     public class ComputadoresOCS
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Name { get; set; }
         public string IpAddr { get; set; }
         public string OsName { get; set; }
@@ -16,10 +16,10 @@ namespace Inventario.TIC.Class
         public string WinProdId { get; set; }
         public string WinProdKey { get; set; }
         public string WorkGroup { get; set; }
-        public string processorT { get; set; }
+        public string ProcessorT { get; set; }
         public decimal Memory { get; set; }
-        public DateTime LastDate { get; set; }
-        public DateTime LastCome { get; set; }
+        public DateTime? LastDate { get; set; }
+        public DateTime? LastCome { get; set; }
 
     }
 }

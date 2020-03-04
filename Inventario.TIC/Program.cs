@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Inventario.TIC.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,8 @@ namespace Inventario.TIC
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MDIParent1());
+            //Application.Run(new FrmComputadores());
         }
     }
 }

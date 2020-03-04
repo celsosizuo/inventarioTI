@@ -16,5 +16,15 @@ namespace Inventario.TIC.Class
         public decimal Total { get; set; }
         public decimal Free { get; set; }
         public string Volumn { get; set; }
+
+        public Disco()
+        {
+
+        }
+
+
     }
+
+
+
 }

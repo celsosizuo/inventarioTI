@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Dapper;
+using Inventario.TIC.Class;
 
 namespace Inventario.TIC
 {

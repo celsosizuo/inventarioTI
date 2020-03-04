@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Inventario.TIC.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -109,7 +110,9 @@ namespace Inventario.TIC
 
         private void computadoresToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            FrmComputadores newMDIChild = new FrmComputadores();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
         }
     }
 }
