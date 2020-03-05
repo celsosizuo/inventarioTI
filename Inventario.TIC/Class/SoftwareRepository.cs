@@ -9,26 +9,22 @@ using System.Threading.Tasks;
 
 namespace Inventario.TIC.Class
 {
-    public class NotaFiscalRepository
+    public class SoftwareRepository
     {
-        public string Add(NotaFiscal notaFiscal)
+        public string Add(Software software)
         {
             try
             {
-                if (notaFiscal.EhValido())
+                if (software.EhValido())
                 {
                     SqlCommand command = new SqlCommand()
                     {
                         Connection = new SqlConnection(Properties.Settings.Default.conSQL),
                         CommandType = CommandType.StoredProcedure,
-                        CommandText = "POSTNOTAFISCAL",
+                        CommandText = "POSTSOFTWARE",
                     };
 
-                    command.Parameters.AddWithValue("@NumNF", notaFiscal.NumNF);
-                    command.Parameters.AddWithValue("@Fornecedor", notaFiscal.Fornecedor);
-                    command.Parameters.AddWithValue("@Data", notaFiscal.Data);
-                    command.Parameters.AddWithValue("@Empresa", notaFiscal.Empresa);
-                    command.Parameters.AddWithValue("@Link", notaFiscal.Link);
+                    command.Parameters.AddWithValue("@Nome", software.Nome);
 
                     command.Connection.Open();
                     string retorno = command.ExecuteScalar().ToString();
@@ -37,7 +33,7 @@ namespace Inventario.TIC.Class
                 }
                 else
                 {
-                    throw new Exception(notaFiscal.GetErros());
+                    throw new Exception(software.GetErros());
                 }
             }
             catch (Exception ex)
@@ -46,32 +42,28 @@ namespace Inventario.TIC.Class
             }
         }
 
-        public void Update(NotaFiscal notaFiscal)
+        public void Update(Software software)
         {
             try
             {
-                if (notaFiscal.EhValido())
+                if (software.EhValido())
                 {
                     SqlCommand command = new SqlCommand()
                     {
                         Connection = new SqlConnection(Properties.Settings.Default.conSQL),
                         CommandType = CommandType.StoredProcedure,
-                        CommandText = "PUTNOTAFISCAL",
+                        CommandText = "PUTSOFTWARE",
                     };
 
-                    command.Parameters.AddWithValue("@NumNF", notaFiscal.NumNF);
-                    command.Parameters.AddWithValue("@Fornecedor", notaFiscal.Fornecedor);
-                    command.Parameters.AddWithValue("@Data", notaFiscal.Data);
-                    command.Parameters.AddWithValue("@Empresa", notaFiscal.Empresa);
-                    command.Parameters.AddWithValue("@Link", notaFiscal.Link);
-                    command.Parameters.AddWithValue("@Id", notaFiscal.Id);
+                    command.Parameters.AddWithValue("@Nome", software.Nome);
+                    command.Parameters.AddWithValue("@Id", software.Id);
 
                     command.Connection.Open();
                     command.ExecuteScalar();
                 }
                 else
                 {
-                    throw new Exception(notaFiscal.GetErros());
+                    throw new Exception(software.GetErros());
                 }
             }
             catch (Exception ex)
@@ -90,7 +82,7 @@ namespace Inventario.TIC.Class
                     {
                         Connection = new SqlConnection(Properties.Settings.Default.conSQL),
                         CommandType = CommandType.StoredProcedure,
-                        CommandText = "DELETENOTAFISCAL",
+                        CommandText = "DELETESOFTWARE",
                     };
 
                     command.Parameters.AddWithValue("@ID", id);
@@ -109,18 +101,18 @@ namespace Inventario.TIC.Class
             }
         }
 
-        public List<NotaFiscal> Get()
+        public List<Software> Get()
         {
             try
             {
                 using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.conSQL))
                 {
-                    var notasFiscais = connection.Query<NotaFiscal>("GETNOTASFISCAIS", null, commandType: CommandType.StoredProcedure).ToList();
-                    return notasFiscais;
+                    var softwares = connection.Query<Software>("GETSOFTWARES", null, commandType: CommandType.StoredProcedure).ToList();
+                    return softwares;
                 }
             }
             catch (Exception ex)
-            { 
+            {
                 throw new Exception(ex.Message);
             }
         }

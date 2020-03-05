@@ -16,6 +16,7 @@ namespace Inventario.TIC.Forms
     {
         private List<Computadores> _computadores;
         private List<Computadores> _computadoresOriginal;
+        private string _colunaSelecionada;
 
         public FrmComputadores()
         {
@@ -71,7 +72,11 @@ namespace Inventario.TIC.Forms
                
         private void btnLimpar_Click(object sender, EventArgs e)
         {
+            this.limparCampos();
+        }
 
+        private void limparCampos()
+        {
             // Limpando os dados do computador
             this.txtId.Text = "";
             this.txtAtivoAntigo.Text = "";
@@ -160,6 +165,8 @@ namespace Inventario.TIC.Forms
 
                     _computadores.Remove(_computadores.Find(c => c.Id == id));
                     this.AtualizaDataGridView();
+
+                    this.limparCampos();
 
                     MessageBox.Show("Registro excluído com sucesso", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -257,30 +264,92 @@ namespace Inventario.TIC.Forms
             switch (colunaSelecionada)
             {
                 case "Id":
-                    _computadores = _computadores.OrderBy(x => x.Id).ToList();
+                    if (colunaSelecionada != _colunaSelecionada)
+                    {
+                        this._colunaSelecionada = colunaSelecionada;
+                        _computadores = _computadores.OrderBy(x => x.Id).ToList();
+                    }
+                    else
+                    {
+                        _computadores = _computadores.OrderByDescending(x => x.Id).ToList();
+                        this._colunaSelecionada = "";
+                    }
                     break;
                 case "AtivoAntigo":
-                    _computadores = _computadores.OrderBy(x => x.AtivoAntigo).ToList();
+                    if (colunaSelecionada != _colunaSelecionada)
+                    {
+                        this._colunaSelecionada = colunaSelecionada;
+                        _computadores = _computadores.OrderBy(x => x.AtivoAntigo).ToList();
+                    }
+                    else
+                    {
+                        _computadores = _computadores.OrderByDescending(x => x.AtivoAntigo).ToList();
+                        this._colunaSelecionada = "";
+                    }
                     break;
                 case "AtivoNovo":
-                    _computadores = _computadores.OrderBy(x => x.AtivoNovo).ToList();
+                    if (colunaSelecionada != _colunaSelecionada)
+                    {
+                        this._colunaSelecionada = colunaSelecionada;
+                        _computadores = _computadores.OrderBy(x => x.AtivoNovo).ToList();
+                    }
+                    else
+                    {
+                        _computadores = _computadores.OrderByDescending(x => x.AtivoNovo).ToList();
+                        this._colunaSelecionada = "";
+                    }
                     break;
                 case "Usuario":
-                    _computadores = _computadores.OrderBy(x => x.Usuario).ToList();
+                    if (colunaSelecionada != _colunaSelecionada)
+                    {
+                        this._colunaSelecionada = colunaSelecionada;
+                        _computadores = _computadores.OrderBy(x => x.Usuario).ToList();
+                    }
+                    else
+                    {
+                        _computadores = _computadores.OrderByDescending(x => x.Usuario).ToList();
+                        this._colunaSelecionada = "";
+                    }
                     break;
                 case "Departamento":
-                    _computadores = _computadores.OrderBy(x => x.Departamento).ToList();
+                    if (colunaSelecionada != _colunaSelecionada)
+                    {
+                        this._colunaSelecionada = colunaSelecionada;
+                        _computadores = _computadores.OrderBy(x => x.Departamento).ToList();
+                    }
+                    else
+                    {
+                        _computadores = _computadores.OrderByDescending(x => x.Departamento).ToList();
+                        this._colunaSelecionada = "";
+                    }
                     break;
                 case "Status":
-                    _computadores = _computadores.OrderBy(x => x.Status).ToList();
+                    if (colunaSelecionada != _colunaSelecionada)
+                    {
+                        this._colunaSelecionada = colunaSelecionada;
+                        _computadores = _computadores.OrderBy(x => x.Status).ToList();
+                    }
+                    else
+                    {
+                        _computadores = _computadores.OrderByDescending(x => x.Status).ToList();
+                        this._colunaSelecionada = "";
+                    }
                     break;
                 case "TemLigacaoComOCS":
-                    _computadores = _computadores.OrderBy(x => x.TemLigacaoComOCS).ToList();
+                    if (colunaSelecionada != _colunaSelecionada)
+                    {
+                        this._colunaSelecionada = colunaSelecionada;
+                        _computadores = _computadores.OrderBy(x => x.TemLigacaoComOCS).ToList();
+                    }
+                    else
+                    {
+                        _computadores = _computadores.OrderByDescending(x => x.TemLigacaoComOCS).ToList();
+                        this._colunaSelecionada = "";
+                    }
                     break;
                 default:
                     break;
             }
-
             this.AtualizaDataGridView();
         }
 

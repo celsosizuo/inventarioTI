@@ -33,6 +33,7 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.computadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.computadoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.notaFiscalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.newWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cascadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +50,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.notaFiscalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.softwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +71,7 @@
             // computadoresToolStripMenuItem
             // 
             this.computadoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.softwareToolStripMenuItem,
             this.computadoresToolStripMenuItem1,
             this.notaFiscalToolStripMenuItem});
             this.computadoresToolStripMenuItem.Name = "computadoresToolStripMenuItem";
@@ -83,6 +85,13 @@
             this.computadoresToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.computadoresToolStripMenuItem1.Text = "Computadores";
             this.computadoresToolStripMenuItem1.Click += new System.EventHandler(this.computadoresToolStripMenuItem1_Click);
+            // 
+            // notaFiscalToolStripMenuItem
+            // 
+            this.notaFiscalToolStripMenuItem.Name = "notaFiscalToolStripMenuItem";
+            this.notaFiscalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.notaFiscalToolStripMenuItem.Text = "Nota Fiscal";
+            this.notaFiscalToolStripMenuItem.Click += new System.EventHandler(this.notaFiscalToolStripMenuItem_Click);
             // 
             // windowsMenu
             // 
@@ -201,12 +210,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // notaFiscalToolStripMenuItem
+            // softwareToolStripMenuItem
             // 
-            this.notaFiscalToolStripMenuItem.Name = "notaFiscalToolStripMenuItem";
-            this.notaFiscalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.notaFiscalToolStripMenuItem.Text = "Nota Fiscal";
-            this.notaFiscalToolStripMenuItem.Click += new System.EventHandler(this.notaFiscalToolStripMenuItem_Click);
+            this.softwareToolStripMenuItem.Name = "softwareToolStripMenuItem";
+            this.softwareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.softwareToolStripMenuItem.Text = "Software";
+            this.softwareToolStripMenuItem.Click += new System.EventHandler(this.softwareToolStripMenuItem_Click);
             // 
             // MDIParent1
             // 
@@ -252,6 +261,7 @@
         private System.Windows.Forms.ToolStripMenuItem computadoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem computadoresToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem notaFiscalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem softwareToolStripMenuItem;
     }
 }
 

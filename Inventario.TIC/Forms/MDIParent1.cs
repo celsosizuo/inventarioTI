@@ -130,5 +130,12 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void softwareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmSoftware newMDIChild = new FrmSoftware();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }

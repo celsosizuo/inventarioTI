@@ -56,7 +56,7 @@ namespace Inventario.TIC.Class
         {
             RuleFor(a => a.Data)
                 .NotEmpty().WithMessage("- Campo Data é obrigatório")
-                .GreaterThan(DateTime.Now).WithMessage("- A data não pode ser maior que a data atual");
+                .LessThan(DateTime.Now).WithMessage("- A data não pode ser maior que a data atual");
         }
 
         private void ValidarEmpresa()

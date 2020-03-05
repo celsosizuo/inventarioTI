@@ -92,7 +92,7 @@
             this.dgvComputadores.MultiSelect = false;
             this.dgvComputadores.Name = "dgvComputadores";
             this.dgvComputadores.ReadOnly = true;
-            this.dgvComputadores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvComputadores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvComputadores.Size = new System.Drawing.Size(1266, 216);
             this.dgvComputadores.TabIndex = 0;
             this.dgvComputadores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvComputadores_CellDoubleClick_1);
