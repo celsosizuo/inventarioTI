@@ -81,6 +81,8 @@
     <Compile Include="Class\ComputadorStatus.cs" />
     <Compile Include="Class\ComputadorStatusRepository.cs" />
     <Compile Include="Class\Disco.cs" />
+    <Compile Include="Class\NotaFiscal.cs" />
+    <Compile Include="Class\NotaFiscalRepository.cs" />
     <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +101,12 @@
     <Compile Include="Forms\FrmComputadores.Designer.cs">
       <DependentUpon>FrmComputadores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmNotaFiscal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmNotaFiscal.Designer.cs">
+      <DependentUpon>FrmNotaFiscal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MDIParent1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmComputadores.resx">
       <DependentUpon>FrmComputadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmNotaFiscal.resx">
+      <DependentUpon>FrmNotaFiscal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MDIParent1.resx">
       <DependentUpon>MDIParent1.cs</DependentUpon>

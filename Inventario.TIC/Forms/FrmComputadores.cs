@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+// using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace Inventario.TIC.Forms
     public partial class FrmComputadores : Form
     {
         private List<Computadores> _computadores;
+        private List<Computadores> _computadoresOriginal;
 
         public FrmComputadores()
         {
@@ -37,11 +39,11 @@ namespace Inventario.TIC.Forms
         {
             try
             {
-                // Carregando a lista de computadores
+                this.CarregarDataGridView();
+
                 ComputadoresRepository c = new ComputadoresRepository();
                 _computadores = c.Get();
-                this.dgvComputadores.DataSource = _computadores;
-                this.AtualizaDataGridView();
+                _computadoresOriginal = _computadores;
 
                 // Carregando lista dos status do computador
                 ComputadorStatusRepository csr = new ComputadorStatusRepository();
@@ -55,61 +57,18 @@ namespace Inventario.TIC.Forms
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-                
-        private void dgvComputadores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+
+        private void CarregarDataGridView()
         {
-            // MessageBox.Show(_computadores[e.RowIndex].Discos[0].Letter);
+            // _computadores = _computadoresOriginal.Where(c => c.AtivoNovo == "ARTFIX-SRV01").ToList();
 
-            // carregando os controles do computador
-            this.txtId.Text = _computadores[e.RowIndex].Id.ToString();
-            this.txtAtivoAntigo.Text = _computadores[e.RowIndex].AtivoAntigo.ToString();
-            this.txtAtivoNovo.Text = _computadores[e.RowIndex].AtivoNovo.ToString();
-            this.txtUsuario.Text = _computadores[e.RowIndex].Usuario.ToString();
-            this.txtDepartamento.Text = _computadores[e.RowIndex].Departamento.ToString();
-            this.cboStatus.SelectedValue = _computadores[e.RowIndex].Status1.ToString();
-
-            //carregando os controles do OCS
-            if(_computadores[e.RowIndex].ComputadoresOCS == null)
-            {
-                this.txtOCSId.Text = "";
-                this.txtOCSName.Text = "";
-                this.txtOCSIpAddr.Text = "";
-                this.txtOCSUserId.Text = "";
-                this.txtOCSWorkGroup.Text = "";
-                this.txtOCSOsName.Text = "";
-                this.txtOCSWinProdId.Text = "";
-                this.txtOCSWinProdKey.Text = "";
-                this.txtOCSProcessorT.Text = "";
-                this.txtOCSMemory.Text = "";
-            }
-            else
-            {
-                this.txtOCSId.Text = _computadores[e.RowIndex].ComputadoresOCS.Id == null ? "" : _computadores[e.RowIndex].ComputadoresOCS.Id.ToString();
-                this.txtOCSName.Text = _computadores[e.RowIndex].ComputadoresOCS.Name.ToString();
-                this.txtOCSIpAddr.Text = _computadores[e.RowIndex].ComputadoresOCS.IpAddr.ToString();
-                this.txtOCSUserId.Text = _computadores[e.RowIndex].ComputadoresOCS.UserId == null ? "" : _computadores[e.RowIndex].ComputadoresOCS.UserId.ToString();
-                this.txtOCSWorkGroup.Text = _computadores[e.RowIndex].ComputadoresOCS.WorkGroup.ToString();
-                this.txtOCSOsName.Text = _computadores[e.RowIndex].ComputadoresOCS.OsName.ToString();
-                this.txtOCSWinProdId.Text = _computadores[e.RowIndex].ComputadoresOCS.WinProdId.ToString();
-                this.txtOCSWinProdKey.Text = _computadores[e.RowIndex].ComputadoresOCS.WinProdKey.ToString();
-                this.txtOCSProcessorT.Text = _computadores[e.RowIndex].ComputadoresOCS.ProcessorT.ToString();
-                this.txtOCSMemory.Text = _computadores[e.RowIndex].ComputadoresOCS.Memory.ToString();
-
-            }
-
-            // carregando os dicos
-            this.dgvDiscos.DataSource = _computadores[e.RowIndex].Discos;
-            this.dgvDiscos.Columns["Id"].Visible = false;
-            this.dgvDiscos.Columns["HardwareId"].Visible = false;
-            this.dgvDiscos.Columns["Letter"].HeaderText = "Letra da Unidade";
-            this.dgvDiscos.Columns["Type"].HeaderText = "Tipo";
-            this.dgvDiscos.Columns["FileSystem"].HeaderText = "Sistema de Arquivos";
-            this.dgvDiscos.Columns["Volumn"].HeaderText = "Volume";
-            this.dgvDiscos.Columns["Total"].HeaderText = "Espaço Total (MB)";
-            this.dgvDiscos.Columns["Free"].HeaderText = "Espaço Livre (MB)";
-
+            // Carregando a lista de computadores
+            ComputadoresRepository c = new ComputadoresRepository();
+            _computadores = c.Get();
+            this.dgvComputadores.DataSource = _computadores;
+            this.AtualizaDataGridView();
         }
-
+               
         private void btnLimpar_Click(object sender, EventArgs e)
         {
 
@@ -135,8 +94,6 @@ namespace Inventario.TIC.Forms
 
             // Limpando grid dos discos
             this.dgvDiscos.DataSource = null;
-
-            
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -215,11 +172,44 @@ namespace Inventario.TIC.Forms
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            var computadoresOriginal = _computadores;
-            var c = _computadores.Find(co => co.AtivoNovo == this.txtAtivoNovo.Text);
+            if (this.txtAtivoAntigo.Text != "")
+                this.Pesquisar("AtivoAntigo", this.txtAtivoAntigo.Text);
+            else if (this.txtAtivoNovo.Text != "")
+                this.Pesquisar("AtivoNovo", this.txtAtivoNovo.Text);
+            else if (this.txtUsuario.Text != "")
+                this.Pesquisar("Usuario", this.txtUsuario.Text);
+            else if (this.txtDepartamento.Text != "")
+                this.Pesquisar("Departamento", this.txtDepartamento.Text);
+            else if (this.cboStatus.SelectedIndex > 0)
+                this.Pesquisar("Status", this.cboStatus.SelectedValue.ToString());
+            else
+                this.Pesquisar("", "");
+        }   
 
-            // computadores = c;
-
+        private void Pesquisar(string coluna, string texto)
+        {
+            switch (coluna)
+            {
+                case "AtivoAntigo":
+                    _computadores = _computadoresOriginal.Where(c => c.AtivoAntigo.ToUpper().Contains(texto.ToUpper())).ToList();
+                    break;
+                case "AtivoNovo":
+                    _computadores = _computadoresOriginal.Where(c => c.AtivoNovo.ToUpper().Contains(texto.ToUpper())).ToList();
+                    break;
+                case "Usuario":
+                    _computadores = _computadoresOriginal.Where(c => c.Usuario.ToUpper().Contains(texto.ToUpper())).ToList();
+                    break;
+                case "Departamento":
+                    _computadores = _computadoresOriginal.Where(c => c.Departamento.ToUpper().Contains(texto.ToUpper())).ToList();
+                    break;
+                case "Status":
+                    _computadores = _computadoresOriginal.Where(c => c.Status1.ToUpper() == texto.ToUpper()).ToList();
+                    break;
+                default:
+                    _computadores = _computadoresOriginal;
+                    break;              
+                    // this.dgvComputadores.DataSource = _computadores;
+            }
             this.AtualizaDataGridView();
         }
 
@@ -231,31 +221,132 @@ namespace Inventario.TIC.Forms
             if (this.txtId.Text != "")
             {
                 computador = _computadores.Find(co => co.Id == int.Parse(this.txtId.Text));
-                var computadoresOCS = c.FindComputadoresOCS(this.txtAtivoNovo.Text);
 
-                if (computadoresOCS.Count > 1)
+                if (computador.TemLigacaoComOCS == "Não")
                 {
+                    var computadoresOCS = c.FindComputadoresOCS(this.txtAtivoNovo.Text);
 
+                    if (computadoresOCS.Count == 0)
+                    {
+                        MessageBox.Show("Não foi encontrato computador no OCS com o código de ativo " + computador.AtivoNovo + ". Favor escanear o OCS e tentar fazer a associação novamente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (computadoresOCS.Count == 1)
+                    {
+                        if (MessageBox.Show("Este procedimento irá varrer a lista de computadores do OCS e verificar se o número do ativo novo existe no OCS. Se encontrar irá fazer a associação automaticamente. \n Você tem certeza que deseja efetuar a associação?", "Confirmação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            computador.OCSId = (int)computadoresOCS.FirstOrDefault().Id;
+                            c.AssociarOCS(computador.Id, computador.OCSId);
+                            this.CarregarDataGridView();
+                            MessageBox.Show("Associação efetuada com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        }
+                    }
+                    else
+                        MessageBox.Show("Existem dois ou mais computadores no OCS com o ativo " + computadoresOCS.FirstOrDefault().Name + ". Favor verificar", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
-                {
-                    if (MessageBox.Show("Você tem certeza que deseja efetuar a associação?", "Confirmação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        computador.OCSId = (int)computadoresOCS.FirstOrDefault().Id;
-                        c.AssociarOCS(computador.Id, computador.OCSId);
-
-                        computador.TemLigacaoComOCS = "Sim";
-                        computador.ComputadoresOCS = computadoresOCS.FirstOrDefault();
-
-
-                        this.AtualizaDataGridView();
-
-
-                    }
-                }
+                    MessageBox.Show("Este computador já está associado. Não é possível fazer a associação novamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
                 MessageBox.Show("Favor selecionar um registro", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void dgvComputadores_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var colunaSelecionada = this.dgvComputadores.Columns[e.ColumnIndex].Name;
+
+            switch (colunaSelecionada)
+            {
+                case "Id":
+                    _computadores = _computadores.OrderBy(x => x.Id).ToList();
+                    break;
+                case "AtivoAntigo":
+                    _computadores = _computadores.OrderBy(x => x.AtivoAntigo).ToList();
+                    break;
+                case "AtivoNovo":
+                    _computadores = _computadores.OrderBy(x => x.AtivoNovo).ToList();
+                    break;
+                case "Usuario":
+                    _computadores = _computadores.OrderBy(x => x.Usuario).ToList();
+                    break;
+                case "Departamento":
+                    _computadores = _computadores.OrderBy(x => x.Departamento).ToList();
+                    break;
+                case "Status":
+                    _computadores = _computadores.OrderBy(x => x.Status).ToList();
+                    break;
+                case "TemLigacaoComOCS":
+                    _computadores = _computadores.OrderBy(x => x.TemLigacaoComOCS).ToList();
+                    break;
+                default:
+                    break;
+            }
+
+            this.AtualizaDataGridView();
+        }
+
+        private void dgvComputadores_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            // MessageBox.Show(_computadores[e.RowIndex].Discos[0].Letter); 
+
+            try
+            {
+                // carregando os controles do computador
+                this.txtId.Text = _computadores[e.RowIndex].Id.ToString();
+                this.txtAtivoAntigo.Text = _computadores[e.RowIndex].AtivoAntigo.ToString();
+                this.txtAtivoNovo.Text = _computadores[e.RowIndex].AtivoNovo.ToString();
+                this.txtUsuario.Text = _computadores[e.RowIndex].Usuario.ToString();
+                this.txtDepartamento.Text = _computadores[e.RowIndex].Departamento.ToString();
+                this.cboStatus.SelectedValue = _computadores[e.RowIndex].Status1.ToString();
+
+                //carregando os controles do OCS
+                if (_computadores[e.RowIndex].ComputadoresOCS == null)
+                {
+                    this.txtOCSId.Text = "";
+                    this.txtOCSName.Text = "";
+                    this.txtOCSIpAddr.Text = "";
+                    this.txtOCSUserId.Text = "";
+                    this.txtOCSWorkGroup.Text = "";
+                    this.txtOCSOsName.Text = "";
+                    this.txtOCSWinProdId.Text = "";
+                    this.txtOCSWinProdKey.Text = "";
+                    this.txtOCSProcessorT.Text = "";
+                    this.txtOCSMemory.Text = "";
+                }
+                else
+                {
+                    this.txtOCSId.Text = _computadores[e.RowIndex].ComputadoresOCS.Id == null ? "" : _computadores[e.RowIndex].ComputadoresOCS.Id.ToString();
+                    this.txtOCSName.Text = _computadores[e.RowIndex].ComputadoresOCS.Name.ToString();
+                    this.txtOCSIpAddr.Text = _computadores[e.RowIndex].ComputadoresOCS.IpAddr.ToString();
+                    this.txtOCSUserId.Text = _computadores[e.RowIndex].ComputadoresOCS.UserId == null ? "" : _computadores[e.RowIndex].ComputadoresOCS.UserId.ToString();
+                    this.txtOCSWorkGroup.Text = _computadores[e.RowIndex].ComputadoresOCS.WorkGroup.ToString();
+                    this.txtOCSOsName.Text = _computadores[e.RowIndex].ComputadoresOCS.OsName.ToString();
+                    this.txtOCSWinProdId.Text = _computadores[e.RowIndex].ComputadoresOCS.WinProdId.ToString();
+                    this.txtOCSWinProdKey.Text = _computadores[e.RowIndex].ComputadoresOCS.WinProdKey.ToString();
+                    this.txtOCSProcessorT.Text = _computadores[e.RowIndex].ComputadoresOCS.ProcessorT.ToString();
+                    this.txtOCSMemory.Text = _computadores[e.RowIndex].ComputadoresOCS.Memory.ToString();
+
+                }
+
+                // carregando os dicos
+                this.dgvDiscos.DataSource = _computadores[e.RowIndex].Discos;
+                this.dgvDiscos.Columns["Id"].Visible = false;
+                this.dgvDiscos.Columns["HardwareId"].Visible = false;
+                this.dgvDiscos.Columns["Letter"].HeaderText = "Letra da Unidade";
+                this.dgvDiscos.Columns["Type"].HeaderText = "Tipo";
+                this.dgvDiscos.Columns["FileSystem"].HeaderText = "Sistema de Arquivos";
+                this.dgvDiscos.Columns["Volumn"].HeaderText = "Volume";
+                this.dgvDiscos.Columns["Total"].HeaderText = "Espaço Total (MB)";
+                this.dgvDiscos.Columns["Free"].HeaderText = "Espaço Livre (MB)";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnAtualizarDados_Click(object sender, EventArgs e)
+        {
+            this.CarregarDataGridView();
         }
     }
 }

@@ -110,7 +110,23 @@ namespace Inventario.TIC
 
         private void computadoresToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+
+            int w = Screen.PrimaryScreen.Bounds.Width;
+            // int h = Screen.PrimaryScreen.Bounds.Height;
             FrmComputadores newMDIChild = new FrmComputadores();
+            newMDIChild.MdiParent = this;
+
+            if(w == 1366)
+                newMDIChild.WindowState = FormWindowState.Maximized;
+            else
+                newMDIChild.WindowState = FormWindowState.Normal;
+
+            newMDIChild.Show();
+        }
+
+        private void notaFiscalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmNotaFiscal newMDIChild = new FrmNotaFiscal();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }

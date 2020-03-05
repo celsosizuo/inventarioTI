@@ -81,19 +81,22 @@
             // 
             // dgvComputadores
             // 
-            this.dgvComputadores.AllowUserToDeleteRows = false;
+            this.dgvComputadores.AllowDrop = true;
             this.dgvComputadores.AllowUserToOrderColumns = true;
-            this.dgvComputadores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvComputadores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvComputadores.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvComputadores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvComputadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvComputadores.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvComputadores.Location = new System.Drawing.Point(0, 414);
             this.dgvComputadores.MultiSelect = false;
             this.dgvComputadores.Name = "dgvComputadores";
             this.dgvComputadores.ReadOnly = true;
-            this.dgvComputadores.Size = new System.Drawing.Size(1266, 394);
+            this.dgvComputadores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvComputadores.Size = new System.Drawing.Size(1266, 216);
             this.dgvComputadores.TabIndex = 0;
-            this.dgvComputadores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvComputadores_CellDoubleClick);
+            this.dgvComputadores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvComputadores_CellDoubleClick_1);
+            this.dgvComputadores.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvComputadores_ColumnHeaderMouseClick);
             // 
             // lblId
             // 
@@ -140,7 +143,7 @@
             this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboStatus.Items.AddRange(new object[] {
             ""});
-            this.cboStatus.Location = new System.Drawing.Point(736, 37);
+            this.cboStatus.Location = new System.Drawing.Point(882, 37);
             this.cboStatus.Name = "cboStatus";
             this.cboStatus.Size = new System.Drawing.Size(121, 21);
             this.cboStatus.TabIndex = 12;
@@ -149,7 +152,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(732, 21);
+            this.label5.Location = new System.Drawing.Point(878, 21);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 13);
             this.label5.TabIndex = 11;
@@ -157,7 +160,7 @@
             // 
             // txtDepartamento
             // 
-            this.txtDepartamento.Location = new System.Drawing.Point(488, 37);
+            this.txtDepartamento.Location = new System.Drawing.Point(634, 37);
             this.txtDepartamento.Name = "txtDepartamento";
             this.txtDepartamento.Size = new System.Drawing.Size(241, 20);
             this.txtDepartamento.TabIndex = 10;
@@ -166,7 +169,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(485, 21);
+            this.label4.Location = new System.Drawing.Point(631, 21);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 13);
             this.label4.TabIndex = 9;
@@ -174,7 +177,7 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(241, 37);
+            this.txtUsuario.Location = new System.Drawing.Point(387, 37);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(241, 20);
             this.txtUsuario.TabIndex = 8;
@@ -183,7 +186,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(238, 21);
+            this.label3.Location = new System.Drawing.Point(384, 21);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 7;
@@ -191,16 +194,16 @@
             // 
             // txtAtivoNovo
             // 
-            this.txtAtivoNovo.Location = new System.Drawing.Point(153, 37);
+            this.txtAtivoNovo.Location = new System.Drawing.Point(216, 37);
             this.txtAtivoNovo.Name = "txtAtivoNovo";
-            this.txtAtivoNovo.Size = new System.Drawing.Size(82, 20);
+            this.txtAtivoNovo.Size = new System.Drawing.Size(165, 20);
             this.txtAtivoNovo.TabIndex = 6;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(150, 21);
+            this.label2.Location = new System.Drawing.Point(213, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 13);
             this.label2.TabIndex = 5;
@@ -210,7 +213,7 @@
             // 
             this.txtAtivoAntigo.Location = new System.Drawing.Point(65, 37);
             this.txtAtivoAntigo.Name = "txtAtivoAntigo";
-            this.txtAtivoAntigo.Size = new System.Drawing.Size(82, 20);
+            this.txtAtivoAntigo.Size = new System.Drawing.Size(145, 20);
             this.txtAtivoAntigo.TabIndex = 4;
             // 
             // label1
@@ -276,7 +279,6 @@
             this.dgvDiscos.Location = new System.Drawing.Point(3, 75);
             this.dgvDiscos.MultiSelect = false;
             this.dgvDiscos.Name = "dgvDiscos";
-            this.dgvDiscos.ReadOnly = true;
             this.dgvDiscos.Size = new System.Drawing.Size(835, 134);
             this.dgvDiscos.TabIndex = 14;
             // 
@@ -528,12 +530,13 @@
             this.btnAtualizarDados.TabIndex = 28;
             this.btnAtualizarDados.Text = "Atualizar Tabela";
             this.btnAtualizarDados.UseVisualStyleBackColor = true;
+            this.btnAtualizarDados.Click += new System.EventHandler(this.btnAtualizarDados_Click);
             // 
             // FrmComputadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1266, 808);
+            this.ClientSize = new System.Drawing.Size(1266, 630);
             this.Controls.Add(this.btnAtualizarDados);
             this.Controls.Add(this.btnAssociar);
             this.Controls.Add(this.btnPesquisar);
@@ -543,7 +546,6 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpDadosComputadores);
             this.Controls.Add(this.dgvComputadores);
-            this.MaximizeBox = false;
             this.Name = "FrmComputadores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Computadores";
@@ -561,8 +563,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvComputadores;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.GroupBox grpDadosComputadores;
@@ -606,5 +606,6 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnAssociar;
         private System.Windows.Forms.Button btnAtualizarDados;
+        private System.Windows.Forms.DataGridView dgvComputadores;
     }
 }
