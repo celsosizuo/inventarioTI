@@ -13,6 +13,8 @@ namespace Inventario.TIC.Class
         protected ValidationResult ValidationResult { get; set; }
         public int Id { get; set; }
         public string Nome { get; set; }
+        public string Fabricante { get; set; }
+        public string Versao { get; set; }
 
         public Software()
         {
@@ -30,11 +32,23 @@ namespace Inventario.TIC.Class
         private void Validar()
         {
             ValidarNome();
+            ValidarFabricante();
+            ValidarVersao();
         }
 
         private void ValidarNome()
         {
             RuleFor(a => a.Nome).NotEmpty().WithMessage("- Campo Nome é obrigatório");
+        }
+
+        private void ValidarFabricante()
+        {
+            RuleFor(a => a.Fabricante).NotEmpty().WithMessage("- Campo Fabricante é obrigatório");
+        }
+
+        private void ValidarVersao()
+        {
+            RuleFor(a => a.Versao).NotEmpty().WithMessage("- Campo Versão é obrigatório");
         }
 
         public string GetErros()

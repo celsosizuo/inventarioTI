@@ -37,6 +37,10 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.txtFabricante = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtVersao = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSoftwares)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +68,7 @@
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(232, 83);
+            this.txtNome.Location = new System.Drawing.Point(235, 38);
             this.txtNome.MaxLength = 9;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(304, 20);
@@ -74,7 +78,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(229, 66);
+            this.label1.Location = new System.Drawing.Point(232, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 36;
@@ -82,7 +86,7 @@
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(183, 83);
+            this.txtId.Location = new System.Drawing.Point(186, 38);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(43, 20);
@@ -92,7 +96,7 @@
             // 
             this.lblId.AutoSize = true;
             this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblId.Location = new System.Drawing.Point(180, 67);
+            this.lblId.Location = new System.Drawing.Point(183, 22);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(18, 13);
             this.lblId.TabIndex = 34;
@@ -138,11 +142,51 @@
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
+            // txtFabricante
+            // 
+            this.txtFabricante.Location = new System.Drawing.Point(186, 82);
+            this.txtFabricante.MaxLength = 9;
+            this.txtFabricante.Name = "txtFabricante";
+            this.txtFabricante.Size = new System.Drawing.Size(164, 20);
+            this.txtFabricante.TabIndex = 43;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(183, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 13);
+            this.label2.TabIndex = 42;
+            this.label2.Text = "Fabricante (*)";
+            // 
+            // txtVersao
+            // 
+            this.txtVersao.Location = new System.Drawing.Point(356, 82);
+            this.txtVersao.MaxLength = 9;
+            this.txtVersao.Name = "txtVersao";
+            this.txtVersao.Size = new System.Drawing.Size(96, 20);
+            this.txtVersao.TabIndex = 45;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(353, 65);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 13);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "Versão (*)";
+            // 
             // FrmSoftware
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 425);
+            this.Controls.Add(this.txtVersao);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtFabricante);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnLimpar);
@@ -155,7 +199,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmSoftware";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmSoftware";
+            this.Text = "Cadastro de Softwares";
             this.Load += new System.EventHandler(this.FrmSoftware_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSoftwares)).EndInit();
             this.ResumeLayout(false);
@@ -174,5 +218,9 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.TextBox txtFabricante;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtVersao;
+        private System.Windows.Forms.Label label3;
     }
 }

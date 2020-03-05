@@ -25,6 +25,8 @@ namespace Inventario.TIC.Class
                     };
 
                     command.Parameters.AddWithValue("@Nome", software.Nome);
+                    command.Parameters.AddWithValue("@Fabricante", software.Fabricante);
+                    command.Parameters.AddWithValue("@Versao", software.Versao);
 
                     command.Connection.Open();
                     string retorno = command.ExecuteScalar().ToString();
@@ -56,6 +58,8 @@ namespace Inventario.TIC.Class
                     };
 
                     command.Parameters.AddWithValue("@Nome", software.Nome);
+                    command.Parameters.AddWithValue("@Fabricante", software.Fabricante);
+                    command.Parameters.AddWithValue("@Versao", software.Versao);
                     command.Parameters.AddWithValue("@Id", software.Id);
 
                     command.Connection.Open();
