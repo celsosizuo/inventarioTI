@@ -41,9 +41,6 @@ namespace Inventario.TIC.Forms
             try
             {
                 this.CarregarDataGridView();
-
-                ComputadoresRepository c = new ComputadoresRepository();
-                _computadores = c.Get();
                 _computadoresOriginal = _computadores;
 
                 // Carregando lista dos status do computador

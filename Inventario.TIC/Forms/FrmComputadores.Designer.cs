@@ -88,12 +88,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvComputadores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvComputadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvComputadores.Location = new System.Drawing.Point(0, 414);
+            this.dgvComputadores.Location = new System.Drawing.Point(0, 494);
             this.dgvComputadores.MultiSelect = false;
             this.dgvComputadores.Name = "dgvComputadores";
             this.dgvComputadores.ReadOnly = true;
             this.dgvComputadores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvComputadores.Size = new System.Drawing.Size(1266, 216);
+            this.dgvComputadores.Size = new System.Drawing.Size(1266, 298);
             this.dgvComputadores.TabIndex = 0;
             this.dgvComputadores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvComputadores_CellDoubleClick_1);
             this.dgvComputadores.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvComputadores_ColumnHeaderMouseClick);
@@ -133,7 +133,7 @@
             this.grpDadosComputadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpDadosComputadores.Location = new System.Drawing.Point(12, 12);
             this.grpDadosComputadores.Name = "grpDadosComputadores";
-            this.grpDadosComputadores.Size = new System.Drawing.Size(1242, 77);
+            this.grpDadosComputadores.Size = new System.Drawing.Size(624, 113);
             this.grpDadosComputadores.TabIndex = 3;
             this.grpDadosComputadores.TabStop = false;
             this.grpDadosComputadores.Text = "Dados Computadores";
@@ -143,7 +143,7 @@
             this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboStatus.Items.AddRange(new object[] {
             ""});
-            this.cboStatus.Location = new System.Drawing.Point(882, 37);
+            this.cboStatus.Location = new System.Drawing.Point(387, 36);
             this.cboStatus.Name = "cboStatus";
             this.cboStatus.Size = new System.Drawing.Size(121, 21);
             this.cboStatus.TabIndex = 12;
@@ -152,7 +152,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(878, 21);
+            this.label5.Location = new System.Drawing.Point(383, 20);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 13);
             this.label5.TabIndex = 11;
@@ -160,7 +160,7 @@
             // 
             // txtDepartamento
             // 
-            this.txtDepartamento.Location = new System.Drawing.Point(634, 37);
+            this.txtDepartamento.Location = new System.Drawing.Point(263, 82);
             this.txtDepartamento.Name = "txtDepartamento";
             this.txtDepartamento.Size = new System.Drawing.Size(241, 20);
             this.txtDepartamento.TabIndex = 10;
@@ -169,7 +169,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(631, 21);
+            this.label4.Location = new System.Drawing.Point(260, 66);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 13);
             this.label4.TabIndex = 9;
@@ -177,7 +177,7 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(387, 37);
+            this.txtUsuario.Location = new System.Drawing.Point(16, 82);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(241, 20);
             this.txtUsuario.TabIndex = 8;
@@ -186,7 +186,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(384, 21);
+            this.label3.Location = new System.Drawing.Point(13, 66);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 7;
@@ -246,9 +246,9 @@
             this.groupBox1.Controls.Add(this.txtOCSId);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 95);
+            this.groupBox1.Location = new System.Drawing.Point(12, 131);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1242, 284);
+            this.groupBox1.Size = new System.Drawing.Size(624, 328);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados Coletados do OCS";
@@ -261,9 +261,9 @@
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.txtOCSProcessorT);
             this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Location = new System.Drawing.Point(16, 66);
+            this.groupBox2.Location = new System.Drawing.Point(16, 106);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(841, 212);
+            this.groupBox2.Size = new System.Drawing.Size(599, 215);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Hardware";
@@ -276,10 +276,10 @@
             this.dgvDiscos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDiscos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDiscos.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvDiscos.Location = new System.Drawing.Point(3, 75);
+            this.dgvDiscos.Location = new System.Drawing.Point(3, 78);
             this.dgvDiscos.MultiSelect = false;
             this.dgvDiscos.Name = "dgvDiscos";
-            this.dgvDiscos.Size = new System.Drawing.Size(835, 134);
+            this.dgvDiscos.Size = new System.Drawing.Size(593, 134);
             this.dgvDiscos.TabIndex = 14;
             // 
             // label16
@@ -330,7 +330,7 @@
             // 
             // txtOCSWorkGroup
             // 
-            this.txtOCSWorkGroup.Location = new System.Drawing.Point(488, 37);
+            this.txtOCSWorkGroup.Location = new System.Drawing.Point(16, 80);
             this.txtOCSWorkGroup.Name = "txtOCSWorkGroup";
             this.txtOCSWorkGroup.ReadOnly = true;
             this.txtOCSWorkGroup.Size = new System.Drawing.Size(82, 20);
@@ -340,7 +340,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(485, 21);
+            this.label13.Location = new System.Drawing.Point(13, 64);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(62, 13);
             this.label13.TabIndex = 15;
@@ -348,7 +348,7 @@
             // 
             // txtOCSWinProdKey
             // 
-            this.txtOCSWinProdKey.Location = new System.Drawing.Point(1029, 37);
+            this.txtOCSWinProdKey.Location = new System.Drawing.Point(408, 37);
             this.txtOCSWinProdKey.Name = "txtOCSWinProdKey";
             this.txtOCSWinProdKey.ReadOnly = true;
             this.txtOCSWinProdKey.Size = new System.Drawing.Size(207, 20);
@@ -358,7 +358,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(1026, 21);
+            this.label12.Location = new System.Drawing.Point(405, 21);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(38, 13);
             this.label12.TabIndex = 13;
@@ -366,7 +366,7 @@
             // 
             // txtOCSWinProdId
             // 
-            this.txtOCSWinProdId.Location = new System.Drawing.Point(823, 37);
+            this.txtOCSWinProdId.Location = new System.Drawing.Point(351, 80);
             this.txtOCSWinProdId.Name = "txtOCSWinProdId";
             this.txtOCSWinProdId.ReadOnly = true;
             this.txtOCSWinProdId.Size = new System.Drawing.Size(200, 20);
@@ -376,7 +376,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(820, 21);
+            this.label6.Location = new System.Drawing.Point(348, 64);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 13);
             this.label6.TabIndex = 11;
@@ -387,7 +387,7 @@
             this.txtOCSUserId.Location = new System.Drawing.Point(241, 37);
             this.txtOCSUserId.Name = "txtOCSUserId";
             this.txtOCSUserId.ReadOnly = true;
-            this.txtOCSUserId.Size = new System.Drawing.Size(241, 20);
+            this.txtOCSUserId.Size = new System.Drawing.Size(161, 20);
             this.txtOCSUserId.TabIndex = 10;
             // 
             // label7
@@ -402,7 +402,7 @@
             // 
             // txtOCSOsName
             // 
-            this.txtOCSOsName.Location = new System.Drawing.Point(576, 37);
+            this.txtOCSOsName.Location = new System.Drawing.Point(104, 80);
             this.txtOCSOsName.Name = "txtOCSOsName";
             this.txtOCSOsName.ReadOnly = true;
             this.txtOCSOsName.Size = new System.Drawing.Size(241, 20);
@@ -412,7 +412,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(573, 21);
+            this.label8.Location = new System.Drawing.Point(101, 64);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(104, 13);
             this.label8.TabIndex = 7;
@@ -474,7 +474,7 @@
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(255, 385);
+            this.btnPesquisar.Location = new System.Drawing.Point(255, 465);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
             this.btnPesquisar.TabIndex = 26;
@@ -484,7 +484,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(174, 385);
+            this.btnExcluir.Location = new System.Drawing.Point(174, 465);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 25;
@@ -494,7 +494,7 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(93, 385);
+            this.btnLimpar.Location = new System.Drawing.Point(93, 465);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpar.TabIndex = 24;
@@ -504,7 +504,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(12, 385);
+            this.btnSalvar.Location = new System.Drawing.Point(12, 465);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 23;
@@ -514,7 +514,7 @@
             // 
             // btnAssociar
             // 
-            this.btnAssociar.Location = new System.Drawing.Point(336, 385);
+            this.btnAssociar.Location = new System.Drawing.Point(336, 465);
             this.btnAssociar.Name = "btnAssociar";
             this.btnAssociar.Size = new System.Drawing.Size(113, 23);
             this.btnAssociar.TabIndex = 27;
@@ -524,7 +524,7 @@
             // 
             // btnAtualizarDados
             // 
-            this.btnAtualizarDados.Location = new System.Drawing.Point(455, 385);
+            this.btnAtualizarDados.Location = new System.Drawing.Point(455, 465);
             this.btnAtualizarDados.Name = "btnAtualizarDados";
             this.btnAtualizarDados.Size = new System.Drawing.Size(104, 23);
             this.btnAtualizarDados.TabIndex = 28;
@@ -536,7 +536,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1266, 630);
+            this.ClientSize = new System.Drawing.Size(1266, 792);
             this.Controls.Add(this.btnAtualizarDados);
             this.Controls.Add(this.btnAssociar);
             this.Controls.Add(this.btnPesquisar);

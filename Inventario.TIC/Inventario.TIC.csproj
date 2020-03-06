@@ -76,15 +76,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Computadores.cs" />
+    <Compile Include="Class\ComputadoresLicencaRepository.cs" />
+    <Compile Include="Class\ComputadoresLicencas.cs" />
     <Compile Include="Class\ComputadoresOCS.cs" />
     <Compile Include="Class\ComputadoresRepository.cs" />
     <Compile Include="Class\ComputadorStatus.cs" />
     <Compile Include="Class\ComputadorStatusRepository.cs" />
     <Compile Include="Class\Disco.cs" />
+    <Compile Include="Class\Licenca.cs" />
+    <Compile Include="Class\LicencaRepository.cs" />
+    <Compile Include="Class\LicencasResponse.cs" />
     <Compile Include="Class\NotaFiscal.cs" />
     <Compile Include="Class\NotaFiscalRepository.cs" />
     <Compile Include="Class\Software.cs" />
     <Compile Include="Class\SoftwareRepository.cs" />
+    <Compile Include="Class\Status.cs" />
     <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,12 @@
     </Compile>
     <Compile Include="Forms\FrmComputadores.Designer.cs">
       <DependentUpon>FrmComputadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLicencas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLicencas.Designer.cs">
+      <DependentUpon>FrmLicencas.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmNotaFiscal.cs">
       <SubType>Form</SubType>
@@ -131,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmComputadores.resx">
       <DependentUpon>FrmComputadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLicencas.resx">
+      <DependentUpon>FrmLicencas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmNotaFiscal.resx">
       <DependentUpon>FrmNotaFiscal.cs</DependentUpon>

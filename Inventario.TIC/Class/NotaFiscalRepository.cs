@@ -124,5 +124,23 @@ namespace Inventario.TIC.Class
                 throw new Exception(ex.Message);
             }
         }
+
+        public NotaFiscal GetById(string numNF)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.conSQL))
+                {
+                    var notasFiscais = connection.Query<NotaFiscal>("GETNOTASFISCAIS", null, commandType: CommandType.StoredProcedure).ToList();
+                    NotaFiscal nf = notasFiscais.FirstOrDefault(n => n.NumNF == numNF);
+
+                    return nf;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

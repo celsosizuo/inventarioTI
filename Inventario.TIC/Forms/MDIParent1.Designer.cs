@@ -32,8 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIParent1));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.computadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.softwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.computadoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.notaFiscalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gerenciamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.licençasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.newWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cascadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +53,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.softwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.licençasAplicadasLicençasXComputadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +62,7 @@
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.computadoresToolStripMenuItem,
+            this.gerenciamentoToolStripMenuItem,
             this.windowsMenu,
             this.helpMenu});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
@@ -71,13 +75,20 @@
             // computadoresToolStripMenuItem
             // 
             this.computadoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.softwareToolStripMenuItem,
             this.computadoresToolStripMenuItem1,
-            this.notaFiscalToolStripMenuItem});
+            this.notaFiscalToolStripMenuItem,
+            this.softwareToolStripMenuItem});
             this.computadoresToolStripMenuItem.Name = "computadoresToolStripMenuItem";
             this.computadoresToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.computadoresToolStripMenuItem.Text = "Cadastros";
             this.computadoresToolStripMenuItem.Click += new System.EventHandler(this.computadoresToolStripMenuItem_Click);
+            // 
+            // softwareToolStripMenuItem
+            // 
+            this.softwareToolStripMenuItem.Name = "softwareToolStripMenuItem";
+            this.softwareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.softwareToolStripMenuItem.Text = "Software";
+            this.softwareToolStripMenuItem.Click += new System.EventHandler(this.softwareToolStripMenuItem_Click);
             // 
             // computadoresToolStripMenuItem1
             // 
@@ -92,6 +103,22 @@
             this.notaFiscalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.notaFiscalToolStripMenuItem.Text = "Nota Fiscal";
             this.notaFiscalToolStripMenuItem.Click += new System.EventHandler(this.notaFiscalToolStripMenuItem_Click);
+            // 
+            // gerenciamentoToolStripMenuItem
+            // 
+            this.gerenciamentoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.licençasToolStripMenuItem,
+            this.licençasAplicadasLicençasXComputadoresToolStripMenuItem});
+            this.gerenciamentoToolStripMenuItem.Name = "gerenciamentoToolStripMenuItem";
+            this.gerenciamentoToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.gerenciamentoToolStripMenuItem.Text = "Gerenciar";
+            // 
+            // licençasToolStripMenuItem
+            // 
+            this.licençasToolStripMenuItem.Name = "licençasToolStripMenuItem";
+            this.licençasToolStripMenuItem.Size = new System.Drawing.Size(320, 22);
+            this.licençasToolStripMenuItem.Text = "Licenças (NF x Software)";
+            this.licençasToolStripMenuItem.Click += new System.EventHandler(this.licençasToolStripMenuItem_Click);
             // 
             // windowsMenu
             // 
@@ -210,12 +237,11 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // softwareToolStripMenuItem
+            // licençasAplicadasLicençasXComputadoresToolStripMenuItem
             // 
-            this.softwareToolStripMenuItem.Name = "softwareToolStripMenuItem";
-            this.softwareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.softwareToolStripMenuItem.Text = "Software";
-            this.softwareToolStripMenuItem.Click += new System.EventHandler(this.softwareToolStripMenuItem_Click);
+            this.licençasAplicadasLicençasXComputadoresToolStripMenuItem.Name = "licençasAplicadasLicençasXComputadoresToolStripMenuItem";
+            this.licençasAplicadasLicençasXComputadoresToolStripMenuItem.Size = new System.Drawing.Size(320, 22);
+            this.licençasAplicadasLicençasXComputadoresToolStripMenuItem.Text = "Licenças Aplicadas (Licenças x Computadores)";
             // 
             // MDIParent1
             // 
@@ -262,6 +288,9 @@
         private System.Windows.Forms.ToolStripMenuItem computadoresToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem notaFiscalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem softwareToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gerenciamentoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem licençasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem licençasAplicadasLicençasXComputadoresToolStripMenuItem;
     }
 }
 

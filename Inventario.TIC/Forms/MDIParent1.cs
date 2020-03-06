@@ -137,5 +137,12 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void licençasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmLicencas newMDIChild = new FrmLicencas();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }
