@@ -203,5 +203,21 @@ namespace Inventario.TIC.Class
                 throw new Exception(ex.Message);
             }
         }
+
+        public List<LicencasResponse> GetLicencasComputadoresResponses(int computadorId)
+        {
+            ComputadoresLicencaRepository computadoresLicencaRepository = new ComputadoresLicencaRepository();
+            List<ComputadoresLicencas> computadoresLicencas = computadoresLicencaRepository.Get().ToList();
+            computadoresLicencas = computadoresLicencas.Where(cl => cl.ComputadoresId == computadorId).ToList();
+            List<Licenca> licencas = new List<Licenca>();
+
+            computadoresLicencas.ForEach(c => c.Licencas.ForEach(l =>
+            {
+                licencas.Add(l);
+            }));
+
+            List<LicencasResponse> ret = licencas.Select(li => (LicencasResponse)li).ToList();
+            return ret;
+        }
     }
 }

@@ -78,6 +78,7 @@
     <Compile Include="Class\Computadores.cs" />
     <Compile Include="Class\ComputadoresLicencaRepository.cs" />
     <Compile Include="Class\ComputadoresLicencas.cs" />
+    <Compile Include="Class\ComputadoresLicencasResponse.cs" />
     <Compile Include="Class\ComputadoresOCS.cs" />
     <Compile Include="Class\ComputadoresRepository.cs" />
     <Compile Include="Class\ComputadorStatus.cs" />

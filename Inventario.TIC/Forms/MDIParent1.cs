@@ -140,9 +140,19 @@ namespace Inventario.TIC
 
         private void licençasToolStripMenuItem_Click(object sender, EventArgs e)
         {
+        }
+
+        private void licençasNFXSoftwareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             FrmLicencas newMDIChild = new FrmLicencas();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
+
+        }
+
+        private void associarLicençaNoComputadorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

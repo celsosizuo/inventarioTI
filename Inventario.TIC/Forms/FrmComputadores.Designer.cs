@@ -72,11 +72,15 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnAssociar = new System.Windows.Forms.Button();
             this.btnAtualizarDados = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dgvLicencas = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputadores)).BeginInit();
             this.grpDadosComputadores.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiscos)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLicencas)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvComputadores
@@ -93,8 +97,9 @@
             this.dgvComputadores.Name = "dgvComputadores";
             this.dgvComputadores.ReadOnly = true;
             this.dgvComputadores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvComputadores.Size = new System.Drawing.Size(1266, 298);
+            this.dgvComputadores.Size = new System.Drawing.Size(1395, 298);
             this.dgvComputadores.TabIndex = 0;
+            this.dgvComputadores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvComputadores_CellContentClick);
             this.dgvComputadores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvComputadores_CellDoubleClick_1);
             this.dgvComputadores.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvComputadores_ColumnHeaderMouseClick);
             // 
@@ -131,7 +136,7 @@
             this.grpDadosComputadores.Controls.Add(this.txtId);
             this.grpDadosComputadores.Controls.Add(this.lblId);
             this.grpDadosComputadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpDadosComputadores.Location = new System.Drawing.Point(12, 12);
+            this.grpDadosComputadores.Location = new System.Drawing.Point(12, 13);
             this.grpDadosComputadores.Name = "grpDadosComputadores";
             this.grpDadosComputadores.Size = new System.Drawing.Size(624, 113);
             this.grpDadosComputadores.TabIndex = 3;
@@ -384,17 +389,17 @@
             // 
             // txtOCSUserId
             // 
-            this.txtOCSUserId.Location = new System.Drawing.Point(241, 37);
+            this.txtOCSUserId.Location = new System.Drawing.Point(296, 37);
             this.txtOCSUserId.Name = "txtOCSUserId";
             this.txtOCSUserId.ReadOnly = true;
-            this.txtOCSUserId.Size = new System.Drawing.Size(161, 20);
+            this.txtOCSUserId.Size = new System.Drawing.Size(106, 20);
             this.txtOCSUserId.TabIndex = 10;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(238, 21);
+            this.label7.Location = new System.Drawing.Point(293, 21);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(43, 13);
             this.label7.TabIndex = 9;
@@ -420,7 +425,7 @@
             // 
             // txtOCSIpAddr
             // 
-            this.txtOCSIpAddr.Location = new System.Drawing.Point(153, 37);
+            this.txtOCSIpAddr.Location = new System.Drawing.Point(208, 37);
             this.txtOCSIpAddr.Name = "txtOCSIpAddr";
             this.txtOCSIpAddr.ReadOnly = true;
             this.txtOCSIpAddr.Size = new System.Drawing.Size(82, 20);
@@ -430,7 +435,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(150, 21);
+            this.label9.Location = new System.Drawing.Point(205, 21);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(17, 13);
             this.label9.TabIndex = 5;
@@ -441,7 +446,7 @@
             this.txtOCSName.Location = new System.Drawing.Point(65, 37);
             this.txtOCSName.Name = "txtOCSName";
             this.txtOCSName.ReadOnly = true;
-            this.txtOCSName.Size = new System.Drawing.Size(82, 20);
+            this.txtOCSName.Size = new System.Drawing.Size(137, 20);
             this.txtOCSName.TabIndex = 4;
             // 
             // label10
@@ -532,11 +537,40 @@
             this.btnAtualizarDados.UseVisualStyleBackColor = true;
             this.btnAtualizarDados.Click += new System.EventHandler(this.btnAtualizarDados_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dgvLicencas);
+            this.groupBox3.Location = new System.Drawing.Point(643, 13);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(752, 446);
+            this.groupBox3.TabIndex = 29;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Licenças (Somente Visualização)";
+            // 
+            // dgvLicencas
+            // 
+            this.dgvLicencas.AllowUserToAddRows = false;
+            this.dgvLicencas.AllowUserToDeleteRows = false;
+            this.dgvLicencas.AllowUserToOrderColumns = true;
+            this.dgvLicencas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvLicencas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvLicencas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvLicencas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLicencas.Location = new System.Drawing.Point(3, 21);
+            this.dgvLicencas.MultiSelect = false;
+            this.dgvLicencas.Name = "dgvLicencas";
+            this.dgvLicencas.ReadOnly = true;
+            this.dgvLicencas.Size = new System.Drawing.Size(743, 422);
+            this.dgvLicencas.TabIndex = 15;
+            // 
             // FrmComputadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1266, 792);
+            this.ClientSize = new System.Drawing.Size(1407, 792);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnAtualizarDados);
             this.Controls.Add(this.btnAssociar);
             this.Controls.Add(this.btnPesquisar);
@@ -558,6 +592,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiscos)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLicencas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -607,5 +643,7 @@
         private System.Windows.Forms.Button btnAssociar;
         private System.Windows.Forms.Button btnAtualizarDados;
         private System.Windows.Forms.DataGridView dgvComputadores;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView dgvLicencas;
     }
 }

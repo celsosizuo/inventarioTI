@@ -89,20 +89,20 @@ namespace Inventario.TIC.Class
                             typeof(ComputadoresLicencas),
                             typeof(Computadores),
                             typeof(Licenca),
+                            typeof(NotaFiscal),
                             typeof(Software),
-                            typeof(NotaFiscal)
 
                         }, objects =>
                         {
                             var computadoresLicencas = objects[0] as ComputadoresLicencas;
                             var computadores = objects[1] as Computadores;
                             var licenca = objects[2] as Licenca;
-                            var software = objects[3] as Software;
-                            var notaFiscal = objects[4] as NotaFiscal;
+                            var notaFiscal = objects[3] as NotaFiscal;
+                            var software = objects[4] as Software;
 
                             computadoresLicencas.Computadores = computadores;
-                            licenca.Software = software;
                             licenca.NotaFiscal = notaFiscal;
+                            licenca.Software = software;
                             computadoresLicencas.Licencas.Add(licenca);
 
                             return computadoresLicencas;
@@ -133,62 +133,7 @@ namespace Inventario.TIC.Class
             }
         }
 
-        public List<LicencasResponse> GetLicencasResponses()
-        {
-            try
-            {
-                string strSql = @"GETLICENCAS";
-
-                List<Licenca> ret;
-
-                using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.conSQL))
-                {
-                    ret = connection.Query(strSql,
-                        new[]
-                        {
-                            typeof(Licenca),
-                            typeof(NotaFiscal),
-                            typeof(Software)
-
-                        }, objects =>
-                        {
-                            var item = objects[0] as Licenca;
-                            var notaFiscal = objects[1] as NotaFiscal;
-                            var software = objects[2] as Software;
-
-                            item.NotaFiscal = notaFiscal;
-                            item.Software = software;
-
-                            return item;
-                        }, splitOn: "ID, ID, ID").AsList();
-                }
-
-                List<LicencasResponse> retorno = new List<LicencasResponse>();
-
-                ret.ForEach(l =>
-                {
-                    LicencasResponse r = new LicencasResponse();
-                    r.Id = l.Id;
-                    r.NomeSoftware = l.Software.Nome;
-                    r.NotaFiscal = l.NotaFiscal;
-                    r.NotaFiscalId = l.NotaFiscal.Id;
-                    r.NumNF = l.NotaFiscal.NumNF;
-                    r.Quantidade = l.Quantidade;
-                    r.Software = l.Software;
-                    r.SoftwareId = l.Software.Id;
-                    r.Status = l.Status;
-                    r.Chave = l.Chave;
-
-                    retorno.Add(r);
-                });
-
-                return retorno;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+        
 
 
 
