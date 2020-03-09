@@ -165,7 +165,7 @@ namespace Inventario.TIC.Forms
             this.txtId.Text = _licencasResponse[e.RowIndex].Id.ToString();
         }
 
-        private void btnLimpar_Click(object sender, EventArgs e)
+        private void limparCampos()
         {
             this.txtId.Clear();
             this.txtNotaFiscalIdReadOnly.Clear();
@@ -183,6 +183,11 @@ namespace Inventario.TIC.Forms
             this.cboSoftware.SelectedIndex = 0;
             this.txtChave.Clear();
             this.cboStatus.SelectedIndex = 0;
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            this.limparCampos();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -357,6 +362,30 @@ namespace Inventario.TIC.Forms
             ComputadoresLicencaRepository a = new ComputadoresLicencaRepository();
 
             a.Get();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Você tem certeza que deseja excluir o registro selecionado?", "Confirmação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    LicencaRepository licencasRepository = new LicencaRepository();
+                    int id = this.txtId.Text == "" ? 0 : int.Parse(this.txtId.Text);
+                    licencasRepository.Delete(id);
+
+                    _licencas.Remove(_licencas.Find(c => c.Id == id));
+                    this.AtualizaDataGridView();
+
+                    this.limparCampos();
+
+                    MessageBox.Show("Registro excluído com sucesso", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

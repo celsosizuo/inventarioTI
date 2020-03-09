@@ -416,6 +416,7 @@ namespace Inventario.TIC.Forms
                 this.dgvLicencas.Columns["NotaFiscal"].Visible = false;
                 this.dgvLicencas.Columns["SoftwareEChave"].Visible = false;
                 this.dgvLicencas.Columns["Quantidade"].Visible = false;
+
             }
             catch (Exception ex)
             {

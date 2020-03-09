@@ -539,10 +539,12 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.dgvLicencas);
             this.groupBox3.Location = new System.Drawing.Point(643, 13);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(752, 446);
+            this.groupBox3.Size = new System.Drawing.Size(765, 446);
             this.groupBox3.TabIndex = 29;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Licenças (Somente Visualização)";
@@ -562,7 +564,7 @@
             this.dgvLicencas.MultiSelect = false;
             this.dgvLicencas.Name = "dgvLicencas";
             this.dgvLicencas.ReadOnly = true;
-            this.dgvLicencas.Size = new System.Drawing.Size(743, 422);
+            this.dgvLicencas.Size = new System.Drawing.Size(756, 418);
             this.dgvLicencas.TabIndex = 15;
             this.dgvLicencas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLicencas_CellDoubleClick);
             // 

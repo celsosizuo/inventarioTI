@@ -144,9 +144,7 @@ namespace Inventario.TIC
 
         private void licençasNFXSoftwareToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmLicencas newMDIChild = new FrmLicencas();
-            newMDIChild.MdiParent = this;
-            newMDIChild.Show();
+
         }
 
         private void associarLicençaNoComputadorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -165,13 +163,39 @@ namespace Inventario.TIC
 
         private void gerenciamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var text = "";
-            Screen.AllScreens.ToList().ForEach(a =>
-            {
-                text += a.DeviceName;
-            });
+            //var text = "";
+            //Screen.AllScreens.ToList().ForEach(a =>
+            //{
+            //    text += a.DeviceName;
+            //});
 
-            MessageBox.Show(text.ToString());
+            //MessageBox.Show(text.ToString());
+        }
+
+        private void licençasNFXSoftwareToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void licençasNFXSoftwareToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FrmLicencas newMDIChild = new FrmLicencas();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void licençasUtilizadasXNãoUtilizadasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Licencas.Nao.Utilizadas");
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void listaDeRamaisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRelatorios newMDIChild = new FrmRelatorios("rptListaRamais");
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
         }
     }
 }

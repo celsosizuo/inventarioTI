@@ -36,7 +36,6 @@
             this.notaFiscalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.softwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.licençasNFXSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.associarLicençaNoComputadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerenciamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,6 +54,9 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.licençasNFXSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaDeRamaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -113,13 +115,6 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(246, 6);
             // 
-            // licençasNFXSoftwareToolStripMenuItem
-            // 
-            this.licençasNFXSoftwareToolStripMenuItem.Name = "licençasNFXSoftwareToolStripMenuItem";
-            this.licençasNFXSoftwareToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.licençasNFXSoftwareToolStripMenuItem.Text = "Licenças (NF x Software)";
-            this.licençasNFXSoftwareToolStripMenuItem.Click += new System.EventHandler(this.licençasNFXSoftwareToolStripMenuItem_Click);
-            // 
             // associarLicençaNoComputadorToolStripMenuItem
             // 
             this.associarLicençaNoComputadorToolStripMenuItem.Name = "associarLicençaNoComputadorToolStripMenuItem";
@@ -129,9 +124,12 @@
             // 
             // gerenciamentoToolStripMenuItem
             // 
+            this.gerenciamentoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem,
+            this.listaDeRamaisToolStripMenuItem});
             this.gerenciamentoToolStripMenuItem.Name = "gerenciamentoToolStripMenuItem";
-            this.gerenciamentoToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
-            this.gerenciamentoToolStripMenuItem.Text = "Gerenciar";
+            this.gerenciamentoToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.gerenciamentoToolStripMenuItem.Text = "Relatórios";
             this.gerenciamentoToolStripMenuItem.Click += new System.EventHandler(this.gerenciamentoToolStripMenuItem_Click);
             // 
             // windowsMenu
@@ -251,6 +249,27 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
+            // licençasNFXSoftwareToolStripMenuItem
+            // 
+            this.licençasNFXSoftwareToolStripMenuItem.Name = "licençasNFXSoftwareToolStripMenuItem";
+            this.licençasNFXSoftwareToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.licençasNFXSoftwareToolStripMenuItem.Text = "Licenças (NF x Software)";
+            this.licençasNFXSoftwareToolStripMenuItem.Click += new System.EventHandler(this.licençasNFXSoftwareToolStripMenuItem_Click_1);
+            // 
+            // licençasUtilizadasXNãoUtilizadasToolStripMenuItem
+            // 
+            this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem.Name = "licençasUtilizadasXNãoUtilizadasToolStripMenuItem";
+            this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem.Text = "Licenças Não Utilizadas";
+            this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem.Click += new System.EventHandler(this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem_Click);
+            // 
+            // listaDeRamaisToolStripMenuItem
+            // 
+            this.listaDeRamaisToolStripMenuItem.Name = "listaDeRamaisToolStripMenuItem";
+            this.listaDeRamaisToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
+            this.listaDeRamaisToolStripMenuItem.Text = "Lista de Ramais";
+            this.listaDeRamaisToolStripMenuItem.Click += new System.EventHandler(this.listaDeRamaisToolStripMenuItem_Click);
+            // 
             // MDIParent1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -298,8 +317,10 @@
         private System.Windows.Forms.ToolStripMenuItem softwareToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gerenciamentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem licençasNFXSoftwareToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem associarLicençaNoComputadorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem licençasNFXSoftwareToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem licençasUtilizadasXNãoUtilizadasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listaDeRamaisToolStripMenuItem;
     }
 }
 
