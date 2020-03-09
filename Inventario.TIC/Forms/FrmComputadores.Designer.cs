@@ -564,6 +564,7 @@
             this.dgvLicencas.ReadOnly = true;
             this.dgvLicencas.Size = new System.Drawing.Size(743, 422);
             this.dgvLicencas.TabIndex = 15;
+            this.dgvLicencas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLicencas_CellDoubleClick);
             // 
             // FrmComputadores
             // 

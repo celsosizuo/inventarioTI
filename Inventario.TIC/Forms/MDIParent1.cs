@@ -147,12 +147,31 @@ namespace Inventario.TIC
             FrmLicencas newMDIChild = new FrmLicencas();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
-
         }
 
         private void associarLicençaNoComputadorToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            FrmAssociarLicencaNoComputador newMDIChild = new FrmAssociarLicencaNoComputador();
+            newMDIChild.MdiParent = this;
 
+            int w = Screen.PrimaryScreen.Bounds.Width;
+            if (w == 1366)
+                newMDIChild.WindowState = FormWindowState.Maximized;
+            else
+                newMDIChild.WindowState = FormWindowState.Normal;
+
+            newMDIChild.Show();
+        }
+
+        private void gerenciamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var text = "";
+            Screen.AllScreens.ToList().ForEach(a =>
+            {
+                text += a.DeviceName;
+            });
+
+            MessageBox.Show(text.ToString());
         }
     }
 }

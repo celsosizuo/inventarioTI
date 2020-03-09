@@ -17,7 +17,7 @@ namespace Inventario.TIC.Class
         public decimal Quantidade { get; set; }
         public string Chave { get; set; }
         public string Status { get; set; }
-        public Software Software { get; set; }  
+        public Software Software { get; set; }
         public NotaFiscal NotaFiscal { get; set; }
 
         public Licenca()

@@ -17,6 +17,7 @@ namespace Inventario.TIC.Class
         public int SoftwareId { get; set; }
         public string Status { get; set; }
         public string Link { get; set; }
+        public string SoftwareEChave { get; set; }
         public Software Software { get; set; }
         public NotaFiscal NotaFiscal { get; set; }
 
@@ -35,6 +36,7 @@ namespace Inventario.TIC.Class
                 SoftwareId = entity.Software.Id,
                 Status = entity.Status,
                 Link = entity.NotaFiscal.Link,
+                SoftwareEChave = entity.Software.Nome + " [ " + entity.Chave + " ] | Status: [" + entity.Status + "]" ,
             };
             return licencasResponse;
         }

@@ -38,13 +38,13 @@ namespace Inventario.TIC.Class
 
         private void ValidarComputador()
         {
-            RuleFor(a => a.Computadores).NotEmpty().WithMessage("- Campo Computador é obrigatório");
+            RuleFor(a => a.ComputadoresId).NotEmpty().WithMessage("- Campo Computador é obrigatório");
         }
 
         private void ValidarLicenca()
         {
-            RuleFor(a => a.Licencas).NotEmpty().WithMessage("- Campo Licença é obrigatório");
-        }
+            RuleFor(a => a.LicencaId).NotEmpty().WithMessage("- Campo Licença é obrigatório");
+        }   
 
         public string GetErros()
         {

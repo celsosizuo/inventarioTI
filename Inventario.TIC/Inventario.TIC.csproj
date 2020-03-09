@@ -92,6 +92,12 @@
     <Compile Include="Class\Software.cs" />
     <Compile Include="Class\SoftwareRepository.cs" />
     <Compile Include="Class\Status.cs" />
+    <Compile Include="Forms\FrmAssociarLicencaNoComputador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAssociarLicencaNoComputador.Designer.cs">
+      <DependentUpon>FrmAssociarLicencaNoComputador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,12 @@
     <Compile Include="Forms\FrmSoftware.Designer.cs">
       <DependentUpon>FrmSoftware.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmVisualizadorAdobe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmVisualizadorAdobe.Designer.cs">
+      <DependentUpon>FrmVisualizadorAdobe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MDIParent1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +148,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FrmAssociarLicencaNoComputador.resx">
+      <DependentUpon>FrmAssociarLicencaNoComputador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmSoftware.resx">
       <DependentUpon>FrmSoftware.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmVisualizadorAdobe.resx">
+      <DependentUpon>FrmVisualizadorAdobe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MDIParent1.resx">
       <DependentUpon>MDIParent1.cs</DependentUpon>
@@ -193,6 +211,24 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

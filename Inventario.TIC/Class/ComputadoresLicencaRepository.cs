@@ -11,7 +11,7 @@ namespace Inventario.TIC.Class
 {
     public class ComputadoresLicencaRepository
     {
-        public string Add(ComputadoresLicencas computadoresLicencas)
+        public void Add(ComputadoresLicencas computadoresLicencas)
         {
             try
             {
@@ -24,13 +24,11 @@ namespace Inventario.TIC.Class
                         CommandText = "POSTCOMPUTADORESLICENCAS",
                     };
 
-                    // command.Parameters.AddWithValue("@COMPUTADORESID", computadoresLicencas.Computadores.Id);
-                    // command.Parameters.AddWithValue("@LICENCAID", computadoresLicencas.Licencas.Id);
+                    command.Parameters.AddWithValue("@COMPUTADORESID", computadoresLicencas.ComputadoresId);
+                    command.Parameters.AddWithValue("@LICENCAID", computadoresLicencas.LicencaId);
 
                     command.Connection.Open();
-                    string retorno = command.ExecuteScalar().ToString();
-
-                    return retorno;
+                    command.ExecuteScalar();
                 }
                 else
                 {

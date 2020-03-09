@@ -414,7 +414,8 @@ namespace Inventario.TIC.Forms
                 this.dgvLicencas.Columns["SoftwareId"].Visible = false;
                 this.dgvLicencas.Columns["Software"].Visible = false;
                 this.dgvLicencas.Columns["NotaFiscal"].Visible = false;
-
+                this.dgvLicencas.Columns["SoftwareEChave"].Visible = false;
+                this.dgvLicencas.Columns["Quantidade"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -430,6 +431,26 @@ namespace Inventario.TIC.Forms
         private void dgvComputadores_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dgvLicencas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 8)
+            {
+                string link = this.dgvLicencas.Rows[e.RowIndex].Cells["Link"].Value.ToString();
+
+                FrmVisualizadorAdobe frmVisualizadorAdobe = new FrmVisualizadorAdobe(link);
+                // frmVisualizadorAdobe.MdiParent = MdiParent;
+                frmVisualizadorAdobe.Show();
+
+
+                //FrmNotaFiscal newMDIChild = new FrmNotaFiscal();
+                //newMDIChild.MdiParent = this;
+                //newMDIChild.Show();
+
+                // primeira maneira de abrir pdf
+                // System.Diagnostics.Process.Start(link);
+            }
         }
     }
 }
