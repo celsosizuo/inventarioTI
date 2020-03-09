@@ -15,6 +15,7 @@ namespace Inventario.TIC.Class
         public string Nome { get; set; }
         public string Fabricante { get; set; }
         public string Versao { get; set; }
+        public string NomeTecnico { get; set; }
 
         public Software()
         {

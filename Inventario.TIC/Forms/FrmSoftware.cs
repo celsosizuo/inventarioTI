@@ -58,6 +58,7 @@ namespace Inventario.TIC.Forms
                 soft.Nome = this.txtNome.Text;
                 soft.Fabricante = this.txtFabricante.Text;
                 soft.Versao = this.txtVersao.Text;
+                soft.NomeTecnico = this.txtNomeTecnico.Text;
 
                 if (soft.EhValido())
                 {
@@ -120,6 +121,8 @@ namespace Inventario.TIC.Forms
             this.txtNome.Clear();
             this.txtFabricante.Clear();
             this.txtVersao.Clear();
+            this.txtNomeTecnico.Clear();
+
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -135,6 +138,7 @@ namespace Inventario.TIC.Forms
                 this.txtNome.Text = _softwares[e.RowIndex].Nome.ToString();
                 this.txtFabricante.Text = _softwares[e.RowIndex].Fabricante.ToString();
                 this.txtVersao.Text = _softwares[e.RowIndex].Versao.ToString();
+                this.txtNomeTecnico.Text = _softwares[e.RowIndex].NomeTecnico == null ? "" : _softwares[e.RowIndex].NomeTecnico.ToString();
             }
             catch (Exception ex)
             {
@@ -150,6 +154,8 @@ namespace Inventario.TIC.Forms
                 this.Pesquisar("Fabricante", this.txtFabricante.Text);
             else if (this.txtVersao.Text != "")
                 this.Pesquisar("Versao", this.txtVersao.Text);
+            else if (this.txtNomeTecnico.Text != "")
+                this.Pesquisar("NomeTecnico", this.txtNomeTecnico.Text);
             else
                 this.Pesquisar("", "");
         }
@@ -166,6 +172,9 @@ namespace Inventario.TIC.Forms
                     break;
                 case "Versao":
                     _softwares = _softwaresOriginal.Where(c => c.Versao.ToUpper().Contains(texto.ToUpper())).ToList();
+                    break;
+                case "NomeTecnico":
+                    _softwares = _softwaresOriginal.Where(c => c.NomeTecnico.ToUpper().Contains(texto.ToUpper())).ToList();
                     break;
                 default:
                     _softwares = _softwaresOriginal;
@@ -225,6 +234,18 @@ namespace Inventario.TIC.Forms
                     else
                     {
                         _softwares = _softwares.OrderByDescending(x => x.Versao).ToList();
+                        this._colunaSelecionada = "";
+                    }
+                    break;
+                case "NomeTecnico":
+                    if (colunaSelecionada != this._colunaSelecionada)
+                    {
+                        this._colunaSelecionada = colunaSelecionada;
+                        _softwares = _softwares.OrderBy(x => x.NomeTecnico).ToList();
+                    }
+                    else
+                    {
+                        _softwares = _softwares.OrderByDescending(x => x.NomeTecnico).ToList();
                         this._colunaSelecionada = "";
                     }
                     break;

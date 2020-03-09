@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvSoftwares = new System.Windows.Forms.DataGridView();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,6 +43,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtVersao = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtNomeTecnico = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSoftwares)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +59,23 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvSoftwares.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvSoftwares.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSoftwares.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvSoftwares.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSoftwares.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvSoftwares.Location = new System.Drawing.Point(-2, 225);
             this.dgvSoftwares.MultiSelect = false;
             this.dgvSoftwares.Name = "dgvSoftwares";
@@ -144,7 +164,7 @@
             // 
             // txtFabricante
             // 
-            this.txtFabricante.Location = new System.Drawing.Point(186, 82);
+            this.txtFabricante.Location = new System.Drawing.Point(186, 131);
             this.txtFabricante.MaxLength = 9;
             this.txtFabricante.Name = "txtFabricante";
             this.txtFabricante.Size = new System.Drawing.Size(164, 20);
@@ -154,7 +174,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(183, 65);
+            this.label2.Location = new System.Drawing.Point(183, 114);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 42;
@@ -162,7 +182,7 @@
             // 
             // txtVersao
             // 
-            this.txtVersao.Location = new System.Drawing.Point(356, 82);
+            this.txtVersao.Location = new System.Drawing.Point(356, 131);
             this.txtVersao.MaxLength = 9;
             this.txtVersao.Name = "txtVersao";
             this.txtVersao.Size = new System.Drawing.Size(96, 20);
@@ -172,17 +192,37 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(353, 65);
+            this.label3.Location = new System.Drawing.Point(353, 114);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 44;
             this.label3.Text = "Versão (*)";
+            // 
+            // txtNomeTecnico
+            // 
+            this.txtNomeTecnico.Location = new System.Drawing.Point(186, 83);
+            this.txtNomeTecnico.MaxLength = 200;
+            this.txtNomeTecnico.Name = "txtNomeTecnico";
+            this.txtNomeTecnico.Size = new System.Drawing.Size(353, 20);
+            this.txtNomeTecnico.TabIndex = 47;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(183, 66);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(135, 13);
+            this.label4.TabIndex = 46;
+            this.label4.Text = "Nome do Software no OCS";
             // 
             // FrmSoftware
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 425);
+            this.Controls.Add(this.txtNomeTecnico);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtVersao);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtFabricante);
@@ -222,5 +262,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtVersao;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtNomeTecnico;
+        private System.Windows.Forms.Label label4;
     }
 }
