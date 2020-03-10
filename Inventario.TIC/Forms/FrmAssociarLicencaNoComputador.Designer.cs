@@ -57,8 +57,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cboComputador = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.cboLicenca = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.cboLicenca = new System.Windows.Forms.ComboBox();
             this.dgvLicencasAssociadas = new System.Windows.Forms.DataGridView();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
@@ -86,7 +86,7 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 13);
+            this.groupBox1.Location = new System.Drawing.Point(543, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(551, 198);
             this.groupBox1.TabIndex = 37;
@@ -251,7 +251,7 @@
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.cboComputador);
-            this.groupBox2.Location = new System.Drawing.Point(570, 13);
+            this.groupBox2.Location = new System.Drawing.Point(12, 13);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(524, 198);
             this.groupBox2.TabIndex = 38;
@@ -374,15 +374,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Selecionar a Licença a ser aplicada";
             // 
-            // cboLicenca
-            // 
-            this.cboLicenca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboLicenca.FormattingEnabled = true;
-            this.cboLicenca.Location = new System.Drawing.Point(244, 37);
-            this.cboLicenca.Name = "cboLicenca";
-            this.cboLicenca.Size = new System.Drawing.Size(605, 21);
-            this.cboLicenca.TabIndex = 0;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -392,6 +383,15 @@
             this.label13.Size = new System.Drawing.Size(58, 13);
             this.label13.TabIndex = 39;
             this.label13.Text = "Licença (*)";
+            // 
+            // cboLicenca
+            // 
+            this.cboLicenca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboLicenca.FormattingEnabled = true;
+            this.cboLicenca.Location = new System.Drawing.Point(244, 37);
+            this.cboLicenca.Name = "cboLicenca";
+            this.cboLicenca.Size = new System.Drawing.Size(605, 21);
+            this.cboLicenca.TabIndex = 0;
             // 
             // dgvLicencasAssociadas
             // 

@@ -127,6 +127,15 @@ namespace Inventario.TIC.Forms
                 this.txtData.Text = _notasFiscais[e.RowIndex].Data.ToString("dd/MM/yyyy");
                 this.cboEmpresa.Text = _notasFiscais[e.RowIndex].Empresa.ToString();
                 this.txtLink.Text = _notasFiscais[e.RowIndex].Link.ToString();
+
+                if (e.ColumnIndex == 5)
+                {
+                    string link = this.dgvNotasFiscais.Rows[e.RowIndex].Cells["Link"].Value.ToString();
+
+                    FrmVisualizadorAdobe frmVisualizadorAdobe = new FrmVisualizadorAdobe(link);
+                    // frmVisualizadorAdobe.MdiParent = MdiParent;
+                    frmVisualizadorAdobe.Show();
+                }
             }
             catch (Exception ex)
             {
@@ -149,6 +158,7 @@ namespace Inventario.TIC.Forms
             this.txtLink.Text = "";
 
         }
+
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             this.limparCampos();

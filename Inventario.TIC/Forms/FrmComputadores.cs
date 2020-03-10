@@ -229,24 +229,25 @@ namespace Inventario.TIC.Forms
 
                 if (computador.TemLigacaoComOCS == "Não")
                 {
-                    var computadoresOCS = c.FindComputadoresOCS(this.txtAtivoNovo.Text);
-
-                    if (computadoresOCS.Count == 0)
+                    if (MessageBox.Show("Este procedimento irá varrer a lista de computadores do OCS e verificar se o número do ativo novo existe no OCS. Se encontrar irá fazer a associação automaticamente. \n Você tem certeza que deseja efetuar a associação?", "Confirmação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        MessageBox.Show("Não foi encontrato computador no OCS com o código de ativo " + computador.AtivoNovo + ". Favor escanear o OCS e tentar fazer a associação novamente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else if (computadoresOCS.Count == 1)
-                    {
-                        if (MessageBox.Show("Este procedimento irá varrer a lista de computadores do OCS e verificar se o número do ativo novo existe no OCS. Se encontrar irá fazer a associação automaticamente. \n Você tem certeza que deseja efetuar a associação?", "Confirmação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+                        var computadoresOCS = c.FindComputadoresOCS(this.txtAtivoNovo.Text);
+                        if (computadoresOCS.Count == 0)
                         {
-                            computador.OCSId = (int)computadoresOCS.FirstOrDefault().Id;
-                            c.AssociarOCS(computador.Id, computador.OCSId);
-                            this.CarregarDataGridView();
-                            MessageBox.Show("Associação efetuada com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            MessageBox.Show("Não foi encontrato computador no OCS com o código de ativo " + computador.AtivoNovo + ". Favor escanear o OCS e tentar fazer a associação novamente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
+                        else if (computadoresOCS.Count == 1)
+                        {
+                            {
+                                computador.OCSId = (int)computadoresOCS.FirstOrDefault().Id;
+                                c.AssociarOCS(computador.Id, computador.OCSId);
+                                this.CarregarDataGridView();
+                                MessageBox.Show("Associação efetuada com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            }
+                        }
+                        else
+                            MessageBox.Show("Existem dois ou mais computadores no OCS com o ativo " + computadoresOCS.FirstOrDefault().Name + ". Favor verificar", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    else
-                        MessageBox.Show("Existem dois ou mais computadores no OCS com o ativo " + computadoresOCS.FirstOrDefault().Name + ". Favor verificar", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                     MessageBox.Show("Este computador já está associado. Não é possível fazer a associação novamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

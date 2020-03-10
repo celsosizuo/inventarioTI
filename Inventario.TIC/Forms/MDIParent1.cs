@@ -193,7 +193,14 @@ namespace Inventario.TIC
 
         private void listaDeRamaisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmRelatorios newMDIChild = new FrmRelatorios("rptListaRamais");
+            FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Computadores");
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void computadoresXLicençasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Computadores.Licencas");
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }

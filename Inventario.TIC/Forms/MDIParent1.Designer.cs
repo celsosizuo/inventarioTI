@@ -57,6 +57,7 @@
             this.licençasNFXSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeRamaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.computadoresXLicençasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -126,7 +127,8 @@
             // 
             this.gerenciamentoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem,
-            this.listaDeRamaisToolStripMenuItem});
+            this.listaDeRamaisToolStripMenuItem,
+            this.computadoresXLicençasToolStripMenuItem});
             this.gerenciamentoToolStripMenuItem.Name = "gerenciamentoToolStripMenuItem";
             this.gerenciamentoToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.gerenciamentoToolStripMenuItem.Text = "Relatórios";
@@ -266,9 +268,16 @@
             // listaDeRamaisToolStripMenuItem
             // 
             this.listaDeRamaisToolStripMenuItem.Name = "listaDeRamaisToolStripMenuItem";
-            this.listaDeRamaisToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
-            this.listaDeRamaisToolStripMenuItem.Text = "Lista de Ramais";
+            this.listaDeRamaisToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.listaDeRamaisToolStripMenuItem.Text = "Computadores";
             this.listaDeRamaisToolStripMenuItem.Click += new System.EventHandler(this.listaDeRamaisToolStripMenuItem_Click);
+            // 
+            // computadoresXLicençasToolStripMenuItem
+            // 
+            this.computadoresXLicençasToolStripMenuItem.Name = "computadoresXLicençasToolStripMenuItem";
+            this.computadoresXLicençasToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.computadoresXLicençasToolStripMenuItem.Text = "Computadores x Licenças";
+            this.computadoresXLicençasToolStripMenuItem.Click += new System.EventHandler(this.computadoresXLicençasToolStripMenuItem_Click);
             // 
             // MDIParent1
             // 
@@ -321,6 +330,7 @@
         private System.Windows.Forms.ToolStripMenuItem licençasNFXSoftwareToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem licençasUtilizadasXNãoUtilizadasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listaDeRamaisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem computadoresXLicençasToolStripMenuItem;
     }
 }
 
