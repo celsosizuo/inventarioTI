@@ -29,6 +29,7 @@ namespace Inventario.TIC.Class
                     command.Parameters.AddWithValue("@USUARIO", computadores.Usuario);
                     command.Parameters.AddWithValue("@DEPARTAMENTO", computadores.Departamento);
                     command.Parameters.AddWithValue("@STATUS", computadores.Status1);
+                    command.Parameters.AddWithValue("@OBSERVACOES", computadores.Observacoes);
 
                     command.Connection.Open();
                     string retorno = command.ExecuteScalar().ToString();
@@ -64,6 +65,7 @@ namespace Inventario.TIC.Class
                     command.Parameters.AddWithValue("@USUARIO", computadores.Usuario);
                     command.Parameters.AddWithValue("@DEPARTAMENTO", computadores.Departamento);
                     command.Parameters.AddWithValue("@STATUS", computadores.Status1);
+                    command.Parameters.AddWithValue("@OBSERVACOES", computadores.Observacoes);
                     command.Parameters.AddWithValue("@ID", computadores.Id);
 
                     command.Connection.Open();

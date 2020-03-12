@@ -22,6 +22,7 @@ namespace Inventario.TIC.Class
         public string TemLigacaoComOCS { get; set; }
         public ComputadoresOCS ComputadoresOCS { get; set; }
         public List<Disco> Discos { get; set; }
+        public string Observacoes { get; set; }
 
         public Computadores()
         {

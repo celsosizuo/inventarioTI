@@ -32,6 +32,8 @@
             this.lblId = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.grpDadosComputadores = new System.Windows.Forms.GroupBox();
+            this.txtObservacoes = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.cboStatus = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDepartamento = new System.Windows.Forms.TextBox();
@@ -97,7 +99,7 @@
             this.dgvComputadores.Name = "dgvComputadores";
             this.dgvComputadores.ReadOnly = true;
             this.dgvComputadores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvComputadores.Size = new System.Drawing.Size(1395, 298);
+            this.dgvComputadores.Size = new System.Drawing.Size(1358, 255);
             this.dgvComputadores.TabIndex = 0;
             this.dgvComputadores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvComputadores_CellContentClick);
             this.dgvComputadores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvComputadores_CellDoubleClick_1);
@@ -123,6 +125,8 @@
             // 
             // grpDadosComputadores
             // 
+            this.grpDadosComputadores.Controls.Add(this.txtObservacoes);
+            this.grpDadosComputadores.Controls.Add(this.label17);
             this.grpDadosComputadores.Controls.Add(this.cboStatus);
             this.grpDadosComputadores.Controls.Add(this.label5);
             this.grpDadosComputadores.Controls.Add(this.txtDepartamento);
@@ -138,10 +142,29 @@
             this.grpDadosComputadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpDadosComputadores.Location = new System.Drawing.Point(12, 13);
             this.grpDadosComputadores.Name = "grpDadosComputadores";
-            this.grpDadosComputadores.Size = new System.Drawing.Size(624, 113);
+            this.grpDadosComputadores.Size = new System.Drawing.Size(731, 113);
             this.grpDadosComputadores.TabIndex = 3;
             this.grpDadosComputadores.TabStop = false;
             this.grpDadosComputadores.Text = "Dados Computadores";
+            // 
+            // txtObservacoes
+            // 
+            this.txtObservacoes.Location = new System.Drawing.Point(519, 36);
+            this.txtObservacoes.Multiline = true;
+            this.txtObservacoes.Name = "txtObservacoes";
+            this.txtObservacoes.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtObservacoes.Size = new System.Drawing.Size(206, 66);
+            this.txtObservacoes.TabIndex = 14;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(516, 21);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(70, 13);
+            this.label17.TabIndex = 13;
+            this.label17.Text = "Observações";
             // 
             // cboStatus
             // 
@@ -253,7 +276,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 131);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(624, 328);
+            this.groupBox1.Size = new System.Drawing.Size(731, 328);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados Coletados do OCS";
@@ -268,7 +291,7 @@
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Location = new System.Drawing.Point(16, 106);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(599, 215);
+            this.groupBox2.Size = new System.Drawing.Size(687, 215);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Hardware";
@@ -284,7 +307,7 @@
             this.dgvDiscos.Location = new System.Drawing.Point(3, 78);
             this.dgvDiscos.MultiSelect = false;
             this.dgvDiscos.Name = "dgvDiscos";
-            this.dgvDiscos.Size = new System.Drawing.Size(593, 134);
+            this.dgvDiscos.Size = new System.Drawing.Size(681, 134);
             this.dgvDiscos.TabIndex = 14;
             // 
             // label16
@@ -335,7 +358,7 @@
             // 
             // txtOCSWorkGroup
             // 
-            this.txtOCSWorkGroup.Location = new System.Drawing.Point(16, 80);
+            this.txtOCSWorkGroup.Location = new System.Drawing.Point(621, 37);
             this.txtOCSWorkGroup.Name = "txtOCSWorkGroup";
             this.txtOCSWorkGroup.ReadOnly = true;
             this.txtOCSWorkGroup.Size = new System.Drawing.Size(82, 20);
@@ -345,7 +368,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(13, 64);
+            this.label13.Location = new System.Drawing.Point(618, 21);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(62, 13);
             this.label13.TabIndex = 15;
@@ -371,7 +394,7 @@
             // 
             // txtOCSWinProdId
             // 
-            this.txtOCSWinProdId.Location = new System.Drawing.Point(351, 80);
+            this.txtOCSWinProdId.Location = new System.Drawing.Point(263, 80);
             this.txtOCSWinProdId.Name = "txtOCSWinProdId";
             this.txtOCSWinProdId.ReadOnly = true;
             this.txtOCSWinProdId.Size = new System.Drawing.Size(200, 20);
@@ -381,7 +404,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(348, 64);
+            this.label6.Location = new System.Drawing.Point(260, 64);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 13);
             this.label6.TabIndex = 11;
@@ -407,7 +430,7 @@
             // 
             // txtOCSOsName
             // 
-            this.txtOCSOsName.Location = new System.Drawing.Point(104, 80);
+            this.txtOCSOsName.Location = new System.Drawing.Point(16, 80);
             this.txtOCSOsName.Name = "txtOCSOsName";
             this.txtOCSOsName.ReadOnly = true;
             this.txtOCSOsName.Size = new System.Drawing.Size(241, 20);
@@ -417,7 +440,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(101, 64);
+            this.label8.Location = new System.Drawing.Point(13, 64);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(104, 13);
             this.label8.TabIndex = 7;
@@ -542,9 +565,9 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.dgvLicencas);
-            this.groupBox3.Location = new System.Drawing.Point(643, 13);
+            this.groupBox3.Location = new System.Drawing.Point(749, 13);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(765, 446);
+            this.groupBox3.Size = new System.Drawing.Size(622, 446);
             this.groupBox3.TabIndex = 29;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Licenças (Somente Visualização)";
@@ -564,7 +587,7 @@
             this.dgvLicencas.MultiSelect = false;
             this.dgvLicencas.Name = "dgvLicencas";
             this.dgvLicencas.ReadOnly = true;
-            this.dgvLicencas.Size = new System.Drawing.Size(756, 418);
+            this.dgvLicencas.Size = new System.Drawing.Size(613, 418);
             this.dgvLicencas.TabIndex = 15;
             this.dgvLicencas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLicencas_CellDoubleClick);
             // 
@@ -572,7 +595,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1407, 792);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnAtualizarDados);
             this.Controls.Add(this.btnAssociar);
@@ -648,5 +671,7 @@
         private System.Windows.Forms.DataGridView dgvComputadores;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dgvLicencas;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtObservacoes;
     }
 }

@@ -34,6 +34,7 @@ namespace Inventario.TIC.Forms
             this.dgvComputadores.Columns["OCSId"].Visible = false;
             this.dgvComputadores.Columns["Status1"].Visible = false;
             this.dgvComputadores.Columns["CascadeMode"].Visible = false;
+            this.dgvComputadores.Columns["Observacoes"].Visible = false;
         }
 
         private void FrmComputadores_Load(object sender, EventArgs e)
@@ -81,6 +82,7 @@ namespace Inventario.TIC.Forms
             this.txtUsuario.Text = "";
             this.txtDepartamento.Text = "";
             this.cboStatus.SelectedValue = "";
+            this.txtObservacoes.Text = "";
 
             // Limpando os dados do OCS
             this.txtOCSId.Text = "";
@@ -118,6 +120,7 @@ namespace Inventario.TIC.Forms
                 c.Departamento = this.txtDepartamento.Text;
                 c.Status1 = this.cboStatus.SelectedValue.ToString();
                 c.Status = this.cboStatus.Text;
+                c.Observacoes = this.txtObservacoes.Text;
 
                 if (c.EhValido())
                 {
@@ -365,6 +368,7 @@ namespace Inventario.TIC.Forms
                 this.txtUsuario.Text = _computadores[e.RowIndex].Usuario.ToString();
                 this.txtDepartamento.Text = _computadores[e.RowIndex].Departamento.ToString();
                 this.cboStatus.SelectedValue = _computadores[e.RowIndex].Status1.ToString();
+                this.txtObservacoes.Text = _computadores[e.RowIndex].Observacoes == null ? "" : _computadores[e.RowIndex].Observacoes.ToString();
 
                 //carregando os controles do OCS
                 if (_computadores[e.RowIndex].ComputadoresOCS == null)
