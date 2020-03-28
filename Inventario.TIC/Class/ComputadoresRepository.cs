@@ -214,5 +214,7 @@ namespace Inventario.TIC.Class
                 throw new Exception(ex.Message);
             }
         }
+
+
     }
 }

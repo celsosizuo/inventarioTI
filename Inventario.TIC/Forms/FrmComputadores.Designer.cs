@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmComputadores));
             this.dgvComputadores = new System.Windows.Forms.DataGridView();
             this.lblId = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
@@ -606,6 +607,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpDadosComputadores);
             this.Controls.Add(this.dgvComputadores);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmComputadores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Computadores";

@@ -44,6 +44,8 @@ namespace Inventario.TIC.Forms
                 this.CarregarDataGridView();
                 _computadoresOriginal = _computadores;
 
+                // this.Icon = Properties.Resources.Gear;
+
                 // Carregando lista dos status do computador
                 ComputadorStatusRepository csr = new ComputadorStatusRepository();
                 List<ComputadorStatus> cs = csr.GetComputadorStatuses();

@@ -36,8 +36,12 @@
             this.notaFiscalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.softwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.licençasNFXSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.associarLicençaNoComputadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerenciamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaDeRamaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.computadoresXLicençasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.newWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cascadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,10 +58,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.licençasNFXSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listaDeRamaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.computadoresXLicençasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -116,6 +116,13 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(246, 6);
             // 
+            // licençasNFXSoftwareToolStripMenuItem
+            // 
+            this.licençasNFXSoftwareToolStripMenuItem.Name = "licençasNFXSoftwareToolStripMenuItem";
+            this.licençasNFXSoftwareToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.licençasNFXSoftwareToolStripMenuItem.Text = "Licenças (NF x Software)";
+            this.licençasNFXSoftwareToolStripMenuItem.Click += new System.EventHandler(this.licençasNFXSoftwareToolStripMenuItem_Click_1);
+            // 
             // associarLicençaNoComputadorToolStripMenuItem
             // 
             this.associarLicençaNoComputadorToolStripMenuItem.Name = "associarLicençaNoComputadorToolStripMenuItem";
@@ -133,6 +140,27 @@
             this.gerenciamentoToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.gerenciamentoToolStripMenuItem.Text = "Relatórios";
             this.gerenciamentoToolStripMenuItem.Click += new System.EventHandler(this.gerenciamentoToolStripMenuItem_Click);
+            // 
+            // licençasUtilizadasXNãoUtilizadasToolStripMenuItem
+            // 
+            this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem.Name = "licençasUtilizadasXNãoUtilizadasToolStripMenuItem";
+            this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem.Text = "Licenças Não Utilizadas";
+            this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem.Click += new System.EventHandler(this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem_Click);
+            // 
+            // listaDeRamaisToolStripMenuItem
+            // 
+            this.listaDeRamaisToolStripMenuItem.Name = "listaDeRamaisToolStripMenuItem";
+            this.listaDeRamaisToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.listaDeRamaisToolStripMenuItem.Text = "Computadores";
+            this.listaDeRamaisToolStripMenuItem.Click += new System.EventHandler(this.listaDeRamaisToolStripMenuItem_Click);
+            // 
+            // computadoresXLicençasToolStripMenuItem
+            // 
+            this.computadoresXLicençasToolStripMenuItem.Name = "computadoresXLicençasToolStripMenuItem";
+            this.computadoresXLicençasToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.computadoresXLicençasToolStripMenuItem.Text = "Computadores x Licenças";
+            this.computadoresXLicençasToolStripMenuItem.Click += new System.EventHandler(this.computadoresXLicençasToolStripMenuItem_Click);
             // 
             // windowsMenu
             // 
@@ -251,34 +279,6 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // licençasNFXSoftwareToolStripMenuItem
-            // 
-            this.licençasNFXSoftwareToolStripMenuItem.Name = "licençasNFXSoftwareToolStripMenuItem";
-            this.licençasNFXSoftwareToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.licençasNFXSoftwareToolStripMenuItem.Text = "Licenças (NF x Software)";
-            this.licençasNFXSoftwareToolStripMenuItem.Click += new System.EventHandler(this.licençasNFXSoftwareToolStripMenuItem_Click_1);
-            // 
-            // licençasUtilizadasXNãoUtilizadasToolStripMenuItem
-            // 
-            this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem.Name = "licençasUtilizadasXNãoUtilizadasToolStripMenuItem";
-            this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem.Text = "Licenças Não Utilizadas";
-            this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem.Click += new System.EventHandler(this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem_Click);
-            // 
-            // listaDeRamaisToolStripMenuItem
-            // 
-            this.listaDeRamaisToolStripMenuItem.Name = "listaDeRamaisToolStripMenuItem";
-            this.listaDeRamaisToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.listaDeRamaisToolStripMenuItem.Text = "Computadores";
-            this.listaDeRamaisToolStripMenuItem.Click += new System.EventHandler(this.listaDeRamaisToolStripMenuItem_Click);
-            // 
-            // computadoresXLicençasToolStripMenuItem
-            // 
-            this.computadoresXLicençasToolStripMenuItem.Name = "computadoresXLicençasToolStripMenuItem";
-            this.computadoresXLicençasToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.computadoresXLicençasToolStripMenuItem.Text = "Computadores x Licenças";
-            this.computadoresXLicençasToolStripMenuItem.Click += new System.EventHandler(this.computadoresXLicençasToolStripMenuItem_Click);
-            // 
             // MDIParent1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,6 +286,7 @@
             this.ClientSize = new System.Drawing.Size(1231, 651);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MDIParent1";
