@@ -90,6 +90,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Carregador.cs" />
+    <Compile Include="Class\AparelhoRepository.cs" />
+    <Compile Include="Class\CarregadorRepository.cs" />
     <Compile Include="Class\Computadores.cs" />
     <Compile Include="Class\ComputadoresLicencaRepository.cs" />
     <Compile Include="Class\ComputadoresLicencas.cs" />
@@ -102,11 +105,20 @@
     <Compile Include="Class\Licenca.cs" />
     <Compile Include="Class\LicencaRepository.cs" />
     <Compile Include="Class\LicencasResponse.cs" />
+    <Compile Include="Class\Linha.cs" />
+    <Compile Include="Class\LinhaRepository.cs" />
     <Compile Include="Class\NotaFiscal.cs" />
     <Compile Include="Class\NotaFiscalRepository.cs" />
     <Compile Include="Class\Software.cs" />
     <Compile Include="Class\SoftwareRepository.cs" />
     <Compile Include="Class\Status.cs" />
+    <Compile Include="Class\Aparelho.cs" />
+    <Compile Include="Forms\FrmAparelho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAparelho.Designer.cs">
+      <DependentUpon>FrmAparelho.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmAssociarLicencaNoComputador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +137,12 @@
     <Compile Include="Forms\FrmAssociarOCS.Designer.cs">
       <DependentUpon>FrmAssociarOCS.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmCarregador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCarregador.Designer.cs">
+      <DependentUpon>FrmCarregador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmComputadores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +154,12 @@
     </Compile>
     <Compile Include="Forms\FrmLicencas.Designer.cs">
       <DependentUpon>FrmLicencas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLinha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLinha.Designer.cs">
+      <DependentUpon>FrmLinha.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmNotaFiscal.cs">
       <SubType>Form</SubType>
@@ -170,6 +194,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Forms\FrmAparelho.resx">
+      <DependentUpon>FrmAparelho.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAssociarLicencaNoComputador.resx">
       <DependentUpon>FrmAssociarLicencaNoComputador.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,11 +206,17 @@
     <EmbeddedResource Include="Forms\FrmAssociarOCS.resx">
       <DependentUpon>FrmAssociarOCS.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCarregador.resx">
+      <DependentUpon>FrmCarregador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmComputadores.resx">
       <DependentUpon>FrmComputadores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmLicencas.resx">
       <DependentUpon>FrmLicencas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLinha.resx">
+      <DependentUpon>FrmLinha.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmNotaFiscal.resx">
       <DependentUpon>FrmNotaFiscal.cs</DependentUpon>

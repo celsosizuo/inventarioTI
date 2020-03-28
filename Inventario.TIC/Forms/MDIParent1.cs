@@ -204,5 +204,26 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void linhasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmLinha newMDIChild = new FrmLinha();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void cadastroDeAparelhosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAparelho newMDIChild = new FrmAparelho();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void cadastroDeCarregadoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCarregador newMDIChild = new FrmCarregador();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }
