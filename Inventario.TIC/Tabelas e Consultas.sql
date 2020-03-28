@@ -1,3 +1,9 @@
+USE master
+
+CREATE DATABASE INVTIC
+
+GO
+
 USE INVTIC
 
 GO
