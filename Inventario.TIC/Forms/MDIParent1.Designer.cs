@@ -42,6 +42,7 @@
             this.linhasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeAparelhosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeCarregadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroDeUsuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerenciamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeRamaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +63,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.cadastroDeUsuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.celularesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -142,7 +143,8 @@
             this.linhasToolStripMenuItem,
             this.cadastroDeAparelhosToolStripMenuItem,
             this.cadastroDeCarregadoresToolStripMenuItem,
-            this.cadastroDeUsuáriosToolStripMenuItem});
+            this.cadastroDeUsuáriosToolStripMenuItem,
+            this.celularesToolStripMenuItem});
             this.inventárioCelularesToolStripMenuItem.Name = "inventárioCelularesToolStripMenuItem";
             this.inventárioCelularesToolStripMenuItem.Size = new System.Drawing.Size(123, 20);
             this.inventárioCelularesToolStripMenuItem.Text = "Inventário Celulares";
@@ -167,6 +169,13 @@
             this.cadastroDeCarregadoresToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.cadastroDeCarregadoresToolStripMenuItem.Text = "Cadastro de Carregadores";
             this.cadastroDeCarregadoresToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeCarregadoresToolStripMenuItem_Click);
+            // 
+            // cadastroDeUsuáriosToolStripMenuItem
+            // 
+            this.cadastroDeUsuáriosToolStripMenuItem.Name = "cadastroDeUsuáriosToolStripMenuItem";
+            this.cadastroDeUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.cadastroDeUsuáriosToolStripMenuItem.Text = "Cadastro de Usuários";
+            this.cadastroDeUsuáriosToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeUsuáriosToolStripMenuItem_Click);
             // 
             // gerenciamentoToolStripMenuItem
             // 
@@ -317,12 +326,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // cadastroDeUsuáriosToolStripMenuItem
+            // celularesToolStripMenuItem
             // 
-            this.cadastroDeUsuáriosToolStripMenuItem.Name = "cadastroDeUsuáriosToolStripMenuItem";
-            this.cadastroDeUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.cadastroDeUsuáriosToolStripMenuItem.Text = "Cadastro de Usuários";
-            this.cadastroDeUsuáriosToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeUsuáriosToolStripMenuItem_Click);
+            this.celularesToolStripMenuItem.Name = "celularesToolStripMenuItem";
+            this.celularesToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.celularesToolStripMenuItem.Text = "Celulares";
+            this.celularesToolStripMenuItem.Click += new System.EventHandler(this.celularesToolStripMenuItem_Click);
             // 
             // MDIParent1
             // 
@@ -382,6 +391,7 @@
         private System.Windows.Forms.ToolStripMenuItem cadastroDeAparelhosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroDeCarregadoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroDeUsuáriosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem celularesToolStripMenuItem;
     }
 }
 

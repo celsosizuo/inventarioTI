@@ -93,6 +93,9 @@
     <Compile Include="Carregador.cs" />
     <Compile Include="Class\AparelhoRepository.cs" />
     <Compile Include="Class\CarregadorRepository.cs" />
+    <Compile Include="Class\Celular.cs" />
+    <Compile Include="Class\CelularRepository.cs" />
+    <Compile Include="Class\CelularResponse.cs" />
     <Compile Include="Class\Computadores.cs" />
     <Compile Include="Class\ComputadoresLicencaRepository.cs" />
     <Compile Include="Class\ComputadoresLicencas.cs" />

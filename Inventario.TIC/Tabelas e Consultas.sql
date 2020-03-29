@@ -958,6 +958,8 @@ AS
     @USUARIOID,
     @APARELHOID)        
 
+	SELECT SCOPE_IDENTITY()
+
 GO
 
 IF EXISTS (SELECT * fROM SYS.objects WHERE type = 'P' AND name = 'DELETECELULAR')
@@ -986,6 +988,7 @@ AS
 	INNER JOIN APARELHO A ON A.ID = C.APARELHOID
 
 
+	--select * from CELULARES
 
 
 

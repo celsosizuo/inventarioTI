@@ -232,5 +232,12 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void celularesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCelulares newMDIChild = new FrmCelulares();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }
