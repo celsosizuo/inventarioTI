@@ -145,6 +145,12 @@
     <Compile Include="Forms\FrmCarregador.Designer.cs">
       <DependentUpon>FrmCarregador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmCelulares.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCelulares.Designer.cs">
+      <DependentUpon>FrmCelulares.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmComputadores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmCarregador.resx">
       <DependentUpon>FrmCarregador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCelulares.resx">
+      <DependentUpon>FrmCelulares.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmComputadores.resx">
       <DependentUpon>FrmComputadores.cs</DependentUpon>
