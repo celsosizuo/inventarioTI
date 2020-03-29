@@ -113,6 +113,8 @@
     <Compile Include="Class\SoftwareRepository.cs" />
     <Compile Include="Class\Status.cs" />
     <Compile Include="Class\Aparelho.cs" />
+    <Compile Include="Class\Usuario.cs" />
+    <Compile Include="Class\UsuarioRepository.cs" />
     <Compile Include="Forms\FrmAparelho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +181,12 @@
     <Compile Include="Forms\FrmSoftware.Designer.cs">
       <DependentUpon>FrmSoftware.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmUsuarios.Designer.cs">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmVisualizadorAdobe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmSoftware.resx">
       <DependentUpon>FrmSoftware.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmUsuarios.resx">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmVisualizadorAdobe.resx">
       <DependentUpon>FrmVisualizadorAdobe.cs</DependentUpon>

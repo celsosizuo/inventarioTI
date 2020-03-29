@@ -225,5 +225,12 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void cadastroDeUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmUsuarios newMDIChild = new FrmUsuarios();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }
