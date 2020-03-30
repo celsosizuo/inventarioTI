@@ -335,7 +335,7 @@ namespace Inventario.TIC.Forms
                     string msg = "";
                     msgs.ToList().ForEach(m => msg += m + "\n");
                     throw new Exception(msg);
-                }
+                }   
             }
             catch (Exception ex)
             {
