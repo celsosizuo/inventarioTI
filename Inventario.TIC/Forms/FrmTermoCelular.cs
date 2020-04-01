@@ -139,7 +139,7 @@ namespace Inventario.TIC.Forms
         private void txtImei1_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Pressionou a tecla enter
-            if((Keys)e.KeyChar == Keys.Enter)
+            if ((Keys)e.KeyChar == Keys.Enter)
             {
                 this.dgvAparelhos.Visible = true;
 
@@ -178,7 +178,7 @@ namespace Inventario.TIC.Forms
 
         private void dgvAparelhos_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(this.dgvAparelhos.Rows.Count > 0)
+            if (this.dgvAparelhos.Rows.Count > 0)
             {
                 if ((Keys)e.KeyChar == Keys.Enter)
                 {
@@ -201,13 +201,13 @@ namespace Inventario.TIC.Forms
 
         private void dgvAparelhos_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyData == Keys.Enter)
+            if (e.KeyData == Keys.Enter)
                 e.Handled = true;
         }
 
         private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if((Keys)e.KeyChar == Keys.Enter)
+            if ((Keys)e.KeyChar == Keys.Enter)
             {
                 this.dgvUsuarios.Visible = true;
 
@@ -224,7 +224,7 @@ namespace Inventario.TIC.Forms
 
         private void dgvUsuarios_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(this.dgvUsuarios.Rows.Count > 0)
+            if (this.dgvUsuarios.Rows.Count > 0)
             {
                 if ((Keys)e.KeyChar == Keys.Enter)
                 {
@@ -308,12 +308,18 @@ namespace Inventario.TIC.Forms
             }
         }
 
+        private void dgvLinhas_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+                e.Handled = true;
+        }
+
         private void dgvLinhas_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((Keys)e.KeyChar == Keys.Enter)
             {
 
-                if(this.dgvLinhas.Rows.Count > 0)
+                if (this.dgvLinhas.Rows.Count > 0)
                 {
                     int RowIndex = this.dgvLinhas.CurrentRow.Index;
 
@@ -353,6 +359,14 @@ namespace Inventario.TIC.Forms
                 celular.DataEntrega = DateTime.Parse(this.txtDataEntrega.Text);
                 celular.DataDevolucao = null;
 
+                if(_usuariosAdicionados.Count > 0)
+                    celular.Usuario = _usuariosAdicionados[0];
+                else
+                {
+                    MessageBox.Show("Usuário não informado. Favor adicionar", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 if (celular.EhValido())
                 {
                     if (celular.Id == 0)
@@ -361,6 +375,18 @@ namespace Inventario.TIC.Forms
                         this.txtId.Text = retorno.ToString();
                         celular.Id = int.Parse(retorno);
                         _termoCelulares.Add(celular);
+
+                        _usuariosAdicionados.ForEach(x =>
+                        {
+                            TermoCelularUsuarios termoUsuario = new TermoCelularUsuarios()
+                            {
+                                TermoCelularId = int.Parse(retorno),
+                                UsuarioId = x.Id,
+                            };
+                            TermoCelularUsuarioRepository termoCelularUsuarioRepository = new TermoCelularUsuarioRepository();
+                            termoCelularUsuarioRepository.Add(termoUsuario);
+                        });
+
                         MessageBox.Show("Inclusão efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                     //else
@@ -368,15 +394,16 @@ namespace Inventario.TIC.Forms
                     //    celularRepository.Update(celular);
                     //    MessageBox.Show("Atualização efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     //}
-                    this.AtualizaDataGridView();
+                    this.CarregarDataGridView();
                 }
                 else
                 {
                     string[] msgs = celular.GetErros().Split(';');
                     string msg = "";
                     msgs.ToList().ForEach(m => msg += m + "\n");
+
                     throw new Exception(msg);
-                }   
+                }
             }
             catch (Exception ex)
             {
@@ -441,6 +468,7 @@ namespace Inventario.TIC.Forms
                         this.txtCarregadorMarcaReadOnly.Text = _carregadores[RowIndex].Marca.ToString();
                         this.txtNumSerieReadOnly.Text = _carregadores[RowIndex].NumSerie.ToString();
                         this.txtCarregador.Enabled = false;
+                        this.txtCarregador.Text = _carregadores[RowIndex].NumSerie.ToString();
 
                         this.dgvCarregadores.Visible = false;
                         // this.txtImei1.Focus();
@@ -466,7 +494,7 @@ namespace Inventario.TIC.Forms
 
         private void btnAddUsuario_Click(object sender, EventArgs e)
         {
-            if(this.txtUsuarioIdReadOnly.Text != "")
+            if (this.txtUsuarioIdReadOnly.Text != "")
             {
                 Usuario usuario = new Usuario()
                 {
@@ -498,7 +526,7 @@ namespace Inventario.TIC.Forms
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
-            if(this.dgvUsuariosAdicionados.Rows.Count > 0)
+            if (this.dgvUsuariosAdicionados.Rows.Count > 0)
             {
                 int RowIndex = this.dgvUsuariosAdicionados.CurrentRow.Index;
                 if (RowIndex < 0)
@@ -512,5 +540,6 @@ namespace Inventario.TIC.Forms
                 }
             }
         }
+
     }
 }

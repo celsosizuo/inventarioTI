@@ -95,6 +95,7 @@ namespace Inventario.TIC.Class
                             typeof(Aparelho),
                             typeof(Carregador),
                             typeof(Gestor),
+                            typeof(Usuario),
 
                         }, objects =>
                         {
@@ -103,15 +104,17 @@ namespace Inventario.TIC.Class
                             var aparelhos = objects[2] as Aparelho;
                             var carregador = objects[3] as Carregador;
                             var gestor = objects[4] as Gestor;
+                            var usuario = objects[5] as Usuario;
 
                             celulares.Linha = linhas;
                             celulares.Aparelho = aparelhos;
                             celulares.Carregador = carregador;
                             celulares.Gestor = gestor;
+                            celulares.Usuario = usuario;
 
                             return celulares;
 
-                        }, splitOn: "ID, ID, ID, ID, ID").AsList();
+                        }, splitOn: "ID, ID, ID, ID, ID, ID").AsList();
 
                     return ret;
                 }

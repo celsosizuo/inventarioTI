@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTermoCelular));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvLinhas = new System.Windows.Forms.DataGridView();
             this.txtLinha = new System.Windows.Forms.TextBox();
@@ -152,6 +153,7 @@
             this.dgvLinhas.TabIndex = 83;
             this.dgvLinhas.Visible = false;
             this.dgvLinhas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLinhas_CellDoubleClick);
+            this.dgvLinhas.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvLinhas_KeyDown);
             this.dgvLinhas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvLinhas_KeyPress);
             // 
             // txtLinha
@@ -300,8 +302,8 @@
             this.dgvUsuariosAdicionados.MultiSelect = false;
             this.dgvUsuariosAdicionados.Name = "dgvUsuariosAdicionados";
             this.dgvUsuariosAdicionados.ReadOnly = true;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvUsuariosAdicionados.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvUsuariosAdicionados.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvUsuariosAdicionados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuariosAdicionados.Size = new System.Drawing.Size(535, 130);
             this.dgvUsuariosAdicionados.TabIndex = 83;
@@ -359,8 +361,8 @@
             this.dgvUsuarios.MultiSelect = false;
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuarios.Size = new System.Drawing.Size(364, 94);
             this.dgvUsuarios.TabIndex = 72;
@@ -929,6 +931,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmTermoCelular";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

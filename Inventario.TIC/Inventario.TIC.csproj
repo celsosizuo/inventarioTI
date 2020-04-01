@@ -118,6 +118,8 @@
     <Compile Include="Class\SoftwareRepository.cs" />
     <Compile Include="Class\Status.cs" />
     <Compile Include="Class\Aparelho.cs" />
+    <Compile Include="Class\TermoCelularUsuarioRepository.cs" />
+    <Compile Include="Class\TermoCelularUsuarios.cs" />
     <Compile Include="Class\Usuario.cs" />
     <Compile Include="Class\UsuarioRepository.cs" />
     <Compile Include="Forms\FrmAparelho.cs">

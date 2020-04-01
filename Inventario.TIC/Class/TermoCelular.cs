@@ -27,7 +27,7 @@ namespace Inventario.TIC.Class
         public Linha Linha { get; set; }
         public Carregador Carregador { get; set; }
         public Gestor Gestor { get; set; }
-        public List<Usuario> Usuario { get; set; }
+        public Usuario Usuario { get; set; }
 
         public TermoCelular()
         {
@@ -45,7 +45,7 @@ namespace Inventario.TIC.Class
         private void Validar()
         {
             ValidarLinha();
-            // ValidarUsuario();
+            ValidarUsuario();
             ValidarAparelho();
         }
 
@@ -54,10 +54,10 @@ namespace Inventario.TIC.Class
             RuleFor(a => a.LinhaId).NotEmpty().WithMessage("- Campo Linha é obrigatório");
         }
 
-        //private void ValidarUsuario()
-        //{
-        //    RuleFor(a => a.UsuarioId).NotEmpty().WithMessage("- Campo Usuario é obrigatório");
-        //}
+        private void ValidarUsuario()
+        {
+            RuleFor(a => a.Usuario).NotNull().WithMessage("- Campo Usuario é obrigatório");
+        }
 
         private void ValidarAparelho()
         {

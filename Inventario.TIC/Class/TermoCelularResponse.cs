@@ -10,6 +10,7 @@ namespace Inventario.TIC.Class
     {
         public int Id { get; set; }
         public string Numero { get; set; }
+        public string Usuario { get; set; }
         public string Marca { get; set; }
         public string Modelo { get; set; }
         public string NomeGestor { get; set; }
@@ -40,7 +41,8 @@ namespace Inventario.TIC.Class
                 Marca = entity.Aparelho.Marca,
                 Modelo = entity.Aparelho.Modelo,
                 NomeGestor = entity.Gestor.Nome,
-                Numero = entity.Linha.Numero
+                Numero = entity.Linha.Numero,
+                Usuario = entity.Usuario.Nome
             };
 
             return termoCelularResponse;

@@ -57,7 +57,8 @@ namespace Inventario.TIC.Forms
 
                 gestor.Id = this.txtId.Text == "" ? 0 : Convert.ToInt32(this.txtId.Text);
                 gestor.Nome = this.txtNome.Text;
-                gestor.Status = this.rdoAtivo.Checked ? 0 : 1;
+                gestor.Status = this.chkAtivo.Checked ? 0 : 1;
+                gestor.StatusDescricao = this.chkAtivo.Checked ? "ATIVO" : "INATIVO";
 
                 if (gestor.EhValido())
                 {
@@ -94,8 +95,7 @@ namespace Inventario.TIC.Forms
         {
             this.txtId.Clear();
             this.txtNome.Clear();
-            this.rdoAtivo.Checked = false;
-            this.rdoInativo.Checked = false;
+            this.chkAtivo.Checked = false;
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -133,8 +133,7 @@ namespace Inventario.TIC.Forms
             {
                 this.txtId.Text = _gestores[e.RowIndex].Id.ToString();
                 this.txtNome.Text = _gestores[e.RowIndex].Nome.ToString();
-                this.rdoAtivo.Checked = _gestores[e.RowIndex].Status.ToString() == "0" ? true : false;
-                this.rdoInativo.Checked = _gestores[e.RowIndex].Status.ToString() == "1" ? true : false;
+                this.chkAtivo.Checked = _gestores[e.RowIndex].Status.ToString() == "0" ? true : false;
             }
             catch (Exception ex)
             {
@@ -163,10 +162,8 @@ namespace Inventario.TIC.Forms
         {
             if (this.txtNome.Text != "")
                 this.Pesquisar("Nome", this.txtNome.Text);
-            else if (this.rdoAtivo.Checked)
-                this.Pesquisar("Status", this.rdoAtivo.Checked == true ? "0" : "1");
-            else if (this.rdoInativo.Checked)
-                this.Pesquisar("Status", this.rdoInativo.Checked == true ? "0" : "1");
+            else if (this.chkAtivo.Checked)
+                this.Pesquisar("Status", this.chkAtivo.Checked == true ? "0" : "1");
             else
                 this.Pesquisar("", "");
         }
