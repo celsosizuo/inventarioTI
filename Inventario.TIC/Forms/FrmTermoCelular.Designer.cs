@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTermoCelular));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvLinhas = new System.Windows.Forms.DataGridView();
@@ -150,7 +150,7 @@
             this.dgvLinhas.ReadOnly = true;
             this.dgvLinhas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLinhas.Size = new System.Drawing.Size(365, 88);
-            this.dgvLinhas.TabIndex = 83;
+            this.dgvLinhas.TabIndex = 1;
             this.dgvLinhas.Visible = false;
             this.dgvLinhas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLinhas_CellDoubleClick);
             this.dgvLinhas.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvLinhas_KeyDown);
@@ -162,7 +162,7 @@
             this.txtLinha.MaxLength = 15;
             this.txtLinha.Name = "txtLinha";
             this.txtLinha.Size = new System.Drawing.Size(264, 20);
-            this.txtLinha.TabIndex = 82;
+            this.txtLinha.TabIndex = 0;
             this.txtLinha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLinha_KeyPress);
             // 
             // txtLinhaIdReadOnly
@@ -302,8 +302,8 @@
             this.dgvUsuariosAdicionados.MultiSelect = false;
             this.dgvUsuariosAdicionados.Name = "dgvUsuariosAdicionados";
             this.dgvUsuariosAdicionados.ReadOnly = true;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvUsuariosAdicionados.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvUsuariosAdicionados.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUsuariosAdicionados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuariosAdicionados.Size = new System.Drawing.Size(535, 130);
             this.dgvUsuariosAdicionados.TabIndex = 83;
@@ -313,7 +313,7 @@
             this.btnAddUsuario.Location = new System.Drawing.Point(622, 51);
             this.btnAddUsuario.Name = "btnAddUsuario";
             this.btnAddUsuario.Size = new System.Drawing.Size(89, 23);
-            this.btnAddUsuario.TabIndex = 82;
+            this.btnAddUsuario.TabIndex = 12;
             this.btnAddUsuario.Text = "Adicionar >>";
             this.btnAddUsuario.UseVisualStyleBackColor = true;
             this.btnAddUsuario.Click += new System.EventHandler(this.btnAddUsuario_Click);
@@ -343,7 +343,7 @@
             this.txtUsuario.MaxLength = 9;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(258, 20);
-            this.txtUsuario.TabIndex = 73;
+            this.txtUsuario.TabIndex = 10;
             this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             // 
             // dgvUsuarios
@@ -361,11 +361,11 @@
             this.dgvUsuarios.MultiSelect = false;
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuarios.Size = new System.Drawing.Size(364, 94);
-            this.dgvUsuarios.TabIndex = 72;
+            this.dgvUsuarios.TabIndex = 11;
             this.dgvUsuarios.Visible = false;
             this.dgvUsuarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellDoubleClick);
             this.dgvUsuarios.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvUsuarios_KeyDown);
@@ -562,7 +562,7 @@
             this.dgvAparelhos.ReadOnly = true;
             this.dgvAparelhos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAparelhos.Size = new System.Drawing.Size(351, 92);
-            this.dgvAparelhos.TabIndex = 71;
+            this.dgvAparelhos.TabIndex = 5;
             this.dgvAparelhos.Visible = false;
             this.dgvAparelhos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAparelhos_CellDoubleClick);
             this.dgvAparelhos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvAparelhos_KeyDown);
@@ -574,7 +574,7 @@
             this.txtImei1.MaxLength = 9;
             this.txtImei1.Name = "txtImei1";
             this.txtImei1.Size = new System.Drawing.Size(258, 20);
-            this.txtImei1.TabIndex = 70;
+            this.txtImei1.TabIndex = 4;
             this.txtImei1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImei1_KeyPress);
             // 
             // btnNovaPesquisaAparelho
@@ -648,6 +648,7 @@
             this.txtId.Location = new System.Drawing.Point(12, 40);
             this.txtId.MaxLength = 9;
             this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(62, 20);
             this.txtId.TabIndex = 83;
             // 
@@ -687,7 +688,7 @@
             this.dgvCarregadores.ReadOnly = true;
             this.dgvCarregadores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCarregadores.Size = new System.Drawing.Size(365, 88);
-            this.dgvCarregadores.TabIndex = 83;
+            this.dgvCarregadores.TabIndex = 3;
             this.dgvCarregadores.Visible = false;
             this.dgvCarregadores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarregadores_CellDoubleClick);
             this.dgvCarregadores.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvCarregadores_KeyDown);
@@ -699,7 +700,7 @@
             this.txtCarregador.MaxLength = 9;
             this.txtCarregador.Name = "txtCarregador";
             this.txtCarregador.Size = new System.Drawing.Size(264, 20);
-            this.txtCarregador.TabIndex = 82;
+            this.txtCarregador.TabIndex = 2;
             this.txtCarregador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCarregador_KeyPress);
             // 
             // txtCarregadorIdReadOnly
@@ -857,7 +858,7 @@
             this.maskedTextBox1.Mask = "00/00/0000";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(86, 20);
-            this.maskedTextBox1.TabIndex = 75;
+            this.maskedTextBox1.TabIndex = 7;
             this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
             // 
             // label21
@@ -876,7 +877,7 @@
             this.txtDataEntrega.Mask = "00/00/0000";
             this.txtDataEntrega.Name = "txtDataEntrega";
             this.txtDataEntrega.Size = new System.Drawing.Size(86, 20);
-            this.txtDataEntrega.TabIndex = 73;
+            this.txtDataEntrega.TabIndex = 6;
             this.txtDataEntrega.ValidatingType = typeof(System.DateTime);
             // 
             // label20
@@ -905,7 +906,7 @@
             this.cboGestores.Location = new System.Drawing.Point(285, 39);
             this.cboGestores.Name = "cboGestores";
             this.cboGestores.Size = new System.Drawing.Size(170, 21);
-            this.cboGestores.TabIndex = 1;
+            this.cboGestores.TabIndex = 8;
             // 
             // chkFoneOuvido
             // 
@@ -913,7 +914,7 @@
             this.chkFoneOuvido.Location = new System.Drawing.Point(461, 40);
             this.chkFoneOuvido.Name = "chkFoneOuvido";
             this.chkFoneOuvido.Size = new System.Drawing.Size(102, 17);
-            this.chkFoneOuvido.TabIndex = 0;
+            this.chkFoneOuvido.TabIndex = 9;
             this.chkFoneOuvido.Text = "Fone de Ouvido";
             this.chkFoneOuvido.UseVisualStyleBackColor = true;
             // 

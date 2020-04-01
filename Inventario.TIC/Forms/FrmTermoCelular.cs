@@ -194,7 +194,7 @@ namespace Inventario.TIC.Forms
                     this.txtImei1.Enabled = false;
 
                     this.dgvAparelhos.Visible = false;
-                    this.txtLinha.Focus();
+                    this.txtDataEntrega.Focus();
                 }
             }
         }
@@ -333,7 +333,7 @@ namespace Inventario.TIC.Forms
 
                     this.dgvLinhas.Visible = false;
 
-                    this.btnSalvar.Focus();
+                    this.txtCarregador.Focus();
                 }
             }
         }
@@ -471,7 +471,7 @@ namespace Inventario.TIC.Forms
                         this.txtCarregador.Text = _carregadores[RowIndex].NumSerie.ToString();
 
                         this.dgvCarregadores.Visible = false;
-                        // this.txtImei1.Focus();
+                        this.txtImei1.Focus();
                     }
                     catch (Exception ex)
                     {
