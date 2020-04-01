@@ -9,18 +9,27 @@ using System.Threading.Tasks;
 
 namespace Inventario.TIC.Class
 {
-    public class Celular : AbstractValidator<Celular>
+    public class TermoCelular : AbstractValidator<TermoCelular>
     {
         protected ValidationResult ValidationResult { get; set; }
         public int Id { get; set; }
         public int LinhaId { get; set; }
-        public int UsuarioId { get; set; }
         public int AparelhoId { get; set; }
+        public int CarregadorId { get; set; }
+        public int GestorId { get; set; }
+        public int FoneOuvido { get; set; }
+        public DateTime DataEntrega { get; set; }
+        public DateTime? DataDevolucao { get; set; }
+        public string LinkEntrega { get; set; }
+        public string LinkDevolucao { get; set; }
+
         public Aparelho Aparelho { get; set; }
         public Linha Linha { get; set; }
-        public Usuario Usuario { get; set; }
+        public Carregador Carregador { get; set; }
+        public Gestor Gestor { get; set; }
+        public List<Usuario> Usuario { get; set; }
 
-        public Celular()
+        public TermoCelular()
         {
             ValidationResult = new ValidationResult();
         }
@@ -36,7 +45,7 @@ namespace Inventario.TIC.Class
         private void Validar()
         {
             ValidarLinha();
-            ValidarUsuario();
+            // ValidarUsuario();
             ValidarAparelho();
         }
 
@@ -45,16 +54,15 @@ namespace Inventario.TIC.Class
             RuleFor(a => a.LinhaId).NotEmpty().WithMessage("- Campo Linha é obrigatório");
         }
 
-        private void ValidarUsuario()
-        {
-            RuleFor(a => a.UsuarioId).NotEmpty().WithMessage("- Campo Usuario é obrigatório");
-        }
+        //private void ValidarUsuario()
+        //{
+        //    RuleFor(a => a.UsuarioId).NotEmpty().WithMessage("- Campo Usuario é obrigatório");
+        //}
 
         private void ValidarAparelho()
         {
             RuleFor(a => a.AparelhoId).NotEmpty().WithMessage("- Campo Aparelho é obrigatório");
         }
-
 
         public string GetErros()
         {
@@ -63,14 +71,20 @@ namespace Inventario.TIC.Class
             return erros;
         }
 
-        public static explicit operator Celular(CelularResponse entity)
+        public static explicit operator TermoCelular(TermoCelularResponse entity)
         {
-            Celular celular = new Celular()
+            TermoCelular celular = new TermoCelular()
             {
-                Id = entity.Id,
                 AparelhoId = entity.AparelhoId,
+                CarregadorId = entity.CarregadorId,
+                DataDevolucao = entity.DataDevolucao,
+                DataEntrega = entity.DataEntrega,
+                FoneOuvido = entity.FoneOuvido,
+                GestorId = entity.GestorId,
+                Id = entity.Id,
                 LinhaId = entity.LinhaId,
-                UsuarioId = entity.UsuarioId
+                LinkDevolucao = entity.LinkDevolucao,
+                LinkEntrega = entity.LinkEntrega,
             };
 
             return celular;

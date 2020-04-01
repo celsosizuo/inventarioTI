@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Inventario.TIC.Class
 {
-    public class CelularRepository
+    public class TermoCelularRepository
     {
-        public string Add(Celular celular)
+        public string Add(TermoCelular celular)
         {
             try
             {
@@ -22,12 +22,15 @@ namespace Inventario.TIC.Class
                     {
                         Connection = new SqlConnection(Properties.Settings.Default.conSQL),
                         CommandType = CommandType.StoredProcedure,
-                        CommandText = "POSTCELULAR",
+                        CommandText = "POSTTERMOCELULAR",
                     };
 
                     command.Parameters.AddWithValue("@LinhaId", celular.LinhaId);
-                    command.Parameters.AddWithValue("@UsuarioId", celular.UsuarioId);
                     command.Parameters.AddWithValue("@AparelhoId", celular.AparelhoId);
+                    command.Parameters.AddWithValue("@CarregadorId", celular.CarregadorId);
+                    command.Parameters.AddWithValue("@FoneOuvido", celular.FoneOuvido);
+                    command.Parameters.AddWithValue("@GestorId", celular.GestorId);
+                    command.Parameters.AddWithValue("@DataEntrega", celular.DataEntrega);
 
                     command.Connection.Open();
                     string retorno = command.ExecuteScalar().ToString();
@@ -74,41 +77,43 @@ namespace Inventario.TIC.Class
             }
         }
 
-        public List<Celular> Get()
+        public List<TermoCelular> Get()
         {
             try
             {
-                string strSql = @"GETCELULAR";
+                string strSql = @"GETTERMOCELULAR";
 
-                List<Celular> ret;
+                List<TermoCelular> ret;
 
                 using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.conSQL))
                 {
                     ret = connection.Query(strSql,
                         new[]
                         {
-                            typeof(Celular),
+                            typeof(TermoCelular),
                             typeof(Linha),
-                            typeof(Usuario),
                             typeof(Aparelho),
+                            typeof(Carregador),
+                            typeof(Gestor),
 
                         }, objects =>
                         {
-                            var celulares = objects[0] as Celular;
+                            var celulares = objects[0] as TermoCelular;
                             var linhas = objects[1] as Linha;
-                            var usuarios = objects[2] as Usuario;
-                            var aparelhos = objects[3] as Aparelho;
+                            var aparelhos = objects[2] as Aparelho;
+                            var carregador = objects[3] as Carregador;
+                            var gestor = objects[4] as Gestor;
 
                             celulares.Linha = linhas;
-                            celulares.Usuario = usuarios;
                             celulares.Aparelho = aparelhos;
+                            celulares.Carregador = carregador;
+                            celulares.Gestor = gestor;
 
                             return celulares;
 
-                        }, splitOn: "ID, ID, ID, ID").AsList();
+                        }, splitOn: "ID, ID, ID, ID, ID").AsList();
 
                     return ret;
-
                 }
 
                 //var list = new List<ComputadoresLicencas>();

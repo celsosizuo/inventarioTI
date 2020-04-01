@@ -93,9 +93,9 @@
     <Compile Include="Carregador.cs" />
     <Compile Include="Class\AparelhoRepository.cs" />
     <Compile Include="Class\CarregadorRepository.cs" />
-    <Compile Include="Class\Celular.cs" />
-    <Compile Include="Class\CelularRepository.cs" />
-    <Compile Include="Class\CelularResponse.cs" />
+    <Compile Include="Class\TermoCelular.cs" />
+    <Compile Include="Class\TermoCelularRepository.cs" />
+    <Compile Include="Class\TermoCelularResponse.cs" />
     <Compile Include="Class\Computadores.cs" />
     <Compile Include="Class\ComputadoresLicencaRepository.cs" />
     <Compile Include="Class\ComputadoresLicencas.cs" />
@@ -150,11 +150,11 @@
     <Compile Include="Forms\FrmCarregador.Designer.cs">
       <DependentUpon>FrmCarregador.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmCelulares.cs">
+    <Compile Include="Forms\FrmTermoCelular.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmCelulares.Designer.cs">
-      <DependentUpon>FrmCelulares.cs</DependentUpon>
+    <Compile Include="Forms\FrmTermoCelular.Designer.cs">
+      <DependentUpon>FrmTermoCelular.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmComputadores.cs">
       <SubType>Form</SubType>
@@ -234,8 +234,8 @@
     <EmbeddedResource Include="Forms\FrmCarregador.resx">
       <DependentUpon>FrmCarregador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmCelulares.resx">
-      <DependentUpon>FrmCelulares.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmTermoCelular.resx">
+      <DependentUpon>FrmTermoCelular.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmComputadores.resx">
       <DependentUpon>FrmComputadores.cs</DependentUpon>

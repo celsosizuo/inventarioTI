@@ -1,6 +1,6 @@
 ﻿namespace Inventario.TIC.Forms
 {
-    partial class FrmCelulares
+    partial class FrmTermoCelular
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvLinhas = new System.Windows.Forms.DataGridView();
             this.txtLinha = new System.Windows.Forms.TextBox();
@@ -41,6 +42,10 @@
             this.btnNovaPesquisaLinha = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnRemover = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
+            this.dgvUsuariosAdicionados = new System.Windows.Forms.DataGridView();
+            this.btnAddUsuario = new System.Windows.Forms.Button();
             this.txtUsuarioIdReadOnly = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
@@ -69,15 +74,43 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
-            this.dgvCelulares = new System.Windows.Forms.DataGridView();
+            this.dgvTermoCelulares = new System.Windows.Forms.DataGridView();
             this.txtId = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.dgvCarregadores = new System.Windows.Forms.DataGridView();
+            this.txtCarregador = new System.Windows.Forms.TextBox();
+            this.txtCarregadorIdReadOnly = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtNumSerieReadOnly = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtCarregadorMarcaReadOnly = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.btnNovaPesquisaCarregador = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.lnkTermoDeolucao = new System.Windows.Forms.LinkLabel();
+            this.label23 = new System.Windows.Forms.Label();
+            this.lnkTermoEntrega = new System.Windows.Forms.LinkLabel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtDataEntrega = new System.Windows.Forms.MaskedTextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.cboGestores = new System.Windows.Forms.ComboBox();
+            this.chkFoneOuvido = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLinhas)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuariosAdicionados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAparelhos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCelulares)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTermoCelulares)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCarregadores)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -92,9 +125,9 @@
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.btnNovaPesquisaLinha);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(13, 328);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(753, 162);
+            this.groupBox1.Size = new System.Drawing.Size(666, 162);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Selecionar Linha";
@@ -115,7 +148,7 @@
             this.dgvLinhas.Name = "dgvLinhas";
             this.dgvLinhas.ReadOnly = true;
             this.dgvLinhas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLinhas.Size = new System.Drawing.Size(393, 88);
+            this.dgvLinhas.Size = new System.Drawing.Size(365, 88);
             this.dgvLinhas.TabIndex = 83;
             this.dgvLinhas.Visible = false;
             this.dgvLinhas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLinhas_CellDoubleClick);
@@ -124,26 +157,26 @@
             // txtLinha
             // 
             this.txtLinha.Location = new System.Drawing.Point(6, 40);
-            this.txtLinha.MaxLength = 9;
+            this.txtLinha.MaxLength = 15;
             this.txtLinha.Name = "txtLinha";
-            this.txtLinha.Size = new System.Drawing.Size(258, 20);
+            this.txtLinha.Size = new System.Drawing.Size(264, 20);
             this.txtLinha.TabIndex = 82;
             this.txtLinha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLinha_KeyPress);
             // 
             // txtLinhaIdReadOnly
             // 
-            this.txtLinhaIdReadOnly.Location = new System.Drawing.Point(475, 46);
+            this.txtLinhaIdReadOnly.Location = new System.Drawing.Point(439, 38);
             this.txtLinhaIdReadOnly.MaxLength = 9;
             this.txtLinhaIdReadOnly.Name = "txtLinhaIdReadOnly";
             this.txtLinhaIdReadOnly.ReadOnly = true;
-            this.txtLinhaIdReadOnly.Size = new System.Drawing.Size(248, 20);
+            this.txtLinhaIdReadOnly.Size = new System.Drawing.Size(179, 20);
             this.txtLinhaIdReadOnly.TabIndex = 81;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(419, 49);
+            this.label14.Location = new System.Drawing.Point(383, 41);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(20, 13);
             this.label14.TabIndex = 80;
@@ -151,18 +184,18 @@
             // 
             // txtChipReadOnly
             // 
-            this.txtChipReadOnly.Location = new System.Drawing.Point(475, 98);
+            this.txtChipReadOnly.Location = new System.Drawing.Point(439, 90);
             this.txtChipReadOnly.MaxLength = 9;
             this.txtChipReadOnly.Name = "txtChipReadOnly";
             this.txtChipReadOnly.ReadOnly = true;
-            this.txtChipReadOnly.Size = new System.Drawing.Size(248, 20);
+            this.txtChipReadOnly.Size = new System.Drawing.Size(179, 20);
             this.txtChipReadOnly.TabIndex = 56;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(419, 101);
+            this.label1.Location = new System.Drawing.Point(383, 93);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 55;
@@ -170,18 +203,18 @@
             // 
             // txtNumeroReadOnly
             // 
-            this.txtNumeroReadOnly.Location = new System.Drawing.Point(475, 72);
+            this.txtNumeroReadOnly.Location = new System.Drawing.Point(439, 64);
             this.txtNumeroReadOnly.MaxLength = 9;
             this.txtNumeroReadOnly.Name = "txtNumeroReadOnly";
             this.txtNumeroReadOnly.ReadOnly = true;
-            this.txtNumeroReadOnly.Size = new System.Drawing.Size(248, 20);
+            this.txtNumeroReadOnly.Size = new System.Drawing.Size(179, 20);
             this.txtNumeroReadOnly.TabIndex = 54;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(419, 75);
+            this.label9.Location = new System.Drawing.Point(383, 67);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(50, 13);
             this.label9.TabIndex = 53;
@@ -189,7 +222,7 @@
             // 
             // btnNovaPesquisaLinha
             // 
-            this.btnNovaPesquisaLinha.Location = new System.Drawing.Point(269, 37);
+            this.btnNovaPesquisaLinha.Location = new System.Drawing.Point(276, 35);
             this.btnNovaPesquisaLinha.Name = "btnNovaPesquisaLinha";
             this.btnNovaPesquisaLinha.Size = new System.Drawing.Size(95, 25);
             this.btnNovaPesquisaLinha.TabIndex = 52;
@@ -209,6 +242,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnRemover);
+            this.groupBox2.Controls.Add(this.label24);
+            this.groupBox2.Controls.Add(this.dgvUsuariosAdicionados);
+            this.groupBox2.Controls.Add(this.btnAddUsuario);
             this.groupBox2.Controls.Add(this.txtUsuarioIdReadOnly);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.txtUsuario);
@@ -221,27 +258,78 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.btnNovaPesquisaUsuario);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Location = new System.Drawing.Point(18, 350);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(754, 152);
+            this.groupBox2.Size = new System.Drawing.Size(1260, 164);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Selecionar Usuário";
+            this.groupBox2.Text = "Selecionar Usuários";
+            // 
+            // btnRemover
+            // 
+            this.btnRemover.Location = new System.Drawing.Point(622, 81);
+            this.btnRemover.Name = "btnRemover";
+            this.btnRemover.Size = new System.Drawing.Size(89, 23);
+            this.btnRemover.TabIndex = 85;
+            this.btnRemover.Text = "<< Remover";
+            this.btnRemover.UseVisualStyleBackColor = true;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(714, 9);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(109, 13);
+            this.label24.TabIndex = 84;
+            this.label24.Text = "Usuários Adicionados";
+            // 
+            // dgvUsuariosAdicionados
+            // 
+            this.dgvUsuariosAdicionados.AllowUserToAddRows = false;
+            this.dgvUsuariosAdicionados.AllowUserToDeleteRows = false;
+            this.dgvUsuariosAdicionados.AllowUserToOrderColumns = true;
+            this.dgvUsuariosAdicionados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvUsuariosAdicionados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvUsuariosAdicionados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvUsuariosAdicionados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsuariosAdicionados.Location = new System.Drawing.Point(717, 25);
+            this.dgvUsuariosAdicionados.MultiSelect = false;
+            this.dgvUsuariosAdicionados.Name = "dgvUsuariosAdicionados";
+            this.dgvUsuariosAdicionados.ReadOnly = true;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvUsuariosAdicionados.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvUsuariosAdicionados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUsuariosAdicionados.Size = new System.Drawing.Size(535, 130);
+            this.dgvUsuariosAdicionados.TabIndex = 83;
+            // 
+            // btnAddUsuario
+            // 
+            this.btnAddUsuario.Location = new System.Drawing.Point(622, 51);
+            this.btnAddUsuario.Name = "btnAddUsuario";
+            this.btnAddUsuario.Size = new System.Drawing.Size(89, 23);
+            this.btnAddUsuario.TabIndex = 82;
+            this.btnAddUsuario.Text = "Adicionar >>";
+            this.btnAddUsuario.UseVisualStyleBackColor = true;
+            this.btnAddUsuario.Click += new System.EventHandler(this.btnAddUsuario_Click);
             // 
             // txtUsuarioIdReadOnly
             // 
-            this.txtUsuarioIdReadOnly.Location = new System.Drawing.Point(476, 30);
+            this.txtUsuarioIdReadOnly.Location = new System.Drawing.Point(433, 22);
             this.txtUsuarioIdReadOnly.MaxLength = 9;
             this.txtUsuarioIdReadOnly.Name = "txtUsuarioIdReadOnly";
             this.txtUsuarioIdReadOnly.ReadOnly = true;
-            this.txtUsuarioIdReadOnly.Size = new System.Drawing.Size(248, 20);
+            this.txtUsuarioIdReadOnly.Size = new System.Drawing.Size(179, 20);
             this.txtUsuarioIdReadOnly.TabIndex = 81;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(420, 33);
+            this.label13.Location = new System.Drawing.Point(377, 25);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(20, 13);
             this.label13.TabIndex = 80;
@@ -271,10 +359,10 @@
             this.dgvUsuarios.MultiSelect = false;
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsuarios.Size = new System.Drawing.Size(393, 82);
+            this.dgvUsuarios.Size = new System.Drawing.Size(364, 94);
             this.dgvUsuarios.TabIndex = 72;
             this.dgvUsuarios.Visible = false;
             this.dgvUsuarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellDoubleClick);
@@ -283,18 +371,18 @@
             // 
             // txtChapaReadOnly
             // 
-            this.txtChapaReadOnly.Location = new System.Drawing.Point(476, 108);
+            this.txtChapaReadOnly.Location = new System.Drawing.Point(433, 100);
             this.txtChapaReadOnly.MaxLength = 9;
             this.txtChapaReadOnly.Name = "txtChapaReadOnly";
             this.txtChapaReadOnly.ReadOnly = true;
-            this.txtChapaReadOnly.Size = new System.Drawing.Size(248, 20);
+            this.txtChapaReadOnly.Size = new System.Drawing.Size(179, 20);
             this.txtChapaReadOnly.TabIndex = 58;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(420, 111);
+            this.label6.Location = new System.Drawing.Point(377, 103);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 13);
             this.label6.TabIndex = 57;
@@ -302,18 +390,18 @@
             // 
             // txtCpfReadOnly
             // 
-            this.txtCpfReadOnly.Location = new System.Drawing.Point(476, 82);
+            this.txtCpfReadOnly.Location = new System.Drawing.Point(433, 74);
             this.txtCpfReadOnly.MaxLength = 9;
             this.txtCpfReadOnly.Name = "txtCpfReadOnly";
             this.txtCpfReadOnly.ReadOnly = true;
-            this.txtCpfReadOnly.Size = new System.Drawing.Size(248, 20);
+            this.txtCpfReadOnly.Size = new System.Drawing.Size(179, 20);
             this.txtCpfReadOnly.TabIndex = 56;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(420, 85);
+            this.label2.Location = new System.Drawing.Point(377, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 13);
             this.label2.TabIndex = 55;
@@ -321,18 +409,18 @@
             // 
             // txtNomeReadOnly
             // 
-            this.txtNomeReadOnly.Location = new System.Drawing.Point(476, 56);
+            this.txtNomeReadOnly.Location = new System.Drawing.Point(433, 48);
             this.txtNomeReadOnly.MaxLength = 9;
             this.txtNomeReadOnly.Name = "txtNomeReadOnly";
             this.txtNomeReadOnly.ReadOnly = true;
-            this.txtNomeReadOnly.Size = new System.Drawing.Size(248, 20);
+            this.txtNomeReadOnly.Size = new System.Drawing.Size(179, 20);
             this.txtNomeReadOnly.TabIndex = 54;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(420, 59);
+            this.label4.Location = new System.Drawing.Point(377, 51);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 53;
@@ -372,27 +460,27 @@
             this.groupBox3.Controls.Add(this.txtImei1);
             this.groupBox3.Controls.Add(this.btnNovaPesquisaAparelho);
             this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Location = new System.Drawing.Point(12, 170);
+            this.groupBox3.Location = new System.Drawing.Point(684, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(754, 152);
+            this.groupBox3.Size = new System.Drawing.Size(595, 162);
             this.groupBox3.TabIndex = 59;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Selecionar Aparelho";
             // 
             // txtAparelhoIdReadOnly
             // 
-            this.txtAparelhoIdReadOnly.Location = new System.Drawing.Point(476, 33);
+            this.txtAparelhoIdReadOnly.Location = new System.Drawing.Point(423, 33);
             this.txtAparelhoIdReadOnly.MaxLength = 9;
             this.txtAparelhoIdReadOnly.Name = "txtAparelhoIdReadOnly";
             this.txtAparelhoIdReadOnly.ReadOnly = true;
-            this.txtAparelhoIdReadOnly.Size = new System.Drawing.Size(248, 20);
+            this.txtAparelhoIdReadOnly.Size = new System.Drawing.Size(163, 20);
             this.txtAparelhoIdReadOnly.TabIndex = 79;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(420, 36);
+            this.label12.Location = new System.Drawing.Point(367, 36);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(20, 13);
             this.label12.TabIndex = 78;
@@ -400,18 +488,18 @@
             // 
             // txtImei1ReadOnly
             // 
-            this.txtImei1ReadOnly.Location = new System.Drawing.Point(476, 111);
+            this.txtImei1ReadOnly.Location = new System.Drawing.Point(423, 111);
             this.txtImei1ReadOnly.MaxLength = 9;
             this.txtImei1ReadOnly.Name = "txtImei1ReadOnly";
             this.txtImei1ReadOnly.ReadOnly = true;
-            this.txtImei1ReadOnly.Size = new System.Drawing.Size(248, 20);
+            this.txtImei1ReadOnly.Size = new System.Drawing.Size(163, 20);
             this.txtImei1ReadOnly.TabIndex = 77;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(420, 114);
+            this.label7.Location = new System.Drawing.Point(367, 114);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 13);
             this.label7.TabIndex = 76;
@@ -419,18 +507,18 @@
             // 
             // txtModeloReadOnly
             // 
-            this.txtModeloReadOnly.Location = new System.Drawing.Point(476, 85);
+            this.txtModeloReadOnly.Location = new System.Drawing.Point(423, 85);
             this.txtModeloReadOnly.MaxLength = 9;
             this.txtModeloReadOnly.Name = "txtModeloReadOnly";
             this.txtModeloReadOnly.ReadOnly = true;
-            this.txtModeloReadOnly.Size = new System.Drawing.Size(248, 20);
+            this.txtModeloReadOnly.Size = new System.Drawing.Size(163, 20);
             this.txtModeloReadOnly.TabIndex = 75;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(420, 88);
+            this.label8.Location = new System.Drawing.Point(367, 88);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 13);
             this.label8.TabIndex = 74;
@@ -438,18 +526,18 @@
             // 
             // txtMarcaReadOnly
             // 
-            this.txtMarcaReadOnly.Location = new System.Drawing.Point(476, 59);
+            this.txtMarcaReadOnly.Location = new System.Drawing.Point(423, 59);
             this.txtMarcaReadOnly.MaxLength = 9;
             this.txtMarcaReadOnly.Name = "txtMarcaReadOnly";
             this.txtMarcaReadOnly.ReadOnly = true;
-            this.txtMarcaReadOnly.Size = new System.Drawing.Size(248, 20);
+            this.txtMarcaReadOnly.Size = new System.Drawing.Size(163, 20);
             this.txtMarcaReadOnly.TabIndex = 73;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(420, 62);
+            this.label10.Location = new System.Drawing.Point(367, 62);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(42, 13);
             this.label10.TabIndex = 72;
@@ -471,7 +559,7 @@
             this.dgvAparelhos.Name = "dgvAparelhos";
             this.dgvAparelhos.ReadOnly = true;
             this.dgvAparelhos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAparelhos.Size = new System.Drawing.Size(393, 82);
+            this.dgvAparelhos.Size = new System.Drawing.Size(351, 92);
             this.dgvAparelhos.TabIndex = 71;
             this.dgvAparelhos.Visible = false;
             this.dgvAparelhos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAparelhos_CellDoubleClick);
@@ -509,7 +597,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(435, 508);
+            this.btnExcluir.Location = new System.Drawing.Point(663, 535);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 63;
@@ -518,7 +606,7 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(354, 508);
+            this.btnLimpar.Location = new System.Drawing.Point(582, 535);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpar.TabIndex = 62;
@@ -527,7 +615,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(273, 508);
+            this.btnSalvar.Location = new System.Drawing.Point(501, 535);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 61;
@@ -535,62 +623,334 @@
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
-            // dgvCelulares
+            // dgvTermoCelulares
             // 
-            this.dgvCelulares.AllowUserToAddRows = false;
-            this.dgvCelulares.AllowUserToDeleteRows = false;
-            this.dgvCelulares.AllowUserToOrderColumns = true;
-            this.dgvCelulares.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvTermoCelulares.AllowUserToAddRows = false;
+            this.dgvTermoCelulares.AllowUserToDeleteRows = false;
+            this.dgvTermoCelulares.AllowUserToOrderColumns = true;
+            this.dgvTermoCelulares.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvCelulares.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvCelulares.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvCelulares.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCelulares.Location = new System.Drawing.Point(13, 537);
-            this.dgvCelulares.MultiSelect = false;
-            this.dgvCelulares.Name = "dgvCelulares";
-            this.dgvCelulares.ReadOnly = true;
-            this.dgvCelulares.Size = new System.Drawing.Size(753, 233);
-            this.dgvCelulares.TabIndex = 60;
+            this.dgvTermoCelulares.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvTermoCelulares.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvTermoCelulares.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTermoCelulares.Location = new System.Drawing.Point(13, 564);
+            this.dgvTermoCelulares.MultiSelect = false;
+            this.dgvTermoCelulares.Name = "dgvTermoCelulares";
+            this.dgvTermoCelulares.ReadOnly = true;
+            this.dgvTermoCelulares.Size = new System.Drawing.Size(1265, 229);
+            this.dgvTermoCelulares.TabIndex = 60;
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(18, 496);
+            this.txtId.Location = new System.Drawing.Point(12, 40);
             this.txtId.MaxLength = 9;
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(53, 20);
+            this.txtId.Size = new System.Drawing.Size(62, 20);
             this.txtId.TabIndex = 83;
             // 
-            // FrmCelulares
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.dgvCarregadores);
+            this.groupBox4.Controls.Add(this.txtCarregador);
+            this.groupBox4.Controls.Add(this.txtCarregadorIdReadOnly);
+            this.groupBox4.Controls.Add(this.label15);
+            this.groupBox4.Controls.Add(this.txtNumSerieReadOnly);
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.Controls.Add(this.txtCarregadorMarcaReadOnly);
+            this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Controls.Add(this.btnNovaPesquisaCarregador);
+            this.groupBox4.Controls.Add(this.label18);
+            this.groupBox4.Location = new System.Drawing.Point(12, 180);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(666, 162);
+            this.groupBox4.TabIndex = 84;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Selecionar Carregador";
+            // 
+            // dgvCarregadores
+            // 
+            this.dgvCarregadores.AllowUserToAddRows = false;
+            this.dgvCarregadores.AllowUserToDeleteRows = false;
+            this.dgvCarregadores.AllowUserToOrderColumns = true;
+            this.dgvCarregadores.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvCarregadores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvCarregadores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvCarregadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCarregadores.Location = new System.Drawing.Point(6, 68);
+            this.dgvCarregadores.MultiSelect = false;
+            this.dgvCarregadores.Name = "dgvCarregadores";
+            this.dgvCarregadores.ReadOnly = true;
+            this.dgvCarregadores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCarregadores.Size = new System.Drawing.Size(365, 88);
+            this.dgvCarregadores.TabIndex = 83;
+            this.dgvCarregadores.Visible = false;
+            this.dgvCarregadores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarregadores_CellDoubleClick);
+            this.dgvCarregadores.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvCarregadores_KeyDown);
+            this.dgvCarregadores.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvCarregadores_KeyPress);
+            // 
+            // txtCarregador
+            // 
+            this.txtCarregador.Location = new System.Drawing.Point(6, 40);
+            this.txtCarregador.MaxLength = 9;
+            this.txtCarregador.Name = "txtCarregador";
+            this.txtCarregador.Size = new System.Drawing.Size(264, 20);
+            this.txtCarregador.TabIndex = 82;
+            this.txtCarregador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCarregador_KeyPress);
+            // 
+            // txtCarregadorIdReadOnly
+            // 
+            this.txtCarregadorIdReadOnly.Location = new System.Drawing.Point(439, 40);
+            this.txtCarregadorIdReadOnly.MaxLength = 9;
+            this.txtCarregadorIdReadOnly.Name = "txtCarregadorIdReadOnly";
+            this.txtCarregadorIdReadOnly.ReadOnly = true;
+            this.txtCarregadorIdReadOnly.Size = new System.Drawing.Size(179, 20);
+            this.txtCarregadorIdReadOnly.TabIndex = 81;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(383, 43);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(20, 13);
+            this.label15.TabIndex = 80;
+            this.label15.Text = "ID";
+            // 
+            // txtNumSerieReadOnly
+            // 
+            this.txtNumSerieReadOnly.Location = new System.Drawing.Point(439, 92);
+            this.txtNumSerieReadOnly.MaxLength = 9;
+            this.txtNumSerieReadOnly.Name = "txtNumSerieReadOnly";
+            this.txtNumSerieReadOnly.ReadOnly = true;
+            this.txtNumSerieReadOnly.Size = new System.Drawing.Size(179, 20);
+            this.txtNumSerieReadOnly.TabIndex = 56;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(383, 95);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(53, 13);
+            this.label16.TabIndex = 55;
+            this.label16.Text = "N. Série";
+            // 
+            // txtCarregadorMarcaReadOnly
+            // 
+            this.txtCarregadorMarcaReadOnly.Location = new System.Drawing.Point(439, 66);
+            this.txtCarregadorMarcaReadOnly.MaxLength = 9;
+            this.txtCarregadorMarcaReadOnly.Name = "txtCarregadorMarcaReadOnly";
+            this.txtCarregadorMarcaReadOnly.ReadOnly = true;
+            this.txtCarregadorMarcaReadOnly.Size = new System.Drawing.Size(179, 20);
+            this.txtCarregadorMarcaReadOnly.TabIndex = 54;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(383, 69);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(42, 13);
+            this.label17.TabIndex = 53;
+            this.label17.Text = "Marca";
+            // 
+            // btnNovaPesquisaCarregador
+            // 
+            this.btnNovaPesquisaCarregador.Location = new System.Drawing.Point(276, 37);
+            this.btnNovaPesquisaCarregador.Name = "btnNovaPesquisaCarregador";
+            this.btnNovaPesquisaCarregador.Size = new System.Drawing.Size(95, 25);
+            this.btnNovaPesquisaCarregador.TabIndex = 52;
+            this.btnNovaPesquisaCarregador.Text = "Nova Pesquisa";
+            this.btnNovaPesquisaCarregador.UseVisualStyleBackColor = true;
+            this.btnNovaPesquisaCarregador.Click += new System.EventHandler(this.btnNovaPesquisaCarregador_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(3, 22);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(72, 13);
+            this.label18.TabIndex = 41;
+            this.label18.Text = "Carregador (*)";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label25);
+            this.groupBox5.Controls.Add(this.lnkTermoDeolucao);
+            this.groupBox5.Controls.Add(this.txtId);
+            this.groupBox5.Controls.Add(this.label23);
+            this.groupBox5.Controls.Add(this.lnkTermoEntrega);
+            this.groupBox5.Controls.Add(this.label22);
+            this.groupBox5.Controls.Add(this.maskedTextBox1);
+            this.groupBox5.Controls.Add(this.label21);
+            this.groupBox5.Controls.Add(this.txtDataEntrega);
+            this.groupBox5.Controls.Add(this.label20);
+            this.groupBox5.Controls.Add(this.label19);
+            this.groupBox5.Controls.Add(this.cboGestores);
+            this.groupBox5.Controls.Add(this.chkFoneOuvido);
+            this.groupBox5.Location = new System.Drawing.Point(684, 180);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(595, 162);
+            this.groupBox5.TabIndex = 85;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Outros Dados";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(9, 24);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(65, 13);
+            this.label25.TabIndex = 80;
+            this.label25.Text = "Num. Termo";
+            // 
+            // lnkTermoDeolucao
+            // 
+            this.lnkTermoDeolucao.AutoSize = true;
+            this.lnkTermoDeolucao.Location = new System.Drawing.Point(9, 129);
+            this.lnkTermoDeolucao.Name = "lnkTermoDeolucao";
+            this.lnkTermoDeolucao.Size = new System.Drawing.Size(90, 13);
+            this.lnkTermoDeolucao.TabIndex = 79;
+            this.lnkTermoDeolucao.TabStop = true;
+            this.lnkTermoDeolucao.Text = "Adicionar Arquivo";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(9, 116);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(145, 13);
+            this.label23.TabIndex = 78;
+            this.label23.Text = "Link do Termo de Devolução";
+            // 
+            // lnkTermoEntrega
+            // 
+            this.lnkTermoEntrega.AutoSize = true;
+            this.lnkTermoEntrega.Location = new System.Drawing.Point(9, 88);
+            this.lnkTermoEntrega.Name = "lnkTermoEntrega";
+            this.lnkTermoEntrega.Size = new System.Drawing.Size(90, 13);
+            this.lnkTermoEntrega.TabIndex = 77;
+            this.lnkTermoEntrega.TabStop = true;
+            this.lnkTermoEntrega.Text = "Adicionar Arquivo";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(9, 75);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(75, 13);
+            this.label22.TabIndex = 76;
+            this.label22.Text = "Link do Termo";
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(182, 40);
+            this.maskedTextBox1.Mask = "00/00/0000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(86, 20);
+            this.maskedTextBox1.TabIndex = 75;
+            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(179, 23);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(98, 13);
+            this.label21.TabIndex = 74;
+            this.label21.Text = "Data Devolução (*)";
+            // 
+            // txtDataEntrega
+            // 
+            this.txtDataEntrega.Location = new System.Drawing.Point(80, 40);
+            this.txtDataEntrega.Mask = "00/00/0000";
+            this.txtDataEntrega.Name = "txtDataEntrega";
+            this.txtDataEntrega.Size = new System.Drawing.Size(86, 20);
+            this.txtDataEntrega.TabIndex = 73;
+            this.txtDataEntrega.ValidatingType = typeof(System.DateTime);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(77, 23);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(83, 13);
+            this.label20.TabIndex = 72;
+            this.label20.Text = "Data Entrega (*)";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(282, 23);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(51, 13);
+            this.label19.TabIndex = 42;
+            this.label19.Text = "Gestor (*)";
+            // 
+            // cboGestores
+            // 
+            this.cboGestores.FormattingEnabled = true;
+            this.cboGestores.Location = new System.Drawing.Point(285, 39);
+            this.cboGestores.Name = "cboGestores";
+            this.cboGestores.Size = new System.Drawing.Size(170, 21);
+            this.cboGestores.TabIndex = 1;
+            // 
+            // chkFoneOuvido
+            // 
+            this.chkFoneOuvido.AutoSize = true;
+            this.chkFoneOuvido.Location = new System.Drawing.Point(461, 40);
+            this.chkFoneOuvido.Name = "chkFoneOuvido";
+            this.chkFoneOuvido.Size = new System.Drawing.Size(102, 17);
+            this.chkFoneOuvido.TabIndex = 0;
+            this.chkFoneOuvido.Text = "Fone de Ouvido";
+            this.chkFoneOuvido.UseVisualStyleBackColor = true;
+            // 
+            // FrmTermoCelular
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 782);
-            this.Controls.Add(this.txtId);
+            this.ClientSize = new System.Drawing.Size(1286, 805);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnSalvar);
-            this.Controls.Add(this.dgvCelulares);
+            this.Controls.Add(this.dgvTermoCelulares);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
-            this.Name = "FrmCelulares";
+            this.Name = "FrmTermoCelular";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Celulaes";
+            this.Text = "Termo de Celular";
             this.Load += new System.EventHandler(this.FrmCelulares_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLinhas)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuariosAdicionados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAparelhos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCelulares)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTermoCelulares)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCarregadores)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -618,7 +978,7 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnSalvar;
-        private System.Windows.Forms.DataGridView dgvCelulares;
+        private System.Windows.Forms.DataGridView dgvTermoCelulares;
         private System.Windows.Forms.TextBox txtAparelhoIdReadOnly;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtImei1ReadOnly;
@@ -638,5 +998,33 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridView dgvLinhas;
         private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DataGridView dgvCarregadores;
+        private System.Windows.Forms.TextBox txtCarregador;
+        private System.Windows.Forms.TextBox txtCarregadorIdReadOnly;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtNumSerieReadOnly;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtCarregadorMarcaReadOnly;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button btnNovaPesquisaCarregador;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.CheckBox chkFoneOuvido;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ComboBox cboGestores;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.MaskedTextBox txtDataEntrega;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.LinkLabel lnkTermoDeolucao;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.LinkLabel lnkTermoEntrega;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.DataGridView dgvUsuariosAdicionados;
+        private System.Windows.Forms.Button btnAddUsuario;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button btnRemover;
+        private System.Windows.Forms.Label label25;
     }
 }

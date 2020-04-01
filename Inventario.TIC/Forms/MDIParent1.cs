@@ -235,7 +235,7 @@ namespace Inventario.TIC
 
         private void celularesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCelulares newMDIChild = new FrmCelulares();
+            FrmTermoCelular newMDIChild = new FrmTermoCelular();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }

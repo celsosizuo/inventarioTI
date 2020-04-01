@@ -11,55 +11,93 @@ using System.Windows.Forms;
 
 namespace Inventario.TIC.Forms
 {
-    public partial class FrmCelulares : Form
+    public partial class FrmTermoCelular : Form
     {
         private List<Linha> _linhas;
         private List<Usuario> _usuarios;
         private List<Aparelho> _aparelhos;
-        private List<Celular> _celulares;
-        private List<Celular> _celularesOriginal;
-        private List<CelularResponse> _celularesResponse;
+        private List<Carregador> _carregadores;
+        private List<TermoCelular> _termoCelulares;
+        private List<TermoCelular> _termoCelularesOriginal;
+        private List<Gestor> _gestores;
+        private List<Usuario> _usuariosAdicionados;
+        private List<TermoCelularResponse> _termoCelularesResponse;
 
-        public FrmCelulares()
+        public FrmTermoCelular()
         {
             _linhas = new List<Linha>();
             _usuarios = new List<Usuario>();
             _aparelhos = new List<Aparelho>();
-            _celulares = new List<Celular>();
-            _celularesOriginal = new List<Celular>();
+            _termoCelulares = new List<TermoCelular>();
+            _carregadores = new List<Carregador>();
+            _termoCelularesOriginal = new List<TermoCelular>();
+            _gestores = new List<Gestor>();
+            _usuariosAdicionados = new List<Usuario>();
+            _termoCelularesResponse = new List<TermoCelularResponse>();
             InitializeComponent();
         }
 
         private void AtualizaDataGridView()
         {
-            this.dgvCelulares.DataSource = null;
-            this.dgvCelulares.DataSource = _celulares;
+            this.dgvTermoCelulares.DataSource = null;
+            this.dgvTermoCelulares.DataSource = _termoCelularesResponse;
 
             // Ocultando colunas desnecessárias
-            this.dgvCelulares.Columns["CascadeMode"].Visible = false;
+            this.dgvTermoCelulares.Columns["LinhaId"].Visible = false;
+            this.dgvTermoCelulares.Columns["AparelhoId"].Visible = false;
+            this.dgvTermoCelulares.Columns["CarregadorId"].Visible = false;
+            this.dgvTermoCelulares.Columns["GestorId"].Visible = false;
+        }
+
+        private void AtualizarDataGridViewUsuariosAdicionados()
+        {
+            this.dgvUsuariosAdicionados.DataSource = null;
+            this.dgvUsuariosAdicionados.DataSource = _usuariosAdicionados;
+            this.dgvUsuariosAdicionados.Columns["CascadeMode"].Visible = false;
         }
 
         private void CarregarDataGridView()
         {
             // Carregando a lista de computadores
-            //CelularRepository c = new CelularRepository();
-            //_celularesResponse = c.GetLicencasResponses().ToList();
-            //_celularesResponseOriginal = _celularesResponse;
-            //_celulares = _celularesResponse.Select(x => (Licenca)x).ToList();
+            TermoCelularRepository c = new TermoCelularRepository();
+            _termoCelulares = c.Get();
 
-            //this.dgvLicencas.DataSource = _celularesResponse;
-            //this.AtualizaDataGridView();
+            _termoCelularesResponse = _termoCelulares.Select(x => (TermoCelularResponse)x).ToList();
+            _termoCelularesOriginal = _termoCelulares;
+
+            this.dgvTermoCelulares.DataSource = _termoCelularesResponse;
+            this.AtualizaDataGridView();
         }
-
 
         private void FrmCelulares_Load(object sender, EventArgs e)
         {
-            CelularRepository celulares = new CelularRepository();
+            GestorRepository gestor = new GestorRepository();
 
-            _celulares = celulares.Get();
-            _celularesOriginal = _celulares;
-            this.dgvCelulares.DataSource = _celulares;
-            this.AtualizaDataGridView();
+            _gestores = gestor.Get();
+
+            Gestor gest = new Gestor()
+            {
+                Id = 0,
+                Nome = "",
+                Status = 0,
+                StatusDescricao = ""
+            };
+            _gestores.Insert(0, gest);
+
+            this.cboGestores.DataSource = _gestores;
+            this.cboGestores.ValueMember = "Id";
+            this.cboGestores.DisplayMember = "Nome";
+
+            this.CarregarDataGridView();
+
+            //CelularRepository celulares = new CelularRepository();
+
+            //_celulares = celulares.Get();
+            //_celularesOriginal = _celulares;
+            //this.dgvCelulares.DataSource = _celulares;
+            //this.AtualizaDataGridView();
+
+
         }
 
         private void btnNovaPesquisaLinha_Click(object sender, EventArgs e)
@@ -201,9 +239,8 @@ namespace Inventario.TIC.Forms
                     this.txtUsuario.Text = _usuarios[RowIndex].Nome.ToString();
                     this.txtUsuario.Enabled = false;
 
+                    this.btnAddUsuario.Focus();
                     this.dgvUsuarios.Visible = false;
-
-                    this.txtImei1.Focus();
                 }
             }
         }
@@ -299,18 +336,22 @@ namespace Inventario.TIC.Forms
         {
             try
             {
-                CelularRepository celularRepository = new CelularRepository();
-                Celular celular;
+                TermoCelularRepository celularRepository = new TermoCelularRepository();
+                TermoCelular celular;
 
                 if (this.txtId.Text == "")
-                    celular = new Celular();
+                    celular = new TermoCelular();
                 else
-                    celular = _celulares.Find(n => n.Id == int.Parse(this.txtId.Text));
+                    celular = _termoCelulares.Find(n => n.Id == int.Parse(this.txtId.Text));
 
                 celular.Id = this.txtId.Text == "" ? 0 : Convert.ToInt32(this.txtId.Text);
-                celular.AparelhoId = int.Parse(this.txtAparelhoIdReadOnly.Text);
-                celular.UsuarioId = int.Parse(this.txtUsuarioIdReadOnly.Text);
                 celular.LinhaId = int.Parse(this.txtLinhaIdReadOnly.Text);
+                celular.AparelhoId = int.Parse(this.txtAparelhoIdReadOnly.Text);
+                celular.CarregadorId = int.Parse(this.txtCarregadorIdReadOnly.Text);
+                celular.GestorId = int.Parse(this.cboGestores.SelectedValue.ToString());
+                celular.FoneOuvido = int.Parse(this.chkFoneOuvido.Checked == true ? "0" : "1");
+                celular.DataEntrega = DateTime.Parse(this.txtDataEntrega.Text);
+                celular.DataDevolucao = null;
 
                 if (celular.EhValido())
                 {
@@ -319,7 +360,7 @@ namespace Inventario.TIC.Forms
                         string retorno = celularRepository.Add(celular);
                         this.txtId.Text = retorno.ToString();
                         celular.Id = int.Parse(retorno);
-                        _celulares.Add(celular);
+                        _termoCelulares.Add(celular);
                         MessageBox.Show("Inclusão efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                     //else
@@ -340,6 +381,135 @@ namespace Inventario.TIC.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtCarregador_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Pressionou a tecla enter
+            if ((Keys)e.KeyChar == Keys.Enter)
+            {
+                this.dgvCarregadores.Visible = true;
+
+                List<Carregador> c = new List<Carregador>();
+                CarregadorRepository carregadorRepository = new CarregadorRepository();
+
+                c = carregadorRepository.Get().Where(m => m.NumSerie.Contains(this.txtNumSerieReadOnly.Text)).ToList();
+                _carregadores = c;
+
+                this.dgvCarregadores.DataSource = c;
+                this.dgvCarregadores.Visible = true;
+                this.dgvCarregadores.Focus();
+            }
+        }
+
+        private void dgvCarregadores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                this.txtCarregadorIdReadOnly.Text = _carregadores[e.RowIndex].Id.ToString();
+                this.txtCarregadorMarcaReadOnly.Text = _carregadores[e.RowIndex].Marca.ToString();
+                this.txtNumSerieReadOnly.Text = _carregadores[e.RowIndex].NumSerie.ToString();
+                this.txtCarregador.Enabled = false;
+
+                this.dgvCarregadores.Visible = false;
+                // this.txtImei1.Focus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvCarregadores_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+                e.Handled = true;
+        }
+
+        private void dgvCarregadores_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (this.dgvCarregadores.Rows.Count > 0)
+            {
+                if ((Keys)e.KeyChar == Keys.Enter)
+                {
+                    try
+                    {
+                        int RowIndex = this.dgvCarregadores.CurrentRow.Index;
+
+                        this.txtCarregadorIdReadOnly.Text = _carregadores[RowIndex].Id.ToString();
+                        this.txtCarregadorMarcaReadOnly.Text = _carregadores[RowIndex].Marca.ToString();
+                        this.txtNumSerieReadOnly.Text = _carregadores[RowIndex].NumSerie.ToString();
+                        this.txtCarregador.Enabled = false;
+
+                        this.dgvCarregadores.Visible = false;
+                        // this.txtImei1.Focus();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void btnNovaPesquisaCarregador_Click(object sender, EventArgs e)
+        {
+            this.txtCarregadorIdReadOnly.Clear();
+            this.txtCarregadorMarcaReadOnly.Clear();
+            this.txtNumSerieReadOnly.Clear();
+            this.txtCarregador.Clear();
+            this.txtCarregador.Enabled = true;
+            this.dgvCarregadores.Visible = false;
+            this.dgvCarregadores.DataSource = null;
+        }
+
+        private void btnAddUsuario_Click(object sender, EventArgs e)
+        {
+            if(this.txtUsuarioIdReadOnly.Text != "")
+            {
+                Usuario usuario = new Usuario()
+                {
+                    Id = int.Parse(this.txtUsuarioIdReadOnly.Text),
+                    Chapa = this.txtChapaReadOnly.Text,
+                    Nome = this.txtNomeReadOnly.Text,
+                    Cpf = this.txtCpfReadOnly.Text
+                };
+
+                _usuariosAdicionados.Add(usuario);
+                this.AtualizarDataGridViewUsuariosAdicionados();
+
+                this.txtUsuario.Clear();
+                this.txtUsuarioIdReadOnly.Clear();
+                this.txtUsuario.Enabled = true;
+                this.txtChapaReadOnly.Clear();
+                this.txtCpfReadOnly.Clear();
+                this.txtNomeReadOnly.Clear();
+                this.dgvUsuarios.Visible = false;
+                this.dgvUsuarios.DataSource = null;
+
+                this.txtUsuario.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Favor selecionar um usuário", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+            if(this.dgvUsuariosAdicionados.Rows.Count > 0)
+            {
+                int RowIndex = this.dgvUsuariosAdicionados.CurrentRow.Index;
+                if (RowIndex < 0)
+                {
+                    MessageBox.Show("Favor selecionar um usuário na lista", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    _usuariosAdicionados.RemoveAt(RowIndex);
+                    AtualizarDataGridViewUsuariosAdicionados();
+                }
             }
         }
     }
