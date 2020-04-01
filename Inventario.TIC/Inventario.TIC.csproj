@@ -105,6 +105,8 @@
     <Compile Include="Class\ComputadorStatus.cs" />
     <Compile Include="Class\ComputadorStatusRepository.cs" />
     <Compile Include="Class\Disco.cs" />
+    <Compile Include="Class\Gestor.cs" />
+    <Compile Include="Class\GestorRepository.cs" />
     <Compile Include="Class\Licenca.cs" />
     <Compile Include="Class\LicencaRepository.cs" />
     <Compile Include="Class\LicencasResponse.cs" />
@@ -159,6 +161,12 @@
     </Compile>
     <Compile Include="Forms\FrmComputadores.Designer.cs">
       <DependentUpon>FrmComputadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmGestores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmGestores.Designer.cs">
+      <DependentUpon>FrmGestores.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmLicencas.cs">
       <SubType>Form</SubType>
@@ -231,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmComputadores.resx">
       <DependentUpon>FrmComputadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmGestores.resx">
+      <DependentUpon>FrmGestores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmLicencas.resx">
       <DependentUpon>FrmLicencas.cs</DependentUpon>

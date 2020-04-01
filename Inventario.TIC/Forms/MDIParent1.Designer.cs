@@ -43,6 +43,7 @@
             this.cadastroDeAparelhosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeCarregadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeUsuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.celularesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerenciamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeRamaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,7 +64,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.celularesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroDeGestoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -144,6 +145,7 @@
             this.cadastroDeAparelhosToolStripMenuItem,
             this.cadastroDeCarregadoresToolStripMenuItem,
             this.cadastroDeUsuáriosToolStripMenuItem,
+            this.cadastroDeGestoresToolStripMenuItem,
             this.celularesToolStripMenuItem});
             this.inventárioCelularesToolStripMenuItem.Name = "inventárioCelularesToolStripMenuItem";
             this.inventárioCelularesToolStripMenuItem.Size = new System.Drawing.Size(123, 20);
@@ -176,6 +178,13 @@
             this.cadastroDeUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.cadastroDeUsuáriosToolStripMenuItem.Text = "Cadastro de Usuários";
             this.cadastroDeUsuáriosToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeUsuáriosToolStripMenuItem_Click);
+            // 
+            // celularesToolStripMenuItem
+            // 
+            this.celularesToolStripMenuItem.Name = "celularesToolStripMenuItem";
+            this.celularesToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.celularesToolStripMenuItem.Text = "Celulares";
+            this.celularesToolStripMenuItem.Click += new System.EventHandler(this.celularesToolStripMenuItem_Click);
             // 
             // gerenciamentoToolStripMenuItem
             // 
@@ -326,12 +335,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // celularesToolStripMenuItem
+            // cadastroDeGestoresToolStripMenuItem
             // 
-            this.celularesToolStripMenuItem.Name = "celularesToolStripMenuItem";
-            this.celularesToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.celularesToolStripMenuItem.Text = "Celulares";
-            this.celularesToolStripMenuItem.Click += new System.EventHandler(this.celularesToolStripMenuItem_Click);
+            this.cadastroDeGestoresToolStripMenuItem.Name = "cadastroDeGestoresToolStripMenuItem";
+            this.cadastroDeGestoresToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.cadastroDeGestoresToolStripMenuItem.Text = "Cadastro de Gestores";
+            this.cadastroDeGestoresToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeGestoresToolStripMenuItem_Click);
             // 
             // MDIParent1
             // 
@@ -392,6 +401,7 @@
         private System.Windows.Forms.ToolStripMenuItem cadastroDeCarregadoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroDeUsuáriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem celularesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroDeGestoresToolStripMenuItem;
     }
 }
 
