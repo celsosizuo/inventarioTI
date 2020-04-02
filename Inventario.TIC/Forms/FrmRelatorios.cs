@@ -19,12 +19,14 @@ namespace Inventario.TIC.Forms
             InitializeComponent();
             this.reportViewer1.ServerReport.ReportPath = "/TI/" + relatorio;
 
-            if(relatorio == "TermoEntrega")
-            {
-                //ReportParameter parametro1 = new ReportParameter(parametro, )
-                //this.reportViewer1.ServerReport.SetParameters()
-            }
+            List<ReportParameter> parametro1 = new List<ReportParameter>();
 
+            parametro.ForEach(p =>
+            {
+                parametro1.Add(new ReportParameter(p.Parametro, p.Valor, true));
+            });
+
+            this.reportViewer1.ServerReport.SetParameters(parametro1);
             this.reportViewer1.RefreshReport();
         }
 

@@ -830,8 +830,14 @@ namespace Inventario.TIC.Forms
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Computadores");
-            newMDIChild.MdiParent = this;
+            List<ParametrosRelatorio> parametros = new List<ParametrosRelatorio>();
+            parametros.Add(new ParametrosRelatorio
+            {
+                Parametro = "LINHANUMERO",
+                Valor = this.txtNumeroReadOnly.Text,
+            });
+            
+            FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Termo.Entrega.Celular", parametros);
             newMDIChild.Show();
         }
     }

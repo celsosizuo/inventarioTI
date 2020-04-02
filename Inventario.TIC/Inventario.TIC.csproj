@@ -94,6 +94,7 @@
     <Compile Include="Carregador.cs" />
     <Compile Include="Class\AparelhoRepository.cs" />
     <Compile Include="Class\CarregadorRepository.cs" />
+    <Compile Include="Class\ParametrosRelatorio.cs" />
     <Compile Include="Class\TermoCelular.cs" />
     <Compile Include="Class\TermoCelularRepository.cs" />
     <Compile Include="Class\TermoCelularResponse.cs" />

@@ -1,4 +1,5 @@
-﻿using Inventario.TIC.Forms;
+﻿using Inventario.TIC.Class;
+using Inventario.TIC.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -186,22 +187,25 @@ namespace Inventario.TIC
 
         private void licençasUtilizadasXNãoUtilizadasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Licencas.Nao.Utilizadas");
-            newMDIChild.MdiParent = this;
+            List<ParametrosRelatorio> parametros = new List<ParametrosRelatorio>();
+            FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Licencas.Nao.Utilizadas", parametros);
+            // newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
 
         private void listaDeRamaisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Computadores");
-            newMDIChild.MdiParent = this;
+            List<ParametrosRelatorio> parametros = new List<ParametrosRelatorio>();
+            FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Computadores", parametros);
+            // newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
 
         private void computadoresXLicençasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Computadores.Licencas");
-            newMDIChild.MdiParent = this;
+            List<ParametrosRelatorio> parametros = new List<ParametrosRelatorio>();
+            FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Computadores.Licencas", parametros);
+            // newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
 
