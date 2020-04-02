@@ -18,6 +18,7 @@ namespace Inventario.TIC.Class
         public int AparelhoId { get; set; }
         public int CarregadorId { get; set; }
         public int FoneOuvido { get; set; }
+        public string FoneOuvidoDescricao { get; set; }
         public int GestorId { get; set; }
         public DateTime DataEntrega { get; set; }
         public DateTime? DataDevolucao { get; set; }
@@ -42,7 +43,8 @@ namespace Inventario.TIC.Class
                 Modelo = entity.Aparelho.Modelo,
                 NomeGestor = entity.Gestor.Nome,
                 Numero = entity.Linha.Numero,
-                Usuario = entity.Usuario.Nome
+                Usuario = entity.Usuario[0].Nome,
+                FoneOuvidoDescricao = entity.FoneOuvidoDescricao,
             };
 
             return termoCelularResponse;

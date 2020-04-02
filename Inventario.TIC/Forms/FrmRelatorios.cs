@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Inventario.TIC.Class;
+using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,16 +14,22 @@ namespace Inventario.TIC.Forms
 {
     public partial class FrmRelatorios : Form
     {
-        public FrmRelatorios(string relatorio)
+        public FrmRelatorios(string relatorio, List<ParametrosRelatorio> parametro)
         {
             InitializeComponent();
             this.reportViewer1.ServerReport.ReportPath = "/TI/" + relatorio;
+
+            if(relatorio == "TermoEntrega")
+            {
+                //ReportParameter parametro1 = new ReportParameter(parametro, )
+                //this.reportViewer1.ServerReport.SetParameters()
+            }
+
             this.reportViewer1.RefreshReport();
         }
 
         private void FrmRelatorios_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

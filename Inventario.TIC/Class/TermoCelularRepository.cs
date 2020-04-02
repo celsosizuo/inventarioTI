@@ -48,6 +48,94 @@ namespace Inventario.TIC.Class
             }
         }
 
+        public void Update(TermoCelular celular)
+        {
+            try
+            {
+                if (celular.EhValido())
+                {
+                    SqlCommand command = new SqlCommand()
+                    {
+                        Connection = new SqlConnection(Properties.Settings.Default.conSQL),
+                        CommandType = CommandType.StoredProcedure,
+                        CommandText = "PUTTERMOCELULAR",
+                    };
+
+                    command.Parameters.AddWithValue("@LinhaId", celular.LinhaId);
+                    command.Parameters.AddWithValue("@AparelhoId", celular.AparelhoId);
+                    command.Parameters.AddWithValue("@CarregadorId", celular.CarregadorId);
+                    command.Parameters.AddWithValue("@FoneOuvido", celular.FoneOuvido);
+                    command.Parameters.AddWithValue("@GestorId", celular.GestorId);
+                    command.Parameters.AddWithValue("@DataEntrega", celular.DataEntrega);
+                    if(celular.DataDevolucao == null)
+                        command.Parameters.AddWithValue("@DataDevolucao", System.DBNull.Value);
+                    else
+                        command.Parameters.AddWithValue("@DataDevolucao", celular.DataDevolucao);
+
+                    command.Parameters.AddWithValue("@Id", celular.Id);
+
+                    command.Connection.Open();
+                    command.ExecuteScalar();
+                }
+                else
+                {
+                    throw new Exception(celular.GetErros());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public void UpdateLinkTermoEntrega(TermoCelular celular)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand()
+                {
+                    Connection = new SqlConnection(Properties.Settings.Default.conSQL),
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "POSTTERMOCELULARENTREGA",
+                };
+
+                command.Parameters.AddWithValue("@Id", celular.Id);
+                command.Parameters.AddWithValue("@LinkEntrega", celular.LinkEntrega);
+
+                command.Connection.Open();
+                command.ExecuteScalar();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public void UpdateLinkTermoDevolucao(TermoCelular celular)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand()
+                {
+                    Connection = new SqlConnection(Properties.Settings.Default.conSQL),
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "POSTTERMOCELULARDEVOLUCAO",
+                };
+
+                command.Parameters.AddWithValue("@Id", celular.Id);
+                command.Parameters.AddWithValue("@LinkDevolucao", celular.LinkDevolucao);
+
+                command.Connection.Open();
+                command.ExecuteScalar();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public void Delete(int id)
         {
             try
@@ -110,29 +198,29 @@ namespace Inventario.TIC.Class
                             celulares.Aparelho = aparelhos;
                             celulares.Carregador = carregador;
                             celulares.Gestor = gestor;
-                            celulares.Usuario = usuario;
+                            celulares.Usuario.Add(usuario);
 
                             return celulares;
 
                         }, splitOn: "ID, ID, ID, ID, ID, ID").AsList();
 
-                    return ret;
+                    // return ret;
                 }
 
-                //var list = new List<ComputadoresLicencas>();
-                //var numItemGuardado = 0;
+                var list = new List<TermoCelular>();
+                var numItemGuardado = 0;
 
-                //ret.ToList().ForEach(it =>
-                //{
-                //    if (it.ComputadoresId != numItemGuardado)
-                //        list.Add(it);
-                //    else
-                //        list.LastOrDefault().Licencas.Add(it.Licencas.FirstOrDefault());
+                ret.ToList().ForEach(it =>
+                {
+                    if (it.Id != numItemGuardado)
+                        list.Add(it);
+                    else
+                        list.LastOrDefault().Usuario.Add(it.Usuario.FirstOrDefault());
 
-                //    numItemGuardado = it.ComputadoresId;
-                //});
+                    numItemGuardado = it.Id;
+                });
 
-                // return ret;
+                return list;
             }
             catch (Exception ex)
             {

@@ -22,6 +22,7 @@ namespace Inventario.TIC.Forms
         private List<Gestor> _gestores;
         private List<Usuario> _usuariosAdicionados;
         private List<TermoCelularResponse> _termoCelularesResponse;
+        private TermoCelular _termoCelular;
 
         public FrmTermoCelular()
         {
@@ -47,6 +48,7 @@ namespace Inventario.TIC.Forms
             this.dgvTermoCelulares.Columns["AparelhoId"].Visible = false;
             this.dgvTermoCelulares.Columns["CarregadorId"].Visible = false;
             this.dgvTermoCelulares.Columns["GestorId"].Visible = false;
+            this.dgvTermoCelulares.Columns["FoneOuvido"].Visible = false;
         }
 
         private void AtualizarDataGridViewUsuariosAdicionados()
@@ -89,6 +91,9 @@ namespace Inventario.TIC.Forms
             this.cboGestores.DisplayMember = "Nome";
 
             this.CarregarDataGridView();
+
+            // this.toolTip1.SetToolTip(txtLinha, "Selecione a linha");
+
 
             //CelularRepository celulares = new CelularRepository();
 
@@ -338,79 +343,6 @@ namespace Inventario.TIC.Forms
             }
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                TermoCelularRepository celularRepository = new TermoCelularRepository();
-                TermoCelular celular;
-
-                if (this.txtId.Text == "")
-                    celular = new TermoCelular();
-                else
-                    celular = _termoCelulares.Find(n => n.Id == int.Parse(this.txtId.Text));
-
-                celular.Id = this.txtId.Text == "" ? 0 : Convert.ToInt32(this.txtId.Text);
-                celular.LinhaId = int.Parse(this.txtLinhaIdReadOnly.Text);
-                celular.AparelhoId = int.Parse(this.txtAparelhoIdReadOnly.Text);
-                celular.CarregadorId = int.Parse(this.txtCarregadorIdReadOnly.Text);
-                celular.GestorId = int.Parse(this.cboGestores.SelectedValue.ToString());
-                celular.FoneOuvido = int.Parse(this.chkFoneOuvido.Checked == true ? "0" : "1");
-                celular.DataEntrega = DateTime.Parse(this.txtDataEntrega.Text);
-                celular.DataDevolucao = null;
-
-                if(_usuariosAdicionados.Count > 0)
-                    celular.Usuario = _usuariosAdicionados[0];
-                else
-                {
-                    MessageBox.Show("Usuário não informado. Favor adicionar", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                if (celular.EhValido())
-                {
-                    if (celular.Id == 0)
-                    {
-                        string retorno = celularRepository.Add(celular);
-                        this.txtId.Text = retorno.ToString();
-                        celular.Id = int.Parse(retorno);
-                        _termoCelulares.Add(celular);
-
-                        _usuariosAdicionados.ForEach(x =>
-                        {
-                            TermoCelularUsuarios termoUsuario = new TermoCelularUsuarios()
-                            {
-                                TermoCelularId = int.Parse(retorno),
-                                UsuarioId = x.Id,
-                            };
-                            TermoCelularUsuarioRepository termoCelularUsuarioRepository = new TermoCelularUsuarioRepository();
-                            termoCelularUsuarioRepository.Add(termoUsuario);
-                        });
-
-                        MessageBox.Show("Inclusão efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    }
-                    //else
-                    //{
-                    //    celularRepository.Update(celular);
-                    //    MessageBox.Show("Atualização efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    //}
-                    this.CarregarDataGridView();
-                }
-                else
-                {
-                    string[] msgs = celular.GetErros().Split(';');
-                    string msg = "";
-                    msgs.ToList().ForEach(m => msg += m + "\n");
-
-                    throw new Exception(msg);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void txtCarregador_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Pressionou a tecla enter
@@ -541,5 +473,366 @@ namespace Inventario.TIC.Forms
             }
         }
 
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                TermoCelularRepository celularRepository = new TermoCelularRepository();
+                TermoCelular celular;
+
+                if (this.txtId.Text == "")
+                    celular = new TermoCelular();
+                else
+                    celular = _termoCelulares.Find(n => n.Id == int.Parse(this.txtId.Text));
+
+                celular.Id = this.txtId.Text == "" ? 0 : Convert.ToInt32(this.txtId.Text);
+                celular.LinhaId = int.Parse(this.txtLinhaIdReadOnly.Text);
+                celular.AparelhoId = int.Parse(this.txtAparelhoIdReadOnly.Text);
+                celular.CarregadorId = int.Parse(this.txtCarregadorIdReadOnly.Text);
+                celular.GestorId = int.Parse(this.cboGestores.SelectedValue.ToString());
+                celular.FoneOuvido = int.Parse(this.chkFoneOuvido.Checked == true ? "0" : "1");
+                celular.DataEntrega = DateTime.Parse(this.txtDataEntrega.Text);
+
+                if (this.txtDataDevolucao.Text == "  /  /")
+                    celular.DataDevolucao = null;
+                else
+                    celular.DataDevolucao = DateTime.Parse(this.txtDataDevolucao.Text);
+
+                if(_usuariosAdicionados.Count > 0)
+                    celular.Usuario = _usuariosAdicionados;
+                else
+                {
+                    MessageBox.Show("Usuário não informado. Favor adicionar", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (celular.EhValido())
+                {
+                    if (celular.Id == 0)
+                    {
+                        string retorno = celularRepository.Add(celular);
+                        this.txtId.Text = retorno.ToString();
+                        celular.Id = int.Parse(retorno);
+                        _termoCelulares.Add(celular);
+
+                        _usuariosAdicionados.ForEach(x =>
+                        {
+                            TermoCelularUsuarios termoUsuario = new TermoCelularUsuarios()
+                            {
+                                TermoCelularId = int.Parse(retorno),
+                                UsuarioId = x.Id,
+                            };
+                            TermoCelularUsuarioRepository termoCelularUsuarioRepository = new TermoCelularUsuarioRepository();
+                            termoCelularUsuarioRepository.Add(termoUsuario);
+                        });
+
+                        MessageBox.Show("Inclusão efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }
+                    else
+                    {
+                        celularRepository.Update(celular);
+
+                        TermoCelularUsuarioRepository termoCelularUsuarioRepository = new TermoCelularUsuarioRepository();
+                        termoCelularUsuarioRepository.Delete(celular.Id);
+
+                        _usuariosAdicionados.ForEach(x =>
+                        {
+                            TermoCelularUsuarios termoUsuario = new TermoCelularUsuarios()
+                            {
+                                TermoCelularId = celular.Id,
+                                UsuarioId = x.Id,
+                            };
+
+                            termoCelularUsuarioRepository.Add(termoUsuario);
+                        });
+
+                        MessageBox.Show("Atualização efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }
+                    this.CarregarDataGridView();
+                }
+                else
+                {
+                    string[] msgs = celular.GetErros().Split(';');
+                    string msg = "";
+                    msgs.ToList().ForEach(m => msg += m + "\n");
+
+                    throw new Exception(msg);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvTermoCelulares_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            _termoCelular = _termoCelularesOriginal[e.RowIndex];
+
+            // Dados Gerais
+            this.txtId.Text = _termoCelularesOriginal[e.RowIndex].Id.ToString();
+            this.txtDataEntrega.Text = _termoCelularesOriginal[e.RowIndex].DataEntrega.ToString();
+            this.txtDataDevolucao.Text = _termoCelularesOriginal[e.RowIndex].DataDevolucao == null ? "" : _termoCelularesOriginal[e.RowIndex].DataDevolucao.ToString();
+            this.cboGestores.SelectedValue = _termoCelularesOriginal[e.RowIndex].Gestor.Id;
+            this.chkFoneOuvido.Checked = _termoCelularesOriginal[e.RowIndex].FoneOuvido == 0 ? true : false;
+            this.txtLinkTermoEntrega.Text = _termoCelularesOriginal[e.RowIndex].LinkEntrega == null ? "" : _termoCelularesOriginal[e.RowIndex].LinkEntrega.ToString();
+            this.txtLinkTermoDevolucao.Text = _termoCelularesOriginal[e.RowIndex].LinkDevolucao == null ? "" : _termoCelularesOriginal[e.RowIndex].LinkDevolucao.ToString();
+
+            // Linha
+            this.txtLinha.Enabled = false;
+            this.txtLinha.Text = _termoCelularesOriginal[e.RowIndex].Linha.Numero.ToString();
+            this.txtNumeroReadOnly.Text = _termoCelularesOriginal[e.RowIndex].Linha.Numero.ToString();
+            this.txtLinhaIdReadOnly.Text = _termoCelularesOriginal[e.RowIndex].Linha.Id.ToString();
+            this.txtChipReadOnly.Text = _termoCelularesOriginal[e.RowIndex].Linha.Chip == null ? "" : _termoCelularesOriginal[e.RowIndex].Linha.Chip.ToString();
+
+            // Carregador
+            this.txtCarregador.Enabled = false;
+            this.txtCarregador.Text = _termoCelularesOriginal[e.RowIndex].Carregador.NumSerie.ToString();
+            this.txtCarregadorIdReadOnly.Text = _termoCelularesOriginal[e.RowIndex].Carregador.Id.ToString();
+            this.txtCarregadorMarcaReadOnly.Text = _termoCelularesOriginal[e.RowIndex].Carregador.Marca.ToString();
+            this.txtNumSerieReadOnly.Text = _termoCelularesOriginal[e.RowIndex].Carregador.NumSerie.ToString();
+
+            // Aparelho
+            this.txtImei1.Enabled = false;
+            this.txtImei1.Text = _termoCelularesOriginal[e.RowIndex].Aparelho.Imei1.ToString();
+            this.txtAparelhoIdReadOnly.Text = _termoCelularesOriginal[e.RowIndex].Aparelho.Id.ToString();
+            this.txtImei1ReadOnly.Text = _termoCelularesOriginal[e.RowIndex].Aparelho.Id.ToString();
+            this.txtMarcaReadOnly.Text = _termoCelularesOriginal[e.RowIndex].Aparelho.Marca.ToString();
+            this.txtModeloReadOnly.Text = _termoCelularesOriginal[e.RowIndex].Aparelho.Modelo.ToString();
+            this.txtImei1ReadOnly.Text = _termoCelularesOriginal[e.RowIndex].Aparelho.Imei1.ToString();
+
+            // Usuários
+            _usuariosAdicionados = _termoCelularesOriginal[e.RowIndex].Usuario;
+            this.dgvUsuariosAdicionados.DataSource = _termoCelularesOriginal[e.RowIndex].Usuario;
+            this.dgvUsuariosAdicionados.Columns["CascadeMode"].Visible = false;
+        }
+
+        private void lnkAddTermo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.opdTermoEntrega.ShowDialog();
+
+        }
+
+        private void opdTermoEntrega_FileOk(object sender, CancelEventArgs e)
+        {
+            try
+            {
+                this.txtLinkTermoEntrega.Text = this.opdTermoEntrega.FileName.ToString();
+                TermoCelularRepository termoRepository = new TermoCelularRepository();
+
+                _termoCelular.LinkEntrega = this.txtLinkTermoEntrega.Text;
+
+                termoRepository.UpdateLinkTermoEntrega(_termoCelular);
+
+                MessageBox.Show("Inclusão do link do termo efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                this.CarregarDataGridView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void lnkAbrirTermoEntrega_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if(this.txtLinkTermoEntrega.Text != "")
+            {
+                string link = this.txtLinkTermoEntrega.Text;
+
+                FrmVisualizadorAdobe frmVisualizadorAdobe = new FrmVisualizadorAdobe(link);
+                // frmVisualizadorAdobe.MdiParent = MdiParent;
+                frmVisualizadorAdobe.Show();
+            }
+        }
+
+        private void lnkTermoDevolucao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.opdTermoDevolucao.ShowDialog();
+        }
+
+        private void opdTermoDevolucao_FileOk(object sender, CancelEventArgs e)
+        {
+            try
+            {
+                this.txtLinkTermoDevolucao.Text = this.opdTermoDevolucao.FileName.ToString();
+                TermoCelularRepository termoRepository = new TermoCelularRepository();
+
+                _termoCelular.LinkDevolucao = this.txtLinkTermoDevolucao.Text;
+
+                termoRepository.UpdateLinkTermoDevolucao(_termoCelular);
+
+                MessageBox.Show("Inclusão do link do termo de devolução efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                this.CarregarDataGridView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void lnkAbrirTermoDevolucao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (this.txtLinkTermoDevolucao.Text != "")
+            {
+                string link = this.txtLinkTermoDevolucao.Text;
+
+                FrmVisualizadorAdobe frmVisualizadorAdobe = new FrmVisualizadorAdobe(link);
+                // frmVisualizadorAdobe.MdiParent = MdiParent;
+                frmVisualizadorAdobe.Show();
+            }
+        }
+
+        private void lnkRemoverTermoEntrega_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                if(MessageBox.Show("Você tem certeza que deseja excluir o link do termo de entrega?", "Confirmação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    this.txtLinkTermoEntrega.Text = "";
+                    TermoCelularRepository termoRepository = new TermoCelularRepository();
+
+                    _termoCelular.LinkEntrega = this.txtLinkTermoEntrega.Text;
+
+                    termoRepository.UpdateLinkTermoEntrega(_termoCelular);
+
+                    MessageBox.Show("Exclusão do link do termo de entrega efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                    this.CarregarDataGridView();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void lnkRemoverTermoDevolucao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Você tem certeza que deseja excluir o link do termo de devolução?", "Confirmação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    this.txtLinkTermoDevolucao.Text = "";
+                    TermoCelularRepository termoRepository = new TermoCelularRepository();
+
+                    _termoCelular.LinkDevolucao = this.txtLinkTermoDevolucao.Text;
+
+                    termoRepository.UpdateLinkTermoDevolucao(_termoCelular);
+
+                    MessageBox.Show("Exclusão do link do termo de devolução efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                    this.CarregarDataGridView();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LimparCampos()
+        {
+            // Dados Gerais
+            this.txtId.Clear();
+            this.txtDataEntrega.Clear();
+            this.txtDataDevolucao.Clear();
+            this.cboGestores.SelectedValue = 0;
+            this.chkFoneOuvido.Checked = false;
+            this.txtLinkTermoEntrega.Clear();
+            this.txtLinkTermoDevolucao.Clear();
+
+            // Linha
+            this.txtLinha.Clear();
+            this.txtLinha.Enabled = true;
+            this.txtNumeroReadOnly.Clear();
+            this.txtLinhaIdReadOnly.Clear();
+            this.txtChipReadOnly.Clear();
+
+            // Carregador
+            this.txtCarregador.Clear();
+            this.txtCarregador.Enabled = true;
+            this.txtCarregadorIdReadOnly.Clear();
+            this.txtCarregadorMarcaReadOnly.Clear();
+            this.txtNumSerieReadOnly.Clear();
+
+            // Aparelho
+            this.txtImei1.Clear();
+            this.txtImei1.Enabled = true;
+            this.txtAparelhoIdReadOnly.Clear();
+            this.txtImei1ReadOnly.Clear();
+            this.txtMarcaReadOnly.Clear();
+            this.txtModeloReadOnly.Clear();
+            this.txtImei1ReadOnly.Clear();
+
+            // Usuários
+            this.txtUsuario.Clear();
+            this.txtUsuario.Enabled = true;
+            this.txtUsuarioIdReadOnly.Clear();
+            this.txtNomeReadOnly.Clear();
+            this.txtCpfReadOnly.Clear();
+            this.txtChapaReadOnly.Clear();
+            _usuariosAdicionados = null;
+            this.dgvUsuariosAdicionados.DataSource = null;
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            this.LimparCampos();
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Pesquisar(string coluna, string texto)
+        {
+            switch (coluna)
+            {
+                case "Linha":
+                    _termoCelulares = _termoCelularesOriginal.Where(c => c.Linha.Numero.ToUpper().Contains(texto.ToUpper())).ToList();
+                    break;
+                case "Carregador":
+                    _termoCelulares = _termoCelularesOriginal.Where(c => c.Carregador.NumSerie.ToUpper().Contains(texto.ToUpper())).ToList();
+                    break;
+                case "Usuario":
+                    _termoCelulares = _termoCelularesOriginal.Where(t => t.Usuario.Any(u => u.Nome.Contains(texto))).ToList();
+                    break;
+                //case "NomeTecnico":
+                //    _termoCelulares = _termoCelularesOriginal.Where(c => c.NomeTecnico.ToUpper().Contains(texto.ToUpper())).ToList();
+                //    break;
+                default:
+                    _termoCelulares = _termoCelularesOriginal;
+                    break;
+            }
+            _termoCelularesResponse = _termoCelulares.Select(t => (TermoCelularResponse)t).ToList();
+            this.AtualizaDataGridView();
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            if (this.txtLinha.Text != "")
+                this.Pesquisar("Linha", this.txtLinha.Text);
+            else if (this.txtCarregador.Text != "")
+                this.Pesquisar("Carregador", this.txtCarregador.Text);
+            else if (this.txtNomeReadOnly.Text != "")
+                this.Pesquisar("Usuario", this.txtNomeReadOnly.Text);
+            else
+                this.Pesquisar("", "");
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Computadores");
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }

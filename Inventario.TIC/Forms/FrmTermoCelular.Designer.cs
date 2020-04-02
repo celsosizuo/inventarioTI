@@ -90,17 +90,34 @@
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.lnkTermoDeolucao = new System.Windows.Forms.LinkLabel();
-            this.label23 = new System.Windows.Forms.Label();
-            this.lnkTermoEntrega = new System.Windows.Forms.LinkLabel();
-            this.label22 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.txtDataDevolucao = new System.Windows.Forms.MaskedTextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.txtDataEntrega = new System.Windows.Forms.MaskedTextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.cboGestores = new System.Windows.Forms.ComboBox();
             this.chkFoneOuvido = new System.Windows.Forms.CheckBox();
+            this.opdTermoEntrega = new System.Windows.Forms.OpenFileDialog();
+            this.opdTermoDevolucao = new System.Windows.Forms.OpenFileDialog();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.label23 = new System.Windows.Forms.Label();
+            this.txtDataDevolucaoRH = new System.Windows.Forms.MaskedTextBox();
+            this.chkTermoDevolucaoRH = new System.Windows.Forms.CheckBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtDataEntregaRH = new System.Windows.Forms.MaskedTextBox();
+            this.chkTermoEntregaRH = new System.Windows.Forms.CheckBox();
+            this.lnkRemoverTermoDevolucao = new System.Windows.Forms.LinkLabel();
+            this.lnkRemoverTermoEntrega = new System.Windows.Forms.LinkLabel();
+            this.lnkAbrirTermoDevolucao = new System.Windows.Forms.LinkLabel();
+            this.lnkTermoDevolucao = new System.Windows.Forms.LinkLabel();
+            this.txtLinkTermoDevolucao = new System.Windows.Forms.TextBox();
+            this.lnkAbrirTermoEntrega = new System.Windows.Forms.LinkLabel();
+            this.txtLinkTermoEntrega = new System.Windows.Forms.TextBox();
+            this.lnkAddTermo = new System.Windows.Forms.LinkLabel();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.btnPesquisar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLinhas)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -112,6 +129,7 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarregadores)).BeginInit();
             this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -260,7 +278,7 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.btnNovaPesquisaUsuario);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(18, 350);
+            this.groupBox2.Location = new System.Drawing.Point(13, 378);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1260, 164);
             this.groupBox2.TabIndex = 1;
@@ -599,25 +617,28 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(663, 535);
+            this.btnExcluir.Location = new System.Drawing.Point(1204, 554);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 63;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Visible = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(582, 535);
+            this.btnLimpar.Location = new System.Drawing.Point(99, 554);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpar.TabIndex = 62;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(501, 535);
+            this.btnSalvar.Location = new System.Drawing.Point(18, 554);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 61;
@@ -636,12 +657,13 @@
             this.dgvTermoCelulares.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvTermoCelulares.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvTermoCelulares.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTermoCelulares.Location = new System.Drawing.Point(13, 564);
+            this.dgvTermoCelulares.Location = new System.Drawing.Point(13, 583);
             this.dgvTermoCelulares.MultiSelect = false;
             this.dgvTermoCelulares.Name = "dgvTermoCelulares";
             this.dgvTermoCelulares.ReadOnly = true;
-            this.dgvTermoCelulares.Size = new System.Drawing.Size(1265, 229);
+            this.dgvTermoCelulares.Size = new System.Drawing.Size(1265, 210);
             this.dgvTermoCelulares.TabIndex = 60;
+            this.dgvTermoCelulares.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTermoCelulares_CellMouseDoubleClick);
             // 
             // txtId
             // 
@@ -666,7 +688,7 @@
             this.groupBox4.Controls.Add(this.label18);
             this.groupBox4.Location = new System.Drawing.Point(12, 180);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(666, 162);
+            this.groupBox4.Size = new System.Drawing.Size(666, 192);
             this.groupBox4.TabIndex = 84;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Selecionar Carregador";
@@ -687,7 +709,7 @@
             this.dgvCarregadores.Name = "dgvCarregadores";
             this.dgvCarregadores.ReadOnly = true;
             this.dgvCarregadores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCarregadores.Size = new System.Drawing.Size(365, 88);
+            this.dgvCarregadores.Size = new System.Drawing.Size(365, 118);
             this.dgvCarregadores.TabIndex = 3;
             this.dgvCarregadores.Visible = false;
             this.dgvCarregadores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarregadores_CellDoubleClick);
@@ -783,12 +805,8 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.label25);
-            this.groupBox5.Controls.Add(this.lnkTermoDeolucao);
             this.groupBox5.Controls.Add(this.txtId);
-            this.groupBox5.Controls.Add(this.label23);
-            this.groupBox5.Controls.Add(this.lnkTermoEntrega);
-            this.groupBox5.Controls.Add(this.label22);
-            this.groupBox5.Controls.Add(this.maskedTextBox1);
+            this.groupBox5.Controls.Add(this.txtDataDevolucao);
             this.groupBox5.Controls.Add(this.label21);
             this.groupBox5.Controls.Add(this.txtDataEntrega);
             this.groupBox5.Controls.Add(this.label20);
@@ -797,7 +815,7 @@
             this.groupBox5.Controls.Add(this.chkFoneOuvido);
             this.groupBox5.Location = new System.Drawing.Point(684, 180);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(595, 162);
+            this.groupBox5.Size = new System.Drawing.Size(595, 72);
             this.groupBox5.TabIndex = 85;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Outros Dados";
@@ -812,54 +830,14 @@
             this.label25.TabIndex = 80;
             this.label25.Text = "Num. Termo";
             // 
-            // lnkTermoDeolucao
+            // txtDataDevolucao
             // 
-            this.lnkTermoDeolucao.AutoSize = true;
-            this.lnkTermoDeolucao.Location = new System.Drawing.Point(9, 129);
-            this.lnkTermoDeolucao.Name = "lnkTermoDeolucao";
-            this.lnkTermoDeolucao.Size = new System.Drawing.Size(90, 13);
-            this.lnkTermoDeolucao.TabIndex = 79;
-            this.lnkTermoDeolucao.TabStop = true;
-            this.lnkTermoDeolucao.Text = "Adicionar Arquivo";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(9, 116);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(145, 13);
-            this.label23.TabIndex = 78;
-            this.label23.Text = "Link do Termo de Devolução";
-            // 
-            // lnkTermoEntrega
-            // 
-            this.lnkTermoEntrega.AutoSize = true;
-            this.lnkTermoEntrega.Location = new System.Drawing.Point(9, 88);
-            this.lnkTermoEntrega.Name = "lnkTermoEntrega";
-            this.lnkTermoEntrega.Size = new System.Drawing.Size(90, 13);
-            this.lnkTermoEntrega.TabIndex = 77;
-            this.lnkTermoEntrega.TabStop = true;
-            this.lnkTermoEntrega.Text = "Adicionar Arquivo";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(9, 75);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(75, 13);
-            this.label22.TabIndex = 76;
-            this.label22.Text = "Link do Termo";
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(182, 40);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(86, 20);
-            this.maskedTextBox1.TabIndex = 7;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            this.txtDataDevolucao.Location = new System.Drawing.Point(182, 40);
+            this.txtDataDevolucao.Mask = "00/00/0000";
+            this.txtDataDevolucao.Name = "txtDataDevolucao";
+            this.txtDataDevolucao.Size = new System.Drawing.Size(86, 20);
+            this.txtDataDevolucao.TabIndex = 7;
+            this.txtDataDevolucao.ValidatingType = typeof(System.DateTime);
             // 
             // label21
             // 
@@ -918,11 +896,229 @@
             this.chkFoneOuvido.Text = "Fone de Ouvido";
             this.chkFoneOuvido.UseVisualStyleBackColor = true;
             // 
+            // opdTermoEntrega
+            // 
+            this.opdTermoEntrega.FileName = "openFileDialog1";
+            this.opdTermoEntrega.FileOk += new System.ComponentModel.CancelEventHandler(this.opdTermoEntrega_FileOk);
+            // 
+            // opdTermoDevolucao
+            // 
+            this.opdTermoDevolucao.FileName = "openFileDialog1";
+            this.opdTermoDevolucao.FileOk += new System.ComponentModel.CancelEventHandler(this.opdTermoDevolucao_FileOk);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(261, 548);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(181, 13);
+            this.linkLabel1.TabIndex = 90;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Gerar Relatório do Termo de Entrega";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(261, 567);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(196, 13);
+            this.linkLabel2.TabIndex = 91;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Gerar Relatório do Termo de Devolução";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(473, 66);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(30, 13);
+            this.label23.TabIndex = 111;
+            this.label23.Text = "Data";
+            this.label23.Visible = false;
+            // 
+            // txtDataDevolucaoRH
+            // 
+            this.txtDataDevolucaoRH.Location = new System.Drawing.Point(476, 79);
+            this.txtDataDevolucaoRH.Mask = "00/00/0000";
+            this.txtDataDevolucaoRH.Name = "txtDataDevolucaoRH";
+            this.txtDataDevolucaoRH.ReadOnly = true;
+            this.txtDataDevolucaoRH.Size = new System.Drawing.Size(86, 20);
+            this.txtDataDevolucaoRH.TabIndex = 110;
+            this.txtDataDevolucaoRH.ValidatingType = typeof(System.DateTime);
+            this.txtDataDevolucaoRH.Visible = false;
+            // 
+            // chkTermoDevolucaoRH
+            // 
+            this.chkTermoDevolucaoRH.Enabled = false;
+            this.chkTermoDevolucaoRH.Location = new System.Drawing.Point(398, 69);
+            this.chkTermoDevolucaoRH.Name = "chkTermoDevolucaoRH";
+            this.chkTermoDevolucaoRH.Size = new System.Drawing.Size(72, 30);
+            this.chkTermoDevolucaoRH.TabIndex = 109;
+            this.chkTermoDevolucaoRH.Text = "Entregue ao RH?";
+            this.chkTermoDevolucaoRH.UseVisualStyleBackColor = true;
+            this.chkTermoDevolucaoRH.Visible = false;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(473, 23);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(30, 13);
+            this.label22.TabIndex = 108;
+            this.label22.Text = "Data";
+            this.label22.Visible = false;
+            // 
+            // txtDataEntregaRH
+            // 
+            this.txtDataEntregaRH.Location = new System.Drawing.Point(476, 36);
+            this.txtDataEntregaRH.Mask = "00/00/0000";
+            this.txtDataEntregaRH.Name = "txtDataEntregaRH";
+            this.txtDataEntregaRH.ReadOnly = true;
+            this.txtDataEntregaRH.Size = new System.Drawing.Size(86, 20);
+            this.txtDataEntregaRH.TabIndex = 107;
+            this.txtDataEntregaRH.ValidatingType = typeof(System.DateTime);
+            this.txtDataEntregaRH.Visible = false;
+            // 
+            // chkTermoEntregaRH
+            // 
+            this.chkTermoEntregaRH.Enabled = false;
+            this.chkTermoEntregaRH.Location = new System.Drawing.Point(398, 26);
+            this.chkTermoEntregaRH.Name = "chkTermoEntregaRH";
+            this.chkTermoEntregaRH.Size = new System.Drawing.Size(72, 37);
+            this.chkTermoEntregaRH.TabIndex = 106;
+            this.chkTermoEntregaRH.Text = "Entregue ao RH?";
+            this.chkTermoEntregaRH.UseVisualStyleBackColor = true;
+            this.chkTermoEntregaRH.Visible = false;
+            // 
+            // lnkRemoverTermoDevolucao
+            // 
+            this.lnkRemoverTermoDevolucao.AutoSize = true;
+            this.lnkRemoverTermoDevolucao.Location = new System.Drawing.Point(343, 86);
+            this.lnkRemoverTermoDevolucao.Name = "lnkRemoverTermoDevolucao";
+            this.lnkRemoverTermoDevolucao.Size = new System.Drawing.Size(50, 13);
+            this.lnkRemoverTermoDevolucao.TabIndex = 105;
+            this.lnkRemoverTermoDevolucao.TabStop = true;
+            this.lnkRemoverTermoDevolucao.Text = "Remover";
+            this.lnkRemoverTermoDevolucao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRemoverTermoDevolucao_LinkClicked);
+            // 
+            // lnkRemoverTermoEntrega
+            // 
+            this.lnkRemoverTermoEntrega.AutoSize = true;
+            this.lnkRemoverTermoEntrega.Location = new System.Drawing.Point(342, 43);
+            this.lnkRemoverTermoEntrega.Name = "lnkRemoverTermoEntrega";
+            this.lnkRemoverTermoEntrega.Size = new System.Drawing.Size(50, 13);
+            this.lnkRemoverTermoEntrega.TabIndex = 104;
+            this.lnkRemoverTermoEntrega.TabStop = true;
+            this.lnkRemoverTermoEntrega.Text = "Remover";
+            this.lnkRemoverTermoEntrega.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRemoverTermoEntrega_LinkClicked);
+            // 
+            // lnkAbrirTermoDevolucao
+            // 
+            this.lnkAbrirTermoDevolucao.AutoSize = true;
+            this.lnkAbrirTermoDevolucao.Location = new System.Drawing.Point(8, 63);
+            this.lnkAbrirTermoDevolucao.Name = "lnkAbrirTermoDevolucao";
+            this.lnkAbrirTermoDevolucao.Size = new System.Drawing.Size(191, 13);
+            this.lnkAbrirTermoDevolucao.TabIndex = 103;
+            this.lnkAbrirTermoDevolucao.TabStop = true;
+            this.lnkAbrirTermoDevolucao.Text = "Link do Termo de Devolução Assinado";
+            this.lnkAbrirTermoDevolucao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkAbrirTermoDevolucao_LinkClicked);
+            // 
+            // lnkTermoDevolucao
+            // 
+            this.lnkTermoDevolucao.AutoSize = true;
+            this.lnkTermoDevolucao.Location = new System.Drawing.Point(342, 73);
+            this.lnkTermoDevolucao.Name = "lnkTermoDevolucao";
+            this.lnkTermoDevolucao.Size = new System.Drawing.Size(51, 13);
+            this.lnkTermoDevolucao.TabIndex = 102;
+            this.lnkTermoDevolucao.TabStop = true;
+            this.lnkTermoDevolucao.Text = "Adicionar";
+            this.lnkTermoDevolucao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkTermoDevolucao_LinkClicked);
+            // 
+            // txtLinkTermoDevolucao
+            // 
+            this.txtLinkTermoDevolucao.Location = new System.Drawing.Point(11, 79);
+            this.txtLinkTermoDevolucao.MaxLength = 15;
+            this.txtLinkTermoDevolucao.Name = "txtLinkTermoDevolucao";
+            this.txtLinkTermoDevolucao.ReadOnly = true;
+            this.txtLinkTermoDevolucao.Size = new System.Drawing.Size(325, 20);
+            this.txtLinkTermoDevolucao.TabIndex = 101;
+            // 
+            // lnkAbrirTermoEntrega
+            // 
+            this.lnkAbrirTermoEntrega.AutoSize = true;
+            this.lnkAbrirTermoEntrega.Location = new System.Drawing.Point(8, 20);
+            this.lnkAbrirTermoEntrega.Name = "lnkAbrirTermoEntrega";
+            this.lnkAbrirTermoEntrega.Size = new System.Drawing.Size(176, 13);
+            this.lnkAbrirTermoEntrega.TabIndex = 100;
+            this.lnkAbrirTermoEntrega.TabStop = true;
+            this.lnkAbrirTermoEntrega.Text = "Link do Termo de Entrega Assinado";
+            this.lnkAbrirTermoEntrega.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkAbrirTermoEntrega_LinkClicked);
+            // 
+            // txtLinkTermoEntrega
+            // 
+            this.txtLinkTermoEntrega.Location = new System.Drawing.Point(11, 35);
+            this.txtLinkTermoEntrega.MaxLength = 15;
+            this.txtLinkTermoEntrega.Name = "txtLinkTermoEntrega";
+            this.txtLinkTermoEntrega.ReadOnly = true;
+            this.txtLinkTermoEntrega.Size = new System.Drawing.Size(325, 20);
+            this.txtLinkTermoEntrega.TabIndex = 99;
+            // 
+            // lnkAddTermo
+            // 
+            this.lnkAddTermo.AutoSize = true;
+            this.lnkAddTermo.Location = new System.Drawing.Point(341, 30);
+            this.lnkAddTermo.Name = "lnkAddTermo";
+            this.lnkAddTermo.Size = new System.Drawing.Size(51, 13);
+            this.lnkAddTermo.TabIndex = 98;
+            this.lnkAddTermo.TabStop = true;
+            this.lnkAddTermo.Text = "Adicionar";
+            this.lnkAddTermo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkAddTermo_LinkClicked);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.lnkAbrirTermoEntrega);
+            this.groupBox6.Controls.Add(this.label23);
+            this.groupBox6.Controls.Add(this.lnkAddTermo);
+            this.groupBox6.Controls.Add(this.txtDataDevolucaoRH);
+            this.groupBox6.Controls.Add(this.txtLinkTermoEntrega);
+            this.groupBox6.Controls.Add(this.chkTermoDevolucaoRH);
+            this.groupBox6.Controls.Add(this.txtLinkTermoDevolucao);
+            this.groupBox6.Controls.Add(this.label22);
+            this.groupBox6.Controls.Add(this.lnkTermoDevolucao);
+            this.groupBox6.Controls.Add(this.txtDataEntregaRH);
+            this.groupBox6.Controls.Add(this.lnkAbrirTermoDevolucao);
+            this.groupBox6.Controls.Add(this.chkTermoEntregaRH);
+            this.groupBox6.Controls.Add(this.lnkRemoverTermoEntrega);
+            this.groupBox6.Controls.Add(this.lnkRemoverTermoDevolucao);
+            this.groupBox6.Location = new System.Drawing.Point(685, 259);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(594, 113);
+            this.groupBox6.TabIndex = 112;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Imagens";
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Location = new System.Drawing.Point(180, 554);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
+            this.btnPesquisar.TabIndex = 113;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
             // FrmTermoCelular
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1286, 805);
+            this.Controls.Add(this.btnPesquisar);
+            this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.linkLabel2);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btnExcluir);
@@ -954,7 +1150,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarregadores)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1019,16 +1218,33 @@
         private System.Windows.Forms.ComboBox cboGestores;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.MaskedTextBox txtDataEntrega;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox txtDataDevolucao;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.LinkLabel lnkTermoDeolucao;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.LinkLabel lnkTermoEntrega;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.DataGridView dgvUsuariosAdicionados;
         private System.Windows.Forms.Button btnAddUsuario;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.OpenFileDialog opdTermoEntrega;
+        private System.Windows.Forms.OpenFileDialog opdTermoDevolucao;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.MaskedTextBox txtDataDevolucaoRH;
+        private System.Windows.Forms.CheckBox chkTermoDevolucaoRH;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.MaskedTextBox txtDataEntregaRH;
+        private System.Windows.Forms.CheckBox chkTermoEntregaRH;
+        private System.Windows.Forms.LinkLabel lnkRemoverTermoDevolucao;
+        private System.Windows.Forms.LinkLabel lnkRemoverTermoEntrega;
+        private System.Windows.Forms.LinkLabel lnkAbrirTermoDevolucao;
+        private System.Windows.Forms.LinkLabel lnkTermoDevolucao;
+        private System.Windows.Forms.TextBox txtLinkTermoDevolucao;
+        private System.Windows.Forms.LinkLabel lnkAbrirTermoEntrega;
+        private System.Windows.Forms.TextBox txtLinkTermoEntrega;
+        private System.Windows.Forms.LinkLabel lnkAddTermo;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.HelpProvider helpProvider1;
+        private System.Windows.Forms.Button btnPesquisar;
     }
 }

@@ -10,7 +10,7 @@ namespace Inventario.TIC.Class
 {
     public class TermoCelularUsuarioRepository
     {
-        public string Add(TermoCelularUsuarios termoUsuario)
+        public void Add(TermoCelularUsuarios termoUsuario)
         {
             try
             {
@@ -25,9 +25,29 @@ namespace Inventario.TIC.Class
                 command.Parameters.AddWithValue("@UsuarioId", termoUsuario.UsuarioId);
 
                 command.Connection.Open();
-                string retorno = command.ExecuteScalar().ToString();
+                command.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
-                return retorno;
+        public void Delete(int termoCelularId)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand()
+                {
+                    Connection = new SqlConnection(Properties.Settings.Default.conSQL),
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "DELETETERMOCELULARUSUARIO",
+                };
+
+                command.Parameters.AddWithValue("@TermoCelularId", termoCelularId);
+
+                command.Connection.Open();
+                command.ExecuteScalar();
             }
             catch (Exception ex)
             {
