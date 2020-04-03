@@ -30,6 +30,7 @@ namespace Inventario.TIC.Forms
 
             // Ocultando colunas desnecessárias
             this.dgvUsuarios.Columns["CascadeMode"].Visible = false;
+            this.dgvUsuarios.Columns["Terceiro"].Visible = false;
         }
 
         private void FrmUsuarios_Load(object sender, EventArgs e)
@@ -158,6 +159,90 @@ namespace Inventario.TIC.Forms
             this.txtChapa.Clear();
             this.txtNome.Clear();
             this.txtCpf.Clear();
+            this.txtId.Clear();
+            this.chkTerceiro.Checked = false;
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                UsuarioRepository usuarioRepository = new UsuarioRepository();
+                Usuario usuario;
+
+                if (this.txtId.Text == "")
+                    usuario = new Usuario();
+                else
+                    usuario = _usuarios.Find(n => n.Id == int.Parse(this.txtId.Text));
+
+                usuario.Id = this.txtId.Text == "" ? 0 : Convert.ToInt32(this.txtId.Text);
+                usuario.Chapa = this.txtChapa.Text;
+                usuario.Nome = this.txtNome.Text;
+                usuario.Cpf = this.txtCpf.Text;
+                usuario.Terceiro = this.chkTerceiro.Checked ? 0 : 1;
+
+                if (usuario.EhValido())
+                {
+                    if (usuario.Id == 0)
+                    {
+                        string retorno = usuarioRepository.Add(usuario);
+                        this.txtId.Text = retorno.ToString();
+                        usuario.Id = int.Parse(retorno);
+                        _usuarios.Add(usuario);
+                        MessageBox.Show("Inclusão efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }
+                    else
+                    {
+                        usuarioRepository.Update(usuario);
+                        MessageBox.Show("Atualização efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }
+                    this.AtualizaDataGridView();
+                }
+                else
+                {
+                    string[] msgs = usuario.GetErros().Split(';');
+                    string msg = "";
+                    msgs.ToList().ForEach(m => msg += m + "\n");
+                    throw new Exception(msg);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvUsuarios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                this.txtId.Text = _usuarios[e.RowIndex].Id.ToString();
+                this.txtChapa.Text = _usuarios[e.RowIndex].Chapa.ToString();
+                this.txtNome.Text = _usuarios[e.RowIndex].Nome.ToString();
+                this.txtCpf.Text = _usuarios[e.RowIndex].Cpf.ToString();
+                this.chkTerceiro.Checked = _usuarios[e.RowIndex].Terceiro == 1 ? false : true;
+
+                if(_usuarios[e.RowIndex].Terceiro == 1)
+                {
+                    this.txtId.ReadOnly = true;
+                    this.txtChapa.ReadOnly = true;
+                    this.txtNome.ReadOnly = true;
+                    this.txtCpf.ReadOnly = true;
+                    this.chkTerceiro.Enabled = false;
+                }
+                else
+                {
+                    this.txtId.ReadOnly = false;
+                    this.txtChapa.ReadOnly = false;
+                    this.txtNome.ReadOnly = false;
+                    this.txtCpf.ReadOnly = false;
+                    this.chkTerceiro.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

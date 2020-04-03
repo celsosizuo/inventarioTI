@@ -15,10 +15,55 @@ namespace Inventario.TIC.Class
         public string Chapa { get; set; }
         public string Nome { get; set; }
         public string Cpf { get; set; }
+        public int Terceiro { get; set; }
+        public string TerceiroDescricao { get; set; }
 
         public Usuario()
         {
             ValidationResult = new ValidationResult();
+        }
+
+        public bool EhValido()
+        {
+            Validar();
+            ValidationResult = Validate(this);
+
+            return ValidationResult.IsValid;
+        }
+
+        private void Validar()
+        {
+            ValidarNome();
+            ValidarChapa();
+            ValidarCPF();
+            ValidarTerceiro();
+        }
+
+        private void ValidarTerceiro()
+        {
+            RuleFor(a => a.Terceiro).NotNull().WithMessage("- Campo Terceiro é obrigatório");
+        }
+
+        private void ValidarNome()
+        {
+            RuleFor(a => a.Nome).NotEmpty().WithMessage("- Campo Nome é obrigatório");
+        }
+
+        private void ValidarChapa()
+        {
+            RuleFor(a => a.Chapa).NotEmpty().WithMessage("- Campo Chapa é obrigatório");
+        }
+
+        private void ValidarCPF()
+        {
+            RuleFor(a => a.Cpf).NotEmpty().WithMessage("- Campo CPF é obrigatório");
+        }
+
+        public string GetErros()
+        {
+            var erros = "";
+            ValidationResult.Errors.ToList().ForEach(e => erros += e.ErrorMessage + ";");
+            return erros;
         }
     }
 }
