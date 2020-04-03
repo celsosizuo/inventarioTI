@@ -49,6 +49,8 @@ namespace Inventario.TIC.Forms
             this.dgvTermoCelulares.Columns["CarregadorId"].Visible = false;
             this.dgvTermoCelulares.Columns["GestorId"].Visible = false;
             this.dgvTermoCelulares.Columns["FoneOuvido"].Visible = false;
+            this.dgvTermoCelulares.Columns["LinkEntrega"].Visible = false;
+            this.dgvTermoCelulares.Columns["LinkDevolucao"].Visible = false;
         }
 
         private void AtualizarDataGridViewUsuariosAdicionados()
@@ -58,7 +60,7 @@ namespace Inventario.TIC.Forms
             this.dgvUsuariosAdicionados.Columns["CascadeMode"].Visible = false;
         }
 
-        private void CarregarDataGridView()
+        public void CarregarDataGridView()
         {
             // Carregando a lista de computadores
             TermoCelularRepository c = new TermoCelularRepository();
@@ -106,6 +108,7 @@ namespace Inventario.TIC.Forms
         }
 
         #region Pesquisa Controles
+
         private void btnNovaPesquisaLinha_Click(object sender, EventArgs e)
         {
             this.txtLinha.Clear();
@@ -740,7 +743,7 @@ namespace Inventario.TIC.Forms
             // Dados Gerais
             this.txtId.Clear();
             this.txtDataEntrega.Clear();
-            this.txtDataDevolucao.Clear();
+            // this.txtDataDevolucao.Clear();
             this.cboGestores.SelectedValue = 0;
             this.chkFoneOuvido.Checked = false;
             this.txtLinkTermoEntrega.Clear();
@@ -840,6 +843,31 @@ namespace Inventario.TIC.Forms
             });
             
             FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Termo.Entrega.Celular", parametros);
+            newMDIChild.Show();
+        }
+
+        private void btnDevolver_Click(object sender, EventArgs e)
+        {
+            FrmDevolucaoTermoCelular newMDIChild = new FrmDevolucaoTermoCelular(_termoCelular, this);
+            newMDIChild.Show();
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            List<ParametrosRelatorio> parametros = new List<ParametrosRelatorio>();
+            parametros.Add(new ParametrosRelatorio
+            {
+                Parametro = "LINHANUMERO",
+                Valor = this.txtNumeroReadOnly.Text,
+            });
+
+            parametros.Add(new ParametrosRelatorio
+            {
+                Parametro = "USUARIOID",
+                Valor = _termoCelular.Usuario[0].Id.ToString(),
+            });
+
+            FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Termo.Devolucao.Celular", parametros);
             newMDIChild.Show();
         }
     }

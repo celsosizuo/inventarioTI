@@ -90,8 +90,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.txtDataDevolucao = new System.Windows.Forms.MaskedTextBox();
-            this.label21 = new System.Windows.Forms.Label();
             this.txtDataEntrega = new System.Windows.Forms.MaskedTextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -118,6 +116,7 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.btnPesquisar = new System.Windows.Forms.Button();
+            this.btnDevolver = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLinhas)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -806,8 +805,6 @@
             // 
             this.groupBox5.Controls.Add(this.label25);
             this.groupBox5.Controls.Add(this.txtId);
-            this.groupBox5.Controls.Add(this.txtDataDevolucao);
-            this.groupBox5.Controls.Add(this.label21);
             this.groupBox5.Controls.Add(this.txtDataEntrega);
             this.groupBox5.Controls.Add(this.label20);
             this.groupBox5.Controls.Add(this.label19);
@@ -829,25 +826,6 @@
             this.label25.Size = new System.Drawing.Size(65, 13);
             this.label25.TabIndex = 80;
             this.label25.Text = "Num. Termo";
-            // 
-            // txtDataDevolucao
-            // 
-            this.txtDataDevolucao.Location = new System.Drawing.Point(182, 40);
-            this.txtDataDevolucao.Mask = "00/00/0000";
-            this.txtDataDevolucao.Name = "txtDataDevolucao";
-            this.txtDataDevolucao.Size = new System.Drawing.Size(86, 20);
-            this.txtDataDevolucao.TabIndex = 7;
-            this.txtDataDevolucao.ValidatingType = typeof(System.DateTime);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(179, 23);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(98, 13);
-            this.label21.TabIndex = 74;
-            this.label21.Text = "Data Devolução (*)";
             // 
             // txtDataEntrega
             // 
@@ -872,7 +850,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(282, 23);
+            this.label19.Location = new System.Drawing.Point(169, 23);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(51, 13);
             this.label19.TabIndex = 42;
@@ -881,7 +859,7 @@
             // cboGestores
             // 
             this.cboGestores.FormattingEnabled = true;
-            this.cboGestores.Location = new System.Drawing.Point(285, 39);
+            this.cboGestores.Location = new System.Drawing.Point(172, 39);
             this.cboGestores.Name = "cboGestores";
             this.cboGestores.Size = new System.Drawing.Size(170, 21);
             this.cboGestores.TabIndex = 8;
@@ -889,7 +867,7 @@
             // chkFoneOuvido
             // 
             this.chkFoneOuvido.AutoSize = true;
-            this.chkFoneOuvido.Location = new System.Drawing.Point(461, 40);
+            this.chkFoneOuvido.Location = new System.Drawing.Point(348, 40);
             this.chkFoneOuvido.Name = "chkFoneOuvido";
             this.chkFoneOuvido.Size = new System.Drawing.Size(102, 17);
             this.chkFoneOuvido.TabIndex = 9;
@@ -909,7 +887,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(261, 548);
+            this.linkLabel1.Location = new System.Drawing.Point(384, 548);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(181, 13);
             this.linkLabel1.TabIndex = 90;
@@ -920,12 +898,13 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(261, 567);
+            this.linkLabel2.Location = new System.Drawing.Point(384, 567);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(196, 13);
             this.linkLabel2.TabIndex = 91;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Gerar Relatório do Termo de Devolução";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // label23
             // 
@@ -1110,11 +1089,22 @@
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
+            // btnDevolver
+            // 
+            this.btnDevolver.Location = new System.Drawing.Point(261, 554);
+            this.btnDevolver.Name = "btnDevolver";
+            this.btnDevolver.Size = new System.Drawing.Size(117, 23);
+            this.btnDevolver.TabIndex = 114;
+            this.btnDevolver.Text = "Efetuar Devolução";
+            this.btnDevolver.UseVisualStyleBackColor = true;
+            this.btnDevolver.Click += new System.EventHandler(this.btnDevolver_Click);
+            // 
             // FrmTermoCelular
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1286, 805);
+            this.Controls.Add(this.btnDevolver);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.linkLabel2);
@@ -1218,8 +1208,6 @@
         private System.Windows.Forms.ComboBox cboGestores;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.MaskedTextBox txtDataEntrega;
-        private System.Windows.Forms.MaskedTextBox txtDataDevolucao;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.DataGridView dgvUsuariosAdicionados;
         private System.Windows.Forms.Button btnAddUsuario;
         private System.Windows.Forms.Label label24;
@@ -1246,5 +1234,6 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.HelpProvider helpProvider1;
         private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.Button btnDevolver;
     }
 }

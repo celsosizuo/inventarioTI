@@ -23,17 +23,20 @@ namespace Inventario.TIC.Class
         public string LinkEntrega { get; set; }
         public string LinkDevolucao { get; set; }
         public string FoneOuvidoDescricao { get; set; }
+        public string Status { get; set; }
 
         public Aparelho Aparelho { get; set; }
         public Linha Linha { get; set; }
         public Carregador Carregador { get; set; }
         public Gestor Gestor { get; set; }
         public List<Usuario> Usuario { get; set; }
+        public List<TermoCelularUsuarios> UsuariosTermos { get; set; }
 
         public TermoCelular()
         {
             ValidationResult = new ValidationResult();
             Usuario = new List<Usuario>();
+            UsuariosTermos = new List<TermoCelularUsuarios>();
         }
 
         public bool EhValido()
@@ -88,6 +91,7 @@ namespace Inventario.TIC.Class
                 LinkDevolucao = entity.LinkDevolucao,
                 LinkEntrega = entity.LinkEntrega,
                 FoneOuvidoDescricao = entity.FoneOuvidoDescricao,
+                Status = entity.Status,
             };
 
             return celular;

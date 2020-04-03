@@ -10,5 +10,7 @@ namespace Inventario.TIC.Class
     {
         public int TermoCelularId { get; set; }
         public int UsuarioId { get; set; }
+        public DateTime? DataDevolucao { get; set; }
+        public string Motivo { get; set; }
     }
 }

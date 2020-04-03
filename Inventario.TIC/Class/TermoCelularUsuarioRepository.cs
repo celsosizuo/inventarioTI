@@ -54,5 +54,30 @@ namespace Inventario.TIC.Class
                 throw new Exception(ex.Message);
             }
         }
+
+        public void PathDataDevolucao(TermoCelularUsuarios termoUsuario)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand()
+                {
+                    Connection = new SqlConnection(Properties.Settings.Default.conSQL),
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "PATHTERMOCELULARUSUARIO",
+                };
+
+                command.Parameters.AddWithValue("@TermoCelularId", termoUsuario.TermoCelularId);
+                command.Parameters.AddWithValue("@UsuarioId", termoUsuario.UsuarioId);
+                command.Parameters.AddWithValue("@DataDevolucao", termoUsuario.DataDevolucao);
+                command.Parameters.AddWithValue("@Motivo", termoUsuario.Motivo);
+
+                command.Connection.Open();
+                command.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

@@ -24,6 +24,7 @@ namespace Inventario.TIC.Class
         public DateTime? DataDevolucao { get; set; }
         public string LinkEntrega { get; set; }
         public string LinkDevolucao { get; set; }
+        public string Status { get; set; }
 
         public static explicit operator TermoCelularResponse(TermoCelular entity)
         {
@@ -32,7 +33,7 @@ namespace Inventario.TIC.Class
                 Id = entity.Id,
                 AparelhoId = entity.AparelhoId,
                 CarregadorId = entity.CarregadorId,
-                DataDevolucao = entity.DataDevolucao,
+                DataDevolucao = entity.UsuariosTermos[0].DataDevolucao,
                 DataEntrega = entity.DataEntrega,
                 FoneOuvido = entity.FoneOuvido,
                 GestorId = entity.GestorId,
@@ -45,6 +46,7 @@ namespace Inventario.TIC.Class
                 Numero = entity.Linha.Numero,
                 Usuario = entity.Usuario[0].Nome,
                 FoneOuvidoDescricao = entity.FoneOuvidoDescricao,
+                Status = entity.Status,
             };
 
             return termoCelularResponse;

@@ -184,6 +184,7 @@ namespace Inventario.TIC.Class
                             typeof(Carregador),
                             typeof(Gestor),
                             typeof(Usuario),
+                            typeof(TermoCelularUsuarios),
 
                         }, objects =>
                         {
@@ -193,34 +194,38 @@ namespace Inventario.TIC.Class
                             var carregador = objects[3] as Carregador;
                             var gestor = objects[4] as Gestor;
                             var usuario = objects[5] as Usuario;
+                            var termoCelularUsuarios = objects[6] as TermoCelularUsuarios;
 
                             celulares.Linha = linhas;
                             celulares.Aparelho = aparelhos;
                             celulares.Carregador = carregador;
                             celulares.Gestor = gestor;
                             celulares.Usuario.Add(usuario);
+                            celulares.UsuariosTermos.Add(termoCelularUsuarios);
 
                             return celulares;
 
-                        }, splitOn: "ID, ID, ID, ID, ID, ID").AsList();
+                        }, splitOn: "ID, ID, ID, ID, ID, ID, TERMOCELULARID").AsList();
 
                     // return ret;
                 }
 
-                var list = new List<TermoCelular>();
-                var numItemGuardado = 0;
+                //var list = new List<TermoCelular>();
+                //var numItemGuardado = 0;
 
-                ret.ToList().ForEach(it =>
-                {
-                    if (it.Id != numItemGuardado)
-                        list.Add(it);
-                    else
-                        list.LastOrDefault().Usuario.Add(it.Usuario.FirstOrDefault());
+                //ret.ToList().ForEach(it =>
+                //{
+                //    if (it.Id != numItemGuardado)
+                //        list.Add(it);
+                //    else
+                //        list.LastOrDefault().Usuario.Add(it.Usuario.FirstOrDefault());
 
-                    numItemGuardado = it.Id;
-                });
+                //    numItemGuardado = it.Id;
+                //});
 
-                return list;
+                //return list;
+
+                return ret;
             }
             catch (Exception ex)
             {
