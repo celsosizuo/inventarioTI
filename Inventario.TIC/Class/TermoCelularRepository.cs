@@ -67,10 +67,10 @@ namespace Inventario.TIC.Class
                     command.Parameters.AddWithValue("@FoneOuvido", celular.FoneOuvido);
                     command.Parameters.AddWithValue("@GestorId", celular.GestorId);
                     command.Parameters.AddWithValue("@DataEntrega", celular.DataEntrega);
-                    if(celular.DataDevolucao == null)
-                        command.Parameters.AddWithValue("@DataDevolucao", System.DBNull.Value);
-                    else
-                        command.Parameters.AddWithValue("@DataDevolucao", celular.DataDevolucao);
+                    //if(celular.DataDevolucao == null)
+                    //    command.Parameters.AddWithValue("@DataDevolucao", System.DBNull.Value);
+                    //else
+                    //    command.Parameters.AddWithValue("@DataDevolucao", celular.DataDevolucao);
 
                     command.Parameters.AddWithValue("@Id", celular.Id);
 

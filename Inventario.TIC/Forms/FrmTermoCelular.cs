@@ -105,6 +105,7 @@ namespace Inventario.TIC.Forms
 
         }
 
+        #region Pesquisa Controles
         private void btnNovaPesquisaLinha_Click(object sender, EventArgs e)
         {
             this.txtLinha.Clear();
@@ -473,6 +474,8 @@ namespace Inventario.TIC.Forms
             }
         }
 
+        #endregion
+
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             try
@@ -493,10 +496,10 @@ namespace Inventario.TIC.Forms
                 celular.FoneOuvido = int.Parse(this.chkFoneOuvido.Checked == true ? "0" : "1");
                 celular.DataEntrega = DateTime.Parse(this.txtDataEntrega.Text);
 
-                if (this.txtDataDevolucao.Text == "  /  /")
-                    celular.DataDevolucao = null;
-                else
-                    celular.DataDevolucao = DateTime.Parse(this.txtDataDevolucao.Text);
+                //if (this.txtDataDevolucao.Text == "  /  /")
+                //    celular.DataDevolucao = null;
+                //else
+                //    celular.DataDevolucao = DateTime.Parse(this.txtDataDevolucao.Text);
 
                 if(_usuariosAdicionados.Count > 0)
                     celular.Usuario = _usuariosAdicionados;
@@ -572,7 +575,7 @@ namespace Inventario.TIC.Forms
             // Dados Gerais
             this.txtId.Text = _termoCelularesOriginal[e.RowIndex].Id.ToString();
             this.txtDataEntrega.Text = _termoCelularesOriginal[e.RowIndex].DataEntrega.ToString();
-            this.txtDataDevolucao.Text = _termoCelularesOriginal[e.RowIndex].DataDevolucao == null ? "" : _termoCelularesOriginal[e.RowIndex].DataDevolucao.ToString();
+            // this.txtDataDevolucao.Text = _termoCelularesOriginal[e.RowIndex].DataDevolucao == null ? "" : _termoCelularesOriginal[e.RowIndex].DataDevolucao.ToString();
             this.cboGestores.SelectedValue = _termoCelularesOriginal[e.RowIndex].Gestor.Id;
             this.chkFoneOuvido.Checked = _termoCelularesOriginal[e.RowIndex].FoneOuvido == 0 ? true : false;
             this.txtLinkTermoEntrega.Text = _termoCelularesOriginal[e.RowIndex].LinkEntrega == null ? "" : _termoCelularesOriginal[e.RowIndex].LinkEntrega.ToString();
@@ -808,8 +811,7 @@ namespace Inventario.TIC.Forms
                 //case "NomeTecnico":
                 //    _termoCelulares = _termoCelularesOriginal.Where(c => c.NomeTecnico.ToUpper().Contains(texto.ToUpper())).ToList();
                 //    break;
-                default:
-                    _termoCelulares = _termoCelularesOriginal;
+                default:                    _termoCelulares = _termoCelularesOriginal;
                     break;
             }
             _termoCelularesResponse = _termoCelulares.Select(t => (TermoCelularResponse)t).ToList();
