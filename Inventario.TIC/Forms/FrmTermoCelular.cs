@@ -29,12 +29,13 @@ namespace Inventario.TIC.Forms
             _linhas = new List<Linha>();
             _usuarios = new List<Usuario>();
             _aparelhos = new List<Aparelho>();
-            _termoCelulares = new List<TermoCelular>();
             _carregadores = new List<Carregador>();
+            _termoCelulares = new List<TermoCelular>();
             _termoCelularesOriginal = new List<TermoCelular>();
             _gestores = new List<Gestor>();
             _usuariosAdicionados = new List<Usuario>();
             _termoCelularesResponse = new List<TermoCelularResponse>();
+            _termoCelular = new TermoCelular();
             InitializeComponent();
         }
 
@@ -357,7 +358,7 @@ namespace Inventario.TIC.Forms
                 List<Carregador> c = new List<Carregador>();
                 CarregadorRepository carregadorRepository = new CarregadorRepository();
 
-                c = carregadorRepository.Get().Where(m => m.NumSerie.Contains(this.txtNumSerieReadOnly.Text)).ToList();
+                c = carregadorRepository.Get().Where(m => m.NumSerie.Contains(this.txtCarregador.Text)).ToList();
                 _carregadores = c;
 
                 this.dgvCarregadores.DataSource = c;
@@ -430,33 +431,40 @@ namespace Inventario.TIC.Forms
 
         private void btnAddUsuario_Click(object sender, EventArgs e)
         {
-            if (this.txtUsuarioIdReadOnly.Text != "")
+            try
             {
-                Usuario usuario = new Usuario()
+                if (this.txtUsuarioIdReadOnly.Text != "")
                 {
-                    Id = int.Parse(this.txtUsuarioIdReadOnly.Text),
-                    Chapa = this.txtChapaReadOnly.Text,
-                    Nome = this.txtNomeReadOnly.Text,
-                    Cpf = this.txtCpfReadOnly.Text
-                };
+                    Usuario usuario = new Usuario()
+                    {
+                        Id = int.Parse(this.txtUsuarioIdReadOnly.Text),
+                        Chapa = this.txtChapaReadOnly.Text,
+                        Nome = this.txtNomeReadOnly.Text,
+                        Cpf = this.txtCpfReadOnly.Text
+                    };
 
-                _usuariosAdicionados.Add(usuario);
-                this.AtualizarDataGridViewUsuariosAdicionados();
+                    _usuariosAdicionados.Add(usuario);
+                    this.AtualizarDataGridViewUsuariosAdicionados();
 
-                this.txtUsuario.Clear();
-                this.txtUsuarioIdReadOnly.Clear();
-                this.txtUsuario.Enabled = true;
-                this.txtChapaReadOnly.Clear();
-                this.txtCpfReadOnly.Clear();
-                this.txtNomeReadOnly.Clear();
-                this.dgvUsuarios.Visible = false;
-                this.dgvUsuarios.DataSource = null;
+                    this.txtUsuario.Clear();
+                    this.txtUsuarioIdReadOnly.Clear();
+                    this.txtUsuario.Enabled = true;
+                    this.txtChapaReadOnly.Clear();
+                    this.txtCpfReadOnly.Clear();
+                    this.txtNomeReadOnly.Clear();
+                    this.dgvUsuarios.Visible = false;
+                    this.dgvUsuarios.DataSource = null;
 
-                this.txtUsuario.Focus();
+                    this.txtUsuario.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Favor selecionar um usuário", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Favor selecionar um usuário", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -779,7 +787,7 @@ namespace Inventario.TIC.Forms
             this.txtNomeReadOnly.Clear();
             this.txtCpfReadOnly.Clear();
             this.txtChapaReadOnly.Clear();
-            _usuariosAdicionados = null;
+            _usuariosAdicionados = new List<Usuario>();
             this.dgvUsuariosAdicionados.DataSource = null;
         }
 

@@ -176,7 +176,7 @@
             // txtLinha
             // 
             this.txtLinha.Location = new System.Drawing.Point(6, 40);
-            this.txtLinha.MaxLength = 15;
+            this.txtLinha.MaxLength = 500;
             this.txtLinha.Name = "txtLinha";
             this.txtLinha.Size = new System.Drawing.Size(264, 20);
             this.txtLinha.TabIndex = 0;
@@ -357,7 +357,7 @@
             // txtUsuario
             // 
             this.txtUsuario.Location = new System.Drawing.Point(6, 38);
-            this.txtUsuario.MaxLength = 9;
+            this.txtUsuario.MaxLength = 500;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(258, 20);
             this.txtUsuario.TabIndex = 10;
@@ -588,7 +588,7 @@
             // txtImei1
             // 
             this.txtImei1.Location = new System.Drawing.Point(6, 38);
-            this.txtImei1.MaxLength = 9;
+            this.txtImei1.MaxLength = 500;
             this.txtImei1.Name = "txtImei1";
             this.txtImei1.Size = new System.Drawing.Size(258, 20);
             this.txtImei1.TabIndex = 4;
@@ -718,7 +718,7 @@
             // txtCarregador
             // 
             this.txtCarregador.Location = new System.Drawing.Point(6, 40);
-            this.txtCarregador.MaxLength = 9;
+            this.txtCarregador.MaxLength = 500;
             this.txtCarregador.Name = "txtCarregador";
             this.txtCarregador.Size = new System.Drawing.Size(264, 20);
             this.txtCarregador.TabIndex = 2;
