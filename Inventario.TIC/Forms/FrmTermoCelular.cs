@@ -23,6 +23,7 @@ namespace Inventario.TIC.Forms
         private List<Usuario> _usuariosAdicionados;
         private List<TermoCelularResponse> _termoCelularesResponse;
         private TermoCelular _termoCelular;
+        private string _colunaSelecionada;
 
         public FrmTermoCelular()
         {
@@ -52,6 +53,7 @@ namespace Inventario.TIC.Forms
             this.dgvTermoCelulares.Columns["FoneOuvido"].Visible = false;
             this.dgvTermoCelulares.Columns["LinkEntrega"].Visible = false;
             this.dgvTermoCelulares.Columns["LinkDevolucao"].Visible = false;
+            this.dgvTermoCelulares.Columns["Usuario"].Visible = false;
         }
 
         private void AtualizarDataGridViewUsuariosAdicionados()
@@ -581,48 +583,52 @@ namespace Inventario.TIC.Forms
 
         private void dgvTermoCelulares_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            _termoCelular = _termoCelularesOriginal[e.RowIndex];
+            int id = _termoCelularesResponse[e.RowIndex].Id;
+            _termoCelular = _termoCelularesOriginal.Find(x => x.Id == id);
+            
 
             // Dados Gerais
-            this.txtId.Text = _termoCelularesOriginal[e.RowIndex].Id.ToString();
-            this.txtDataEntrega.Text = _termoCelularesOriginal[e.RowIndex].DataEntrega.ToString();
-            // this.txtDataDevolucao.Text = _termoCelularesOriginal[e.RowIndex].DataDevolucao == null ? "" : _termoCelularesOriginal[e.RowIndex].DataDevolucao.ToString();
-            this.cboGestores.SelectedValue = _termoCelularesOriginal[e.RowIndex].Gestor.Id;
-            this.chkFoneOuvido.Checked = _termoCelularesOriginal[e.RowIndex].FoneOuvido == 0 ? true : false;
-            this.txtLinkTermoEntrega.Text = _termoCelularesOriginal[e.RowIndex].LinkEntrega == null ? "" : _termoCelularesOriginal[e.RowIndex].LinkEntrega.ToString();
-            this.txtLinkTermoDevolucao.Text = _termoCelularesOriginal[e.RowIndex].LinkDevolucao == null ? "" : _termoCelularesOriginal[e.RowIndex].LinkDevolucao.ToString();
+            this.txtId.Text = _termoCelular.Id.ToString();
+            this.txtDataEntrega.Text = _termoCelular.DataEntrega.ToString();
+            // this.txtDataDevolucao.Text = _termoCelular.DataDevolucao == null ? "" : _termoCelular.DataDevolucao.ToString();
+            this.cboGestores.SelectedValue = _termoCelular.Gestor.Id;
+            this.chkFoneOuvido.Checked = _termoCelular.FoneOuvido == 0 ? true : false;
+            // this.txtLinkTermoEntrega.Text = _termoCelular.Usuarios[0].LinkEntrega == null ? "" : _termoCelular.Usuarios[0].LinkEntrega.ToString();
+            // this.txtLinkTermoDevolucao.Text = _termoCelular.Usuarios[0].LinkDevolucao == null ? "" : _termoCelular.Usuarios[0].LinkDevolucao.ToString();
 
             // Linha
             this.txtLinha.Enabled = false;
-            this.txtLinha.Text = _termoCelularesOriginal[e.RowIndex].Linha.Numero.ToString();
-            this.txtNumeroReadOnly.Text = _termoCelularesOriginal[e.RowIndex].Linha.Numero.ToString();
-            this.txtLinhaIdReadOnly.Text = _termoCelularesOriginal[e.RowIndex].Linha.Id.ToString();
-            this.txtChipReadOnly.Text = _termoCelularesOriginal[e.RowIndex].Linha.Chip == null ? "" : _termoCelularesOriginal[e.RowIndex].Linha.Chip.ToString();
+            this.txtLinha.Text = _termoCelular.Linha.Numero.ToString();
+            this.txtNumeroReadOnly.Text = _termoCelular.Linha.Numero.ToString();
+            this.txtLinhaIdReadOnly.Text = _termoCelular.Linha.Id.ToString();
+            this.txtChipReadOnly.Text = _termoCelular.Linha.Chip == null ? "" : _termoCelular.Linha.Chip.ToString();
 
             // Carregador
             this.txtCarregador.Enabled = false;
-            this.txtCarregador.Text = _termoCelularesOriginal[e.RowIndex].Carregador.NumSerie.ToString();
-            this.txtCarregadorIdReadOnly.Text = _termoCelularesOriginal[e.RowIndex].Carregador.Id.ToString();
-            this.txtCarregadorMarcaReadOnly.Text = _termoCelularesOriginal[e.RowIndex].Carregador.Marca.ToString();
-            this.txtNumSerieReadOnly.Text = _termoCelularesOriginal[e.RowIndex].Carregador.NumSerie.ToString();
+            this.txtCarregador.Text = _termoCelular.Carregador.NumSerie.ToString();
+            this.txtCarregadorIdReadOnly.Text = _termoCelular.Carregador.Id.ToString();
+            this.txtCarregadorMarcaReadOnly.Text = _termoCelular.Carregador.Marca.ToString();
+            this.txtNumSerieReadOnly.Text = _termoCelular.Carregador.NumSerie.ToString();
 
             // Aparelho
             this.txtImei1.Enabled = false;
-            this.txtImei1.Text = _termoCelularesOriginal[e.RowIndex].Aparelho.Imei1.ToString();
-            this.txtAparelhoIdReadOnly.Text = _termoCelularesOriginal[e.RowIndex].Aparelho.Id.ToString();
-            this.txtImei1ReadOnly.Text = _termoCelularesOriginal[e.RowIndex].Aparelho.Id.ToString();
-            this.txtMarcaReadOnly.Text = _termoCelularesOriginal[e.RowIndex].Aparelho.Marca.ToString();
-            this.txtModeloReadOnly.Text = _termoCelularesOriginal[e.RowIndex].Aparelho.Modelo.ToString();
-            this.txtImei1ReadOnly.Text = _termoCelularesOriginal[e.RowIndex].Aparelho.Imei1.ToString();
+            this.txtImei1.Text = _termoCelular.Aparelho.Imei1.ToString();
+            this.txtAparelhoIdReadOnly.Text = _termoCelular.Aparelho.Id.ToString();
+            this.txtImei1ReadOnly.Text = _termoCelular.Aparelho.Id.ToString();
+            this.txtMarcaReadOnly.Text = _termoCelular.Aparelho.Marca.ToString();
+            this.txtModeloReadOnly.Text = _termoCelular.Aparelho.Modelo.ToString();
+            this.txtImei1ReadOnly.Text = _termoCelular.Aparelho.Imei1.ToString();
 
             // Usuários
-            _usuariosAdicionados = _termoCelularesOriginal[e.RowIndex].Usuario;
-            this.dgvUsuariosAdicionados.DataSource = _termoCelularesOriginal[e.RowIndex].Usuario;
+            _usuariosAdicionados = _termoCelular.Usuario;
+            this.dgvUsuariosAdicionados.DataSource = _termoCelular.Usuario;
             this.dgvUsuariosAdicionados.Columns["CascadeMode"].Visible = false;
         }
 
         private void lnkAddTermo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            this.opdTermoEntrega.DefaultExt = "*.pdf";
+            this.opdTermoEntrega.InitialDirectory = @"\\fs\ADM\Tics\Infraestrutura\Controles\2020\Telefonia\Movel\Termos";
             this.opdTermoEntrega.ShowDialog();
 
         }
@@ -662,6 +668,8 @@ namespace Inventario.TIC.Forms
 
         private void lnkTermoDevolucao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            this.opdTermoDevolucao.DefaultExt = "*.pdf";
+            this.opdTermoDevolucao.InitialDirectory = @"\\fs\ADM\Tics\Infraestrutura\Controles\2020\Telefonia\Movel\Termos";
             this.opdTermoDevolucao.ShowDialog();
         }
 
@@ -787,6 +795,8 @@ namespace Inventario.TIC.Forms
             this.txtNomeReadOnly.Clear();
             this.txtCpfReadOnly.Clear();
             this.txtChapaReadOnly.Clear();
+            this.txtDataDevolucao.Clear();
+            this.txtMotivo.Clear();
             _usuariosAdicionados = new List<Usuario>();
             this.dgvUsuariosAdicionados.DataSource = null;
         }
@@ -822,7 +832,8 @@ namespace Inventario.TIC.Forms
                 //case "NomeTecnico":
                 //    _termoCelulares = _termoCelularesOriginal.Where(c => c.NomeTecnico.ToUpper().Contains(texto.ToUpper())).ToList();
                 //    break;
-                default:                    _termoCelulares = _termoCelularesOriginal;
+                default:
+                    _termoCelulares = _termoCelularesOriginal;
                     break;
             }
             _termoCelularesResponse = _termoCelulares.Select(t => (TermoCelularResponse)t).ToList();
@@ -854,12 +865,6 @@ namespace Inventario.TIC.Forms
             newMDIChild.Show();
         }
 
-        private void btnDevolver_Click(object sender, EventArgs e)
-        {
-            FrmDevolucaoTermoCelular newMDIChild = new FrmDevolucaoTermoCelular(_termoCelular, this);
-            newMDIChild.Show();
-        }
-
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             List<ParametrosRelatorio> parametros = new List<ParametrosRelatorio>();
@@ -876,6 +881,161 @@ namespace Inventario.TIC.Forms
             });
 
             FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Termo.Devolucao.Celular", parametros);
+            newMDIChild.Show();
+        }
+
+        private void dgvTermoCelulares_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var colunaSelecionada = this.dgvTermoCelulares.Columns[e.ColumnIndex].Name;
+
+            switch (colunaSelecionada)
+            {
+                case "Id":
+                    if (colunaSelecionada != this._colunaSelecionada)
+                    {
+                        this._colunaSelecionada = colunaSelecionada;
+                        _termoCelularesResponse = _termoCelularesResponse.OrderBy(x => x.Id).ToList();
+                    }
+                    else
+                    {
+                        _termoCelularesResponse = _termoCelularesResponse.OrderByDescending(x => x.Id).ToList();
+                        this._colunaSelecionada = "";
+                    }
+                    break;
+                case "Numero":
+                    if (colunaSelecionada != this._colunaSelecionada)
+                    {
+                        this._colunaSelecionada = colunaSelecionada;
+                        _termoCelularesResponse = _termoCelularesResponse.OrderBy(x => x.Numero).ToList();
+                    }
+                    else
+                    {
+                        _termoCelularesResponse = _termoCelularesResponse.OrderByDescending(x => x.Numero).ToList();
+                        this._colunaSelecionada = "";
+                    }
+                    break;
+                case "Usuario":
+                    if (colunaSelecionada != this._colunaSelecionada)
+                    {
+                        this._colunaSelecionada = colunaSelecionada;
+                        _termoCelularesResponse = _termoCelularesResponse.OrderBy(x => x.Usuario).ToList();
+                    }
+                    else
+                    {
+                        _termoCelularesResponse = _termoCelularesResponse.OrderByDescending(x => x.Usuario).ToList();
+                        this._colunaSelecionada = "";
+                    }
+                    break;
+                case "Marca":
+                    if (colunaSelecionada != this._colunaSelecionada)
+                    {
+                        this._colunaSelecionada = colunaSelecionada;
+                        _termoCelularesResponse = _termoCelularesResponse.OrderBy(x => x.Marca).ToList();
+                    }
+                    else
+                    {
+                        _termoCelularesResponse = _termoCelularesResponse.OrderByDescending(x => x.Marca).ToList();
+                        this._colunaSelecionada = "";
+                    }
+                    break;
+                case "Modelo":
+                    if (colunaSelecionada != this._colunaSelecionada)
+                    {
+                        this._colunaSelecionada = colunaSelecionada;
+                        _termoCelularesResponse = _termoCelularesResponse.OrderBy(x => x.Modelo).ToList();
+                    }
+                    else
+                    {
+                        _termoCelularesResponse = _termoCelularesResponse.OrderByDescending(x => x.Modelo).ToList();
+                        this._colunaSelecionada = "";
+                    }
+                    break;
+                case "NomeGestor":
+                    if (colunaSelecionada != this._colunaSelecionada)
+                    {
+                        this._colunaSelecionada = colunaSelecionada;
+                        _termoCelularesResponse = _termoCelularesResponse.OrderBy(x => x.NomeGestor).ToList();
+                    }
+                    else
+                    {
+                        _termoCelularesResponse = _termoCelularesResponse.OrderByDescending(x => x.NomeGestor).ToList();
+                        this._colunaSelecionada = "";
+                    }
+                    break;
+                case "FoneOuvidoDescricao":
+                    if (colunaSelecionada != this._colunaSelecionada)
+                    {
+                        this._colunaSelecionada = colunaSelecionada;
+                        _termoCelularesResponse = _termoCelularesResponse.OrderBy(x => x.FoneOuvidoDescricao).ToList();
+                    }
+                    else
+                    {
+                        _termoCelularesResponse = _termoCelularesResponse.OrderByDescending(x => x.FoneOuvidoDescricao).ToList();
+                        this._colunaSelecionada = "";
+                    }
+                    break;
+                case "DataEntrega":
+                    if (colunaSelecionada != this._colunaSelecionada)
+                    {
+                        this._colunaSelecionada = colunaSelecionada;
+                        _termoCelularesResponse = _termoCelularesResponse.OrderBy(x => x.DataEntrega).ToList();
+                    }
+                    else
+                    {
+                        _termoCelularesResponse = _termoCelularesResponse.OrderByDescending(x => x.DataEntrega).ToList();
+                        this._colunaSelecionada = "";
+                    }
+                    break;
+                case "DataDevolucao":
+                    if (colunaSelecionada != this._colunaSelecionada)
+                    {
+                        this._colunaSelecionada = colunaSelecionada;
+                        _termoCelularesResponse = _termoCelularesResponse.OrderBy(x => x.DataDevolucao).ToList();
+                    }
+                    else
+                    {
+                        _termoCelularesResponse = _termoCelularesResponse.OrderByDescending(x => x.DataDevolucao).ToList();
+                        this._colunaSelecionada = "";
+                    }
+                    break;
+                case "Status":
+                    if (colunaSelecionada != this._colunaSelecionada)
+                    {
+                        this._colunaSelecionada = colunaSelecionada;
+                        _termoCelularesResponse = _termoCelularesResponse.OrderBy(x => x.Status).ToList();
+                    }
+                    else
+                    {
+                        _termoCelularesResponse = _termoCelularesResponse.OrderByDescending(x => x.Status).ToList();
+                        this._colunaSelecionada = "";
+                    }
+                    break;
+                default:
+                    break;
+            }
+            this.AtualizaDataGridView();
+        }
+
+        private void dgvUsuariosAdicionados_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.txtLinkTermoEntrega.Text = _usuariosAdicionados[e.RowIndex].LinkEntrega == null ? "" : _usuariosAdicionados[e.RowIndex].LinkEntrega.ToString();
+            this.txtLinkTermoDevolucao.Text = _usuariosAdicionados[e.RowIndex].LinkDevolucao == null ? "" : _usuariosAdicionados[e.RowIndex].LinkDevolucao.ToString();
+            this.txtDataDevolucao.Text = _usuariosAdicionados[e.RowIndex].DataDevolucao == null ? "" : _usuariosAdicionados[e.RowIndex].DataDevolucao.ToString();
+            this.txtMotivo.Text = _usuariosAdicionados[e.RowIndex].Motivo == null ? "" : _usuariosAdicionados[e.RowIndex].Motivo.ToString();
+        }
+
+        private void btnDevolver_Click_1(object sender, EventArgs e)
+        {
+            // this.dgvAparelhos.CurrentRow.Index;
+
+            // _termoCelular = _termoCelular.Usuario;
+
+            //int 
+
+            // _termoCelular = _termoCelular.Usuario.Where(x => x.Id == 1);
+
+
+            FrmDevolucaoTermoCelular newMDIChild = new FrmDevolucaoTermoCelular(_termoCelular, this);
             newMDIChild.Show();
         }
     }

@@ -12,5 +12,7 @@ namespace Inventario.TIC.Class
         public int UsuarioId { get; set; }
         public DateTime? DataDevolucao { get; set; }
         public string Motivo { get; set; }
+        public string LinkEntrega { get; set; }
+        public string LinkDevolucao { get; set; }
     }
 }

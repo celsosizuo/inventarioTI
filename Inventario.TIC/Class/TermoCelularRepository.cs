@@ -96,10 +96,11 @@ namespace Inventario.TIC.Class
                 {
                     Connection = new SqlConnection(Properties.Settings.Default.conSQL),
                     CommandType = CommandType.StoredProcedure,
-                    CommandText = "POSTTERMOCELULARENTREGA",
+                    CommandText = "PATHTERMOCELULARUSUARIOENTREGA",
                 };
 
-                command.Parameters.AddWithValue("@Id", celular.Id);
+                command.Parameters.AddWithValue("@TermoCelularId", celular.Id);
+                command.Parameters.AddWithValue("@UsuarioId", celular.Usuario[0].Id);
                 command.Parameters.AddWithValue("@LinkEntrega", celular.LinkEntrega);
 
                 command.Connection.Open();
@@ -120,10 +121,12 @@ namespace Inventario.TIC.Class
                 {
                     Connection = new SqlConnection(Properties.Settings.Default.conSQL),
                     CommandType = CommandType.StoredProcedure,
-                    CommandText = "POSTTERMOCELULARDEVOLUCAO",
+                    CommandText = "PATHTERMOCELULARUSUARIODEVOLUCAO",
                 };
 
-                command.Parameters.AddWithValue("@Id", celular.Id);
+
+                command.Parameters.AddWithValue("@TermoCelularId", celular.Id);
+                command.Parameters.AddWithValue("@UsuarioId", celular.Usuario[0].Id);
                 command.Parameters.AddWithValue("@LinkDevolucao", celular.LinkDevolucao);
 
                 command.Connection.Open();
@@ -184,7 +187,7 @@ namespace Inventario.TIC.Class
                             typeof(Carregador),
                             typeof(Gestor),
                             typeof(Usuario),
-                            typeof(TermoCelularUsuarios),
+                            // typeof(TermoCelularUsuarios),
 
                         }, objects =>
                         {
@@ -194,44 +197,43 @@ namespace Inventario.TIC.Class
                             var carregador = objects[3] as Carregador;
                             var gestor = objects[4] as Gestor;
                             var usuario = objects[5] as Usuario;
-                            var termoCelularUsuarios = objects[6] as TermoCelularUsuarios;
+                            // var termoCelularUsuarios = objects[6] as TermoCelularUsuarios;
 
                             celulares.Linha = linhas;
                             celulares.Aparelho = aparelhos;
                             celulares.Carregador = carregador;
                             celulares.Gestor = gestor;
                             celulares.Usuario.Add(usuario);
-                            celulares.UsuariosTermos.Add(termoCelularUsuarios);
+                            // celulares.UsuariosTermos.Add(termoCelularUsuarios);
 
                             return celulares;
 
-                        }, splitOn: "ID, ID, ID, ID, ID, ID, TERMOCELULARID").AsList();
+                        }, splitOn: "ID, ID, ID, ID, ID, ID").AsList(); //, TERMOCELULARID").AsList();
 
                     // return ret;
                 }
 
-                //var list = new List<TermoCelular>();
-                //var numItemGuardado = 0;
+                var list = new List<TermoCelular>();
+                var numItemGuardado = 0;
 
-                //ret.ToList().ForEach(it =>
-                //{
-                //    if (it.Id != numItemGuardado)
-                //        list.Add(it);
-                //    else
-                //        list.LastOrDefault().Usuario.Add(it.Usuario.FirstOrDefault());
+                ret.ToList().ForEach(it =>
+                {
+                    if (it.Id != numItemGuardado)
+                        list.Add(it);
+                    else
+                        list.LastOrDefault().Usuario.Add(it.Usuario.FirstOrDefault());
 
-                //    numItemGuardado = it.Id;
-                //});
+                    numItemGuardado = it.Id;
+                });
 
-                //return list;
+                return list;
 
-                return ret;
+                // return ret;
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
         }
-
     }
 }

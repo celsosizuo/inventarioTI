@@ -15,8 +15,12 @@ namespace Inventario.TIC.Class
         public string Chapa { get; set; }
         public string Nome { get; set; }
         public string Cpf { get; set; }
+        public DateTime? DataDevolucao { get; set; }
         public int Terceiro { get; set; }
         public string TerceiroDescricao { get; set; }
+        public string Motivo { get; set; }
+        public string LinkEntrega { get; set; }
+        public string LinkDevolucao { get; set; }
 
         public Usuario()
         {

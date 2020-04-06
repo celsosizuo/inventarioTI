@@ -54,7 +54,7 @@
             this.txtChip.MaxLength = 200;
             this.txtChip.Name = "txtChip";
             this.txtChip.Size = new System.Drawing.Size(353, 20);
-            this.txtChip.TabIndex = 62;
+            this.txtChip.TabIndex = 1;
             // 
             // label4
             // 
@@ -72,7 +72,7 @@
             this.txtPuk.MaxLength = 9;
             this.txtPuk.Name = "txtPuk";
             this.txtPuk.Size = new System.Drawing.Size(183, 20);
-            this.txtPuk.TabIndex = 60;
+            this.txtPuk.TabIndex = 3;
             // 
             // label3
             // 
@@ -90,14 +90,14 @@
             this.txtPin.MaxLength = 9;
             this.txtPin.Name = "txtPin";
             this.txtPin.Size = new System.Drawing.Size(164, 20);
-            this.txtPin.TabIndex = 58;
+            this.txtPin.TabIndex = 2;
             // 
             // btnPesquisar
             // 
             this.btnPesquisar.Location = new System.Drawing.Point(435, 146);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
-            this.btnPesquisar.TabIndex = 56;
+            this.btnPesquisar.TabIndex = 7;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
@@ -107,7 +107,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(273, 146);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 55;
+            this.btnExcluir.TabIndex = 5;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -117,7 +117,7 @@
             this.btnLimpar.Location = new System.Drawing.Point(354, 146);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpar.TabIndex = 54;
+            this.btnLimpar.TabIndex = 6;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
@@ -127,7 +127,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(192, 146);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 53;
+            this.btnSalvar.TabIndex = 4;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -138,7 +138,7 @@
             this.txtNumero.MaxLength = 11;
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(304, 20);
-            this.txtNumero.TabIndex = 52;
+            this.txtNumero.TabIndex = 0;
             // 
             // label1
             // 

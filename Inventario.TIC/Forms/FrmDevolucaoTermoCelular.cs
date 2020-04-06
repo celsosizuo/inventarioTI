@@ -26,8 +26,8 @@ namespace Inventario.TIC.Forms
         private void FrmDevolucaoTermoCelular_Load(object sender, EventArgs e)
         {
             this.txtTermoId.Text = _termoCelular.Id.ToString();
-            this.txtDataDevolucao.Text = _termoCelular.UsuariosTermos[0].DataDevolucao == null ? "" : _termoCelular.UsuariosTermos[0].DataDevolucao.ToString();
-            this.txtMotivo.Text = _termoCelular.UsuariosTermos[0].Motivo == null ? "" : _termoCelular.UsuariosTermos[0].Motivo.ToString();
+            // this.txtDataDevolucao.Text = _termoCelular.Usuarios[0].DataDevolucao == null ? "" : _termoCelular.Usuarios[0].DataDevolucao.ToString();
+            // this.txtMotivo.Text = _termoCelular.Usuarios[0].Motivo == null ? "" : _termoCelular.Usuarios[0].Motivo.ToString();
             this.dgvUsuarios.DataSource = _termoCelular.Usuario;
             this.dgvUsuarios.Columns["CascadeMode"].Visible = false;
 
@@ -60,13 +60,27 @@ namespace Inventario.TIC.Forms
 
                 if (MessageBox.Show("Você tem certeza que deseja efetuar a devolução do termo do usuário selecionado?", "Confirmação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    TermoCelularUsuarios termoCelularUsuarios = _termoCelular.UsuariosTermos[0];
-                    TermoCelularUsuarioRepository termoCelularUsuarioRepository = new TermoCelularUsuarioRepository();
+                    
+                    // parei aqui;
 
-                    termoCelularUsuarios.DataDevolucao = DateTime.Parse(this.txtDataDevolucao.Text);
-                    termoCelularUsuarios.Motivo = this.txtMotivo.Text;
+                    _termoCelular.Usuario[this.dgvUsuarios.CurrentRow.Index].DataDevolucao = DateTime.Parse(this.txtDataDevolucao.Text);
+                    _termoCelular.Usuario[this.dgvUsuarios.CurrentRow.Index].Motivo = this.txtMotivo.Text;
 
-                    termoCelularUsuarioRepository.PathDataDevolucao(termoCelularUsuarios);
+
+
+
+                    // termoCelularUsuarioRepository.PathDataDevolucao(termoCelularUsuarios);
+
+
+
+
+                    // Metodo antigo
+                    //TermoCelularUsuarios termoCelularUsuarios = _termoCelular.UsuariosTermos[this.dgvUsuarios.CurrentRow.Index];
+                    //TermoCelularUsuarioRepository termoCelularUsuarioRepository = new TermoCelularUsuarioRepository();
+
+                    //termoCelularUsuarios.DataDevolucao = DateTime.Parse(this.txtDataDevolucao.Text);
+                    //termoCelularUsuarios.Motivo = this.txtMotivo.Text;
+
 
                     // Fechando a tela e atualizando a tela anterior
                     _parentForm.CarregarDataGridView();

@@ -33,7 +33,7 @@ namespace Inventario.TIC.Class
                 Id = entity.Id,
                 AparelhoId = entity.AparelhoId,
                 CarregadorId = entity.CarregadorId,
-                DataDevolucao = entity.UsuariosTermos[0].DataDevolucao,
+                DataDevolucao = entity.Usuario[0].DataDevolucao,
                 DataEntrega = entity.DataEntrega,
                 FoneOuvido = entity.FoneOuvido,
                 GestorId = entity.GestorId,

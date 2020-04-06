@@ -62,7 +62,7 @@
             this.txtNumSerie.MaxLength = 200;
             this.txtNumSerie.Name = "txtNumSerie";
             this.txtNumSerie.Size = new System.Drawing.Size(183, 20);
-            this.txtNumSerie.TabIndex = 77;
+            this.txtNumSerie.TabIndex = 1;
             // 
             // label4
             // 
@@ -80,14 +80,14 @@
             this.txtValor.MaxLength = 9;
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(164, 20);
-            this.txtValor.TabIndex = 73;
+            this.txtValor.TabIndex = 2;
             // 
             // btnPesquisar
             // 
             this.btnPesquisar.Location = new System.Drawing.Point(439, 92);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
-            this.btnPesquisar.TabIndex = 72;
+            this.btnPesquisar.TabIndex = 6;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
@@ -97,7 +97,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(277, 92);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 71;
+            this.btnExcluir.TabIndex = 4;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -107,7 +107,7 @@
             this.btnLimpar.Location = new System.Drawing.Point(358, 92);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpar.TabIndex = 70;
+            this.btnLimpar.TabIndex = 5;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
@@ -117,7 +117,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(196, 92);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 69;
+            this.btnSalvar.TabIndex = 3;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -128,7 +128,7 @@
             this.txtMarca.MaxLength = 11;
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(304, 20);
-            this.txtMarca.TabIndex = 68;
+            this.txtMarca.TabIndex = 0;
             // 
             // label1
             // 
