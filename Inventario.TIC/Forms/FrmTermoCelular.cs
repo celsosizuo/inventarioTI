@@ -1026,16 +1026,34 @@ namespace Inventario.TIC.Forms
 
         private void btnDevolver_Click_1(object sender, EventArgs e)
         {
-            // this.dgvAparelhos.CurrentRow.Index;
+            int usuarioId = int.Parse(dgvUsuariosAdicionados.Rows[dgvUsuariosAdicionados.CurrentRow.Index].Cells[0].Value.ToString());
 
-            // _termoCelular = _termoCelular.Usuario;
-
-            //int 
-
-            // _termoCelular = _termoCelular.Usuario.Where(x => x.Id == 1);
+            // por referencia
+            // TermoCelular _termoSelecionado = _termoCelular;
 
 
-            FrmDevolucaoTermoCelular newMDIChild = new FrmDevolucaoTermoCelular(_termoCelular, this);
+            TermoCelular _termoSelecionado = new TermoCelular()
+            {
+                Aparelho = _termoCelular.Aparelho,
+                AparelhoId = _termoCelular.AparelhoId,
+                Carregador = _termoCelular.Carregador,
+                CarregadorId = _termoCelular.CarregadorId,
+                DataEntrega = _termoCelular.DataEntrega,
+                FoneOuvido = _termoCelular.FoneOuvido,
+                FoneOuvidoDescricao = _termoCelular.FoneOuvidoDescricao,
+                Gestor = _termoCelular.Gestor,
+                GestorId = _termoCelular.GestorId,
+                Id = _termoCelular.Id,
+                Linha = _termoCelular.Linha,
+                LinhaId = _termoCelular.LinhaId,
+                Status = _termoCelular.Status,
+                UsuariosTermos = _termoCelular.UsuariosTermos,
+                Usuario = _termoCelular.Usuario.Select(y => y).ToList(),
+            };
+
+            _termoSelecionado.Usuario = _termoSelecionado.Usuario.Where(x => x.Id == usuarioId).ToList();
+
+            FrmDevolucaoTermoCelular newMDIChild = new FrmDevolucaoTermoCelular(_termoSelecionado, this);
             newMDIChild.Show();
         }
     }

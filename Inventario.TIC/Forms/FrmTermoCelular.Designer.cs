@@ -108,13 +108,13 @@
             this.txtLinkTermoEntrega = new System.Windows.Forms.TextBox();
             this.lnkAddTermo = new System.Windows.Forms.LinkLabel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.btnDevolver = new System.Windows.Forms.Button();
             this.txtMotivo = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.txtDataDevolucao = new System.Windows.Forms.MaskedTextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.btnPesquisar = new System.Windows.Forms.Button();
-            this.btnDevolver = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLinhas)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -1012,6 +1012,16 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Imagens";
             // 
+            // btnDevolver
+            // 
+            this.btnDevolver.Location = new System.Drawing.Point(498, 81);
+            this.btnDevolver.Name = "btnDevolver";
+            this.btnDevolver.Size = new System.Drawing.Size(117, 23);
+            this.btnDevolver.TabIndex = 115;
+            this.btnDevolver.Text = "Efetuar Devolução";
+            this.btnDevolver.UseVisualStyleBackColor = true;
+            this.btnDevolver.Click += new System.EventHandler(this.btnDevolver_Click_1);
+            // 
             // txtMotivo
             // 
             this.txtMotivo.Location = new System.Drawing.Point(370, 27);
@@ -1062,16 +1072,6 @@
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
-            // btnDevolver
-            // 
-            this.btnDevolver.Location = new System.Drawing.Point(498, 81);
-            this.btnDevolver.Name = "btnDevolver";
-            this.btnDevolver.Size = new System.Drawing.Size(117, 23);
-            this.btnDevolver.TabIndex = 115;
-            this.btnDevolver.Text = "Efetuar Devolução";
-            this.btnDevolver.UseVisualStyleBackColor = true;
-            this.btnDevolver.Click += new System.EventHandler(this.btnDevolver_Click_1);
-            // 
             // FrmTermoCelular
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1095,6 +1095,7 @@
             this.Name = "FrmTermoCelular";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Termo de Celular";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmCelulares_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

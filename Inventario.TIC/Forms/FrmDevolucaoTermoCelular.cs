@@ -62,24 +62,23 @@ namespace Inventario.TIC.Forms
                 {
                     
                     // parei aqui;
-
-                    _termoCelular.Usuario[this.dgvUsuarios.CurrentRow.Index].DataDevolucao = DateTime.Parse(this.txtDataDevolucao.Text);
-                    _termoCelular.Usuario[this.dgvUsuarios.CurrentRow.Index].Motivo = this.txtMotivo.Text;
+                    
 
 
-
-
-                    // termoCelularUsuarioRepository.PathDataDevolucao(termoCelularUsuarios);
 
 
 
 
                     // Metodo antigo
+                    //_termoCelular.Usuario[this.dgvUsuarios.CurrentRow.Index].DataDevolucao = DateTime.Parse(this.txtDataDevolucao.Text);
+                    //_termoCelular.Usuario[this.dgvUsuarios.CurrentRow.Index].Motivo = this.txtMotivo.Text;
+
                     //TermoCelularUsuarios termoCelularUsuarios = _termoCelular.UsuariosTermos[this.dgvUsuarios.CurrentRow.Index];
                     //TermoCelularUsuarioRepository termoCelularUsuarioRepository = new TermoCelularUsuarioRepository();
 
                     //termoCelularUsuarios.DataDevolucao = DateTime.Parse(this.txtDataDevolucao.Text);
                     //termoCelularUsuarios.Motivo = this.txtMotivo.Text;
+                    //termoCelularUsuarioRepository.PathDataDevolucao(termoCelularUsuarios);
 
 
                     // Fechando a tela e atualizando a tela anterior
