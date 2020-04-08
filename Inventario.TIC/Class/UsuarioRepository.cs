@@ -95,7 +95,7 @@ namespace Inventario.TIC.Class
             }
         }
 
-        public void PathDataDevolucao(TermoCelular termoCelular)
+        public void PathDevolverCelular(TermoCelular termoCelular)
         {
             try
             {
@@ -110,6 +110,31 @@ namespace Inventario.TIC.Class
                 command.Parameters.AddWithValue("@UsuarioId", termoCelular.Usuario[0].Id);
                 command.Parameters.AddWithValue("@DataDevolucao", termoCelular.Usuario[0].DataDevolucao);
                 command.Parameters.AddWithValue("@Motivo", termoCelular.Usuario[0].Motivo);
+
+                command.Connection.Open();
+                command.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public void PathCancelarDevolucao(TermoCelular termoCelular)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand()
+                {
+                    Connection = new SqlConnection(Properties.Settings.Default.conSQL),
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "PATHTERMOCELULARUSUARIO",
+                };
+
+                command.Parameters.AddWithValue("@TermoCelularId", termoCelular.Id);
+                command.Parameters.AddWithValue("@UsuarioId", termoCelular.Usuario[0].Id);
+                command.Parameters.AddWithValue("@DataDevolucao", System.DBNull.Value);
+                command.Parameters.AddWithValue("@Motivo", System.DBNull.Value);
 
                 command.Connection.Open();
                 command.ExecuteScalar();

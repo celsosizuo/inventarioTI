@@ -21,7 +21,7 @@ namespace Inventario.TIC.Class
         public string FoneOuvidoDescricao { get; set; }
         public int GestorId { get; set; }
         public DateTime DataEntrega { get; set; }
-        public DateTime? DataDevolucao { get; set; }
+        // public DateTime? DataDevolucao { get; set; }
         public string LinkEntrega { get; set; }
         public string LinkDevolucao { get; set; }
         public string Status { get; set; }
@@ -33,7 +33,7 @@ namespace Inventario.TIC.Class
                 Id = entity.Id,
                 AparelhoId = entity.AparelhoId,
                 CarregadorId = entity.CarregadorId,
-                DataDevolucao = entity.Usuario[0].DataDevolucao,
+                // DataDevolucao = entity.Usuario[0].DataDevolucao,
                 DataEntrega = entity.DataEntrega,
                 FoneOuvido = entity.FoneOuvido,
                 GestorId = entity.GestorId,

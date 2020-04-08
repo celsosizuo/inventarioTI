@@ -26,8 +26,8 @@ namespace Inventario.TIC.Forms
         private void FrmDevolucaoTermoCelular_Load(object sender, EventArgs e)
         {
             this.txtTermoId.Text = _termoCelular.Id.ToString();
-            // this.txtDataDevolucao.Text = _termoCelular.Usuarios[0].DataDevolucao == null ? "" : _termoCelular.Usuarios[0].DataDevolucao.ToString();
-            // this.txtMotivo.Text = _termoCelular.Usuarios[0].Motivo == null ? "" : _termoCelular.Usuarios[0].Motivo.ToString();
+            this.txtDataDevolucao.Text = _termoCelular.Usuario[0].DataDevolucao == null ? "" : _termoCelular.Usuario[0].DataDevolucao.ToString();
+            this.txtMotivo.Text = _termoCelular.Usuario[0].Motivo == null ? "" : _termoCelular.Usuario[0].Motivo.ToString();
             this.dgvUsuarios.DataSource = _termoCelular.Usuario;
             this.dgvUsuarios.Columns["CascadeMode"].Visible = false;
 
@@ -60,14 +60,14 @@ namespace Inventario.TIC.Forms
 
                 if (MessageBox.Show("Você tem certeza que deseja efetuar a devolução do termo do usuário selecionado?", "Confirmação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    
+
                     // parei aqui;
-                    
+                    UsuarioRepository usuarioRepository = new UsuarioRepository();
 
+                    _termoCelular.Usuario[0].DataDevolucao = DateTime.Parse(this.txtDataDevolucao.Text);
+                    _termoCelular.Usuario[0].Motivo = this.txtMotivo.Text;
 
-
-
-
+                    usuarioRepository.PathDevolverCelular(_termoCelular);
 
                     // Metodo antigo
                     //_termoCelular.Usuario[this.dgvUsuarios.CurrentRow.Index].DataDevolucao = DateTime.Parse(this.txtDataDevolucao.Text);
@@ -83,6 +83,10 @@ namespace Inventario.TIC.Forms
 
                     // Fechando a tela e atualizando a tela anterior
                     _parentForm.CarregarDataGridView();
+                    _parentForm.AtualizarDataGridViewUsuariosAdicionados();
+                    // _parentForm.txtDataDevolucao.Text = "";
+
+
                     this.Close();
                 }
             }

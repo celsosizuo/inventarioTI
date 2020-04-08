@@ -40,7 +40,7 @@ namespace Inventario.TIC.Forms
             InitializeComponent();
         }
 
-        private void AtualizaDataGridView()
+        public void AtualizaDataGridView()
         {
             this.dgvTermoCelulares.DataSource = null;
             this.dgvTermoCelulares.DataSource = _termoCelularesResponse;
@@ -56,11 +56,15 @@ namespace Inventario.TIC.Forms
             this.dgvTermoCelulares.Columns["Usuario"].Visible = false;
         }
 
-        private void AtualizarDataGridViewUsuariosAdicionados()
+        public void AtualizarDataGridViewUsuariosAdicionados()
         {
             this.dgvUsuariosAdicionados.DataSource = null;
             this.dgvUsuariosAdicionados.DataSource = _usuariosAdicionados;
             this.dgvUsuariosAdicionados.Columns["CascadeMode"].Visible = false;
+            this.dgvUsuariosAdicionados.Columns["Cpf"].Visible = false;
+            this.dgvUsuariosAdicionados.Columns["Terceiro"].Visible = false;
+            this.dgvUsuariosAdicionados.Columns["TerceiroDescricao"].Visible = false;
+            this.dgvUsuariosAdicionados.Columns["Motivo"].Visible = false;
         }
 
         public void CarregarDataGridView()
@@ -110,7 +114,7 @@ namespace Inventario.TIC.Forms
 
         }
 
-        #region Pesquisa Controles
+        #region Pesquisa Linha
 
         private void btnNovaPesquisaLinha_Click(object sender, EventArgs e)
         {
@@ -123,17 +127,75 @@ namespace Inventario.TIC.Forms
             this.dgvLinhas.DataSource = null;
         }
 
-        private void btnNovaPesquisaUsuario_Click(object sender, EventArgs e)
+        private void txtLinha_KeyPress(object sender, KeyPressEventArgs e)
         {
-            this.txtUsuario.Clear();
-            this.txtUsuarioIdReadOnly.Clear();
-            this.txtUsuario.Enabled = true;
-            this.txtChapaReadOnly.Clear();
-            this.txtCpfReadOnly.Clear();
-            this.txtNomeReadOnly.Clear();
-            this.dgvUsuarios.Visible = false;
-            this.dgvUsuarios.DataSource = null;
+            if ((Keys)e.KeyChar == Keys.Enter)
+            {
+                this.dgvLinhas.Visible = true;
+
+                List<Linha> c = new List<Linha>();
+                LinhaRepository LinhaRepository = new LinhaRepository();
+
+                c = LinhaRepository.Get().Where(u => u.Numero.ToUpper().Contains(this.txtLinha.Text.ToUpper())).ToList();
+                _linhas = c;
+
+                this.dgvLinhas.DataSource = c;
+                this.dgvLinhas.Focus();
+            }
         }
+
+        private void dgvLinhas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                this.txtLinhaIdReadOnly.Text = _linhas[e.RowIndex].Id.ToString();
+                this.txtNumeroReadOnly.Text = _linhas[e.RowIndex].Numero.ToString();
+                this.txtChipReadOnly.Text = _linhas[e.RowIndex].Chip == null ? "" : _linhas[e.RowIndex].Chip.ToString();
+                this.txtLinha.Text = _linhas[e.RowIndex].Numero.ToString();
+                this.txtLinha.Enabled = false;
+
+                this.dgvLinhas.Visible = false;
+                this.txtImei1.Focus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvLinhas_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+                e.Handled = true;
+        }
+
+        private void dgvLinhas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Enter)
+            {
+
+                if (this.dgvLinhas.Rows.Count > 0)
+                {
+                    int RowIndex = this.dgvLinhas.CurrentRow.Index;
+
+                    //int RowIndex = this.dgvLinhas.SelectedRows.
+
+                    this.txtLinhaIdReadOnly.Text = _linhas[RowIndex].Id.ToString();
+                    this.txtNumeroReadOnly.Text = _linhas[RowIndex].Numero.ToString();
+                    this.txtChipReadOnly.Text = _linhas[RowIndex].Chip == null ? "" : _linhas[RowIndex].Chip.ToString();
+                    this.txtLinha.Text = _linhas[RowIndex].Numero.ToString();
+                    this.txtLinha.Enabled = false;
+
+                    this.dgvLinhas.Visible = false;
+
+                    this.txtImei1.Focus();
+                }
+            }
+        }
+
+        #endregion
+
+        #region Pesquisa Aparelho/IMEI
 
         private void btnNovaPesquisaAparelho_Click(object sender, EventArgs e)
         {
@@ -180,7 +242,7 @@ namespace Inventario.TIC.Forms
 
                 this.dgvAparelhos.Visible = false;
 
-                this.txtLinha.Focus();
+                this.txtCarregador.Focus();
             }
             catch (Exception ex)
             {
@@ -206,7 +268,7 @@ namespace Inventario.TIC.Forms
                     this.txtImei1.Enabled = false;
 
                     this.dgvAparelhos.Visible = false;
-                    this.txtDataEntrega.Focus();
+                    this.txtCarregador.Focus();
                 }
             }
         }
@@ -215,6 +277,107 @@ namespace Inventario.TIC.Forms
         {
             if (e.KeyData == Keys.Enter)
                 e.Handled = true;
+        }
+
+        #endregion
+
+        #region Pesquisa Carregador
+
+        private void btnNovaPesquisaCarregador_Click(object sender, EventArgs e)
+        {
+            this.txtCarregadorIdReadOnly.Clear();
+            this.txtCarregadorMarcaReadOnly.Clear();
+            this.txtNumSerieReadOnly.Clear();
+            this.txtCarregador.Clear();
+            this.txtCarregador.Enabled = true;
+            this.dgvCarregadores.Visible = false;
+            this.dgvCarregadores.DataSource = null;
+        }
+
+        private void txtCarregador_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Pressionou a tecla enter
+            if ((Keys)e.KeyChar == Keys.Enter)
+            {
+                this.dgvCarregadores.Visible = true;
+
+                List<Carregador> c = new List<Carregador>();
+                CarregadorRepository carregadorRepository = new CarregadorRepository();
+
+                c = carregadorRepository.Get().Where(m => m.NumSerie.Contains(this.txtCarregador.Text)).ToList();
+                _carregadores = c;
+
+                this.dgvCarregadores.DataSource = c;
+                this.dgvCarregadores.Visible = true;
+                this.dgvCarregadores.Focus();
+            }
+        }
+
+        private void dgvCarregadores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                this.txtCarregadorIdReadOnly.Text = _carregadores[e.RowIndex].Id.ToString();
+                this.txtCarregadorMarcaReadOnly.Text = _carregadores[e.RowIndex].Marca.ToString();
+                this.txtNumSerieReadOnly.Text = _carregadores[e.RowIndex].NumSerie.ToString();
+                this.txtCarregador.Enabled = false;
+
+                this.dgvCarregadores.Visible = false;
+                // this.txtImei1.Focus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvCarregadores_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+                e.Handled = true;
+        }
+
+        private void dgvCarregadores_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (this.dgvCarregadores.Rows.Count > 0)
+            {
+                if ((Keys)e.KeyChar == Keys.Enter)
+                {
+                    try
+                    {
+                        int RowIndex = this.dgvCarregadores.CurrentRow.Index;
+
+                        this.txtCarregadorIdReadOnly.Text = _carregadores[RowIndex].Id.ToString();
+                        this.txtCarregadorMarcaReadOnly.Text = _carregadores[RowIndex].Marca.ToString();
+                        this.txtNumSerieReadOnly.Text = _carregadores[RowIndex].NumSerie.ToString();
+                        this.txtCarregador.Enabled = false;
+                        this.txtCarregador.Text = _carregadores[RowIndex].NumSerie.ToString();
+
+                        this.dgvCarregadores.Visible = false;
+                        this.txtUsuario.Focus();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        #endregion
+
+        #region Pesquisa Usuários
+
+        private void btnNovaPesquisaUsuario_Click(object sender, EventArgs e)
+        {
+            this.txtUsuario.Clear();
+            this.txtUsuarioIdReadOnly.Clear();
+            this.txtUsuario.Enabled = true;
+            this.txtChapaReadOnly.Clear();
+            this.txtCpfReadOnly.Clear();
+            this.txtNomeReadOnly.Clear();
+            this.dgvUsuarios.Visible = false;
+            this.dgvUsuarios.DataSource = null;
         }
 
         private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
@@ -284,152 +447,27 @@ namespace Inventario.TIC.Forms
             }
         }
 
-        private void txtLinha_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void btnRemover_Click(object sender, EventArgs e)
         {
-            if ((Keys)e.KeyChar == Keys.Enter)
+            if (this.dgvUsuariosAdicionados.Rows.Count > 0)
             {
-                this.dgvLinhas.Visible = true;
-
-                List<Linha> c = new List<Linha>();
-                LinhaRepository LinhaRepository = new LinhaRepository();
-
-                c = LinhaRepository.Get().Where(u => u.Numero.ToUpper().Contains(this.txtLinha.Text.ToUpper())).ToList();
-                _linhas = c;
-
-                this.dgvLinhas.DataSource = c;
-                this.dgvLinhas.Focus();
-            }
-        }
-
-        private void dgvLinhas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                this.txtLinhaIdReadOnly.Text = _linhas[e.RowIndex].Id.ToString();
-                this.txtNumeroReadOnly.Text = _linhas[e.RowIndex].Numero.ToString();
-                this.txtChipReadOnly.Text = _linhas[e.RowIndex].Chip == null ? "" : _linhas[e.RowIndex].Chip.ToString();
-                this.txtLinha.Text = _linhas[e.RowIndex].Numero.ToString();
-                this.txtLinha.Enabled = false;
-
-                this.dgvLinhas.Visible = false;
-                this.txtImei1.Focus();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void dgvLinhas_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Enter)
-                e.Handled = true;
-        }
-
-        private void dgvLinhas_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if ((Keys)e.KeyChar == Keys.Enter)
-            {
-
-                if (this.dgvLinhas.Rows.Count > 0)
+                int RowIndex = this.dgvUsuariosAdicionados.CurrentRow.Index;
+                if (RowIndex < 0)
                 {
-                    int RowIndex = this.dgvLinhas.CurrentRow.Index;
-
-                    //int RowIndex = this.dgvLinhas.SelectedRows.
-
-                    this.txtLinhaIdReadOnly.Text = _linhas[RowIndex].Id.ToString();
-                    this.txtNumeroReadOnly.Text = _linhas[RowIndex].Numero.ToString();
-                    this.txtChipReadOnly.Text = _linhas[RowIndex].Chip == null ? "" : _linhas[RowIndex].Chip.ToString();
-                    this.txtLinha.Text = _linhas[RowIndex].Numero.ToString();
-                    this.txtLinha.Enabled = false;
-
-                    this.dgvLinhas.Visible = false;
-
-                    this.txtCarregador.Focus();
+                    MessageBox.Show("Favor selecionar um usuário na lista", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    _usuariosAdicionados.RemoveAt(RowIndex);
+                    AtualizarDataGridViewUsuariosAdicionados();
                 }
             }
         }
 
-        private void txtCarregador_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Pressionou a tecla enter
-            if ((Keys)e.KeyChar == Keys.Enter)
-            {
-                this.dgvCarregadores.Visible = true;
+        #endregion
 
-                List<Carregador> c = new List<Carregador>();
-                CarregadorRepository carregadorRepository = new CarregadorRepository();
-
-                c = carregadorRepository.Get().Where(m => m.NumSerie.Contains(this.txtCarregador.Text)).ToList();
-                _carregadores = c;
-
-                this.dgvCarregadores.DataSource = c;
-                this.dgvCarregadores.Visible = true;
-                this.dgvCarregadores.Focus();
-            }
-        }
-
-        private void dgvCarregadores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                this.txtCarregadorIdReadOnly.Text = _carregadores[e.RowIndex].Id.ToString();
-                this.txtCarregadorMarcaReadOnly.Text = _carregadores[e.RowIndex].Marca.ToString();
-                this.txtNumSerieReadOnly.Text = _carregadores[e.RowIndex].NumSerie.ToString();
-                this.txtCarregador.Enabled = false;
-
-                this.dgvCarregadores.Visible = false;
-                // this.txtImei1.Focus();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void dgvCarregadores_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Enter)
-                e.Handled = true;
-        }
-
-        private void dgvCarregadores_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (this.dgvCarregadores.Rows.Count > 0)
-            {
-                if ((Keys)e.KeyChar == Keys.Enter)
-                {
-                    try
-                    {
-                        int RowIndex = this.dgvCarregadores.CurrentRow.Index;
-
-                        this.txtCarregadorIdReadOnly.Text = _carregadores[RowIndex].Id.ToString();
-                        this.txtCarregadorMarcaReadOnly.Text = _carregadores[RowIndex].Marca.ToString();
-                        this.txtNumSerieReadOnly.Text = _carregadores[RowIndex].NumSerie.ToString();
-                        this.txtCarregador.Enabled = false;
-                        this.txtCarregador.Text = _carregadores[RowIndex].NumSerie.ToString();
-
-                        this.dgvCarregadores.Visible = false;
-                        this.txtImei1.Focus();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-        }
-
-        private void btnNovaPesquisaCarregador_Click(object sender, EventArgs e)
-        {
-            this.txtCarregadorIdReadOnly.Clear();
-            this.txtCarregadorMarcaReadOnly.Clear();
-            this.txtNumSerieReadOnly.Clear();
-            this.txtCarregador.Clear();
-            this.txtCarregador.Enabled = true;
-            this.dgvCarregadores.Visible = false;
-            this.dgvCarregadores.DataSource = null;
-        }
+        #region Controles
 
         private void btnAddUsuario_Click(object sender, EventArgs e)
         {
@@ -469,25 +507,6 @@ namespace Inventario.TIC.Forms
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void btnRemover_Click(object sender, EventArgs e)
-        {
-            if (this.dgvUsuariosAdicionados.Rows.Count > 0)
-            {
-                int RowIndex = this.dgvUsuariosAdicionados.CurrentRow.Index;
-                if (RowIndex < 0)
-                {
-                    MessageBox.Show("Favor selecionar um usuário na lista", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    _usuariosAdicionados.RemoveAt(RowIndex);
-                    AtualizarDataGridViewUsuariosAdicionados();
-                }
-            }
-        }
-
-        #endregion
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
@@ -583,6 +602,7 @@ namespace Inventario.TIC.Forms
 
         private void dgvTermoCelulares_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            this.LimparCampos();
             int id = _termoCelularesResponse[e.RowIndex].Id;
             _termoCelular = _termoCelularesOriginal.Find(x => x.Id == id);
             
@@ -623,6 +643,14 @@ namespace Inventario.TIC.Forms
             _usuariosAdicionados = _termoCelular.Usuario;
             this.dgvUsuariosAdicionados.DataSource = _termoCelular.Usuario;
             this.dgvUsuariosAdicionados.Columns["CascadeMode"].Visible = false;
+            this.dgvUsuariosAdicionados.Columns["Cpf"].Visible = false;
+            this.dgvUsuariosAdicionados.Columns["Terceiro"].Visible = false;
+            this.dgvUsuariosAdicionados.Columns["TerceiroDescricao"].Visible = false;
+            this.dgvUsuariosAdicionados.Columns["Motivo"].Visible = false;
+            //this.dgvUsuariosAdicionados.Columns["LinkEntrega"].Visible = false;
+            //this.dgvUsuariosAdicionados.Columns["LinkDevolucao"].Visible = false;
+
+
         }
 
         private void lnkAddTermo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -643,10 +671,12 @@ namespace Inventario.TIC.Forms
                 _termoCelular.LinkEntrega = this.txtLinkTermoEntrega.Text;
 
                 termoRepository.UpdateLinkTermoEntrega(_termoCelular);
+                _usuariosAdicionados[this.dgvUsuariosAdicionados.CurrentRow.Index].LinkEntrega = this.txtLinkTermoEntrega.Text;
 
                 MessageBox.Show("Inclusão do link do termo efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                 this.CarregarDataGridView();
+                this.AtualizarDataGridViewUsuariosAdicionados();
             }
             catch (Exception ex)
             {
@@ -681,12 +711,13 @@ namespace Inventario.TIC.Forms
                 TermoCelularRepository termoRepository = new TermoCelularRepository();
 
                 _termoCelular.LinkDevolucao = this.txtLinkTermoDevolucao.Text;
-
                 termoRepository.UpdateLinkTermoDevolucao(_termoCelular);
+                _usuariosAdicionados[this.dgvUsuariosAdicionados.CurrentRow.Index].LinkDevolucao = this.txtLinkTermoDevolucao.Text;
 
                 MessageBox.Show("Inclusão do link do termo de devolução efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                 this.CarregarDataGridView();
+                this.AtualizarDataGridViewUsuariosAdicionados();
             }
             catch (Exception ex)
             {
@@ -719,9 +750,12 @@ namespace Inventario.TIC.Forms
 
                     termoRepository.UpdateLinkTermoEntrega(_termoCelular);
 
+                    _usuariosAdicionados[this.dgvUsuariosAdicionados.CurrentRow.Index].LinkEntrega = null;
+
                     MessageBox.Show("Exclusão do link do termo de entrega efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                     this.CarregarDataGridView();
+                    this.AtualizarDataGridViewUsuariosAdicionados();
                 }
             }
             catch (Exception ex)
@@ -743,9 +777,12 @@ namespace Inventario.TIC.Forms
 
                     termoRepository.UpdateLinkTermoDevolucao(_termoCelular);
 
+                    _usuariosAdicionados[this.dgvUsuariosAdicionados.CurrentRow.Index].LinkDevolucao = null;
+
                     MessageBox.Show("Exclusão do link do termo de devolução efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                     this.CarregarDataGridView();
+                    this.AtualizarDataGridViewUsuariosAdicionados();
                 }
             }
             catch (Exception ex)
@@ -795,8 +832,8 @@ namespace Inventario.TIC.Forms
             this.txtNomeReadOnly.Clear();
             this.txtCpfReadOnly.Clear();
             this.txtChapaReadOnly.Clear();
-            this.txtDataDevolucao.Clear();
-            this.txtMotivo.Clear();
+            // this.txtDataDevolucao.Clear();
+            // this.txtMotivo.Clear();
             _usuariosAdicionados = new List<Usuario>();
             this.dgvUsuariosAdicionados.DataSource = null;
         }
@@ -854,34 +891,44 @@ namespace Inventario.TIC.Forms
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            List<ParametrosRelatorio> parametros = new List<ParametrosRelatorio>();
-            parametros.Add(new ParametrosRelatorio
+            if (this.txtNumeroReadOnly.Text == "")
+                MessageBox.Show("Favor selecionar uma linha para gerar o termo", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
             {
-                Parametro = "LINHANUMERO",
-                Valor = this.txtNumeroReadOnly.Text,
-            });
-            
-            FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Termo.Entrega.Celular", parametros);
-            newMDIChild.Show();
+                List<ParametrosRelatorio> parametros = new List<ParametrosRelatorio>();
+                parametros.Add(new ParametrosRelatorio
+                {
+                    Parametro = "LINHANUMERO",
+                    Valor = this.txtNumeroReadOnly.Text,
+                });
+
+                FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Termo.Entrega.Celular", parametros);
+                newMDIChild.Show();
+            }
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            List<ParametrosRelatorio> parametros = new List<ParametrosRelatorio>();
-            parametros.Add(new ParametrosRelatorio
+            if (this.txtNumeroReadOnly.Text == "" || this.txtUsuarioIdReadOnly.Text == "")
+                MessageBox.Show("Para gerar o relatório de termo de devolução, favor selecionar uma linha e um usuário", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
             {
-                Parametro = "LINHANUMERO",
-                Valor = this.txtNumeroReadOnly.Text,
-            });
+                List<ParametrosRelatorio> parametros = new List<ParametrosRelatorio>();
+                parametros.Add(new ParametrosRelatorio
+                {
+                    Parametro = "LINHANUMERO",
+                    Valor = this.txtNumeroReadOnly.Text,
+                });
 
-            parametros.Add(new ParametrosRelatorio
-            {
-                Parametro = "USUARIOID",
-                Valor = _termoCelular.Usuario[0].Id.ToString(),
-            });
+                parametros.Add(new ParametrosRelatorio
+                {
+                    Parametro = "USUARIOID",
+                    Valor = this.txtUsuarioIdReadOnly.Text,
+                });
 
-            FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Termo.Devolucao.Celular", parametros);
-            newMDIChild.Show();
+                FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Termo.Devolucao.Celular", parametros);
+                newMDIChild.Show();
+            }
         }
 
         private void dgvTermoCelulares_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -986,18 +1033,6 @@ namespace Inventario.TIC.Forms
                         this._colunaSelecionada = "";
                     }
                     break;
-                case "DataDevolucao":
-                    if (colunaSelecionada != this._colunaSelecionada)
-                    {
-                        this._colunaSelecionada = colunaSelecionada;
-                        _termoCelularesResponse = _termoCelularesResponse.OrderBy(x => x.DataDevolucao).ToList();
-                    }
-                    else
-                    {
-                        _termoCelularesResponse = _termoCelularesResponse.OrderByDescending(x => x.DataDevolucao).ToList();
-                        this._colunaSelecionada = "";
-                    }
-                    break;
                 case "Status":
                     if (colunaSelecionada != this._colunaSelecionada)
                     {
@@ -1020,41 +1055,98 @@ namespace Inventario.TIC.Forms
         {
             this.txtLinkTermoEntrega.Text = _usuariosAdicionados[e.RowIndex].LinkEntrega == null ? "" : _usuariosAdicionados[e.RowIndex].LinkEntrega.ToString();
             this.txtLinkTermoDevolucao.Text = _usuariosAdicionados[e.RowIndex].LinkDevolucao == null ? "" : _usuariosAdicionados[e.RowIndex].LinkDevolucao.ToString();
-            this.txtDataDevolucao.Text = _usuariosAdicionados[e.RowIndex].DataDevolucao == null ? "" : _usuariosAdicionados[e.RowIndex].DataDevolucao.ToString();
-            this.txtMotivo.Text = _usuariosAdicionados[e.RowIndex].Motivo == null ? "" : _usuariosAdicionados[e.RowIndex].Motivo.ToString();
+            // this.txtDataDevolucao.Text = _usuariosAdicionados[e.RowIndex].DataDevolucao == null ? "" : _usuariosAdicionados[e.RowIndex].DataDevolucao.ToString();
+            // this.txtMotivo.Text = _usuariosAdicionados[e.RowIndex].Motivo == null ? "" : _usuariosAdicionados[e.RowIndex].Motivo.ToString();
+            this.txtUsuario.Text = _usuariosAdicionados[e.RowIndex].Nome;
+            this.txtUsuario.Enabled = false;
+            this.txtUsuarioIdReadOnly.Text = _usuariosAdicionados[e.RowIndex].Id.ToString();
+            this.txtNomeReadOnly.Text = _usuariosAdicionados[e.RowIndex].Nome;
+            this.txtCpfReadOnly.Text = _usuariosAdicionados[e.RowIndex].Cpf;
+            this.txtChapaReadOnly.Text = _usuariosAdicionados[e.RowIndex].Chapa;
+
+
         }
 
         private void btnDevolver_Click_1(object sender, EventArgs e)
         {
-            int usuarioId = int.Parse(dgvUsuariosAdicionados.Rows[dgvUsuariosAdicionados.CurrentRow.Index].Cells[0].Value.ToString());
-
-            // por referencia
-            // TermoCelular _termoSelecionado = _termoCelular;
-
-
-            TermoCelular _termoSelecionado = new TermoCelular()
+            if (this.txtUsuarioIdReadOnly.Text != "")
             {
-                Aparelho = _termoCelular.Aparelho,
-                AparelhoId = _termoCelular.AparelhoId,
-                Carregador = _termoCelular.Carregador,
-                CarregadorId = _termoCelular.CarregadorId,
-                DataEntrega = _termoCelular.DataEntrega,
-                FoneOuvido = _termoCelular.FoneOuvido,
-                FoneOuvidoDescricao = _termoCelular.FoneOuvidoDescricao,
-                Gestor = _termoCelular.Gestor,
-                GestorId = _termoCelular.GestorId,
-                Id = _termoCelular.Id,
-                Linha = _termoCelular.Linha,
-                LinhaId = _termoCelular.LinhaId,
-                Status = _termoCelular.Status,
-                UsuariosTermos = _termoCelular.UsuariosTermos,
-                Usuario = _termoCelular.Usuario.Select(y => y).ToList(),
-            };
+                int usuarioId = int.Parse(this.txtUsuarioIdReadOnly.Text);
+                TermoCelular _termoSelecionado = new TermoCelular()
+                {
+                    Aparelho = _termoCelular.Aparelho,
+                    AparelhoId = _termoCelular.AparelhoId,
+                    Carregador = _termoCelular.Carregador,
+                    CarregadorId = _termoCelular.CarregadorId,
+                    DataEntrega = _termoCelular.DataEntrega,
+                    FoneOuvido = _termoCelular.FoneOuvido,
+                    FoneOuvidoDescricao = _termoCelular.FoneOuvidoDescricao,
+                    Gestor = _termoCelular.Gestor,
+                    GestorId = _termoCelular.GestorId,
+                    Id = _termoCelular.Id,
+                    Linha = _termoCelular.Linha,
+                    LinhaId = _termoCelular.LinhaId,
+                    Status = _termoCelular.Status,
+                    UsuariosTermos = _termoCelular.UsuariosTermos,
+                    Usuario = _termoCelular.Usuario.Select(y => y).ToList(),
+                };
 
-            _termoSelecionado.Usuario = _termoSelecionado.Usuario.Where(x => x.Id == usuarioId).ToList();
+                _termoSelecionado.Usuario = _termoSelecionado.Usuario.Where(x => x.Id == usuarioId).ToList();
+                FrmDevolucaoTermoCelular newMDIChild = new FrmDevolucaoTermoCelular(_termoSelecionado, this);
+                newMDIChild.Show();
+            }
+            else
+                MessageBox.Show("Favor selecionar um usuário do termo.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            FrmDevolucaoTermoCelular newMDIChild = new FrmDevolucaoTermoCelular(_termoSelecionado, this);
-            newMDIChild.Show();
         }
+
+        private void btnCancelarDevolucao_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Você tem certeza que deseja cancelar a devolução do termo selecionado?", "Confirmação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (this.txtUsuarioIdReadOnly.Text != "")
+                {
+                    int usuarioId = int.Parse(this.txtUsuarioIdReadOnly.Text);
+
+                    TermoCelular _termoSelecionado = new TermoCelular()
+                    {
+                        Aparelho = _termoCelular.Aparelho,
+                        AparelhoId = _termoCelular.AparelhoId,
+                        Carregador = _termoCelular.Carregador,
+                        CarregadorId = _termoCelular.CarregadorId,
+                        DataEntrega = _termoCelular.DataEntrega,
+                        FoneOuvido = _termoCelular.FoneOuvido,
+                        FoneOuvidoDescricao = _termoCelular.FoneOuvidoDescricao,
+                        Gestor = _termoCelular.Gestor,
+                        GestorId = _termoCelular.GestorId,
+                        Id = _termoCelular.Id,
+                        Linha = _termoCelular.Linha,
+                        LinhaId = _termoCelular.LinhaId,
+                        Status = _termoCelular.Status,
+                        UsuariosTermos = _termoCelular.UsuariosTermos,
+                        Usuario = _termoCelular.Usuario.Select(y => y).ToList(),
+                    };
+                    _termoSelecionado.Usuario = _termoSelecionado.Usuario.Where(x => x.Id == usuarioId).ToList();
+                    UsuarioRepository usuarioRepository = new UsuarioRepository();
+                    usuarioRepository.PathCancelarDevolucao(_termoSelecionado);
+
+                    _termoCelular.Usuario[0].DataDevolucao = null;
+                    _termoCelular.Usuario[0].Motivo = null;
+                    // this.txtDataDevolucao.Clear();
+                    // this.txtMotivo.Clear();
+
+                    MessageBox.Show("Cancelamento efetuado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                    this.CarregarDataGridView();
+                    this.AtualizarDataGridViewUsuariosAdicionados();
+                    this.AtualizaDataGridView();
+
+                }
+            }
+            else
+                MessageBox.Show("Favor selecionar um usuário do termo.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        }
+        #endregion
     }
 }
