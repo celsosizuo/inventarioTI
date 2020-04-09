@@ -100,6 +100,8 @@
     <Compile Include="Carregador.cs" />
     <Compile Include="Class\AparelhoRepository.cs" />
     <Compile Include="Class\CarregadorRepository.cs" />
+    <Compile Include="Class\LeituraFaturaDetalhada.cs" />
+    <Compile Include="Class\Module1.cs" />
     <Compile Include="Class\ParametrosRelatorio.cs" />
     <Compile Include="Class\TermoCelular.cs" />
     <Compile Include="Class\TermoCelularRepository.cs" />
@@ -166,6 +168,12 @@
     <Compile Include="Forms\FrmDevolucaoTermoCelular.Designer.cs">
       <DependentUpon>FrmDevolucaoTermoCelular.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmImportarFatura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmImportarFatura.Designer.cs">
+      <DependentUpon>FrmImportarFatura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmTermoCelular.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +234,12 @@
     <Compile Include="Forms\FrmVisualizadorAdobe.Designer.cs">
       <DependentUpon>FrmVisualizadorAdobe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmWaitingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmWaitingForm.Designer.cs">
+      <DependentUpon>FrmWaitingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MDIParent1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmDevolucaoTermoCelular.resx">
       <DependentUpon>FrmDevolucaoTermoCelular.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmImportarFatura.resx">
+      <DependentUpon>FrmImportarFatura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmTermoCelular.resx">
       <DependentUpon>FrmTermoCelular.cs</DependentUpon>
@@ -282,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmVisualizadorAdobe.resx">
       <DependentUpon>FrmVisualizadorAdobe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmWaitingForm.resx">
+      <DependentUpon>FrmWaitingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MDIParent1.resx">
       <DependentUpon>MDIParent1.cs</DependentUpon>

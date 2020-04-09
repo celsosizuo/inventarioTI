@@ -250,5 +250,13 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void importarFaturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmImportarFatura newMDIChild = new FrmImportarFatura();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+
+        }
     }
 }

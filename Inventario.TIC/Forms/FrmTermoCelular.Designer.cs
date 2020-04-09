@@ -43,17 +43,27 @@
             this.btnNovaPesquisaLinha = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnCancelarDevolucao = new System.Windows.Forms.Button();
+            this.btnDevolver = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.dgvUsuariosAdicionados = new System.Windows.Forms.DataGridView();
             this.btnAddUsuario = new System.Windows.Forms.Button();
             this.txtUsuarioIdReadOnly = new System.Windows.Forms.TextBox();
+            this.lnkAbrirTermoEntrega = new System.Windows.Forms.LinkLabel();
+            this.lnkAddTermo = new System.Windows.Forms.LinkLabel();
             this.label13 = new System.Windows.Forms.Label();
+            this.txtLinkTermoEntrega = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtLinkTermoDevolucao = new System.Windows.Forms.TextBox();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
+            this.lnkTermoDevolucao = new System.Windows.Forms.LinkLabel();
             this.txtChapaReadOnly = new System.Windows.Forms.TextBox();
+            this.lnkAbrirTermoDevolucao = new System.Windows.Forms.LinkLabel();
             this.label6 = new System.Windows.Forms.Label();
+            this.lnkRemoverTermoEntrega = new System.Windows.Forms.LinkLabel();
             this.txtCpfReadOnly = new System.Windows.Forms.TextBox();
+            this.lnkRemoverTermoDevolucao = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNomeReadOnly = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -99,18 +109,8 @@
             this.opdTermoDevolucao = new System.Windows.Forms.OpenFileDialog();
             this.lnkRelTermoEntrega = new System.Windows.Forms.LinkLabel();
             this.lnkRelTermoDevolucao = new System.Windows.Forms.LinkLabel();
-            this.lnkRemoverTermoDevolucao = new System.Windows.Forms.LinkLabel();
-            this.lnkRemoverTermoEntrega = new System.Windows.Forms.LinkLabel();
-            this.lnkAbrirTermoDevolucao = new System.Windows.Forms.LinkLabel();
-            this.lnkTermoDevolucao = new System.Windows.Forms.LinkLabel();
-            this.txtLinkTermoDevolucao = new System.Windows.Forms.TextBox();
-            this.lnkAbrirTermoEntrega = new System.Windows.Forms.LinkLabel();
-            this.txtLinkTermoEntrega = new System.Windows.Forms.TextBox();
-            this.lnkAddTermo = new System.Windows.Forms.LinkLabel();
-            this.btnDevolver = new System.Windows.Forms.Button();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.btnPesquisar = new System.Windows.Forms.Button();
-            this.btnCancelarDevolucao = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLinhas)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -288,6 +288,26 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Usuários";
             // 
+            // btnCancelarDevolucao
+            // 
+            this.btnCancelarDevolucao.Location = new System.Drawing.Point(718, 31);
+            this.btnCancelarDevolucao.Name = "btnCancelarDevolucao";
+            this.btnCancelarDevolucao.Size = new System.Drawing.Size(121, 23);
+            this.btnCancelarDevolucao.TabIndex = 116;
+            this.btnCancelarDevolucao.Text = "Cancelar Devolução";
+            this.btnCancelarDevolucao.UseVisualStyleBackColor = true;
+            this.btnCancelarDevolucao.Click += new System.EventHandler(this.btnCancelarDevolucao_Click);
+            // 
+            // btnDevolver
+            // 
+            this.btnDevolver.Location = new System.Drawing.Point(642, 31);
+            this.btnDevolver.Name = "btnDevolver";
+            this.btnDevolver.Size = new System.Drawing.Size(70, 23);
+            this.btnDevolver.TabIndex = 115;
+            this.btnDevolver.Text = "Devolver";
+            this.btnDevolver.UseVisualStyleBackColor = true;
+            this.btnDevolver.Click += new System.EventHandler(this.btnDevolver_Click_1);
+            // 
             // btnRemover
             // 
             this.btnRemover.Location = new System.Drawing.Point(518, 171);
@@ -349,6 +369,28 @@
             this.txtUsuarioIdReadOnly.Size = new System.Drawing.Size(131, 20);
             this.txtUsuarioIdReadOnly.TabIndex = 81;
             // 
+            // lnkAbrirTermoEntrega
+            // 
+            this.lnkAbrirTermoEntrega.AutoSize = true;
+            this.lnkAbrirTermoEntrega.Location = new System.Drawing.Point(9, 25);
+            this.lnkAbrirTermoEntrega.Name = "lnkAbrirTermoEntrega";
+            this.lnkAbrirTermoEntrega.Size = new System.Drawing.Size(176, 13);
+            this.lnkAbrirTermoEntrega.TabIndex = 100;
+            this.lnkAbrirTermoEntrega.TabStop = true;
+            this.lnkAbrirTermoEntrega.Text = "Link do Termo de Entrega Assinado";
+            this.lnkAbrirTermoEntrega.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkAbrirTermoEntrega_LinkClicked);
+            // 
+            // lnkAddTermo
+            // 
+            this.lnkAddTermo.AutoSize = true;
+            this.lnkAddTermo.Location = new System.Drawing.Point(268, 31);
+            this.lnkAddTermo.Name = "lnkAddTermo";
+            this.lnkAddTermo.Size = new System.Drawing.Size(51, 13);
+            this.lnkAddTermo.TabIndex = 98;
+            this.lnkAddTermo.TabStop = true;
+            this.lnkAddTermo.Text = "Adicionar";
+            this.lnkAddTermo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkAddTermo_LinkClicked);
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -359,6 +401,15 @@
             this.label13.TabIndex = 80;
             this.label13.Text = "ID";
             // 
+            // txtLinkTermoEntrega
+            // 
+            this.txtLinkTermoEntrega.Location = new System.Drawing.Point(12, 40);
+            this.txtLinkTermoEntrega.MaxLength = 15;
+            this.txtLinkTermoEntrega.Name = "txtLinkTermoEntrega";
+            this.txtLinkTermoEntrega.ReadOnly = true;
+            this.txtLinkTermoEntrega.Size = new System.Drawing.Size(252, 20);
+            this.txtLinkTermoEntrega.TabIndex = 99;
+            // 
             // txtUsuario
             // 
             this.txtUsuario.Location = new System.Drawing.Point(12, 122);
@@ -367,6 +418,15 @@
             this.txtUsuario.Size = new System.Drawing.Size(208, 20);
             this.txtUsuario.TabIndex = 10;
             this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
+            // 
+            // txtLinkTermoDevolucao
+            // 
+            this.txtLinkTermoDevolucao.Location = new System.Drawing.Point(331, 41);
+            this.txtLinkTermoDevolucao.MaxLength = 15;
+            this.txtLinkTermoDevolucao.Name = "txtLinkTermoDevolucao";
+            this.txtLinkTermoDevolucao.ReadOnly = true;
+            this.txtLinkTermoDevolucao.Size = new System.Drawing.Size(247, 20);
+            this.txtLinkTermoDevolucao.TabIndex = 101;
             // 
             // dgvUsuarios
             // 
@@ -394,6 +454,17 @@
             this.dgvUsuarios.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvUsuarios_KeyDown);
             this.dgvUsuarios.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvUsuarios_KeyPress);
             // 
+            // lnkTermoDevolucao
+            // 
+            this.lnkTermoDevolucao.AutoSize = true;
+            this.lnkTermoDevolucao.Location = new System.Drawing.Point(583, 30);
+            this.lnkTermoDevolucao.Name = "lnkTermoDevolucao";
+            this.lnkTermoDevolucao.Size = new System.Drawing.Size(51, 13);
+            this.lnkTermoDevolucao.TabIndex = 102;
+            this.lnkTermoDevolucao.TabStop = true;
+            this.lnkTermoDevolucao.Text = "Adicionar";
+            this.lnkTermoDevolucao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkTermoDevolucao_LinkClicked);
+            // 
             // txtChapaReadOnly
             // 
             this.txtChapaReadOnly.Location = new System.Drawing.Point(381, 200);
@@ -402,6 +473,17 @@
             this.txtChapaReadOnly.ReadOnly = true;
             this.txtChapaReadOnly.Size = new System.Drawing.Size(131, 20);
             this.txtChapaReadOnly.TabIndex = 58;
+            // 
+            // lnkAbrirTermoDevolucao
+            // 
+            this.lnkAbrirTermoDevolucao.AutoSize = true;
+            this.lnkAbrirTermoDevolucao.Location = new System.Drawing.Point(328, 25);
+            this.lnkAbrirTermoDevolucao.Name = "lnkAbrirTermoDevolucao";
+            this.lnkAbrirTermoDevolucao.Size = new System.Drawing.Size(191, 13);
+            this.lnkAbrirTermoDevolucao.TabIndex = 103;
+            this.lnkAbrirTermoDevolucao.TabStop = true;
+            this.lnkAbrirTermoDevolucao.Text = "Link do Termo de Devolução Assinado";
+            this.lnkAbrirTermoDevolucao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkAbrirTermoDevolucao_LinkClicked);
             // 
             // label6
             // 
@@ -413,6 +495,17 @@
             this.label6.TabIndex = 57;
             this.label6.Text = "Chapa";
             // 
+            // lnkRemoverTermoEntrega
+            // 
+            this.lnkRemoverTermoEntrega.AutoSize = true;
+            this.lnkRemoverTermoEntrega.Location = new System.Drawing.Point(269, 48);
+            this.lnkRemoverTermoEntrega.Name = "lnkRemoverTermoEntrega";
+            this.lnkRemoverTermoEntrega.Size = new System.Drawing.Size(50, 13);
+            this.lnkRemoverTermoEntrega.TabIndex = 104;
+            this.lnkRemoverTermoEntrega.TabStop = true;
+            this.lnkRemoverTermoEntrega.Text = "Remover";
+            this.lnkRemoverTermoEntrega.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRemoverTermoEntrega_LinkClicked);
+            // 
             // txtCpfReadOnly
             // 
             this.txtCpfReadOnly.Location = new System.Drawing.Point(381, 174);
@@ -421,6 +514,17 @@
             this.txtCpfReadOnly.ReadOnly = true;
             this.txtCpfReadOnly.Size = new System.Drawing.Size(131, 20);
             this.txtCpfReadOnly.TabIndex = 56;
+            // 
+            // lnkRemoverTermoDevolucao
+            // 
+            this.lnkRemoverTermoDevolucao.AutoSize = true;
+            this.lnkRemoverTermoDevolucao.Location = new System.Drawing.Point(584, 47);
+            this.lnkRemoverTermoDevolucao.Name = "lnkRemoverTermoDevolucao";
+            this.lnkRemoverTermoDevolucao.Size = new System.Drawing.Size(50, 13);
+            this.lnkRemoverTermoDevolucao.TabIndex = 105;
+            this.lnkRemoverTermoDevolucao.TabStop = true;
+            this.lnkRemoverTermoDevolucao.Text = "Remover";
+            this.lnkRemoverTermoDevolucao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRemoverTermoDevolucao_LinkClicked);
             // 
             // label2
             // 
@@ -627,9 +731,8 @@
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 63;
-            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.Text = "Teste";
             this.btnExcluir.UseVisualStyleBackColor = true;
-            this.btnExcluir.Visible = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnLimpar
@@ -915,100 +1018,6 @@
             this.lnkRelTermoDevolucao.Text = "Gerar Relatório do Termo de Devolução";
             this.lnkRelTermoDevolucao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
-            // lnkRemoverTermoDevolucao
-            // 
-            this.lnkRemoverTermoDevolucao.AutoSize = true;
-            this.lnkRemoverTermoDevolucao.Location = new System.Drawing.Point(584, 47);
-            this.lnkRemoverTermoDevolucao.Name = "lnkRemoverTermoDevolucao";
-            this.lnkRemoverTermoDevolucao.Size = new System.Drawing.Size(50, 13);
-            this.lnkRemoverTermoDevolucao.TabIndex = 105;
-            this.lnkRemoverTermoDevolucao.TabStop = true;
-            this.lnkRemoverTermoDevolucao.Text = "Remover";
-            this.lnkRemoverTermoDevolucao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRemoverTermoDevolucao_LinkClicked);
-            // 
-            // lnkRemoverTermoEntrega
-            // 
-            this.lnkRemoverTermoEntrega.AutoSize = true;
-            this.lnkRemoverTermoEntrega.Location = new System.Drawing.Point(269, 48);
-            this.lnkRemoverTermoEntrega.Name = "lnkRemoverTermoEntrega";
-            this.lnkRemoverTermoEntrega.Size = new System.Drawing.Size(50, 13);
-            this.lnkRemoverTermoEntrega.TabIndex = 104;
-            this.lnkRemoverTermoEntrega.TabStop = true;
-            this.lnkRemoverTermoEntrega.Text = "Remover";
-            this.lnkRemoverTermoEntrega.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRemoverTermoEntrega_LinkClicked);
-            // 
-            // lnkAbrirTermoDevolucao
-            // 
-            this.lnkAbrirTermoDevolucao.AutoSize = true;
-            this.lnkAbrirTermoDevolucao.Location = new System.Drawing.Point(328, 25);
-            this.lnkAbrirTermoDevolucao.Name = "lnkAbrirTermoDevolucao";
-            this.lnkAbrirTermoDevolucao.Size = new System.Drawing.Size(191, 13);
-            this.lnkAbrirTermoDevolucao.TabIndex = 103;
-            this.lnkAbrirTermoDevolucao.TabStop = true;
-            this.lnkAbrirTermoDevolucao.Text = "Link do Termo de Devolução Assinado";
-            this.lnkAbrirTermoDevolucao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkAbrirTermoDevolucao_LinkClicked);
-            // 
-            // lnkTermoDevolucao
-            // 
-            this.lnkTermoDevolucao.AutoSize = true;
-            this.lnkTermoDevolucao.Location = new System.Drawing.Point(583, 30);
-            this.lnkTermoDevolucao.Name = "lnkTermoDevolucao";
-            this.lnkTermoDevolucao.Size = new System.Drawing.Size(51, 13);
-            this.lnkTermoDevolucao.TabIndex = 102;
-            this.lnkTermoDevolucao.TabStop = true;
-            this.lnkTermoDevolucao.Text = "Adicionar";
-            this.lnkTermoDevolucao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkTermoDevolucao_LinkClicked);
-            // 
-            // txtLinkTermoDevolucao
-            // 
-            this.txtLinkTermoDevolucao.Location = new System.Drawing.Point(331, 41);
-            this.txtLinkTermoDevolucao.MaxLength = 15;
-            this.txtLinkTermoDevolucao.Name = "txtLinkTermoDevolucao";
-            this.txtLinkTermoDevolucao.ReadOnly = true;
-            this.txtLinkTermoDevolucao.Size = new System.Drawing.Size(247, 20);
-            this.txtLinkTermoDevolucao.TabIndex = 101;
-            // 
-            // lnkAbrirTermoEntrega
-            // 
-            this.lnkAbrirTermoEntrega.AutoSize = true;
-            this.lnkAbrirTermoEntrega.Location = new System.Drawing.Point(9, 25);
-            this.lnkAbrirTermoEntrega.Name = "lnkAbrirTermoEntrega";
-            this.lnkAbrirTermoEntrega.Size = new System.Drawing.Size(176, 13);
-            this.lnkAbrirTermoEntrega.TabIndex = 100;
-            this.lnkAbrirTermoEntrega.TabStop = true;
-            this.lnkAbrirTermoEntrega.Text = "Link do Termo de Entrega Assinado";
-            this.lnkAbrirTermoEntrega.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkAbrirTermoEntrega_LinkClicked);
-            // 
-            // txtLinkTermoEntrega
-            // 
-            this.txtLinkTermoEntrega.Location = new System.Drawing.Point(12, 40);
-            this.txtLinkTermoEntrega.MaxLength = 15;
-            this.txtLinkTermoEntrega.Name = "txtLinkTermoEntrega";
-            this.txtLinkTermoEntrega.ReadOnly = true;
-            this.txtLinkTermoEntrega.Size = new System.Drawing.Size(252, 20);
-            this.txtLinkTermoEntrega.TabIndex = 99;
-            // 
-            // lnkAddTermo
-            // 
-            this.lnkAddTermo.AutoSize = true;
-            this.lnkAddTermo.Location = new System.Drawing.Point(268, 31);
-            this.lnkAddTermo.Name = "lnkAddTermo";
-            this.lnkAddTermo.Size = new System.Drawing.Size(51, 13);
-            this.lnkAddTermo.TabIndex = 98;
-            this.lnkAddTermo.TabStop = true;
-            this.lnkAddTermo.Text = "Adicionar";
-            this.lnkAddTermo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkAddTermo_LinkClicked);
-            // 
-            // btnDevolver
-            // 
-            this.btnDevolver.Location = new System.Drawing.Point(642, 31);
-            this.btnDevolver.Name = "btnDevolver";
-            this.btnDevolver.Size = new System.Drawing.Size(70, 23);
-            this.btnDevolver.TabIndex = 115;
-            this.btnDevolver.Text = "Devolver";
-            this.btnDevolver.UseVisualStyleBackColor = true;
-            this.btnDevolver.Click += new System.EventHandler(this.btnDevolver_Click_1);
-            // 
             // btnPesquisar
             // 
             this.btnPesquisar.Location = new System.Drawing.Point(530, 491);
@@ -1018,16 +1027,6 @@
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
-            // 
-            // btnCancelarDevolucao
-            // 
-            this.btnCancelarDevolucao.Location = new System.Drawing.Point(718, 31);
-            this.btnCancelarDevolucao.Name = "btnCancelarDevolucao";
-            this.btnCancelarDevolucao.Size = new System.Drawing.Size(121, 23);
-            this.btnCancelarDevolucao.TabIndex = 116;
-            this.btnCancelarDevolucao.Text = "Cancelar Devolução";
-            this.btnCancelarDevolucao.UseVisualStyleBackColor = true;
-            this.btnCancelarDevolucao.Click += new System.EventHandler(this.btnCancelarDevolucao_Click);
             // 
             // FrmTermoCelular
             // 

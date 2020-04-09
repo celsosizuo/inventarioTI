@@ -46,9 +46,9 @@
             this.cadastroDeGestoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.celularesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerenciamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.computadoresXLicençasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeRamaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.computadoresXLicençasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.newWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cascadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,6 +65,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.importarFaturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -146,7 +147,8 @@
             this.cadastroDeCarregadoresToolStripMenuItem,
             this.cadastroDeUsuáriosToolStripMenuItem,
             this.cadastroDeGestoresToolStripMenuItem,
-            this.celularesToolStripMenuItem});
+            this.celularesToolStripMenuItem,
+            this.importarFaturaToolStripMenuItem});
             this.inventárioCelularesToolStripMenuItem.Name = "inventárioCelularesToolStripMenuItem";
             this.inventárioCelularesToolStripMenuItem.Size = new System.Drawing.Size(123, 20);
             this.inventárioCelularesToolStripMenuItem.Text = "Inventário Celulares";
@@ -204,6 +206,13 @@
             this.gerenciamentoToolStripMenuItem.Text = "Relatórios";
             this.gerenciamentoToolStripMenuItem.Click += new System.EventHandler(this.gerenciamentoToolStripMenuItem_Click);
             // 
+            // computadoresXLicençasToolStripMenuItem
+            // 
+            this.computadoresXLicençasToolStripMenuItem.Name = "computadoresXLicençasToolStripMenuItem";
+            this.computadoresXLicençasToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.computadoresXLicençasToolStripMenuItem.Text = "Computadores x Licenças";
+            this.computadoresXLicençasToolStripMenuItem.Click += new System.EventHandler(this.computadoresXLicençasToolStripMenuItem_Click);
+            // 
             // licençasUtilizadasXNãoUtilizadasToolStripMenuItem
             // 
             this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem.Name = "licençasUtilizadasXNãoUtilizadasToolStripMenuItem";
@@ -217,13 +226,6 @@
             this.listaDeRamaisToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.listaDeRamaisToolStripMenuItem.Text = "Computadores";
             this.listaDeRamaisToolStripMenuItem.Click += new System.EventHandler(this.listaDeRamaisToolStripMenuItem_Click);
-            // 
-            // computadoresXLicençasToolStripMenuItem
-            // 
-            this.computadoresXLicençasToolStripMenuItem.Name = "computadoresXLicençasToolStripMenuItem";
-            this.computadoresXLicençasToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.computadoresXLicençasToolStripMenuItem.Text = "Computadores x Licenças";
-            this.computadoresXLicençasToolStripMenuItem.Click += new System.EventHandler(this.computadoresXLicençasToolStripMenuItem_Click);
             // 
             // windowsMenu
             // 
@@ -342,6 +344,13 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
+            // importarFaturaToolStripMenuItem
+            // 
+            this.importarFaturaToolStripMenuItem.Name = "importarFaturaToolStripMenuItem";
+            this.importarFaturaToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.importarFaturaToolStripMenuItem.Text = "Importar Fatura";
+            this.importarFaturaToolStripMenuItem.Click += new System.EventHandler(this.importarFaturaToolStripMenuItem_Click);
+            // 
             // MDIParent1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -402,6 +411,7 @@
         private System.Windows.Forms.ToolStripMenuItem cadastroDeUsuáriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem celularesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroDeGestoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importarFaturaToolStripMenuItem;
     }
 }
 

@@ -850,6 +850,19 @@ namespace Inventario.TIC.Forms
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            try
+            {
+                LeituraFaturaDetalhada a = new LeituraFaturaDetalhada();
+
+                //IList<LeituraFaturaDetalhada> b = a.ReadExcel(@"C:\Users\celso.sizuo\Desktop\Valores_Fevereiro.xls");
+
+                a.ImportarDados(@"C:\Users\celso.sizuo\Desktop\Valores_Fevereiro.xls");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
