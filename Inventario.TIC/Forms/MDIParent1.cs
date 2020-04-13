@@ -211,52 +211,85 @@ namespace Inventario.TIC
 
         private void linhasToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void cadastroDeAparelhosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void cadastroDeCarregadoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cadastroDeUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void celularesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cadastroDeGestoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void importarFaturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linhasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
             FrmLinha newMDIChild = new FrmLinha();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
 
-        private void cadastroDeAparelhosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void aparelhosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmAparelho newMDIChild = new FrmAparelho();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
 
-        private void cadastroDeCarregadoresToolStripMenuItem_Click(object sender, EventArgs e)
+        private void carregadoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmCarregador newMDIChild = new FrmCarregador();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
 
-        private void cadastroDeUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmUsuarios newMDIChild = new FrmUsuarios();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
 
-        private void celularesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmTermoCelular newMDIChild = new FrmTermoCelular();
-            newMDIChild.MdiParent = this;
-            newMDIChild.Show();
-        }
-
-        private void cadastroDeGestoresToolStripMenuItem_Click(object sender, EventArgs e)
+        private void gestoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmGestores newMDIChild = new FrmGestores();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
 
-        private void importarFaturaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void celularesTermosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmTermoCelular newMDIChild = new FrmTermoCelular();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void importarFaturaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FrmImportarFatura newMDIChild = new FrmImportarFatura();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
-
         }
     }
 }
