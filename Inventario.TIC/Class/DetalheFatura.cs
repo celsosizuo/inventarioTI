@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Inventario.TIC.Class
 {
-    public class LeituraFaturaDetalhada
+    public class DetalheFatura
     {
         public int Id { get; set; }
         public string LinhaNumero { get; set; }
@@ -35,7 +35,7 @@ namespace Inventario.TIC.Class
         public string Unidade { get; set; }
         public decimal Valor { get; set; }
 
-        public LeituraFaturaDetalhada()
+        public DetalheFatura()
         {
 
         }
@@ -59,7 +59,7 @@ namespace Inventario.TIC.Class
             return oledbConn;
         }
 
-        private IList<LeituraFaturaDetalhada> ExtractContaExcel(OleDbConnection oledbConn)
+        private IList<DetalheFatura> ExtractContaExcel(OleDbConnection oledbConn)
         {
             OleDbCommand cmd = new OleDbCommand();
             OleDbDataAdapter oleda = new OleDbDataAdapter();
@@ -73,11 +73,11 @@ namespace Inventario.TIC.Class
             // oleda.Fill(dsConta, "LeituraFaturaDetalhada");
             oleda.Fill(dtConta);
 
-            IList<LeituraFaturaDetalhada> dsDetalheFatura = new List<LeituraFaturaDetalhada>();
+            IList<DetalheFatura> dsDetalheFatura = new List<DetalheFatura>();
 
             dtConta.AsEnumerable().ToList().ForEach(s =>
             {
-                LeituraFaturaDetalhada leitura = new LeituraFaturaDetalhada();
+                DetalheFatura leitura = new DetalheFatura();
                 leitura.LinhaNumero = s["Celular"] != DBNull.Value ? s["Celular"].ToString() : null;
                 leitura.SecaoChamada = s["Seção da Chamada"] != DBNull.Value ? s["Seção da Chamada"].ToString() : null;
                 leitura.Referencia = s["Mês/Ano de Referência"] != DBNull.Value ? s["Mês/Ano de Referência"].ToString() : null;
@@ -135,7 +135,7 @@ namespace Inventario.TIC.Class
 
         public string ImportarDados(string path)
         {
-            IList<LeituraFaturaDetalhada> objFaturaDetalhada = new List<LeituraFaturaDetalhada>();
+            IList<DetalheFatura> objFaturaDetalhada = new List<DetalheFatura>();
             try
             {
                 OleDbConnection oledbConn = OpenConnection(path);
@@ -144,6 +144,15 @@ namespace Inventario.TIC.Class
                     objFaturaDetalhada = ExtractContaExcel(oledbConn);
                     oledbConn.Close();
                 }
+
+                List<string> referencia = this.GetReferencia();
+
+                referencia.ForEach(r =>
+                {
+                    if (r.ToString() == objFaturaDetalhada[0].Referencia)
+                        throw new Exception("Já existem dados da fatura que está sendo importada. Faça a exclusão antes de importar.");
+                });
+
 
                 DataTable dt = ToDataTable(objFaturaDetalhada);
                 dt.Columns.Remove("Id");
@@ -196,6 +205,65 @@ namespace Inventario.TIC.Class
             }
             //put a breakpoint here and check datatable
             return dataTable;
+        }
+
+        public string ExcluirContaExcel(string referencia)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(Properties.Settings.Default.conSQL))
+                {
+                    using (SqlCommand cmd = new SqlCommand("DELETEDETALHEFATURA"))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Connection = con;
+                        cmd.Parameters.AddWithValue("@REFERENCIA", referencia);
+                        cmd.CommandTimeout = 300;
+                        con.Open();
+                        string retorno = cmd.ExecuteNonQuery().ToString();
+                        con.Close();
+
+                        return retorno;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public List<string> GetReferencia()
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(Properties.Settings.Default.conSQL))
+                {
+                    using (SqlCommand cmd = new SqlCommand("GETREFERENCIADETALHEFATURA"))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Connection = con;
+                        con.Open();
+                        DataTable dt = new DataTable();
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        da.Fill(dt);
+
+                        List<string> retorno = new List<string>();
+
+                        dt.AsEnumerable().ToList().ForEach(f =>
+                        {
+                            retorno.Add(f["Referencia"].ToString());
+                        });
+                        con.Close();
+
+                        return retorno;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

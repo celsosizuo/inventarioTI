@@ -291,5 +291,12 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void excluirFaturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmExcluirFatura newMDIChild = new FrmExcluirFatura();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }

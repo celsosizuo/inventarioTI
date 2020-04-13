@@ -376,6 +376,7 @@
             this.excluirFaturaToolStripMenuItem.Name = "excluirFaturaToolStripMenuItem";
             this.excluirFaturaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.excluirFaturaToolStripMenuItem.Text = "Excluir Fatura";
+            this.excluirFaturaToolStripMenuItem.Click += new System.EventHandler(this.excluirFaturaToolStripMenuItem_Click);
             // 
             // MDIParent1
             // 

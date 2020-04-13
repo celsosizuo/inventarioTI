@@ -14,6 +14,7 @@ namespace Inventario.TIC.Forms
     public partial class FrmImportarFatura : Form
     {
         string retorno = "";
+        bool sucesso = false;
 
         public FrmImportarFatura()
         {
@@ -34,30 +35,53 @@ namespace Inventario.TIC.Forms
         {
             try
             {
-                LeituraFaturaDetalhada a = new LeituraFaturaDetalhada();
+                DetalheFatura a = new DetalheFatura();
 
                 if (this.txtArquivo.Text != "")
                 {
-                    retorno = a.ImportarDados(this.txtArquivo.Text);                   
+                    retorno = a.ImportarDados(this.txtArquivo.Text);
+                    sucesso = true;
                 }
                 else
                     MessageBox.Show("Favor selecionar um arquivo", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                sucesso = false;
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnImportar_Click(object sender, EventArgs e)
         {
-            using (FrmWaitingForm frm = new FrmWaitingForm(Importar))
+            this.lblQtdeRegistros.Text = "";
+            this.lblTempo.Text = "";
+
+            try
             {
-                frm.ShowDialog(this);
+                using (FrmWaitingForm frm = new FrmWaitingForm(Importar))
+                {
+                    try
+                    {
+                        frm.ShowDialog(this);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message);
+                    }
+                }
+
+                if (sucesso)
+                {
+                    MessageBox.Show("Importação finalizada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    this.lblQtdeRegistros.Text = retorno;
+                    this.lblTempo.Text = Module1.tempoImportacao;
+                }
             }
-            MessageBox.Show("Importação finalizada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            this.lblQtdeRegistros.Text = retorno;
-            this.lblTempo.Text = Module1.tempoImportacao;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void FrmImportarFatura_Load(object sender, EventArgs e)

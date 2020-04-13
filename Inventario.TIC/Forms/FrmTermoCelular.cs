@@ -852,7 +852,7 @@ namespace Inventario.TIC.Forms
         {
             try
             {
-                LeituraFaturaDetalhada a = new LeituraFaturaDetalhada();
+                DetalheFatura a = new DetalheFatura();
 
                 //IList<LeituraFaturaDetalhada> b = a.ReadExcel(@"C:\Users\celso.sizuo\Desktop\Valores_Fevereiro.xls");
 
