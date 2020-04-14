@@ -45,9 +45,9 @@ namespace Inventario.TIC.Class
             OleDbConnection  oledbConn = null;
             try
             {
-                if (Path.GetExtension(path) == ".xls")
+                if (Path.GetExtension(path) == ".xls" || Path.GetExtension(path) == ".XLS")
                     oledbConn = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + path + "; Extended Properties= \"Excel 8.0;HDR=Yes;IMEX=2\"");
-                else if (Path.GetExtension(path) == ".xlsx")
+                else if (Path.GetExtension(path) == ".xlsx" || Path.GetExtension(path) == ".XLSX")
                     oledbConn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0; Data Source=" + path + "; Extended Properties='Excel 12.0;HDR=YES;IMEX=1;';");
 
                 oledbConn.Open();
