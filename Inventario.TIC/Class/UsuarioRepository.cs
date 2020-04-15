@@ -45,6 +45,8 @@ namespace Inventario.TIC.Class
                     command.Parameters.AddWithValue("@Chapa", usuario.Chapa);
                     command.Parameters.AddWithValue("@Cpf", usuario.Cpf);
                     command.Parameters.AddWithValue("@Terceiro", usuario.Terceiro);
+                    command.Parameters.AddWithValue("@CodCCusto", usuario.CodCCusto);
+                    command.Parameters.AddWithValue("@CentroCusto", usuario.CentroCusto);
 
                     command.Connection.Open();
                     string retorno = command.ExecuteScalar().ToString();
@@ -79,6 +81,8 @@ namespace Inventario.TIC.Class
                     command.Parameters.AddWithValue("@Chapa", usuario.Chapa);
                     command.Parameters.AddWithValue("@Cpf", usuario.Cpf);
                     command.Parameters.AddWithValue("@Terceiro", usuario.Terceiro);
+                    command.Parameters.AddWithValue("@CodCCusto", usuario.CodCCusto);
+                    command.Parameters.AddWithValue("@CentroCusto", usuario.CentroCusto);
                     command.Parameters.AddWithValue("@Id", usuario.Id);
 
                     command.Connection.Open();
@@ -138,6 +142,23 @@ namespace Inventario.TIC.Class
 
                 command.Connection.Open();
                 command.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public List<Usuario> Get()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.conSQL))
+                {
+                    var usuarios = connection.Query<Usuario>("GETUSUARIOS", null, commandType: CommandType.StoredProcedure).ToList();
+                    return usuarios;
+
+                }
             }
             catch (Exception ex)
             {

@@ -5,5 +5,8 @@
     <Setting Name="conSQL" Type="System.String" Scope="User">
       <Value Profile="(Default)">Data Source=SVDB01;Initial Catalog=INVTIC;Persist Security Info=False;Trusted_Connection=False;MultipleActiveResultSets=True;User ID=invtic;Password=q1Q!q1Q!</Value>
     </Setting>
+    <Setting Name="tipoBase" Type="System.String" Scope="User">
+      <Value Profile="(Default)">teste</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

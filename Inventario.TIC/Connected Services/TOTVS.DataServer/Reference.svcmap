@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="73c6be79-88d2-4bdb-a046-572b844c7e3e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://svap01:8051/wsDataServer/MEX?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="wsDataServer.wsdl" MetadataType="Wsdl" ID="ff3c8578-47f9-4182-81d3-ff671803a261" SourceId="1" SourceUrl="http://svap01:8051/wsDataServer/MEX?wsdl" />
+    <MetadataFile FileName="mex.xsd" MetadataType="Schema" ID="4b5b3836-8c41-49b8-9048-c2a8bd058a0e" SourceId="1" SourceUrl="http://svap01.artfix.local:8051/wsDataServer/mex?xsd=xsd0" />
+    <MetadataFile FileName="mex1.xsd" MetadataType="Schema" ID="f5dcafaf-cfa8-4597-8acd-7a202dbf984d" SourceId="1" SourceUrl="http://svap01.artfix.local:8051/wsDataServer/mex?xsd=xsd1" />
+    <MetadataFile FileName="mex2.xsd" MetadataType="Schema" ID="31e00add-830e-4f81-9431-b648649f6910" SourceId="1" SourceUrl="http://svap01.artfix.local:8051/wsDataServer/mex?xsd=xsd2" />
+    <MetadataFile FileName="mex3.xsd" MetadataType="Schema" ID="aba5bd8c-cd6c-4718-a42c-b976ec7f5e91" SourceId="1" SourceUrl="http://svap01.artfix.local:8051/wsDataServer/mex?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -35,11 +35,16 @@ namespace Inventario.TIC.Forms
         {
             try
             {
-                DetalheFatura a = new DetalheFatura();
 
                 if (this.txtArquivo.Text != "")
                 {
-                    retorno = a.ImportarDados(this.txtArquivo.Text);
+                    int ret = 0;
+                    DetalheFatura a = new DetalheFatura();
+                    ret = Convert.ToInt32(a.ImportarDados(this.txtArquivo.Text));
+                    ServicosFatura b = new ServicosFatura();
+                    ret += Convert.ToInt32(b.ImportarDados(this.txtArquivo.Text));
+                    retorno = ret.ToString();
+
                     sucesso = true;
                 }
                 else

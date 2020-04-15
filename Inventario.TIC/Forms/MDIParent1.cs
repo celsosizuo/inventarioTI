@@ -298,5 +298,12 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void lançamentosManuaisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDetalheFatura newMDIChild = new FrmDetalheFatura();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }

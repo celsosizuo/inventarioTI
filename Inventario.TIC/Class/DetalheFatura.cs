@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,11 +10,14 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using FluentValidation;
+using FluentValidation.Results;
 
 namespace Inventario.TIC.Class
 {
-    public class DetalheFatura
+    public class DetalheFatura : AbstractValidator<DetalheFatura>
     {
+        protected ValidationResult ValidationResult { get; set; }
         public int Id { get; set; }
         public string LinhaNumero { get; set; }
         public string SecaoChamada { get; set; }
@@ -37,7 +41,47 @@ namespace Inventario.TIC.Class
 
         public DetalheFatura()
         {
+            ValidationResult = new ValidationResult();
+        }
 
+        public bool EhValido()
+        {
+            Validar();
+            ValidationResult = Validate(this);
+
+            return ValidationResult.IsValid;
+        }
+
+        private void Validar()
+        {
+            ValidarLinha();
+        }
+
+        private void ValidarLinha()
+        {
+            RuleFor(a => a.LinhaNumero).NotEmpty().WithMessage("- Campo Número da linha é obrigatório");
+        }
+
+        private void ValidarReferencia()
+        {
+            RuleFor(a => a.Referencia).NotEmpty().WithMessage("- Campo referência é obrigatório");
+        }
+
+        private void ValidarDescricaoChamada()
+        {
+            RuleFor(a => a.DescricaoChamada).NotEmpty().WithMessage("- Campo Descrição é obrigatório");
+        }
+
+        private void ValidarValor()
+        {
+            RuleFor(a => a.Valor).NotEmpty().WithMessage("- Campo valor é obrigatório");
+        }
+
+        public string GetErros()
+        {
+            var erros = "";
+            ValidationResult.Errors.ToList().ForEach(e => erros += e.ErrorMessage + ";");
+            return erros;
         }
 
         private OleDbConnection OpenConnection(string path)
@@ -258,6 +302,110 @@ namespace Inventario.TIC.Class
 
                         return retorno;
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public string Add(DetalheFatura detalheFatura)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand()
+                {
+                    Connection = new SqlConnection(Properties.Settings.Default.conSQL),
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "POSTDETALHEFATURAUNICO",
+                };
+
+                command.Parameters.AddWithValue("@LinhaNumero", detalheFatura.LinhaNumero);
+                command.Parameters.AddWithValue("@SecaoChamada", detalheFatura.SecaoChamada);
+                command.Parameters.AddWithValue("@Referencia", detalheFatura.Referencia);
+                command.Parameters.AddWithValue("@DescricaoChamada", detalheFatura.DescricaoChamada);
+                command.Parameters.AddWithValue("@Unidade", detalheFatura.Unidade);
+                command.Parameters.AddWithValue("@Valor", detalheFatura.Valor);
+
+                command.Connection.Open();
+                string retorno = command.ExecuteScalar().ToString();
+
+                return retorno;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public void Update(DetalheFatura detalheFatura)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand()
+                {
+                    Connection = new SqlConnection(Properties.Settings.Default.conSQL),
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "PUTDETALHEFATURAUNICO",
+                };
+
+                command.Parameters.AddWithValue("@LinhaNumero", detalheFatura.LinhaNumero);
+                command.Parameters.AddWithValue("@SecaoChamada", detalheFatura.SecaoChamada);
+                command.Parameters.AddWithValue("@Referencia", detalheFatura.Referencia);
+                command.Parameters.AddWithValue("@DescricaoChamada", detalheFatura.DescricaoChamada);
+                command.Parameters.AddWithValue("@Unidade", detalheFatura.Unidade);
+                command.Parameters.AddWithValue("@Valor", detalheFatura.Valor);
+                command.Parameters.AddWithValue("@Id", detalheFatura.Id);
+
+                command.Connection.Open();
+                command.ExecuteScalar().ToString();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public List<DetalheFatura> Get()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.conSQL))
+                {
+                    var gestores = connection.Query<DetalheFatura>("GETDETALHEFATURAUNICO", null, commandType: CommandType.StoredProcedure).ToList();
+                    return gestores;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public void Delete(int id)
+        {
+            try
+            {
+                if (id != 0)
+                {
+                    SqlCommand command = new SqlCommand()
+                    {
+                        Connection = new SqlConnection(Properties.Settings.Default.conSQL),
+                        CommandType = CommandType.StoredProcedure,
+                        CommandText = "DELETEDETALHEFATURAUNICO",
+                    };
+
+                    command.Parameters.AddWithValue("@ID", id);
+
+                    command.Connection.Open();
+                    command.ExecuteScalar();
+                }
+                else
+                {
+                    throw new Exception("Favor selecionar um registro para exclusão");
                 }
             }
             catch (Exception ex)

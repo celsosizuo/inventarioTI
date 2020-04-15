@@ -86,6 +86,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -103,6 +105,9 @@
     <Compile Include="Class\DetalheFatura.cs" />
     <Compile Include="Class\Module1.cs" />
     <Compile Include="Class\ParametrosRelatorio.cs" />
+    <Compile Include="Class\RateioCentroCusto.cs" />
+    <Compile Include="Class\RateioCentroCustoTOTVS.cs" />
+    <Compile Include="Class\ServicosFatura.cs" />
     <Compile Include="Class\TermoCelular.cs" />
     <Compile Include="Class\TermoCelularRepository.cs" />
     <Compile Include="Class\TermoCelularResponse.cs" />
@@ -130,8 +135,14 @@
     <Compile Include="Class\Aparelho.cs" />
     <Compile Include="Class\TermoCelularUsuarioRepository.cs" />
     <Compile Include="Class\TermoCelularUsuarios.cs" />
+    <Compile Include="Class\Totvs.cs" />
     <Compile Include="Class\Usuario.cs" />
     <Compile Include="Class\UsuarioRepository.cs" />
+    <Compile Include="Connected Services\TOTVS.DataServer\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmAparelho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +172,12 @@
     </Compile>
     <Compile Include="Forms\FrmCarregador.Designer.cs">
       <DependentUpon>FrmCarregador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmDetalheFatura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmDetalheFatura.Designer.cs">
+      <DependentUpon>FrmDetalheFatura.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmDevolucaoTermoCelular.cs">
       <SubType>Form</SubType>
@@ -270,6 +287,9 @@
     <EmbeddedResource Include="Forms\FrmCarregador.resx">
       <DependentUpon>FrmCarregador.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmDetalheFatura.resx">
+      <DependentUpon>FrmDetalheFatura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmDevolucaoTermoCelular.resx">
       <DependentUpon>FrmDevolucaoTermoCelular.cs</DependentUpon>
     </EmbeddedResource>
@@ -325,6 +345,19 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Connected Services\TOTVS.DataServer\mex.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TOTVS.DataServer\mex1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TOTVS.DataServer\mex2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TOTVS.DataServer\mex3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TOTVS.DataServer\wsDataServer.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -372,6 +405,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Clear-Search-595b40b75ba036ed117d594d.jpg" />
+    <None Include="Connected Services\TOTVS.DataServer\configuration91.svcinfo" />
+    <None Include="Connected Services\TOTVS.DataServer\configuration.svcinfo" />
+    <None Include="Connected Services\TOTVS.DataServer\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -386,6 +425,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="tasks-solid.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\TOTVS.DataServer\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

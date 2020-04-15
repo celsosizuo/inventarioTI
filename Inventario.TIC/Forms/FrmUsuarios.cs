@@ -31,6 +31,13 @@ namespace Inventario.TIC.Forms
             // Ocultando colunas desnecessárias
             this.dgvUsuarios.Columns["CascadeMode"].Visible = false;
             this.dgvUsuarios.Columns["Terceiro"].Visible = false;
+            this.dgvUsuarios.Columns["CodCCusto"].Visible = false;
+            this.dgvUsuarios.Columns["CentroCusto"].Visible = false;
+            this.dgvUsuarios.Columns["StatusTermo"].Visible = false;
+            this.dgvUsuarios.Columns["DataDevolucao"].Visible = false;
+            this.dgvUsuarios.Columns["Motivo"].Visible = false;
+            this.dgvUsuarios.Columns["LinkEntrega"].Visible = false;
+            this.dgvUsuarios.Columns["LinkDevolucao"].Visible = false;
         }
 
         private void FrmUsuarios_Load(object sender, EventArgs e)
@@ -135,6 +142,12 @@ namespace Inventario.TIC.Forms
                 case "Cpf":
                     _usuarios = _usuariosOriginal.Where(c => c.Cpf.ToUpper().Contains(texto.ToUpper())).ToList();
                     break;
+                case "CodCCusto":
+                    _usuarios = _usuariosOriginal.Where(c => c.CodCCusto.ToUpper().Contains(texto.ToUpper())).ToList();
+                    break;
+                case "CentroCusto":
+                    _usuarios = _usuariosOriginal.Where(c => c.CentroCusto.ToUpper().Contains(texto.ToUpper())).ToList();
+                    break;
                 default:
                     _usuarios = _usuariosOriginal;
                     break;
@@ -150,6 +163,10 @@ namespace Inventario.TIC.Forms
                 this.Pesquisar("Nome", this.txtNome.Text);
             else if (this.txtCpf.Text != "")
                 this.Pesquisar("Cpf", this.txtCpf.Text);
+            else if (this.txtCodCCusto.Text != "")
+                this.Pesquisar("CodCCusto", this.txtCodCCusto.Text);
+            else if (this.txtCentroCusto.Text != "")
+                this.Pesquisar("CentroCusto", this.txtCentroCusto.Text);
             else
                 this.Pesquisar("", "");
         }
@@ -160,7 +177,16 @@ namespace Inventario.TIC.Forms
             this.txtNome.Clear();
             this.txtCpf.Clear();
             this.txtId.Clear();
+            this.txtCodCCusto.Clear();
+            this.txtCentroCusto.Clear();
             this.chkTerceiro.Checked = false;
+            this.txtId.ReadOnly = false;
+            this.txtChapa.ReadOnly = false;
+            this.txtNome.ReadOnly = false;
+            this.txtCpf.ReadOnly = false;
+            this.chkTerceiro.Enabled = true;
+            this.txtCodCCusto.ReadOnly = false;
+            this.txtCentroCusto.ReadOnly = false;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -180,11 +206,24 @@ namespace Inventario.TIC.Forms
                 usuario.Nome = this.txtNome.Text;
                 usuario.Cpf = this.txtCpf.Text;
                 usuario.Terceiro = this.chkTerceiro.Checked ? 0 : 1;
+                usuario.CodCCusto = this.txtCodCCusto.Text;
+                usuario.CentroCusto = this.txtCentroCusto.Text;
 
                 if (usuario.EhValido())
                 {
+                    List<Usuario> usuariosCadastrados = usuarioRepository.Get();
+
                     if (usuario.Id == 0)
                     {
+                        bool chapa = usuariosCadastrados.Any(x => x.Chapa == usuario.Chapa);
+                        bool cpf = usuariosCadastrados.Any(y => y.Cpf == usuario.Cpf);
+
+                        if (chapa)
+                            throw new Exception("- Chapa informada já está cadastrada");
+
+                        if (cpf)
+                            throw new Exception("- CPF informado já está cadastrado");
+
                         string retorno = usuarioRepository.Add(usuario);
                         this.txtId.Text = retorno.ToString();
                         usuario.Id = int.Parse(retorno);
@@ -221,14 +260,19 @@ namespace Inventario.TIC.Forms
                 this.txtNome.Text = _usuarios[e.RowIndex].Nome.ToString();
                 this.txtCpf.Text = _usuarios[e.RowIndex].Cpf.ToString();
                 this.chkTerceiro.Checked = _usuarios[e.RowIndex].Terceiro == 1 ? false : true;
+                this.txtCodCCusto.Text = _usuarios[e.RowIndex].CodCCusto == null ? "" : _usuarios[e.RowIndex].CodCCusto.ToString();
+                this.txtCentroCusto.Text = _usuarios[e.RowIndex].CentroCusto == null ? "" : _usuarios[e.RowIndex].CentroCusto.ToString();
 
-                if(_usuarios[e.RowIndex].Terceiro == 1)
+                if (_usuarios[e.RowIndex].Terceiro == 1)
                 {
                     this.txtId.ReadOnly = true;
                     this.txtChapa.ReadOnly = true;
                     this.txtNome.ReadOnly = true;
                     this.txtCpf.ReadOnly = true;
                     this.chkTerceiro.Enabled = false;
+                    this.txtCodCCusto.ReadOnly = true;
+                    this.txtCentroCusto.ReadOnly = true;
+
                 }
                 else
                 {
@@ -237,6 +281,8 @@ namespace Inventario.TIC.Forms
                     this.txtNome.ReadOnly = false;
                     this.txtCpf.ReadOnly = false;
                     this.chkTerceiro.Enabled = true;
+                    this.txtCodCCusto.ReadOnly = false;
+                    this.txtCentroCusto.ReadOnly = false;
                 }
             }
             catch (Exception ex)

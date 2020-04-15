@@ -22,6 +22,8 @@ namespace Inventario.TIC.Class
         public string Motivo { get; set; }
         public string LinkEntrega { get; set; }
         public string LinkDevolucao { get; set; }
+        public string CodCCusto { get; set; }
+        public string CentroCusto { get; set; }
 
         public Usuario()
         {
@@ -56,12 +58,21 @@ namespace Inventario.TIC.Class
 
         private void ValidarChapa()
         {
-            RuleFor(a => a.Chapa).NotEmpty().WithMessage("- Campo Chapa é obrigatório");
+            RuleFor(a => a.Chapa)
+                .NotEmpty().WithMessage("- Campo Chapa é obrigatório");
+                // .NotEqual(teste == null ? "" : teste.Chapa).WithMessage("- A chapa informada já está cadastrada");
         }
 
         private void ValidarCPF()
         {
-            RuleFor(a => a.Cpf).NotEmpty().WithMessage("- Campo CPF é obrigatório");
+            UsuarioRepository usuario = new UsuarioRepository();
+            List<Usuario> usuariosCadastrados = usuario.Get();
+
+            var teste = usuariosCadastrados.Find(x => x.Cpf == this.Cpf);
+
+            RuleFor(a => a.Cpf)
+                .NotEmpty().WithMessage("- Campo CPF é obrigatório");
+                // .NotEqual(teste == null ? "" : teste.Cpf).WithMessage("- O CPF informadao já está cadastrado");
         }
 
         public string GetErros()
