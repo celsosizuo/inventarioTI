@@ -11,13 +11,13 @@ namespace Inventario.TIC.Class
     public class Usuario : AbstractValidator<Usuario>
     {
         protected ValidationResult ValidationResult { get; set; }
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Chapa { get; set; }
         public string Nome { get; set; }
         public string Cpf { get; set; }
         public string StatusTermo { get; set; }
         public DateTime? DataDevolucao { get; set; }
-        public int Terceiro { get; set; }
+        public int? Terceiro { get; set; }
         public string TerceiroDescricao { get; set; }
         public string Motivo { get; set; }
         public string LinkEntrega { get; set; }

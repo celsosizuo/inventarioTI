@@ -1812,6 +1812,10 @@ AS
 
 GO
 
+*/*****************************************************************************************************************************************************************/
+
+--INICIO RATEIO DE INTERNET
+
 IF EXISTS (SELECT * fROM SYS.objects WHERE type = 'V' AND name = 'GCCUSTO')
 	DROP VIEW GCCUSTO
 
@@ -1823,6 +1827,61 @@ AS
 	FROM CORPORENOVO..GCCUSTO
 	WHERE CODCOLIGADA = 5 AND
 	ATIVO = 'T'
+
+GO
+
+
+IF EXISTS (SELECT * fROM SYS.objects WHERE type = 'P' AND name = 'GETRATEIOUSUARIOSAD')
+	DROP PROCEDURE GETRATEIOUSUARIOSAD
+
+GO
+
+CREATE PROCEDURE GETRATEIOUSUARIOSAD
+AS
+select userPrincipalName Usuario, company CentroDeCusto, displayName Nome
+into #tmpUsuarios
+from 
+(
+	SELECT userPrincipalName, isnull(company, 'vazio') as company, displayName, userAccountControl
+	FROM   Openquery(ADSI, 'SELECT displayName, givenName, userPrincipalName, sAMAccountName, mail, company, userAccountControl
+	FROM ''LDAP://DC=artfix,DC=local'' 
+	WHERE objectCategory=''person'' 
+	AND objectClass=''user''
+	AND (memberOf=''CN=WebCOMPRAS,OU=Internet,DC=artfix,DC=local'' OR 
+	memberOf=''CN=WebMSG,OU=Internet,DC=artfix,DC=local'' OR
+	memberOf=''CN=WebPadrao,OU=Internet,DC=artfix,DC=local'' OR
+	memberOf=''CN=WebRESTRITO,OU=Internet,DC=artfix,DC=local'' OR
+	memberOf=''CN=WebSTMEDIA,OU=Internet,DC=artfix,DC=local'' OR
+	memberOf=''CN=WebTOTAL,OU=Internet,DC=artfix,DC=local'')') 
+) a
+where a.userAccountControl not in ('514', '66050')
+ORDER BY userPrincipalName
+
+SELECT G.CODCCUSTO, G.NOME AS CENTROCUSTO, COUNT(*) AS IDMOVRATCCU 
+FROM #tmpUsuarios A
+LEFT JOIN GCCUSTO G ON A.CentroDeCusto COLLATE SQL_Latin1_General_CP1_CI_AS = G.CODCCUSTO COLLATE SQL_Latin1_General_CP1_CI_AS
+GROUP BY G.CODCCUSTO, G.NOME
+ORDER BY G.CODCCUSTO
+
+GO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

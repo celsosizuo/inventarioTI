@@ -18,6 +18,8 @@ namespace Inventario.TIC.Class
         public string CodCCusto { get; set; }
         public string CentroCusto { get; set; }
         public decimal Valor { get; set; }
+        public int? Qtde { get; set; }
+        public decimal? Porcentagem { get; set; }
         public int? IdMovRatCcu { get; set; }
 
         public RateioCentroCusto()
@@ -69,6 +71,22 @@ namespace Inventario.TIC.Class
                 {
                     var idMovRatCcu = connection.Query<int>("GETLASTIDMOVRATCCU", null, commandType: CommandType.StoredProcedure).ToList();
                     return idMovRatCcu.FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public List<RateioCentroCusto> GetRateioLinkInternet()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.conSQL))
+                {
+                    var rateios = connection.Query<RateioCentroCusto>("GETRATEIOUSUARIOSAD", null, commandType: CommandType.StoredProcedure).ToList();
+                    return rateios;
                 }
             }
             catch (Exception ex)

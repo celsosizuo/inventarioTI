@@ -167,7 +167,7 @@
             this.gestoresToolStripMenuItem,
             this.celularesTermosToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
             // linhasToolStripMenuItem1
@@ -220,7 +220,7 @@
             this.lançamentosManuaisToolStripMenuItem,
             this.lançamentoDeRateioDoTOTVSToolStripMenuItem});
             this.faturaToolStripMenuItem.Name = "faturaToolStripMenuItem";
-            this.faturaToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.faturaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.faturaToolStripMenuItem.Text = "Fatura";
             // 
             // importarFaturaToolStripMenuItem1
@@ -272,6 +272,7 @@
             this.lançamentoDeRateioTOTVSToolStripMenuItem.Name = "lançamentoDeRateioTOTVSToolStripMenuItem";
             this.lançamentoDeRateioTOTVSToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.lançamentoDeRateioTOTVSToolStripMenuItem.Text = "Lançamento de Rateio TOTVS";
+            this.lançamentoDeRateioTOTVSToolStripMenuItem.Click += new System.EventHandler(this.lançamentoDeRateioTOTVSToolStripMenuItem_Click);
             // 
             // gerenciamentoToolStripMenuItem
             // 

@@ -312,5 +312,12 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void lançamentoDeRateioTOTVSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRateioLinkInternet newMDIChild = new FrmRateioLinkInternet();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }

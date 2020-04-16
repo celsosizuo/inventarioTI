@@ -11,22 +11,19 @@ using System.Windows.Forms;
 
 namespace Inventario.TIC.Forms
 {
-    public partial class FrmRateioTelefoniaMovel : Form
+    public partial class FrmRateioLinkInternet : Form
     {
         private List<RateioCentroCusto> _rateios;
-        // private List<RateioCentroCusto> _rateiosOriginal;
-        // private string _colunaSelecionada;
         private List<dynamic> _dadosPedido;
         private decimal _valorTotalRateio = 0;
         private decimal _valorTotalPedido = 0;
         private decimal _diferenca = 0;
         private bool sucesso = false;
 
-        public FrmRateioTelefoniaMovel()
+        public FrmRateioLinkInternet()
         {
             _rateios = new List<RateioCentroCusto>();
             _dadosPedido = new List<dynamic>();
-            // _rateiosOriginal = new List<RateioCentroCusto>();
             InitializeComponent();
         }
 
@@ -42,63 +39,16 @@ namespace Inventario.TIC.Forms
             this.dgvRateios.Columns["NSeqItMMov"].Visible = false;
             this.dgvRateios.Columns["Referencia"].Visible = false;
             this.dgvRateios.Columns["IdMovRatCcu"].Visible = false;
-            this.dgvRateios.Columns["Porcentagem"].Visible = false;
-            this.dgvRateios.Columns["Qtde"].Visible = false;
         }
 
-        private void FrmRateioTelefoniaMovel_Load(object sender, EventArgs e)
+        private void CalcularDiferenca()
         {
-            DetalheFatura refer = new DetalheFatura();
-            List<string> referencia = refer.GetReferencia();
+            this.lblTotalRateado.Text = "Valor Total Rateado: " + _valorTotalRateio.ToString("C4");
+            this.lblTotalPedido.Text = "Valor Total do Pedido TOTVS: " + _valorTotalPedido.ToString("C4");
 
-            referencia = referencia.OrderByDescending(x => x.ToString()).ToList();
+            _diferenca = decimal.Round(_valorTotalPedido, 4) - decimal.Round(_valorTotalRateio, 4);
 
-            referencia.Insert(0, "");
-            this.cboReferencia.DataSource = referencia;
-
-            this.AtualizaDataGridView();
-
-            this.lblTotalRateado.Text = "";
-            this.lblTotalPedido.Text = "";
-            this.lblDiferenca.Text = "";
-        }
-
-        private void btnListar_Click(object sender, EventArgs e)
-        {
-            RateioCentroCusto rateio = new RateioCentroCusto();
-            _rateios = rateio.GetRateioTelefoniaMovel(this.cboReferencia.Text);
-
-            _valorTotalRateio = 0;
-            _rateios.ForEach(x => _valorTotalRateio += x.Valor);
-            this.AtualizaDataGridView();
-            this.CalcularDiferenca();
-        }
-
-        private void btnLimpar_Click(object sender, EventArgs e)
-        {
-            this.cboReferencia.Text = "";
-            this.txtNumPedido.Clear();
-            this.lblTotalRateado.Text = "";
-            this.txtUsuarioTOTVS.Clear();
-            this.txtSenhaTOTVS.Clear();
-
-            this.txtIdMovReadOnly.Clear();
-            this.txtNumeroMovReadOnly.Clear();
-            this.txtFornecedorReadOnly.Clear();
-            this.txtDataEmissaoReadOnly.Clear();
-            this.txtValorReadOnly.Clear();
-            this.txtNumPedido.ReadOnly = false;
-
-            this.lblDiferenca.Text = "";
-            this.lblTotalPedido.Text = "";
-            this.lblTotalRateado.Text = "";
-
-            _diferenca = 0;
-            _valorTotalPedido = 0;
-            _valorTotalRateio = 0;
-
-            _rateios.Clear();
-            this.AtualizaDataGridView();
+            this.lblDiferenca.Text = "Diferença apurada: " + _diferenca.ToString("C4");
         }
 
         private void btnVerificarDadosPedido_Click(object sender, EventArgs e)
@@ -128,6 +78,36 @@ namespace Inventario.TIC.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.txtValorFatura.Text == "")
+                    throw new Exception("Valor da fatura tem que ser informado.");
+
+                RateioCentroCusto rateio = new RateioCentroCusto();
+                _rateios = rateio.GetRateioLinkInternet();
+
+                decimal totalUsuarios = _rateios.Sum(r => r.Qtde ?? 0);
+                decimal totalFatura = decimal.Parse(this.txtValorFatura.Text);
+
+                _valorTotalRateio = 0;
+
+                _rateios.ForEach(x => {
+                    x.Porcentagem = decimal.Round(((x.Qtde / totalUsuarios) * 100) ?? 0, 4);
+                    x.Valor = decimal.Round((((x.Porcentagem / 100) * totalFatura) ?? 0), 4);
+                    _valorTotalRateio += x.Valor;
+                });
+
+                this.AtualizaDataGridView();
+                this.CalcularDiferenca();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
@@ -181,7 +161,7 @@ namespace Inventario.TIC.Forms
         {
             try
             {
-                if (_diferenca != 0)
+                if (decimal.Round(_diferenca, 2) != 0)
                     throw new Exception("Existe diferença de " + _diferenca.ToString("C2") + " entre o valor do pedido e o rateio calculado. Favor corrigir o rateio ou alterar o valor do pedido no TOTVS.");
                 else
                 {
@@ -215,16 +195,7 @@ namespace Inventario.TIC.Forms
             this.txtValorReadOnly.Clear();
             this.txtNumPedido.Clear();
             this.txtNumPedido.ReadOnly = false;
-        }
 
-        private void CalcularDiferenca()
-        {
-            this.lblTotalRateado.Text = "Valor Total Rateado: " + _valorTotalRateio.ToString("C2");
-            this.lblTotalPedido.Text = "Valor Total do Pedido TOTVS: " + _valorTotalPedido.ToString("C2");
-
-            _diferenca = _valorTotalPedido - _valorTotalRateio;
-
-            this.lblDiferenca.Text = "Diferença apurada: " + _diferenca.ToString("C2");
         }
 
         private void dgvRateios_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -236,6 +207,25 @@ namespace Inventario.TIC.Forms
 
             this.AtualizaDataGridView();
             this.CalcularDiferenca();
+        }
+
+        private void txtValorFatura_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtValorFatura_Leave(object sender, EventArgs e)
+        {
+
+            decimal valor = this.txtValorFatura.Text == "" ? 0 : decimal.Parse(this.txtValorFatura.Text);
+            this.txtValorFatura.Text = valor.ToString("N2");
         }
     }
 }
