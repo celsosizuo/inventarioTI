@@ -9,9 +9,9 @@ using System.Xml;
 
 namespace Inventario.TIC.Class
 {
-    public class RateioCentroCustoTOTVS
+    public class LancarRateioTOTVS
     {
-        public RateioCentroCustoTOTVS()
+        public LancarRateioTOTVS()
         {
 
         }
@@ -52,7 +52,7 @@ namespace Inventario.TIC.Class
                     writer.WriteElementString("NSEQITMMOV", l.NSeqItMMov.ToString());
                     writer.WriteElementString("CODCCUSTO", l.CodCCusto.ToString());
                     writer.WriteElementString("VALOR", l.Valor.ToString());
-                    writer.WriteElementString("IDMOVRATCCU>", l.IdMovRatCcu.ToString());
+                    writer.WriteElementString("IDMOVRATCCU", l.IdMovRatCcu.ToString());
                     writer.WriteEndElement(); //FECHANDO A TAG TITMMOVRATCCU
                 });
                 writer.WriteEndElement(); //FECHANDO A TAG MovMovimento

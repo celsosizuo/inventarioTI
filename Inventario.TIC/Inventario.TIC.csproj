@@ -106,7 +106,7 @@
     <Compile Include="Class\Module1.cs" />
     <Compile Include="Class\ParametrosRelatorio.cs" />
     <Compile Include="Class\RateioCentroCusto.cs" />
-    <Compile Include="Class\RateioCentroCustoTOTVS.cs" />
+    <Compile Include="Class\LancarRateioTOTVS.cs" />
     <Compile Include="Class\ServicosFatura.cs" />
     <Compile Include="Class\TermoCelular.cs" />
     <Compile Include="Class\TermoCelularRepository.cs" />
@@ -196,6 +196,12 @@
     </Compile>
     <Compile Include="Forms\FrmImportarFatura.Designer.cs">
       <DependentUpon>FrmImportarFatura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmRateioTelefoniaMovel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmRateioTelefoniaMovel.Designer.cs">
+      <DependentUpon>FrmRateioTelefoniaMovel.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmTermoCelular.cs">
       <SubType>Form</SubType>
@@ -298,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmImportarFatura.resx">
       <DependentUpon>FrmImportarFatura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmRateioTelefoniaMovel.resx">
+      <DependentUpon>FrmRateioTelefoniaMovel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmTermoCelular.resx">
       <DependentUpon>FrmTermoCelular.cs</DependentUpon>

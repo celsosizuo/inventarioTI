@@ -49,6 +49,11 @@
             this.faturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importarFaturaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.excluirFaturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lançamentosManuaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lançamentoDeRateioDoTOTVSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.telefoniaFixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.faturaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.lançamentoDeRateioTOTVSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerenciamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.computadoresXLicençasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,7 +74,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.lançamentosManuaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -79,6 +83,7 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.computadoresToolStripMenuItem,
             this.inventárioCelularesToolStripMenuItem,
+            this.telefoniaFixaToolStripMenuItem,
             this.gerenciamentoToolStripMenuItem,
             this.windowsMenu,
             this.helpMenu});
@@ -99,8 +104,8 @@
             this.licençasNFXSoftwareToolStripMenuItem,
             this.associarLicençaNoComputadorToolStripMenuItem});
             this.computadoresToolStripMenuItem.Name = "computadoresToolStripMenuItem";
-            this.computadoresToolStripMenuItem.Size = new System.Drawing.Size(154, 20);
-            this.computadoresToolStripMenuItem.Text = "Inventário Computadores";
+            this.computadoresToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
+            this.computadoresToolStripMenuItem.Text = "Computadores";
             this.computadoresToolStripMenuItem.Click += new System.EventHandler(this.computadoresToolStripMenuItem_Click);
             // 
             // computadoresToolStripMenuItem1
@@ -149,8 +154,8 @@
             this.cadastrosToolStripMenuItem,
             this.faturaToolStripMenuItem});
             this.inventárioCelularesToolStripMenuItem.Name = "inventárioCelularesToolStripMenuItem";
-            this.inventárioCelularesToolStripMenuItem.Size = new System.Drawing.Size(123, 20);
-            this.inventárioCelularesToolStripMenuItem.Text = "Inventário Celulares";
+            this.inventárioCelularesToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
+            this.inventárioCelularesToolStripMenuItem.Text = "Telefonia Móvel";
             // 
             // cadastrosToolStripMenuItem
             // 
@@ -162,7 +167,7 @@
             this.gestoresToolStripMenuItem,
             this.celularesTermosToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
             // linhasToolStripMenuItem1
@@ -212,24 +217,61 @@
             this.faturaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.importarFaturaToolStripMenuItem1,
             this.excluirFaturaToolStripMenuItem,
-            this.lançamentosManuaisToolStripMenuItem});
+            this.lançamentosManuaisToolStripMenuItem,
+            this.lançamentoDeRateioDoTOTVSToolStripMenuItem});
             this.faturaToolStripMenuItem.Name = "faturaToolStripMenuItem";
-            this.faturaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.faturaToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.faturaToolStripMenuItem.Text = "Fatura";
             // 
             // importarFaturaToolStripMenuItem1
             // 
             this.importarFaturaToolStripMenuItem1.Name = "importarFaturaToolStripMenuItem1";
-            this.importarFaturaToolStripMenuItem1.Size = new System.Drawing.Size(193, 22);
+            this.importarFaturaToolStripMenuItem1.Size = new System.Drawing.Size(227, 22);
             this.importarFaturaToolStripMenuItem1.Text = "Importar Fatura";
             this.importarFaturaToolStripMenuItem1.Click += new System.EventHandler(this.importarFaturaToolStripMenuItem1_Click);
             // 
             // excluirFaturaToolStripMenuItem
             // 
             this.excluirFaturaToolStripMenuItem.Name = "excluirFaturaToolStripMenuItem";
-            this.excluirFaturaToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.excluirFaturaToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.excluirFaturaToolStripMenuItem.Text = "Excluir Fatura";
             this.excluirFaturaToolStripMenuItem.Click += new System.EventHandler(this.excluirFaturaToolStripMenuItem_Click);
+            // 
+            // lançamentosManuaisToolStripMenuItem
+            // 
+            this.lançamentosManuaisToolStripMenuItem.Name = "lançamentosManuaisToolStripMenuItem";
+            this.lançamentosManuaisToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.lançamentosManuaisToolStripMenuItem.Text = "Lançamentos Manuais";
+            this.lançamentosManuaisToolStripMenuItem.Click += new System.EventHandler(this.lançamentosManuaisToolStripMenuItem_Click);
+            // 
+            // lançamentoDeRateioDoTOTVSToolStripMenuItem
+            // 
+            this.lançamentoDeRateioDoTOTVSToolStripMenuItem.Name = "lançamentoDeRateioDoTOTVSToolStripMenuItem";
+            this.lançamentoDeRateioDoTOTVSToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.lançamentoDeRateioDoTOTVSToolStripMenuItem.Text = "Lançamento de Rateio TOTVS";
+            this.lançamentoDeRateioDoTOTVSToolStripMenuItem.Click += new System.EventHandler(this.lançamentoDeRateioDoTOTVSToolStripMenuItem_Click);
+            // 
+            // telefoniaFixaToolStripMenuItem
+            // 
+            this.telefoniaFixaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.faturaToolStripMenuItem1});
+            this.telefoniaFixaToolStripMenuItem.Name = "telefoniaFixaToolStripMenuItem";
+            this.telefoniaFixaToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
+            this.telefoniaFixaToolStripMenuItem.Text = "Link Internet";
+            // 
+            // faturaToolStripMenuItem1
+            // 
+            this.faturaToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lançamentoDeRateioTOTVSToolStripMenuItem});
+            this.faturaToolStripMenuItem1.Name = "faturaToolStripMenuItem1";
+            this.faturaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.faturaToolStripMenuItem1.Text = "Fatura";
+            // 
+            // lançamentoDeRateioTOTVSToolStripMenuItem
+            // 
+            this.lançamentoDeRateioTOTVSToolStripMenuItem.Name = "lançamentoDeRateioTOTVSToolStripMenuItem";
+            this.lançamentoDeRateioTOTVSToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.lançamentoDeRateioTOTVSToolStripMenuItem.Text = "Lançamento de Rateio TOTVS";
             // 
             // gerenciamentoToolStripMenuItem
             // 
@@ -380,13 +422,6 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // lançamentosManuaisToolStripMenuItem
-            // 
-            this.lançamentosManuaisToolStripMenuItem.Name = "lançamentosManuaisToolStripMenuItem";
-            this.lançamentosManuaisToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.lançamentosManuaisToolStripMenuItem.Text = "Lançamentos Manuais";
-            this.lançamentosManuaisToolStripMenuItem.Click += new System.EventHandler(this.lançamentosManuaisToolStripMenuItem_Click);
-            // 
             // MDIParent1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,7 +434,7 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MDIParent1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ARTFIX - Sistema de Gerenciamento de Licenças";
+            this.Text = "ARTFIX TIC - Sistema de Gerenciamento";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
@@ -452,6 +487,10 @@
         private System.Windows.Forms.ToolStripMenuItem importarFaturaToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem excluirFaturaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lançamentosManuaisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lançamentoDeRateioDoTOTVSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem telefoniaFixaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem faturaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem lançamentoDeRateioTOTVSToolStripMenuItem;
     }
 }
 

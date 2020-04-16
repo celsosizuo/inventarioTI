@@ -38,7 +38,7 @@ namespace Inventario.TIC.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("teste")]
+        [global::System.Configuration.DefaultSettingValueAttribute("producao")]
         public string tipoBase {
             get {
                 return ((string)(this["tipoBase"]));
