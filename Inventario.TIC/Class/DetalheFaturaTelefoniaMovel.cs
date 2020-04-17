@@ -15,7 +15,7 @@ using FluentValidation.Results;
 
 namespace Inventario.TIC.Class
 {
-    public class DetalheFatura : AbstractValidator<DetalheFatura>
+    public class DetalheFaturaTelefoniaMovel : AbstractValidator<DetalheFaturaTelefoniaMovel>
     {
         protected ValidationResult ValidationResult { get; set; }
         public int Id { get; set; }
@@ -39,7 +39,7 @@ namespace Inventario.TIC.Class
         public string Unidade { get; set; }
         public decimal Valor { get; set; }
 
-        public DetalheFatura()
+        public DetalheFaturaTelefoniaMovel()
         {
             ValidationResult = new ValidationResult();
         }
@@ -103,7 +103,7 @@ namespace Inventario.TIC.Class
             return oledbConn;
         }
 
-        private IList<DetalheFatura> ExtractContaExcel(OleDbConnection oledbConn)
+        private IList<DetalheFaturaTelefoniaMovel> ExtractContaExcel(OleDbConnection oledbConn)
         {
             OleDbCommand cmd = new OleDbCommand();
             OleDbDataAdapter oleda = new OleDbDataAdapter();
@@ -117,11 +117,11 @@ namespace Inventario.TIC.Class
             // oleda.Fill(dsConta, "LeituraFaturaDetalhada");
             oleda.Fill(dtConta);
 
-            IList<DetalheFatura> dsDetalheFatura = new List<DetalheFatura>();
+            IList<DetalheFaturaTelefoniaMovel> dsDetalheFatura = new List<DetalheFaturaTelefoniaMovel>();
 
             dtConta.AsEnumerable().ToList().ForEach(s =>
             {
-                DetalheFatura leitura = new DetalheFatura();
+                DetalheFaturaTelefoniaMovel leitura = new DetalheFaturaTelefoniaMovel();
                 leitura.LinhaNumero = s["Celular"] != DBNull.Value ? s["Celular"].ToString() : null;
                 leitura.SecaoChamada = s["Seção da Chamada"] != DBNull.Value ? s["Seção da Chamada"].ToString() : null;
                 leitura.Referencia = s["Mês/Ano de Referência"] != DBNull.Value ? s["Mês/Ano de Referência"].ToString() : null;
@@ -179,7 +179,7 @@ namespace Inventario.TIC.Class
 
         public string ImportarDados(string path)
         {
-            IList<DetalheFatura> objFaturaDetalhada = new List<DetalheFatura>();
+            IList<DetalheFaturaTelefoniaMovel> objFaturaDetalhada = new List<DetalheFaturaTelefoniaMovel>();
             try
             {
                 OleDbConnection oledbConn = OpenConnection(path);
@@ -310,7 +310,7 @@ namespace Inventario.TIC.Class
             }
         }
 
-        public string Add(DetalheFatura detalheFatura)
+        public string Add(DetalheFaturaTelefoniaMovel detalheFatura)
         {
             try
             {
@@ -340,7 +340,7 @@ namespace Inventario.TIC.Class
             }
         }
 
-        public void Update(DetalheFatura detalheFatura)
+        public void Update(DetalheFaturaTelefoniaMovel detalheFatura)
         {
             try
             {
@@ -369,13 +369,13 @@ namespace Inventario.TIC.Class
             }
         }
 
-        public List<DetalheFatura> Get()
+        public List<DetalheFaturaTelefoniaMovel> Get()
         {
             try
             {
                 using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.conSQL))
                 {
-                    var gestores = connection.Query<DetalheFatura>("GETDETALHEFATURAUNICO", null, commandType: CommandType.StoredProcedure).ToList();
+                    var gestores = connection.Query<DetalheFaturaTelefoniaMovel>("GETDETALHEFATURAUNICO", null, commandType: CommandType.StoredProcedure).ToList();
                     return gestores;
                 }
             }

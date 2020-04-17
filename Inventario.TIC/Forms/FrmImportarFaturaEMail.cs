@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace Inventario.TIC.Forms
 {
-    public partial class FrmImportarFatura : Form
+    public partial class FrmImportarFaturaEMail : Form
     {
-        string retorno = "";
         bool sucesso = false;
+        string retorno = "";
 
-        public FrmImportarFatura()
+        public FrmImportarFaturaEMail()
         {
             InitializeComponent();
         }
@@ -35,14 +35,11 @@ namespace Inventario.TIC.Forms
         {
             try
             {
-
                 if (this.txtArquivo.Text != "")
                 {
                     int ret = 0;
-                    DetalheFaturaTelefoniaMovel a = new DetalheFaturaTelefoniaMovel();
+                    DetalheFaturaEMail a = new DetalheFaturaEMail();
                     ret = Convert.ToInt32(a.ImportarDados(this.txtArquivo.Text));
-                    ServicosFatura b = new ServicosFatura();
-                    ret += Convert.ToInt32(b.ImportarDados(this.txtArquivo.Text));
                     retorno = ret.ToString();
 
                     sucesso = true;
@@ -89,10 +86,6 @@ namespace Inventario.TIC.Forms
             }
         }
 
-        private void FrmImportarFatura_Load(object sender, EventArgs e)
-        {
-            this.lblQtdeRegistros.Text = "";
-            this.lblTempo.Text = "";
-        }
+
     }
 }

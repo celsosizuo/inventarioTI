@@ -13,13 +13,13 @@ namespace Inventario.TIC.Forms
 {
     public partial class FrmDetalheFatura : Form
     {
-        private List<DetalheFatura> _detalheFatura;
-        private List<DetalheFatura> _detalheFaturaOriginal;
+        private List<DetalheFaturaTelefoniaMovel> _detalheFatura;
+        private List<DetalheFaturaTelefoniaMovel> _detalheFaturaOriginal;
         private string _colunaSelecionada;
 
         public FrmDetalheFatura()
         {
-            _detalheFatura = new List<DetalheFatura>();
+            _detalheFatura = new List<DetalheFaturaTelefoniaMovel>();
             InitializeComponent();
         }
 
@@ -50,7 +50,7 @@ namespace Inventario.TIC.Forms
 
         private void FrmDetalheFatura_Load(object sender, EventArgs e)
         {
-            DetalheFatura detalheFatura = new DetalheFatura();
+            DetalheFaturaTelefoniaMovel detalheFatura = new DetalheFaturaTelefoniaMovel();
 
             List<string> referencia = detalheFatura.GetReferencia();
             referencia.Insert(0, "");
@@ -67,11 +67,11 @@ namespace Inventario.TIC.Forms
         {
             try
             {
-                DetalheFatura detalheFaturaRepository = new DetalheFatura();
-                DetalheFatura detalheFatura;
+                DetalheFaturaTelefoniaMovel detalheFaturaRepository = new DetalheFaturaTelefoniaMovel();
+                DetalheFaturaTelefoniaMovel detalheFatura;
 
                 if (this.txtId.Text == "")
-                    detalheFatura = new DetalheFatura();
+                    detalheFatura = new DetalheFaturaTelefoniaMovel();
                 else
                     detalheFatura = _detalheFatura.Find(n => n.Id == int.Parse(this.txtId.Text));
 
@@ -129,7 +129,7 @@ namespace Inventario.TIC.Forms
             {
                 if (MessageBox.Show("Você tem certeza que deseja excluir o registro selecionado?", "Confirmação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    DetalheFatura detalheFatura = new DetalheFatura();
+                    DetalheFaturaTelefoniaMovel detalheFatura = new DetalheFaturaTelefoniaMovel();
                     int id = this.txtId.Text == "" ? 0 : int.Parse(this.txtId.Text);
                     detalheFatura.Delete(id);
 

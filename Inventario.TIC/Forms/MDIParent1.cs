@@ -319,5 +319,19 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void valoresContasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPrecoContaEMail newMDIChild = new FrmPrecoContaEMail();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void importarFaturaToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FrmImportarFaturaEMail newMDIChild = new FrmImportarFaturaEMail();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }

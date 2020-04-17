@@ -20,7 +20,7 @@ namespace Inventario.TIC.Forms
 
         private void CarregaCheckedListBox()
         {
-            DetalheFatura f = new DetalheFatura();
+            DetalheFaturaTelefoniaMovel f = new DetalheFaturaTelefoniaMovel();
 
             ((ListBox)this.checkedListBox1).DataSource = f.GetReferencia();
             ((ListBox)this.checkedListBox1).DisplayMember = "referencia";
@@ -38,7 +38,7 @@ namespace Inventario.TIC.Forms
             {
                 if(MessageBox.Show("Você tem certeza que deseja excluir as faturas selecionadas?", "Confirmação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    DetalheFatura f = new DetalheFatura();
+                    DetalheFaturaTelefoniaMovel f = new DetalheFaturaTelefoniaMovel();
 
                     foreach (var item in this.checkedListBox1.CheckedItems)
                         f.ExcluirContaExcel(item.ToString());

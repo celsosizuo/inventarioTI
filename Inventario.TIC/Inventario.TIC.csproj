@@ -102,9 +102,12 @@
     <Compile Include="Carregador.cs" />
     <Compile Include="Class\AparelhoRepository.cs" />
     <Compile Include="Class\CarregadorRepository.cs" />
-    <Compile Include="Class\DetalheFatura.cs" />
+    <Compile Include="Class\DetalheFaturaEMail.cs" />
+    <Compile Include="Class\DetalheFaturaTelefoniaMovel.cs" />
     <Compile Include="Class\Module1.cs" />
     <Compile Include="Class\ParametrosRelatorio.cs" />
+    <Compile Include="Class\PrecoContaEMail.cs" />
+    <Compile Include="Class\PrecoContaEMailRepository.cs" />
     <Compile Include="Class\RateioCentroCusto.cs" />
     <Compile Include="Class\LancarRateioTOTVS.cs" />
     <Compile Include="Class\ServicosFatura.cs" />
@@ -196,6 +199,18 @@
     </Compile>
     <Compile Include="Forms\FrmImportarFatura.Designer.cs">
       <DependentUpon>FrmImportarFatura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmImportarFaturaEMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmImportarFaturaEMail.Designer.cs">
+      <DependentUpon>FrmImportarFaturaEMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmPrecoContaEMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmPrecoContaEMail.Designer.cs">
+      <DependentUpon>FrmPrecoContaEMail.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmRateioLinkInternet.cs">
       <SubType>Form</SubType>
@@ -310,6 +325,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmImportarFatura.resx">
       <DependentUpon>FrmImportarFatura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmImportarFaturaEMail.resx">
+      <DependentUpon>FrmImportarFaturaEMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmPrecoContaEMail.resx">
+      <DependentUpon>FrmPrecoContaEMail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmRateioLinkInternet.resx">
       <DependentUpon>FrmRateioLinkInternet.cs</DependentUpon>

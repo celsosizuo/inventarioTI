@@ -48,7 +48,7 @@ namespace Inventario.TIC.Forms
 
         private void FrmRateioTelefoniaMovel_Load(object sender, EventArgs e)
         {
-            DetalheFatura refer = new DetalheFatura();
+            DetalheFaturaTelefoniaMovel refer = new DetalheFaturaTelefoniaMovel();
             List<string> referencia = refer.GetReferencia();
 
             referencia = referencia.OrderByDescending(x => x.ToString()).ToList();
