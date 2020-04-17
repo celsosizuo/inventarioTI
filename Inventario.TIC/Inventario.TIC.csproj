@@ -212,6 +212,12 @@
     <Compile Include="Forms\FrmPrecoContaEMail.Designer.cs">
       <DependentUpon>FrmPrecoContaEMail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmRateioEMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmRateioEMail.designer.cs">
+      <DependentUpon>FrmRateioEMail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmRateioLinkInternet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -331,6 +337,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmPrecoContaEMail.resx">
       <DependentUpon>FrmPrecoContaEMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmRateioEMail.resx">
+      <DependentUpon>FrmRateioEMail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmRateioLinkInternet.resx">
       <DependentUpon>FrmRateioLinkInternet.cs</DependentUpon>

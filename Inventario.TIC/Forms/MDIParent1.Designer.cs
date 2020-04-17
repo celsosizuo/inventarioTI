@@ -56,6 +56,7 @@
             this.lançamentoDeRateioTOTVSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eMailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valoresContasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importarFaturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerenciamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.computadoresXLicençasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,7 +77,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.importarFaturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lançamentoDeRateioNoTOTVSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -282,7 +283,8 @@
             // 
             this.eMailToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.valoresContasToolStripMenuItem,
-            this.importarFaturaToolStripMenuItem});
+            this.importarFaturaToolStripMenuItem,
+            this.lançamentoDeRateioNoTOTVSToolStripMenuItem});
             this.eMailToolStripMenuItem.Name = "eMailToolStripMenuItem";
             this.eMailToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.eMailToolStripMenuItem.Text = "E-Mail";
@@ -290,9 +292,16 @@
             // valoresContasToolStripMenuItem
             // 
             this.valoresContasToolStripMenuItem.Name = "valoresContasToolStripMenuItem";
-            this.valoresContasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.valoresContasToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.valoresContasToolStripMenuItem.Text = "Valores Contas";
             this.valoresContasToolStripMenuItem.Click += new System.EventHandler(this.valoresContasToolStripMenuItem_Click);
+            // 
+            // importarFaturaToolStripMenuItem
+            // 
+            this.importarFaturaToolStripMenuItem.Name = "importarFaturaToolStripMenuItem";
+            this.importarFaturaToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.importarFaturaToolStripMenuItem.Text = "Importar Fatura";
+            this.importarFaturaToolStripMenuItem.Click += new System.EventHandler(this.importarFaturaToolStripMenuItem_Click_1);
             // 
             // gerenciamentoToolStripMenuItem
             // 
@@ -443,12 +452,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // importarFaturaToolStripMenuItem
+            // lançamentoDeRateioNoTOTVSToolStripMenuItem
             // 
-            this.importarFaturaToolStripMenuItem.Name = "importarFaturaToolStripMenuItem";
-            this.importarFaturaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.importarFaturaToolStripMenuItem.Text = "Importar Fatura";
-            this.importarFaturaToolStripMenuItem.Click += new System.EventHandler(this.importarFaturaToolStripMenuItem_Click_1);
+            this.lançamentoDeRateioNoTOTVSToolStripMenuItem.Name = "lançamentoDeRateioNoTOTVSToolStripMenuItem";
+            this.lançamentoDeRateioNoTOTVSToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.lançamentoDeRateioNoTOTVSToolStripMenuItem.Text = "Lançamento de Rateio TOTVS";
+            this.lançamentoDeRateioNoTOTVSToolStripMenuItem.Click += new System.EventHandler(this.lançamentoDeRateioNoTOTVSToolStripMenuItem_Click);
             // 
             // MDIParent1
             // 
@@ -522,6 +531,7 @@
         private System.Windows.Forms.ToolStripMenuItem eMailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem valoresContasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importarFaturaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lançamentoDeRateioNoTOTVSToolStripMenuItem;
     }
 }
 

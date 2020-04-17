@@ -94,5 +94,43 @@ namespace Inventario.TIC.Class
                 throw new Exception(ex.Message);
             }
         }
+
+        public List<RateioCentroCusto> GetRateioEMailExchange(string referencia)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.conSQL))
+                {
+                    var parametros = new DynamicParameters();
+                    parametros.Add("@REFERENCIA", referencia);
+
+                    var rateios = connection.Query<RateioCentroCusto>("GETRATEIOEMAILEXCHANGE", parametros, commandType: CommandType.StoredProcedure).ToList();
+                    return rateios;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public List<RateioCentroCusto> GetRateioEMailMaiex(string referencia)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.conSQL))
+                {
+                    var parametros = new DynamicParameters();
+                    parametros.Add("@REFERENCIA", referencia);
+
+                    var rateios = connection.Query<RateioCentroCusto>("GETRATEIOEMAILMAIEX", parametros, commandType: CommandType.StoredProcedure).ToList();
+                    return rateios;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

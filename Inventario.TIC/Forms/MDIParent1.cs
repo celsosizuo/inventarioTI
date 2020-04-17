@@ -333,5 +333,12 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void lançamentoDeRateioNoTOTVSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRateioEMail newMDIChild = new FrmRateioEMail();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }
