@@ -340,5 +340,12 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void MDIParent1_Load(object sender, EventArgs e)
+        {
+            string[] tipoBase = Properties.Settings.Default.conSQL.Split(';');
+
+            this.toolStripStatusLabel.Text = tipoBase[1].ToString().Replace("Initial Catalog", "Database");
+        }
     }
 }

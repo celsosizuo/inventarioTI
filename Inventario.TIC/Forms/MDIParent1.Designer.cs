@@ -57,6 +57,7 @@
             this.eMailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valoresContasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importarFaturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lançamentoDeRateioNoTOTVSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerenciamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.computadoresXLicençasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,7 +78,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.lançamentoDeRateioNoTOTVSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -172,7 +172,7 @@
             this.gestoresToolStripMenuItem,
             this.celularesTermosToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
             // linhasToolStripMenuItem1
@@ -225,7 +225,7 @@
             this.lançamentosManuaisToolStripMenuItem,
             this.lançamentoDeRateioDoTOTVSToolStripMenuItem});
             this.faturaToolStripMenuItem.Name = "faturaToolStripMenuItem";
-            this.faturaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.faturaToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.faturaToolStripMenuItem.Text = "Fatura";
             // 
             // importarFaturaToolStripMenuItem1
@@ -269,7 +269,7 @@
             this.faturaToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lançamentoDeRateioTOTVSToolStripMenuItem});
             this.faturaToolStripMenuItem1.Name = "faturaToolStripMenuItem1";
-            this.faturaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.faturaToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.faturaToolStripMenuItem1.Text = "Fatura";
             // 
             // lançamentoDeRateioTOTVSToolStripMenuItem
@@ -302,6 +302,13 @@
             this.importarFaturaToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.importarFaturaToolStripMenuItem.Text = "Importar Fatura";
             this.importarFaturaToolStripMenuItem.Click += new System.EventHandler(this.importarFaturaToolStripMenuItem_Click_1);
+            // 
+            // lançamentoDeRateioNoTOTVSToolStripMenuItem
+            // 
+            this.lançamentoDeRateioNoTOTVSToolStripMenuItem.Name = "lançamentoDeRateioNoTOTVSToolStripMenuItem";
+            this.lançamentoDeRateioNoTOTVSToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.lançamentoDeRateioNoTOTVSToolStripMenuItem.Text = "Lançamento de Rateio TOTVS";
+            this.lançamentoDeRateioNoTOTVSToolStripMenuItem.Click += new System.EventHandler(this.lançamentoDeRateioNoTOTVSToolStripMenuItem_Click);
             // 
             // gerenciamentoToolStripMenuItem
             // 
@@ -452,13 +459,6 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // lançamentoDeRateioNoTOTVSToolStripMenuItem
-            // 
-            this.lançamentoDeRateioNoTOTVSToolStripMenuItem.Name = "lançamentoDeRateioNoTOTVSToolStripMenuItem";
-            this.lançamentoDeRateioNoTOTVSToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
-            this.lançamentoDeRateioNoTOTVSToolStripMenuItem.Text = "Lançamento de Rateio TOTVS";
-            this.lançamentoDeRateioNoTOTVSToolStripMenuItem.Click += new System.EventHandler(this.lançamentoDeRateioNoTOTVSToolStripMenuItem_Click);
-            // 
             // MDIParent1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -473,6 +473,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ARTFIX TIC - Sistema de Gerenciamento";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MDIParent1_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
