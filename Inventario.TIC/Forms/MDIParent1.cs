@@ -210,40 +210,6 @@ namespace Inventario.TIC
             newMDIChild.Show();
         }
 
-        private void linhasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cadastroDeAparelhosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void cadastroDeCarregadoresToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cadastroDeUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void celularesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cadastroDeGestoresToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void importarFaturaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void linhasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FrmLinha newMDIChild = new FrmLinha();
