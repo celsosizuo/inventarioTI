@@ -397,5 +397,19 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void importarFaturaToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            FrmImportarFaturaImpressoras newMDIChild = new FrmImportarFaturaImpressoras();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void lançamentoDeRateioTOTVSToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FrmRateioImpressoras newMDIChild = new FrmRateioImpressoras();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }
