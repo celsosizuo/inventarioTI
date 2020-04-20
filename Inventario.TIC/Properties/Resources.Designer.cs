@@ -59,5 +59,15 @@ namespace Inventario.TIC.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Clear_Search_595b40b75ba036ed117d594d {
+            get {
+                object obj = ResourceManager.GetObject("Clear-Search-595b40b75ba036ed117d594d", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

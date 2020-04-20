@@ -35,5 +35,17 @@ namespace Inventario.TIC.Properties {
                 this["conSQL"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("producao")]
+        public string tipoBase {
+            get {
+                return ((string)(this["tipoBase"]));
+            }
+            set {
+                this["tipoBase"] = value;
+            }
+        }
     }
 }

@@ -62,13 +62,19 @@
       <HintPath>..\packages\FluentValidation.8.6.2\lib\net45\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1400.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1400.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1400.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
@@ -79,6 +85,9 @@
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -90,6 +99,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Carregador.cs" />
+    <Compile Include="Class\AparelhoRepository.cs" />
+    <Compile Include="Class\CarregadorRepository.cs" />
+    <Compile Include="Class\DetalheFaturaEMail.cs" />
+    <Compile Include="Class\DetalheFaturaTelefoniaMovel.cs" />
+    <Compile Include="Class\Module1.cs" />
+    <Compile Include="Class\ParametrosRelatorio.cs" />
+    <Compile Include="Class\PrecoContaEMail.cs" />
+    <Compile Include="Class\PrecoContaEMailRepository.cs" />
+    <Compile Include="Class\RateioCentroCusto.cs" />
+    <Compile Include="Class\LancarRateioTOTVS.cs" />
+    <Compile Include="Class\ServicosFatura.cs" />
+    <Compile Include="Class\TermoCelular.cs" />
+    <Compile Include="Class\TermoCelularRepository.cs" />
+    <Compile Include="Class\TermoCelularResponse.cs" />
     <Compile Include="Class\Computadores.cs" />
     <Compile Include="Class\ComputadoresLicencaRepository.cs" />
     <Compile Include="Class\ComputadoresLicencas.cs" />
@@ -99,14 +123,35 @@
     <Compile Include="Class\ComputadorStatus.cs" />
     <Compile Include="Class\ComputadorStatusRepository.cs" />
     <Compile Include="Class\Disco.cs" />
+    <Compile Include="Class\Gestor.cs" />
+    <Compile Include="Class\GestorRepository.cs" />
     <Compile Include="Class\Licenca.cs" />
     <Compile Include="Class\LicencaRepository.cs" />
     <Compile Include="Class\LicencasResponse.cs" />
+    <Compile Include="Class\Linha.cs" />
+    <Compile Include="Class\LinhaRepository.cs" />
     <Compile Include="Class\NotaFiscal.cs" />
     <Compile Include="Class\NotaFiscalRepository.cs" />
     <Compile Include="Class\Software.cs" />
     <Compile Include="Class\SoftwareRepository.cs" />
     <Compile Include="Class\Status.cs" />
+    <Compile Include="Class\Aparelho.cs" />
+    <Compile Include="Class\TermoCelularUsuarioRepository.cs" />
+    <Compile Include="Class\TermoCelularUsuarios.cs" />
+    <Compile Include="Class\Totvs.cs" />
+    <Compile Include="Class\Usuario.cs" />
+    <Compile Include="Class\UsuarioRepository.cs" />
+    <Compile Include="Connected Services\TOTVS.DataServer\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmAparelho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAparelho.Designer.cs">
+      <DependentUpon>FrmAparelho.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmAssociarLicencaNoComputador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,17 +170,95 @@
     <Compile Include="Forms\FrmAssociarOCS.Designer.cs">
       <DependentUpon>FrmAssociarOCS.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmCarregador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCarregador.Designer.cs">
+      <DependentUpon>FrmCarregador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmDetalheFatura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmDetalheFatura.Designer.cs">
+      <DependentUpon>FrmDetalheFatura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmDevolucaoTermoCelular.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmDevolucaoTermoCelular.Designer.cs">
+      <DependentUpon>FrmDevolucaoTermoCelular.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmExcluirFatura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmExcluirFatura.Designer.cs">
+      <DependentUpon>FrmExcluirFatura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmImportarFatura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmImportarFatura.Designer.cs">
+      <DependentUpon>FrmImportarFatura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmImportarFaturaEMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmImportarFaturaEMail.Designer.cs">
+      <DependentUpon>FrmImportarFaturaEMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmPrecoContaEMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmPrecoContaEMail.Designer.cs">
+      <DependentUpon>FrmPrecoContaEMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmRateioEMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmRateioEMail.designer.cs">
+      <DependentUpon>FrmRateioEMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmRateioLinkInternet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmRateioLinkInternet.Designer.cs">
+      <DependentUpon>FrmRateioLinkInternet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmRateioTelefoniaMovel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmRateioTelefoniaMovel.Designer.cs">
+      <DependentUpon>FrmRateioTelefoniaMovel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTermoCelular.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTermoCelular.Designer.cs">
+      <DependentUpon>FrmTermoCelular.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmComputadores.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FrmComputadores.Designer.cs">
       <DependentUpon>FrmComputadores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmGestores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmGestores.Designer.cs">
+      <DependentUpon>FrmGestores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmLicencas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FrmLicencas.Designer.cs">
       <DependentUpon>FrmLicencas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLinha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLinha.Designer.cs">
+      <DependentUpon>FrmLinha.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmNotaFiscal.cs">
       <SubType>Form</SubType>
@@ -155,11 +278,23 @@
     <Compile Include="Forms\FrmSoftware.Designer.cs">
       <DependentUpon>FrmSoftware.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmUsuarios.Designer.cs">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmVisualizadorAdobe.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FrmVisualizadorAdobe.Designer.cs">
       <DependentUpon>FrmVisualizadorAdobe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmWaitingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmWaitingForm.Designer.cs">
+      <DependentUpon>FrmWaitingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MDIParent1.cs">
       <SubType>Form</SubType>
@@ -170,6 +305,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Forms\FrmAparelho.resx">
+      <DependentUpon>FrmAparelho.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAssociarLicencaNoComputador.resx">
       <DependentUpon>FrmAssociarLicencaNoComputador.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,11 +317,50 @@
     <EmbeddedResource Include="Forms\FrmAssociarOCS.resx">
       <DependentUpon>FrmAssociarOCS.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCarregador.resx">
+      <DependentUpon>FrmCarregador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmDetalheFatura.resx">
+      <DependentUpon>FrmDetalheFatura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmDevolucaoTermoCelular.resx">
+      <DependentUpon>FrmDevolucaoTermoCelular.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmExcluirFatura.resx">
+      <DependentUpon>FrmExcluirFatura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmImportarFatura.resx">
+      <DependentUpon>FrmImportarFatura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmImportarFaturaEMail.resx">
+      <DependentUpon>FrmImportarFaturaEMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmPrecoContaEMail.resx">
+      <DependentUpon>FrmPrecoContaEMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmRateioEMail.resx">
+      <DependentUpon>FrmRateioEMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmRateioLinkInternet.resx">
+      <DependentUpon>FrmRateioLinkInternet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmRateioTelefoniaMovel.resx">
+      <DependentUpon>FrmRateioTelefoniaMovel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTermoCelular.resx">
+      <DependentUpon>FrmTermoCelular.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmComputadores.resx">
       <DependentUpon>FrmComputadores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmGestores.resx">
+      <DependentUpon>FrmGestores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmLicencas.resx">
       <DependentUpon>FrmLicencas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLinha.resx">
+      <DependentUpon>FrmLinha.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmNotaFiscal.resx">
       <DependentUpon>FrmNotaFiscal.cs</DependentUpon>
@@ -194,8 +371,14 @@
     <EmbeddedResource Include="Forms\FrmSoftware.resx">
       <DependentUpon>FrmSoftware.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmUsuarios.resx">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmVisualizadorAdobe.resx">
       <DependentUpon>FrmVisualizadorAdobe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmWaitingForm.resx">
+      <DependentUpon>FrmWaitingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MDIParent1.resx">
       <DependentUpon>MDIParent1.cs</DependentUpon>
@@ -210,6 +393,19 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Connected Services\TOTVS.DataServer\mex.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TOTVS.DataServer\mex1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TOTVS.DataServer\mex2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TOTVS.DataServer\mex3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TOTVS.DataServer\wsDataServer.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -256,6 +452,13 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Clear-Search-595b40b75ba036ed117d594d.jpg" />
+    <None Include="Connected Services\TOTVS.DataServer\configuration91.svcinfo" />
+    <None Include="Connected Services\TOTVS.DataServer\configuration.svcinfo" />
+    <None Include="Connected Services\TOTVS.DataServer\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -270,6 +473,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="tasks-solid.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\TOTVS.DataServer\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

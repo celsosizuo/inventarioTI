@@ -1,4 +1,5 @@
-﻿using Inventario.TIC.Forms;
+﻿using Inventario.TIC.Class;
+using Inventario.TIC.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -186,21 +187,156 @@ namespace Inventario.TIC
 
         private void licençasUtilizadasXNãoUtilizadasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Licencas.Nao.Utilizadas");
-            newMDIChild.MdiParent = this;
+            List<ParametrosRelatorio> parametros = new List<ParametrosRelatorio>();
+            FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Licencas.Nao.Utilizadas", parametros);
+            // newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
 
         private void listaDeRamaisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Computadores");
-            newMDIChild.MdiParent = this;
+            List<ParametrosRelatorio> parametros = new List<ParametrosRelatorio>();
+            FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Computadores", parametros);
+            // newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
 
         private void computadoresXLicençasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Computadores.Licencas");
+            List<ParametrosRelatorio> parametros = new List<ParametrosRelatorio>();
+            FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Computadores.Licencas", parametros);
+            // newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void linhasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cadastroDeAparelhosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void cadastroDeCarregadoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cadastroDeUsuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void celularesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cadastroDeGestoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void importarFaturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linhasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmLinha newMDIChild = new FrmLinha();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void aparelhosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAparelho newMDIChild = new FrmAparelho();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void carregadoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCarregador newMDIChild = new FrmCarregador();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmUsuarios newMDIChild = new FrmUsuarios();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void gestoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGestores newMDIChild = new FrmGestores();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void celularesTermosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmTermoCelular newMDIChild = new FrmTermoCelular();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void importarFaturaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmImportarFatura newMDIChild = new FrmImportarFatura();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void excluirFaturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmExcluirFatura newMDIChild = new FrmExcluirFatura();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void lançamentosManuaisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDetalheFatura newMDIChild = new FrmDetalheFatura();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void lançamentoDeRateioDoTOTVSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRateioTelefoniaMovel newMDIChild = new FrmRateioTelefoniaMovel();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void lançamentoDeRateioTOTVSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRateioLinkInternet newMDIChild = new FrmRateioLinkInternet();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void valoresContasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPrecoContaEMail newMDIChild = new FrmPrecoContaEMail();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void importarFaturaToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FrmImportarFaturaEMail newMDIChild = new FrmImportarFaturaEMail();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void lançamentoDeRateioNoTOTVSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRateioEMail newMDIChild = new FrmRateioEMail();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
