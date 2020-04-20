@@ -347,5 +347,19 @@ namespace Inventario.TIC
 
             this.toolStripStatusLabel.Text = tipoBase[1].ToString().Replace("Initial Catalog", "Database");
         }
+
+        private void importarFaturaToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FrmImportarFaturaTelefoniaFixa newMDIChild = new FrmImportarFaturaTelefoniaFixa();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void lançamentoDeRateioTOTVSToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmRateioTelefoniaFixa newMDIChild = new FrmRateioTelefoniaFixa();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }

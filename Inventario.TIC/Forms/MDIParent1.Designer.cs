@@ -58,6 +58,8 @@
             this.valoresContasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importarFaturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lançamentoDeRateioNoTOTVSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.telefoniaFizaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importarFaturaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.gerenciamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.computadoresXLicençasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,6 +80,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.lançamentoDeRateioTOTVSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -89,6 +92,7 @@
             this.inventárioCelularesToolStripMenuItem,
             this.telefoniaFixaToolStripMenuItem,
             this.eMailToolStripMenuItem,
+            this.telefoniaFizaToolStripMenuItem,
             this.gerenciamentoToolStripMenuItem,
             this.windowsMenu,
             this.helpMenu});
@@ -310,6 +314,22 @@
             this.lançamentoDeRateioNoTOTVSToolStripMenuItem.Text = "Lançamento de Rateio TOTVS";
             this.lançamentoDeRateioNoTOTVSToolStripMenuItem.Click += new System.EventHandler(this.lançamentoDeRateioNoTOTVSToolStripMenuItem_Click);
             // 
+            // telefoniaFizaToolStripMenuItem
+            // 
+            this.telefoniaFizaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importarFaturaToolStripMenuItem2,
+            this.lançamentoDeRateioTOTVSToolStripMenuItem1});
+            this.telefoniaFizaToolStripMenuItem.Name = "telefoniaFizaToolStripMenuItem";
+            this.telefoniaFizaToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.telefoniaFizaToolStripMenuItem.Text = "Telefonia Fixa";
+            // 
+            // importarFaturaToolStripMenuItem2
+            // 
+            this.importarFaturaToolStripMenuItem2.Name = "importarFaturaToolStripMenuItem2";
+            this.importarFaturaToolStripMenuItem2.Size = new System.Drawing.Size(227, 22);
+            this.importarFaturaToolStripMenuItem2.Text = "Importar Fatura";
+            this.importarFaturaToolStripMenuItem2.Click += new System.EventHandler(this.importarFaturaToolStripMenuItem2_Click);
+            // 
             // gerenciamentoToolStripMenuItem
             // 
             this.gerenciamentoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -459,6 +479,13 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
+            // lançamentoDeRateioTOTVSToolStripMenuItem1
+            // 
+            this.lançamentoDeRateioTOTVSToolStripMenuItem1.Name = "lançamentoDeRateioTOTVSToolStripMenuItem1";
+            this.lançamentoDeRateioTOTVSToolStripMenuItem1.Size = new System.Drawing.Size(227, 22);
+            this.lançamentoDeRateioTOTVSToolStripMenuItem1.Text = "Lançamento de Rateio TOTVS";
+            this.lançamentoDeRateioTOTVSToolStripMenuItem1.Click += new System.EventHandler(this.lançamentoDeRateioTOTVSToolStripMenuItem1_Click);
+            // 
             // MDIParent1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -533,6 +560,9 @@
         private System.Windows.Forms.ToolStripMenuItem valoresContasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importarFaturaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lançamentoDeRateioNoTOTVSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem telefoniaFizaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importarFaturaToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem lançamentoDeRateioTOTVSToolStripMenuItem1;
     }
 }
 
