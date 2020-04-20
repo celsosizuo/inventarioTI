@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -345,7 +346,90 @@ namespace Inventario.TIC
         {
             string[] tipoBase = Properties.Settings.Default.conSQL.Split(';');
 
-            this.toolStripStatusLabel.Text = tipoBase[1].ToString().Replace("Initial Catalog", "Database");
+            System.Reflection.Assembly executingAssembly = System.Reflection.Assembly.GetExecutingAssembly();
+            var fieVersionInfo = FileVersionInfo.GetVersionInfo(executingAssembly.Location);
+            var version = fieVersionInfo.FileVersion;
+
+            this.toolStripStatusLabel.Text = tipoBase[1].ToString().Replace("Initial Catalog", "Database") + " - Versão: " + version;
+
+            this.Text = "ARTFIX TIC - Sistema de Gerenciamento - Versão " + version;
+        }
+
+        private void importarFaturaToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FrmImportarFaturaTelefoniaFixa newMDIChild = new FrmImportarFaturaTelefoniaFixa();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void lançamentoDeRateioTOTVSToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmRateioTelefoniaFixa newMDIChild = new FrmRateioTelefoniaFixa();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void linhasToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            FrmLinha newMDIChild = new FrmLinha();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void aparelhosToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FrmAparelho newMDIChild = new FrmAparelho();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void carregadoresToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FrmCarregador newMDIChild = new FrmCarregador();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void usuáriosToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FrmUsuarios newMDIChild = new FrmUsuarios();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void gestoresToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FrmGestores newMDIChild = new FrmGestores();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void celularesTermosToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FrmTermoCelular newMDIChild = new FrmTermoCelular();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void importarFaturaToolStripMenuItem2_Click_1(object sender, EventArgs e)
+        {
+            FrmImportarFaturaTelefoniaFixa newMDIChild = new FrmImportarFaturaTelefoniaFixa();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void lançamentoDeRateioTOTVSToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            FrmRateioTelefoniaFixa newMDIChild = new FrmRateioTelefoniaFixa();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void lançamentoDeRateioTOTVSToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FrmRateioLinkInternet newMDIChild = new FrmRateioLinkInternet();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
         }
     }
 }
