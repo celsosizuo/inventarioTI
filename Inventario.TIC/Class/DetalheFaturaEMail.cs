@@ -50,7 +50,7 @@ namespace Inventario.TIC.Class
             return oledbConn;
         }
 
-        private IList<DetalheFaturaEMail> ExtractContaExcel(OleDbConnection oledbConn)
+        private IList<DetalheFaturaEMail> ExtractContaExcel(OleDbConnection oledbConn, string referencia)
         {
             OleDbCommand cmd = new OleDbCommand();
             OleDbDataAdapter oleda = new OleDbDataAdapter();
@@ -79,7 +79,7 @@ namespace Inventario.TIC.Class
                 leitura.Departamento = s["Departamento"] == null ? "" : s["Departamento"].ToString();
                 leitura.CCusto = s["Cidade"] == null ? "" : s["Cidade"].ToString();
                 leitura.Politica = null;
-                leitura.Referencia = "04/2020";
+                leitura.Referencia = referencia;
                 leitura.TipoRegistro = "Exchange";
 
                 dsDetalheFatura.Add(leitura);
@@ -106,7 +106,7 @@ namespace Inventario.TIC.Class
                 leitura.Plano = s["Perfil"].ToString();
                 leitura.Departamento = s["Departamento"] == null ? "" : s["Departamento"].ToString();
                 leitura.CCusto = null;
-                leitura.Referencia = "04/2020";
+                leitura.Referencia = referencia;
                 leitura.TipoRegistro = "Maiex";
 
                 dsDetalheFatura.Add(leitura);
@@ -131,18 +131,18 @@ namespace Inventario.TIC.Class
             return dtConta;
         }
 
-        public string ImportarDados(string path)
+        public string ImportarDados(string path, string referencia)
         {
             IList<DetalheFaturaEMail> objFaturaDetalhada = new List<DetalheFaturaEMail>();
             try
             {
-                List<string> referencia = this.GetReferencia();
+                List<string> refer = this.GetReferencia();
 
-                if(referencia != null)
+                if(refer != null)
                 {
-                    referencia.ForEach(r =>
+                    refer.ForEach(r =>
                     {
-                        if (r.ToString() == objFaturaDetalhada[0].Referencia)
+                        if (r.ToString() == referencia)
                             throw new Exception("Já existem dados da fatura que está sendo importada. Faça a exclusão antes de importar.");
                     });
                 }
@@ -150,10 +150,9 @@ namespace Inventario.TIC.Class
                 OleDbConnection oledbConn = OpenConnection(path);
                 if (oledbConn.State == ConnectionState.Open)
                 {
-                    objFaturaDetalhada = ExtractContaExcel(oledbConn);
+                    objFaturaDetalhada = ExtractContaExcel(oledbConn, referencia);
                     oledbConn.Close();
                 }
-
 
                 DataTable dt = ToDataTable(objFaturaDetalhada);
                 dt.Columns.Remove("Id");

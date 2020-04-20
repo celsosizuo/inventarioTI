@@ -37,15 +37,23 @@ namespace Inventario.TIC.Forms
             {
                 if (this.txtArquivo.Text != "")
                 {
-                    int ret = 0;
-                    DetalheFaturaEMail a = new DetalheFaturaEMail();
-                    ret = Convert.ToInt32(a.ImportarDados(this.txtArquivo.Text));
-                    retorno = ret.ToString();
+                    if (this.txtReferencia.Text == "  /")
+                    {
+                        MessageBox.Show("Favor digitar uma referência válida", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        int ret = 0;
+                        DetalheFaturaEMail a = new DetalheFaturaEMail();
+                        ret = Convert.ToInt32(a.ImportarDados(this.txtArquivo.Text, this.txtReferencia.Text));
+                        retorno = ret.ToString();
 
-                    sucesso = true;
+                        sucesso = true;
+                    }
                 }
                 else
                     MessageBox.Show("Favor selecionar um arquivo", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
             catch (Exception ex)
             {
