@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventario.TIC", "Inventario.TIC\Inventario.TIC.csproj", "{C80B10FD-273A-47FD-9C39-F93E7F6FD09F}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{8E9C7920-3C56-4AA5-9CE2-24CEB8F50649}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{C80B10FD-273A-47FD-9C39-F93E7F6FD09F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C80B10FD-273A-47FD-9C39-F93E7F6FD09F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C80B10FD-273A-47FD-9C39-F93E7F6FD09F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E9C7920-3C56-4AA5-9CE2-24CEB8F50649}.Debug|Any CPU.ActiveCfg = Debug
+		{8E9C7920-3C56-4AA5-9CE2-24CEB8F50649}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
