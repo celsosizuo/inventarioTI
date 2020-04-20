@@ -103,6 +103,7 @@
     <Compile Include="Class\AparelhoRepository.cs" />
     <Compile Include="Class\CarregadorRepository.cs" />
     <Compile Include="Class\DetalheFaturaEMail.cs" />
+    <Compile Include="Class\DetalheFaturaImpressoras.cs" />
     <Compile Include="Class\DetalheFaturaTelefoniaFixa.cs" />
     <Compile Include="Class\DetalheFaturaTelefoniaMovel.cs" />
     <Compile Include="Class\Module1.cs" />
@@ -207,6 +208,12 @@
     <Compile Include="Forms\FrmImportarFaturaEMail.Designer.cs">
       <DependentUpon>FrmImportarFaturaEMail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmImportarFaturaImpressoras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmImportarFaturaImpressoras.designer.cs">
+      <DependentUpon>FrmImportarFaturaImpressoras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmImportarFaturaTelefoniaFixa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +231,12 @@
     </Compile>
     <Compile Include="Forms\FrmRateioEMail.designer.cs">
       <DependentUpon>FrmRateioEMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmRateioImpressoras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmRateioImpressoras.designer.cs">
+      <DependentUpon>FrmRateioImpressoras.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmRateioLinkInternet.cs">
       <SubType>Form</SubType>
@@ -348,6 +361,9 @@
     <EmbeddedResource Include="Forms\FrmImportarFaturaEMail.resx">
       <DependentUpon>FrmImportarFaturaEMail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmImportarFaturaImpressoras.resx">
+      <DependentUpon>FrmImportarFaturaImpressoras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmImportarFaturaTelefoniaFixa.resx">
       <DependentUpon>FrmImportarFaturaTelefoniaFixa.cs</DependentUpon>
     </EmbeddedResource>
@@ -356,6 +372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmRateioEMail.resx">
       <DependentUpon>FrmRateioEMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmRateioImpressoras.resx">
+      <DependentUpon>FrmRateioImpressoras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmRateioLinkInternet.resx">
       <DependentUpon>FrmRateioLinkInternet.cs</DependentUpon>
