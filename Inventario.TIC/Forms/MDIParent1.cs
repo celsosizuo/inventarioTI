@@ -411,5 +411,12 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void sincronizaçãoDaListaDeRamaisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmListaRamais newMDIChild = new FrmListaRamais();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }

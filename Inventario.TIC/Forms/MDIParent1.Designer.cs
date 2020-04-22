@@ -63,6 +63,7 @@
             this.lançamentoDeRateioNoTOTVSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.impressorasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importarFaturaToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.lançamentoDeRateioTOTVSToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.gerenciamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.computadoresXLicençasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,14 +77,14 @@
             this.arrangeIconsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.lançamentoDeRateioTOTVSToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sincronizaçãoDaListaDeRamaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -164,7 +165,8 @@
             // 
             this.inventárioCelularesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.telefoniaMóvelToolStripMenuItem,
-            this.telefoniaFizaToolStripMenuItem});
+            this.telefoniaFizaToolStripMenuItem,
+            this.sincronizaçãoDaListaDeRamaisToolStripMenuItem});
             this.inventárioCelularesToolStripMenuItem.Name = "inventárioCelularesToolStripMenuItem";
             this.inventárioCelularesToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.inventárioCelularesToolStripMenuItem.Text = "Telefonia";
@@ -175,7 +177,7 @@
             this.cadastrosToolStripMenuItem,
             this.faturaToolStripMenuItem});
             this.telefoniaMóvelToolStripMenuItem.Name = "telefoniaMóvelToolStripMenuItem";
-            this.telefoniaMóvelToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.telefoniaMóvelToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.telefoniaMóvelToolStripMenuItem.Text = "Telefonia Móvel";
             // 
             // cadastrosToolStripMenuItem
@@ -274,7 +276,7 @@
             this.importarFaturaToolStripMenuItem2,
             this.lançamentoDeRateioTOTVSToolStripMenuItem1});
             this.telefoniaFizaToolStripMenuItem.Name = "telefoniaFizaToolStripMenuItem";
-            this.telefoniaFizaToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.telefoniaFizaToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.telefoniaFizaToolStripMenuItem.Text = "Telefonia Fixa";
             // 
             // importarFaturaToolStripMenuItem2
@@ -352,6 +354,13 @@
             this.importarFaturaToolStripMenuItem3.Size = new System.Drawing.Size(227, 22);
             this.importarFaturaToolStripMenuItem3.Text = "Importar Fatura";
             this.importarFaturaToolStripMenuItem3.Click += new System.EventHandler(this.importarFaturaToolStripMenuItem3_Click);
+            // 
+            // lançamentoDeRateioTOTVSToolStripMenuItem2
+            // 
+            this.lançamentoDeRateioTOTVSToolStripMenuItem2.Name = "lançamentoDeRateioTOTVSToolStripMenuItem2";
+            this.lançamentoDeRateioTOTVSToolStripMenuItem2.Size = new System.Drawing.Size(227, 22);
+            this.lançamentoDeRateioTOTVSToolStripMenuItem2.Text = "Lançamento de Rateio TOTVS";
+            this.lançamentoDeRateioTOTVSToolStripMenuItem2.Click += new System.EventHandler(this.lançamentoDeRateioTOTVSToolStripMenuItem2_Click);
             // 
             // gerenciamentoToolStripMenuItem
             // 
@@ -459,22 +468,6 @@
             this.contentsToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.contentsToolStripMenuItem.Text = "&Conteúdo";
             // 
-            // indexToolStripMenuItem
-            // 
-            this.indexToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("indexToolStripMenuItem.Image")));
-            this.indexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.indexToolStripMenuItem.Text = "&Índice";
-            // 
-            // searchToolStripMenuItem
-            // 
-            this.searchToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("searchToolStripMenuItem.Image")));
-            this.searchToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.searchToolStripMenuItem.Text = "&Procurar";
-            // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
@@ -502,12 +495,28 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // lançamentoDeRateioTOTVSToolStripMenuItem2
+            // sincronizaçãoDaListaDeRamaisToolStripMenuItem
             // 
-            this.lançamentoDeRateioTOTVSToolStripMenuItem2.Name = "lançamentoDeRateioTOTVSToolStripMenuItem2";
-            this.lançamentoDeRateioTOTVSToolStripMenuItem2.Size = new System.Drawing.Size(227, 22);
-            this.lançamentoDeRateioTOTVSToolStripMenuItem2.Text = "Lançamento de Rateio TOTVS";
-            this.lançamentoDeRateioTOTVSToolStripMenuItem2.Click += new System.EventHandler(this.lançamentoDeRateioTOTVSToolStripMenuItem2_Click);
+            this.sincronizaçãoDaListaDeRamaisToolStripMenuItem.Name = "sincronizaçãoDaListaDeRamaisToolStripMenuItem";
+            this.sincronizaçãoDaListaDeRamaisToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.sincronizaçãoDaListaDeRamaisToolStripMenuItem.Text = "Sincronização da Lista de Ramais";
+            this.sincronizaçãoDaListaDeRamaisToolStripMenuItem.Click += new System.EventHandler(this.sincronizaçãoDaListaDeRamaisToolStripMenuItem_Click);
+            // 
+            // indexToolStripMenuItem
+            // 
+            this.indexToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("indexToolStripMenuItem.Image")));
+            this.indexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
+            this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.indexToolStripMenuItem.Text = "&Índice";
+            // 
+            // searchToolStripMenuItem
+            // 
+            this.searchToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("searchToolStripMenuItem.Image")));
+            this.searchToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
+            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.searchToolStripMenuItem.Text = "&Procurar";
             // 
             // MDIParent1
             // 
@@ -589,6 +598,7 @@
         private System.Windows.Forms.ToolStripMenuItem impressorasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importarFaturaToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem lançamentoDeRateioTOTVSToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem sincronizaçãoDaListaDeRamaisToolStripMenuItem;
     }
 }
 
