@@ -220,6 +220,12 @@
     <Compile Include="Forms\FrmImportarFaturaTelefoniaFixa.designer.cs">
       <DependentUpon>FrmImportarFaturaTelefoniaFixa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmListaRamais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmListaRamais.Designer.cs">
+      <DependentUpon>FrmListaRamais.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmPrecoContaEMail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -366,6 +372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmImportarFaturaTelefoniaFixa.resx">
       <DependentUpon>FrmImportarFaturaTelefoniaFixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmListaRamais.resx">
+      <DependentUpon>FrmListaRamais.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmPrecoContaEMail.resx">
       <DependentUpon>FrmPrecoContaEMail.cs</DependentUpon>
