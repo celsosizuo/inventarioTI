@@ -99,7 +99,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Carregador.cs" />
+    <Compile Include="Class\Carregador.cs" />
     <Compile Include="Class\AparelhoRepository.cs" />
     <Compile Include="Class\CarregadorRepository.cs" />
     <Compile Include="Class\DetalheFaturaEMail.cs" />
