@@ -106,15 +106,6 @@ namespace Inventario.TIC.Class
             {
                 List<string> refer = this.GetReferencia();
 
-                if (refer != null)
-                {
-                    refer.ForEach(r =>
-                    {
-                    if (r.ToString() == objFaturaDetalhada[0].Referencia)
-                            throw new Exception("Já existem dados da fatura que está sendo importada. Faça a exclusão antes de importar.");
-                    });
-                }
-
                 OleDbConnection oledbConn = OpenConnection(path);
                 if (oledbConn.State == ConnectionState.Open)
                 {
@@ -124,6 +115,16 @@ namespace Inventario.TIC.Class
 
                 DataTable dt = ToDataTable(objFaturaDetalhada);
                 dt.Columns.Remove("Id");
+
+                if (refer != null)
+                {
+                    refer.ForEach(r =>
+                    {
+                    if (r.ToString() == objFaturaDetalhada[0].Referencia)
+                            throw new Exception("Já existem dados da fatura que está sendo importada. Faça a exclusão antes de importar.");
+                    });
+                }
+
 
                 // Gravando no banco de dados
                 using (SqlConnection con = new SqlConnection(Properties.Settings.Default.conSQL))
