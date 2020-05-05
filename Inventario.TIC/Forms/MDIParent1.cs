@@ -418,5 +418,33 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void importarFaturaToolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            FrmImportarFatura newMDIChild = new FrmImportarFatura();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void excluirFaturaToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FrmExcluirFatura newMDIChild = new FrmExcluirFatura();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void lançamentosManuaisToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FrmDetalheFatura newMDIChild = new FrmDetalheFatura();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void lançamentoDeRateioDoTOTVSToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FrmRateioTelefoniaMovel newMDIChild = new FrmRateioTelefoniaMovel();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }

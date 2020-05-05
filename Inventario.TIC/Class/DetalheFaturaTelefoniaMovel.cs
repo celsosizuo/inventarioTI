@@ -200,6 +200,7 @@ namespace Inventario.TIC.Class
 
                 DataTable dt = ToDataTable(objFaturaDetalhada);
                 dt.Columns.Remove("Id");
+                dt.Columns.Remove("CascadeMode");
 
                 // Gravando no banco de dados
                 using (SqlConnection con = new SqlConnection(Properties.Settings.Default.conSQL))

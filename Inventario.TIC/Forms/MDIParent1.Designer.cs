@@ -55,6 +55,7 @@
             this.telefoniaFizaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importarFaturaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.lançamentoDeRateioTOTVSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sincronizaçãoDaListaDeRamaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.telefoniaFixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lançamentoDeRateioTOTVSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eMailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,14 +78,13 @@
             this.arrangeIconsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.sincronizaçãoDaListaDeRamaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -190,48 +190,48 @@
             this.gestoresToolStripMenuItem,
             this.celularesTermosToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
             // linhasToolStripMenuItem1
             // 
             this.linhasToolStripMenuItem1.Name = "linhasToolStripMenuItem1";
-            this.linhasToolStripMenuItem1.Size = new System.Drawing.Size(144, 22);
+            this.linhasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.linhasToolStripMenuItem1.Text = "Linhas";
             this.linhasToolStripMenuItem1.Click += new System.EventHandler(this.linhasToolStripMenuItem1_Click_1);
             // 
             // aparelhosToolStripMenuItem
             // 
             this.aparelhosToolStripMenuItem.Name = "aparelhosToolStripMenuItem";
-            this.aparelhosToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.aparelhosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aparelhosToolStripMenuItem.Text = "Aparelhos";
             this.aparelhosToolStripMenuItem.Click += new System.EventHandler(this.aparelhosToolStripMenuItem_Click_1);
             // 
             // carregadoresToolStripMenuItem
             // 
             this.carregadoresToolStripMenuItem.Name = "carregadoresToolStripMenuItem";
-            this.carregadoresToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.carregadoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.carregadoresToolStripMenuItem.Text = "Carregadores";
             this.carregadoresToolStripMenuItem.Click += new System.EventHandler(this.carregadoresToolStripMenuItem_Click_1);
             // 
             // usuáriosToolStripMenuItem
             // 
             this.usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
-            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuáriosToolStripMenuItem.Text = "Usuários";
             this.usuáriosToolStripMenuItem.Click += new System.EventHandler(this.usuáriosToolStripMenuItem_Click_1);
             // 
             // gestoresToolStripMenuItem
             // 
             this.gestoresToolStripMenuItem.Name = "gestoresToolStripMenuItem";
-            this.gestoresToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.gestoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gestoresToolStripMenuItem.Text = "Gestores";
             this.gestoresToolStripMenuItem.Click += new System.EventHandler(this.gestoresToolStripMenuItem_Click_1);
             // 
             // celularesTermosToolStripMenuItem
             // 
             this.celularesTermosToolStripMenuItem.Name = "celularesTermosToolStripMenuItem";
-            this.celularesTermosToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.celularesTermosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.celularesTermosToolStripMenuItem.Text = "Termos";
             this.celularesTermosToolStripMenuItem.Click += new System.EventHandler(this.celularesTermosToolStripMenuItem_Click_1);
             // 
@@ -243,7 +243,7 @@
             this.lançamentosManuaisToolStripMenuItem,
             this.lançamentoDeRateioDoTOTVSToolStripMenuItem});
             this.faturaToolStripMenuItem.Name = "faturaToolStripMenuItem";
-            this.faturaToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.faturaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.faturaToolStripMenuItem.Text = "Fatura";
             // 
             // importarFaturaToolStripMenuItem1
@@ -251,24 +251,28 @@
             this.importarFaturaToolStripMenuItem1.Name = "importarFaturaToolStripMenuItem1";
             this.importarFaturaToolStripMenuItem1.Size = new System.Drawing.Size(227, 22);
             this.importarFaturaToolStripMenuItem1.Text = "Importar Fatura";
+            this.importarFaturaToolStripMenuItem1.Click += new System.EventHandler(this.importarFaturaToolStripMenuItem1_Click_1);
             // 
             // excluirFaturaToolStripMenuItem
             // 
             this.excluirFaturaToolStripMenuItem.Name = "excluirFaturaToolStripMenuItem";
             this.excluirFaturaToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.excluirFaturaToolStripMenuItem.Text = "Excluir Fatura";
+            this.excluirFaturaToolStripMenuItem.Click += new System.EventHandler(this.excluirFaturaToolStripMenuItem_Click_1);
             // 
             // lançamentosManuaisToolStripMenuItem
             // 
             this.lançamentosManuaisToolStripMenuItem.Name = "lançamentosManuaisToolStripMenuItem";
             this.lançamentosManuaisToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.lançamentosManuaisToolStripMenuItem.Text = "Lançamentos Manuais";
+            this.lançamentosManuaisToolStripMenuItem.Click += new System.EventHandler(this.lançamentosManuaisToolStripMenuItem_Click_1);
             // 
             // lançamentoDeRateioDoTOTVSToolStripMenuItem
             // 
             this.lançamentoDeRateioDoTOTVSToolStripMenuItem.Name = "lançamentoDeRateioDoTOTVSToolStripMenuItem";
             this.lançamentoDeRateioDoTOTVSToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.lançamentoDeRateioDoTOTVSToolStripMenuItem.Text = "Lançamento de Rateio TOTVS";
+            this.lançamentoDeRateioDoTOTVSToolStripMenuItem.Click += new System.EventHandler(this.lançamentoDeRateioDoTOTVSToolStripMenuItem_Click_1);
             // 
             // telefoniaFizaToolStripMenuItem
             // 
@@ -292,6 +296,13 @@
             this.lançamentoDeRateioTOTVSToolStripMenuItem1.Size = new System.Drawing.Size(227, 22);
             this.lançamentoDeRateioTOTVSToolStripMenuItem1.Text = "Lançamento de Rateio TOTVS";
             this.lançamentoDeRateioTOTVSToolStripMenuItem1.Click += new System.EventHandler(this.lançamentoDeRateioTOTVSToolStripMenuItem1_Click_1);
+            // 
+            // sincronizaçãoDaListaDeRamaisToolStripMenuItem
+            // 
+            this.sincronizaçãoDaListaDeRamaisToolStripMenuItem.Name = "sincronizaçãoDaListaDeRamaisToolStripMenuItem";
+            this.sincronizaçãoDaListaDeRamaisToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.sincronizaçãoDaListaDeRamaisToolStripMenuItem.Text = "Sincronização da Lista de Ramais";
+            this.sincronizaçãoDaListaDeRamaisToolStripMenuItem.Click += new System.EventHandler(this.sincronizaçãoDaListaDeRamaisToolStripMenuItem_Click);
             // 
             // telefoniaFixaToolStripMenuItem
             // 
@@ -468,6 +479,22 @@
             this.contentsToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.contentsToolStripMenuItem.Text = "&Conteúdo";
             // 
+            // indexToolStripMenuItem
+            // 
+            this.indexToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("indexToolStripMenuItem.Image")));
+            this.indexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
+            this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.indexToolStripMenuItem.Text = "&Índice";
+            // 
+            // searchToolStripMenuItem
+            // 
+            this.searchToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("searchToolStripMenuItem.Image")));
+            this.searchToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
+            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.searchToolStripMenuItem.Text = "&Procurar";
+            // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
@@ -494,29 +521,6 @@
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
-            // 
-            // sincronizaçãoDaListaDeRamaisToolStripMenuItem
-            // 
-            this.sincronizaçãoDaListaDeRamaisToolStripMenuItem.Name = "sincronizaçãoDaListaDeRamaisToolStripMenuItem";
-            this.sincronizaçãoDaListaDeRamaisToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-            this.sincronizaçãoDaListaDeRamaisToolStripMenuItem.Text = "Sincronização da Lista de Ramais";
-            this.sincronizaçãoDaListaDeRamaisToolStripMenuItem.Click += new System.EventHandler(this.sincronizaçãoDaListaDeRamaisToolStripMenuItem_Click);
-            // 
-            // indexToolStripMenuItem
-            // 
-            this.indexToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("indexToolStripMenuItem.Image")));
-            this.indexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.indexToolStripMenuItem.Text = "&Índice";
-            // 
-            // searchToolStripMenuItem
-            // 
-            this.searchToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("searchToolStripMenuItem.Image")));
-            this.searchToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.searchToolStripMenuItem.Text = "&Procurar";
             // 
             // MDIParent1
             // 
