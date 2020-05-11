@@ -15,12 +15,14 @@ namespace Inventario.TIC.Class
         public int Id { get; set; }
         public TipoDispositivo TipoDispositivo { get; set; }
         public int TipoDispositivoId { get; set; }
+        public string NomeTipoDispositivo { get; set; }
         public Usuario Usuario { get; set; }
+        public string NomeUsuario { get; set; }
         public int UsuarioId { get; set; }
         public string Ativo { get; set; }
         public string Modelo { get; set; }
         public decimal Valor { get; set; }
-        public int Avulso { get; set; }
+        public bool Avulso { get; set; }
 
         public DispositivoAlugado()
         {

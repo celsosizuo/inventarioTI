@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAssociar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
@@ -39,7 +39,7 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.dgvComputadores = new System.Windows.Forms.DataGridView();
             this.grpDadosComputadores = new System.Windows.Forms.GroupBox();
-            this.cboStatus = new System.Windows.Forms.ComboBox();
+            this.cboTipoDispositivo = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtAtivo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,9 +47,9 @@
             this.lblId = new System.Windows.Forms.Label();
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtValor = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chkAvulso = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtUsuarioIdReadOnly = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -140,6 +140,7 @@
             this.btnSalvar.TabIndex = 29;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // dgvComputadores
             // 
@@ -160,12 +161,12 @@
             // 
             // grpDadosComputadores
             // 
-            this.grpDadosComputadores.Controls.Add(this.checkBox1);
-            this.grpDadosComputadores.Controls.Add(this.textBox1);
+            this.grpDadosComputadores.Controls.Add(this.chkAvulso);
+            this.grpDadosComputadores.Controls.Add(this.txtValor);
             this.grpDadosComputadores.Controls.Add(this.label3);
             this.grpDadosComputadores.Controls.Add(this.txtModelo);
             this.grpDadosComputadores.Controls.Add(this.label2);
-            this.grpDadosComputadores.Controls.Add(this.cboStatus);
+            this.grpDadosComputadores.Controls.Add(this.cboTipoDispositivo);
             this.grpDadosComputadores.Controls.Add(this.label5);
             this.grpDadosComputadores.Controls.Add(this.txtAtivo);
             this.grpDadosComputadores.Controls.Add(this.label1);
@@ -179,15 +180,15 @@
             this.grpDadosComputadores.TabStop = false;
             this.grpDadosComputadores.Text = "Dados Gerais";
             // 
-            // cboStatus
+            // cboTipoDispositivo
             // 
-            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStatus.Items.AddRange(new object[] {
+            this.cboTipoDispositivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoDispositivo.Items.AddRange(new object[] {
             ""});
-            this.cboStatus.Location = new System.Drawing.Point(64, 37);
-            this.cboStatus.Name = "cboStatus";
-            this.cboStatus.Size = new System.Drawing.Size(253, 21);
-            this.cboStatus.TabIndex = 12;
+            this.cboTipoDispositivo.Location = new System.Drawing.Point(64, 37);
+            this.cboTipoDispositivo.Name = "cboTipoDispositivo";
+            this.cboTipoDispositivo.Size = new System.Drawing.Size(253, 21);
+            this.cboTipoDispositivo.TabIndex = 12;
             // 
             // label5
             // 
@@ -251,12 +252,12 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "Modelo (*)";
             // 
-            // textBox1
+            // txtValor
             // 
-            this.textBox1.Location = new System.Drawing.Point(167, 78);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 20);
-            this.textBox1.TabIndex = 16;
+            this.txtValor.Location = new System.Drawing.Point(167, 78);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(145, 20);
+            this.txtValor.TabIndex = 16;
             // 
             // label3
             // 
@@ -268,15 +269,15 @@
             this.label3.TabIndex = 15;
             this.label3.Text = "Valor (*)";
             // 
-            // checkBox1
+            // chkAvulso
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(319, 78);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(64, 17);
-            this.checkBox1.TabIndex = 17;
-            this.checkBox1.Text = "Avulso?";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkAvulso.AutoSize = true;
+            this.chkAvulso.Location = new System.Drawing.Point(319, 78);
+            this.chkAvulso.Name = "chkAvulso";
+            this.chkAvulso.Size = new System.Drawing.Size(64, 17);
+            this.chkAvulso.TabIndex = 17;
+            this.chkAvulso.Text = "Avulso?";
+            this.chkAvulso.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -325,6 +326,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(208, 20);
             this.txtUsuario.TabIndex = 94;
+            this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             // 
             // dgvUsuarios
             // 
@@ -342,12 +344,15 @@
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.RowHeadersVisible = false;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuarios.Size = new System.Drawing.Size(307, 132);
             this.dgvUsuarios.TabIndex = 95;
             this.dgvUsuarios.Visible = false;
+            this.dgvUsuarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellDoubleClick);
+            this.dgvUsuarios.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvUsuarios_KeyDown);
+            this.dgvUsuarios.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvUsuarios_KeyPress);
             // 
             // txtChapaReadOnly
             // 
@@ -414,6 +419,7 @@
             this.btnNovaPesquisaUsuario.TabIndex = 97;
             this.btnNovaPesquisaUsuario.Text = "Nova Pesquisa";
             this.btnNovaPesquisaUsuario.UseVisualStyleBackColor = true;
+            this.btnNovaPesquisaUsuario.Click += new System.EventHandler(this.btnNovaPesquisaUsuario_Click);
             // 
             // label8
             // 
@@ -473,35 +479,35 @@
             this.dgvDiscos.AllowUserToOrderColumns = true;
             this.dgvDiscos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDiscos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDiscos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDiscos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDiscos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDiscos.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDiscos.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDiscos.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvDiscos.Location = new System.Drawing.Point(3, 78);
             this.dgvDiscos.MultiSelect = false;
             this.dgvDiscos.Name = "dgvDiscos";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDiscos.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDiscos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDiscos.Size = new System.Drawing.Size(697, 134);
             this.dgvDiscos.TabIndex = 14;
             // 
@@ -737,7 +743,7 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.DataGridView dgvComputadores;
         private System.Windows.Forms.GroupBox grpDadosComputadores;
-        private System.Windows.Forms.ComboBox cboStatus;
+        private System.Windows.Forms.ComboBox cboTipoDispositivo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtAtivo;
         private System.Windows.Forms.Label label1;
@@ -745,9 +751,9 @@
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.TextBox txtModelo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chkAvulso;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtUsuarioIdReadOnly;
         private System.Windows.Forms.Label label13;

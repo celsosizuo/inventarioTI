@@ -453,5 +453,12 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void dispositivosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDispositivoAlugado newMDIChild = new FrmDispositivoAlugado();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }

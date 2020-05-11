@@ -115,10 +115,34 @@ namespace Inventario.TIC.Class
         {
             try
             {
+                string strSql = @"GETDISPOSITIVOALUGADO";
+
+                List<DispositivoAlugado> ret;
+
                 using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.conSQL))
                 {
-                    var dispositivoAlugados = connection.Query<DispositivoAlugado>("GETDISPOSITIVOALUGADO", null, commandType: CommandType.StoredProcedure).ToList();
-                    return dispositivoAlugados;
+                    ret = connection.Query(strSql,
+                        new[]
+                        {
+                            typeof(DispositivoAlugado),
+                            typeof(TipoDispositivo),
+                            typeof(Usuario),
+
+                        }, objects =>
+                        {
+                            var dispositivoAlugado = objects[0] as DispositivoAlugado;
+                            var tipoDispositivo = objects[1] as TipoDispositivo;
+                            var usuario = objects[2] as Usuario;
+
+                            dispositivoAlugado.TipoDispositivo = tipoDispositivo;
+                            dispositivoAlugado.Usuario = usuario;
+                            dispositivoAlugado.NomeTipoDispositivo = dispositivoAlugado.TipoDispositivo.Tipo;
+                            dispositivoAlugado.NomeUsuario = dispositivoAlugado.Usuario.Nome;
+
+                            return dispositivoAlugado;
+
+                        }, splitOn: "ID, ID, ID").AsList();
+                    return ret;
                 }
             }
             catch (Exception ex)
