@@ -106,6 +106,8 @@
     <Compile Include="Class\DetalheFaturaImpressoras.cs" />
     <Compile Include="Class\DetalheFaturaTelefoniaFixa.cs" />
     <Compile Include="Class\DetalheFaturaTelefoniaMovel.cs" />
+    <Compile Include="Class\DispositivoAlugado.cs" />
+    <Compile Include="Class\DispositivoAlugadoRepository.cs" />
     <Compile Include="Class\Module1.cs" />
     <Compile Include="Class\ParametrosRelatorio.cs" />
     <Compile Include="Class\PrecoContaEMail.cs" />
@@ -140,6 +142,8 @@
     <Compile Include="Class\Aparelho.cs" />
     <Compile Include="Class\TermoCelularUsuarioRepository.cs" />
     <Compile Include="Class\TermoCelularUsuarios.cs" />
+    <Compile Include="Class\TipoDispositivo.cs" />
+    <Compile Include="Class\TipoDispositivoRepository.cs" />
     <Compile Include="Class\Totvs.cs" />
     <Compile Include="Class\Usuario.cs" />
     <Compile Include="Class\UsuarioRepository.cs" />
@@ -189,6 +193,12 @@
     </Compile>
     <Compile Include="Forms\FrmDevolucaoTermoCelular.Designer.cs">
       <DependentUpon>FrmDevolucaoTermoCelular.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmDispositivoAlugado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmDispositivoAlugado.Designer.cs">
+      <DependentUpon>FrmDispositivoAlugado.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmExcluirFatura.cs">
       <SubType>Form</SubType>
@@ -310,6 +320,12 @@
     <Compile Include="Forms\FrmSoftware.Designer.cs">
       <DependentUpon>FrmSoftware.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmTipoDispositivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTipoDispositivo.designer.cs">
+      <DependentUpon>FrmTipoDispositivo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -357,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmDevolucaoTermoCelular.resx">
       <DependentUpon>FrmDevolucaoTermoCelular.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmDispositivoAlugado.resx">
+      <DependentUpon>FrmDispositivoAlugado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmExcluirFatura.resx">
       <DependentUpon>FrmExcluirFatura.cs</DependentUpon>
@@ -417,6 +436,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmSoftware.resx">
       <DependentUpon>FrmSoftware.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTipoDispositivo.resx">
+      <DependentUpon>FrmTipoDispositivo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>

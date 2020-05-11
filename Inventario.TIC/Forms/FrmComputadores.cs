@@ -65,6 +65,7 @@ namespace Inventario.TIC.Forms
 
             // Carregando a lista de computadores
             ComputadoresRepository c = new ComputadoresRepository();
+            _computadores = null;
             _computadores = c.Get();
             this.dgvComputadores.DataSource = _computadores;
             this.AtualizaDataGridView();

@@ -446,5 +446,12 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void cadastroDeDispositivosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmTipoDispositivo newMDIChild = new FrmTipoDispositivo();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }
