@@ -18,15 +18,22 @@ namespace Inventario.TIC.Class
         public string NomeTipoDispositivo { get; set; }
         public Usuario Usuario { get; set; }
         public string NomeUsuario { get; set; }
+        public string Departamento { get; set; }
         public int UsuarioId { get; set; }
         public string Ativo { get; set; }
         public string Modelo { get; set; }
         public decimal Valor { get; set; }
         public bool Avulso { get; set; }
+        public int OCSId { get; set; }
+        public string TemLigacaoComOCS { get; set; }
+        public ComputadoresOCS ComputadoresOCS { get; set; }
+        public List<Disco> Discos { get; set; }
 
         public DispositivoAlugado()
         {
             ValidationResult = new ValidationResult();
+            ComputadoresOCS = new ComputadoresOCS();
+            Discos = new List<Disco>();
         }
 
         public bool EhValido()
@@ -44,7 +51,7 @@ namespace Inventario.TIC.Class
             ValidarAtivo();
             ValidarModelo();
             ValidarValor();
-            ValidarAvulso();
+            ValidarDepartamento();
         }
 
         private void ValidarTipoDispositivo()
@@ -72,9 +79,9 @@ namespace Inventario.TIC.Class
             RuleFor(a => a.Valor).NotEmpty().WithMessage("- Campo Valor é obrigatório");
         }
 
-        private void ValidarAvulso()
+        private void ValidarDepartamento()
         {
-            RuleFor(a => a.Avulso).NotEmpty().WithMessage("- Campo Avulso é obrigatório");
+            RuleFor(a => a.Departamento).NotEmpty().WithMessage("- Campo Departamento é obrigatório");
         }
 
         public string GetErros()

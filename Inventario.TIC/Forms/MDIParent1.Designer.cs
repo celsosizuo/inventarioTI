@@ -35,6 +35,7 @@
             this.computadoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.equipamentosAlugadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeDispositivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dispositivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notaFiscalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.softwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -87,7 +88,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.dispositivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lançamentoDeRateioTOTVSToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -136,7 +137,8 @@
             // 
             this.equipamentosAlugadosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastroDeDispositivosToolStripMenuItem,
-            this.dispositivosToolStripMenuItem});
+            this.dispositivosToolStripMenuItem,
+            this.lançamentoDeRateioTOTVSToolStripMenuItem3});
             this.equipamentosAlugadosToolStripMenuItem.Name = "equipamentosAlugadosToolStripMenuItem";
             this.equipamentosAlugadosToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
             this.equipamentosAlugadosToolStripMenuItem.Text = "Equipamentos Alugados";
@@ -147,6 +149,13 @@
             this.cadastroDeDispositivosToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.cadastroDeDispositivosToolStripMenuItem.Text = "Cadastro Tipo de Dispositivos";
             this.cadastroDeDispositivosToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeDispositivosToolStripMenuItem_Click);
+            // 
+            // dispositivosToolStripMenuItem
+            // 
+            this.dispositivosToolStripMenuItem.Name = "dispositivosToolStripMenuItem";
+            this.dispositivosToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.dispositivosToolStripMenuItem.Text = "Dispositivos";
+            this.dispositivosToolStripMenuItem.Click += new System.EventHandler(this.dispositivosToolStripMenuItem_Click);
             // 
             // notaFiscalToolStripMenuItem
             // 
@@ -542,12 +551,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // dispositivosToolStripMenuItem
+            // lançamentoDeRateioTOTVSToolStripMenuItem3
             // 
-            this.dispositivosToolStripMenuItem.Name = "dispositivosToolStripMenuItem";
-            this.dispositivosToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-            this.dispositivosToolStripMenuItem.Text = "Dispositivos";
-            this.dispositivosToolStripMenuItem.Click += new System.EventHandler(this.dispositivosToolStripMenuItem_Click);
+            this.lançamentoDeRateioTOTVSToolStripMenuItem3.Name = "lançamentoDeRateioTOTVSToolStripMenuItem3";
+            this.lançamentoDeRateioTOTVSToolStripMenuItem3.Size = new System.Drawing.Size(229, 22);
+            this.lançamentoDeRateioTOTVSToolStripMenuItem3.Text = "Lançamento de Rateio TOTVS";
+            this.lançamentoDeRateioTOTVSToolStripMenuItem3.Click += new System.EventHandler(this.lançamentoDeRateioTOTVSToolStripMenuItem3_Click);
             // 
             // MDIParent1
             // 
@@ -633,6 +642,7 @@
         private System.Windows.Forms.ToolStripMenuItem equipamentosAlugadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroDeDispositivosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dispositivosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lançamentoDeRateioTOTVSToolStripMenuItem3;
     }
 }
 

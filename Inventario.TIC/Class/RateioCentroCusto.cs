@@ -170,5 +170,21 @@ namespace Inventario.TIC.Class
                 throw new Exception(ex.Message);
             }
         }
+
+        public List<RateioCentroCusto> GetRateioDispositivosAlugados()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.conSQL))
+                {
+                    var rateios = connection.Query<RateioCentroCusto>("GETRATEIODISPOSITIVOALUGADO", null, commandType: CommandType.StoredProcedure).ToList();
+                    return rateios;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

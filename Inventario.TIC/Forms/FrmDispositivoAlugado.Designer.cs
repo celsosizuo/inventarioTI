@@ -39,17 +39,17 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.dgvComputadores = new System.Windows.Forms.DataGridView();
             this.grpDadosComputadores = new System.Windows.Forms.GroupBox();
+            this.chkAvulso = new System.Windows.Forms.CheckBox();
+            this.txtValor = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtModelo = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.cboTipoDispositivo = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtAtivo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
-            this.txtModelo = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtValor = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.chkAvulso = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtUsuarioIdReadOnly = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -87,6 +87,8 @@
             this.label19 = new System.Windows.Forms.Label();
             this.txtOCSId = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
+            this.txtDepartamento = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputadores)).BeginInit();
             this.grpDadosComputadores.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -104,6 +106,7 @@
             this.btnAssociar.TabIndex = 33;
             this.btnAssociar.Text = "Associar ao OCS";
             this.btnAssociar.UseVisualStyleBackColor = true;
+            this.btnAssociar.Click += new System.EventHandler(this.btnAssociar_Click);
             // 
             // btnPesquisar
             // 
@@ -113,6 +116,7 @@
             this.btnPesquisar.TabIndex = 32;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnExcluir
             // 
@@ -122,6 +126,7 @@
             this.btnExcluir.TabIndex = 31;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnLimpar
             // 
@@ -131,6 +136,7 @@
             this.btnLimpar.TabIndex = 30;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnSalvar
             // 
@@ -158,9 +164,13 @@
             this.dgvComputadores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvComputadores.Size = new System.Drawing.Size(1335, 255);
             this.dgvComputadores.TabIndex = 28;
+            this.dgvComputadores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvComputadores_CellDoubleClick);
+            this.dgvComputadores.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvComputadores_ColumnHeaderMouseClick);
             // 
             // grpDadosComputadores
             // 
+            this.grpDadosComputadores.Controls.Add(this.txtDepartamento);
+            this.grpDadosComputadores.Controls.Add(this.label21);
             this.grpDadosComputadores.Controls.Add(this.chkAvulso);
             this.grpDadosComputadores.Controls.Add(this.txtValor);
             this.grpDadosComputadores.Controls.Add(this.label3);
@@ -179,6 +189,50 @@
             this.grpDadosComputadores.TabIndex = 34;
             this.grpDadosComputadores.TabStop = false;
             this.grpDadosComputadores.Text = "Dados Gerais";
+            // 
+            // chkAvulso
+            // 
+            this.chkAvulso.AutoSize = true;
+            this.chkAvulso.Location = new System.Drawing.Point(518, 78);
+            this.chkAvulso.Name = "chkAvulso";
+            this.chkAvulso.Size = new System.Drawing.Size(64, 17);
+            this.chkAvulso.TabIndex = 17;
+            this.chkAvulso.Text = "Avulso?";
+            this.chkAvulso.UseVisualStyleBackColor = true;
+            // 
+            // txtValor
+            // 
+            this.txtValor.Location = new System.Drawing.Point(167, 78);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(94, 20);
+            this.txtValor.TabIndex = 16;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(164, 62);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(31, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Valor";
+            // 
+            // txtModelo
+            // 
+            this.txtModelo.Location = new System.Drawing.Point(324, 37);
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.Size = new System.Drawing.Size(250, 20);
+            this.txtModelo.TabIndex = 14;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(321, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Modelo (*)";
             // 
             // cboTipoDispositivo
             // 
@@ -235,50 +289,6 @@
             this.lblId.TabIndex = 1;
             this.lblId.Text = "ID";
             // 
-            // txtModelo
-            // 
-            this.txtModelo.Location = new System.Drawing.Point(324, 37);
-            this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(250, 20);
-            this.txtModelo.TabIndex = 14;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(321, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Modelo (*)";
-            // 
-            // txtValor
-            // 
-            this.txtValor.Location = new System.Drawing.Point(167, 78);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.Size = new System.Drawing.Size(145, 20);
-            this.txtValor.TabIndex = 16;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(164, 62);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Valor (*)";
-            // 
-            // chkAvulso
-            // 
-            this.chkAvulso.AutoSize = true;
-            this.chkAvulso.Location = new System.Drawing.Point(319, 78);
-            this.chkAvulso.Name = "chkAvulso";
-            this.chkAvulso.Size = new System.Drawing.Size(64, 17);
-            this.chkAvulso.TabIndex = 17;
-            this.chkAvulso.Text = "Avulso?";
-            this.chkAvulso.UseVisualStyleBackColor = true;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtUsuarioIdReadOnly);
@@ -295,14 +305,14 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Location = new System.Drawing.Point(13, 132);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(588, 208);
+            this.groupBox1.Size = new System.Drawing.Size(588, 172);
             this.groupBox1.TabIndex = 35;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Usuário";
             // 
             // txtUsuarioIdReadOnly
             // 
-            this.txtUsuarioIdReadOnly.Location = new System.Drawing.Point(385, 70);
+            this.txtUsuarioIdReadOnly.Location = new System.Drawing.Point(385, 36);
             this.txtUsuarioIdReadOnly.MaxLength = 9;
             this.txtUsuarioIdReadOnly.Name = "txtUsuarioIdReadOnly";
             this.txtUsuarioIdReadOnly.ReadOnly = true;
@@ -313,7 +323,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(329, 73);
+            this.label13.Location = new System.Drawing.Point(329, 39);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(20, 13);
             this.label13.TabIndex = 104;
@@ -347,7 +357,7 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsuarios.Size = new System.Drawing.Size(307, 132);
+            this.dgvUsuarios.Size = new System.Drawing.Size(307, 92);
             this.dgvUsuarios.TabIndex = 95;
             this.dgvUsuarios.Visible = false;
             this.dgvUsuarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellDoubleClick);
@@ -356,7 +366,7 @@
             // 
             // txtChapaReadOnly
             // 
-            this.txtChapaReadOnly.Location = new System.Drawing.Point(385, 148);
+            this.txtChapaReadOnly.Location = new System.Drawing.Point(385, 114);
             this.txtChapaReadOnly.MaxLength = 9;
             this.txtChapaReadOnly.Name = "txtChapaReadOnly";
             this.txtChapaReadOnly.ReadOnly = true;
@@ -367,7 +377,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(329, 151);
+            this.label6.Location = new System.Drawing.Point(329, 117);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 13);
             this.label6.TabIndex = 102;
@@ -375,7 +385,7 @@
             // 
             // txtCpfReadOnly
             // 
-            this.txtCpfReadOnly.Location = new System.Drawing.Point(385, 122);
+            this.txtCpfReadOnly.Location = new System.Drawing.Point(385, 88);
             this.txtCpfReadOnly.MaxLength = 9;
             this.txtCpfReadOnly.Name = "txtCpfReadOnly";
             this.txtCpfReadOnly.ReadOnly = true;
@@ -386,7 +396,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(329, 125);
+            this.label4.Location = new System.Drawing.Point(329, 91);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(30, 13);
             this.label4.TabIndex = 100;
@@ -394,7 +404,7 @@
             // 
             // txtNomeReadOnly
             // 
-            this.txtNomeReadOnly.Location = new System.Drawing.Point(385, 96);
+            this.txtNomeReadOnly.Location = new System.Drawing.Point(385, 62);
             this.txtNomeReadOnly.MaxLength = 9;
             this.txtNomeReadOnly.Name = "txtNomeReadOnly";
             this.txtNomeReadOnly.ReadOnly = true;
@@ -405,7 +415,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(329, 99);
+            this.label7.Location = new System.Drawing.Point(329, 65);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(39, 13);
             this.label7.TabIndex = 98;
@@ -453,7 +463,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(607, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(729, 328);
+            this.groupBox2.Size = new System.Drawing.Size(729, 301);
             this.groupBox2.TabIndex = 36;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dados Coletados do OCS";
@@ -468,7 +478,7 @@
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Location = new System.Drawing.Point(16, 106);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(703, 215);
+            this.groupBox3.Size = new System.Drawing.Size(703, 186);
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Hardware";
@@ -496,7 +506,6 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvDiscos.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvDiscos.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvDiscos.Location = new System.Drawing.Point(3, 78);
             this.dgvDiscos.MultiSelect = false;
             this.dgvDiscos.Name = "dgvDiscos";
@@ -508,7 +517,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDiscos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvDiscos.Size = new System.Drawing.Size(697, 134);
+            this.dgvDiscos.Size = new System.Drawing.Size(697, 98);
             this.dgvDiscos.TabIndex = 14;
             // 
             // label16
@@ -701,6 +710,23 @@
             this.label20.TabIndex = 1;
             this.label20.Text = "ID";
             // 
+            // txtDepartamento
+            // 
+            this.txtDepartamento.Location = new System.Drawing.Point(267, 78);
+            this.txtDepartamento.Name = "txtDepartamento";
+            this.txtDepartamento.Size = new System.Drawing.Size(245, 20);
+            this.txtDepartamento.TabIndex = 19;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(264, 62);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(87, 13);
+            this.label21.TabIndex = 18;
+            this.label21.Text = "Departamento (*)";
+            // 
             // FrmDispositivoAlugado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -791,5 +817,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txtOCSId;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtDepartamento;
+        private System.Windows.Forms.Label label21;
     }
 }

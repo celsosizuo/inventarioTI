@@ -460,5 +460,12 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void lançamentoDeRateioTOTVSToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            FrmRateioDispositivoAlugado newMDIChild = new FrmRateioDispositivoAlugado();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }

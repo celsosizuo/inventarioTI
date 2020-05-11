@@ -242,6 +242,12 @@
     <Compile Include="Forms\FrmPrecoContaEMail.Designer.cs">
       <DependentUpon>FrmPrecoContaEMail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmRateioDispositivoAlugado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmRateioDispositivoAlugado.designer.cs">
+      <DependentUpon>FrmRateioDispositivoAlugado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmRateioEMail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -397,6 +403,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmPrecoContaEMail.resx">
       <DependentUpon>FrmPrecoContaEMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmRateioDispositivoAlugado.resx">
+      <DependentUpon>FrmRateioDispositivoAlugado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmRateioEMail.resx">
       <DependentUpon>FrmRateioEMail.cs</DependentUpon>
