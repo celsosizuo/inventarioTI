@@ -65,7 +65,12 @@ namespace Inventario.TIC.Class
                     command.Parameters.AddWithValue("@USUARIO", computadores.Usuario);
                     command.Parameters.AddWithValue("@DEPARTAMENTO", computadores.Departamento);
                     command.Parameters.AddWithValue("@STATUS", computadores.Status1);
-                    command.Parameters.AddWithValue("@OBSERVACOES", computadores.Observacoes);
+
+                    if(computadores.Observacoes == null)
+                        command.Parameters.AddWithValue("@OBSERVACOES", DBNull.Value);
+                    else
+                        command.Parameters.AddWithValue("@OBSERVACOES", computadores.Observacoes);
+
                     command.Parameters.AddWithValue("@ID", computadores.Id);
 
                     command.Connection.Open();
@@ -126,7 +131,7 @@ namespace Inventario.TIC.Class
                         {
                             typeof(Computadores),
                             typeof(ComputadoresOCS),
-                            typeof(Disco)
+                            typeof(Disco),
 
                         }, objects =>
                         {
@@ -156,6 +161,8 @@ namespace Inventario.TIC.Class
                             it.Discos.Remove(it.Discos.FirstOrDefault());
 
                         list.Add(it);
+
+
                     }
                     //else if (it.idDocFornecItem == it.RefacaoItens.FirstOrDefault().idDocFornecItem)
                     //    list.LastOrDefault().RefacaoItens.Add(it.RefacaoItens.FirstOrDefault());

@@ -17,11 +17,13 @@ namespace Inventario.TIC.Forms
         private List<Computadores> _computadores;
         private List<Computadores> _computadoresOriginal;
         private string _colunaSelecionada;
+        private Computadores _computadorSelecionado;
 
         public FrmComputadores()
         {
             InitializeComponent();
             _computadores = new List<Computadores>();
+            _computadorSelecionado = new Computadores();
         }
 
         private void AtualizaDataGridView()
@@ -102,6 +104,10 @@ namespace Inventario.TIC.Forms
             // Limpando grid dos discos
             this.dgvDiscos.DataSource = null;
             this.dgvLicencas.DataSource = null;
+
+            // Limpando o grid do histórico
+            this.dgvHistoricoUsuarios.DataSource = null;
+            this.txtUsuarioNovo.Clear();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -360,10 +366,11 @@ namespace Inventario.TIC.Forms
 
         private void dgvComputadores_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            // MessageBox.Show(_computadores[e.RowIndex].Discos[0].Letter); 
-
             try
             {
+
+                _computadorSelecionado = _computadores[e.RowIndex];
+
                 // carregando os controles do computador
                 this.txtId.Text = _computadores[e.RowIndex].Id.ToString();
                 this.txtAtivoAntigo.Text = _computadores[e.RowIndex].AtivoAntigo.ToString();
@@ -425,6 +432,17 @@ namespace Inventario.TIC.Forms
                 this.dgvLicencas.Columns["SoftwareEChave"].Visible = false;
                 this.dgvLicencas.Columns["Quantidade"].Visible = false;
 
+                // Carregando o histórico
+                HistoricoUsuariosComputadoresRepository hRepos = new HistoricoUsuariosComputadoresRepository();
+
+                List<HistoricoUsuariosComputadores> h = hRepos.Get(_computadores[e.RowIndex].Id);
+
+                h = h.OrderByDescending(x => x.DataMudanca).ToList();
+
+                this.dgvHistoricoUsuarios.DataSource = h;
+                this.dgvHistoricoUsuarios.Columns["Id"].Visible = false;
+                this.dgvHistoricoUsuarios.Columns["ComputadoresId"].Visible = false;
+
             }
             catch (Exception ex)
             {
@@ -459,6 +477,48 @@ namespace Inventario.TIC.Forms
 
                 // primeira maneira de abrir pdf
                 // System.Diagnostics.Process.Start(link);
+            }
+        }
+
+        private void btnAlterarUsuario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                HistoricoUsuariosComputadores h = new HistoricoUsuariosComputadores()
+                {
+                    ComputadoresId = int.Parse(this.txtId.Text),
+                    DataMudanca = DateTime.Now,
+                    Usuario = this.txtUsuarioNovo.Text,
+                };
+
+                HistoricoUsuariosComputadoresRepository hRepos = new HistoricoUsuariosComputadoresRepository();
+                hRepos.Add(h);
+
+                _computadorSelecionado.Usuario = this.txtUsuarioNovo.Text;
+                ComputadoresRepository cRepository = new ComputadoresRepository();
+
+                cRepository.Update(_computadorSelecionado);
+                this.txtUsuario.Text = this.txtUsuarioNovo.Text;
+
+                this.AtualizaDataGridView();
+
+                // Carregando o histórico
+                List<HistoricoUsuariosComputadores> hList = hRepos.Get(h.ComputadoresId);
+
+                hList = hList.OrderByDescending(x => x.DataMudanca).ToList();
+
+                this.dgvHistoricoUsuarios.DataSource = hList;
+                this.dgvHistoricoUsuarios.Columns["Id"].Visible = false;
+                this.dgvHistoricoUsuarios.Columns["ComputadoresId"].Visible = false;
+
+                this.txtUsuarioNovo.Clear();
+
+                MessageBox.Show("Alteração efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

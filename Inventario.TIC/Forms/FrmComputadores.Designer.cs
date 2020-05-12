@@ -77,6 +77,11 @@
             this.btnAtualizarDados = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvLicencas = new System.Windows.Forms.DataGridView();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnAlterarUsuario = new System.Windows.Forms.Button();
+            this.txtUsuarioNovo = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.dgvHistoricoUsuarios = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputadores)).BeginInit();
             this.grpDadosComputadores.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -84,6 +89,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiscos)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLicencas)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistoricoUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvComputadores
@@ -208,6 +215,7 @@
             // 
             this.txtUsuario.Location = new System.Drawing.Point(16, 82);
             this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.ReadOnly = true;
             this.txtUsuario.Size = new System.Drawing.Size(241, 20);
             this.txtUsuario.TabIndex = 8;
             // 
@@ -568,7 +576,7 @@
             this.groupBox3.Controls.Add(this.dgvLicencas);
             this.groupBox3.Location = new System.Drawing.Point(749, 13);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(622, 446);
+            this.groupBox3.Size = new System.Drawing.Size(622, 200);
             this.groupBox3.TabIndex = 29;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Licenças (Somente Visualização)";
@@ -588,15 +596,76 @@
             this.dgvLicencas.MultiSelect = false;
             this.dgvLicencas.Name = "dgvLicencas";
             this.dgvLicencas.ReadOnly = true;
-            this.dgvLicencas.Size = new System.Drawing.Size(613, 418);
+            this.dgvLicencas.Size = new System.Drawing.Size(613, 172);
             this.dgvLicencas.TabIndex = 15;
             this.dgvLicencas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLicencas_CellDoubleClick);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.btnAlterarUsuario);
+            this.groupBox4.Controls.Add(this.txtUsuarioNovo);
+            this.groupBox4.Controls.Add(this.label18);
+            this.groupBox4.Controls.Add(this.dgvHistoricoUsuarios);
+            this.groupBox4.Location = new System.Drawing.Point(752, 219);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(622, 240);
+            this.groupBox4.TabIndex = 30;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Histórico de Usuários";
+            // 
+            // btnAlterarUsuario
+            // 
+            this.btnAlterarUsuario.Location = new System.Drawing.Point(253, 36);
+            this.btnAlterarUsuario.Name = "btnAlterarUsuario";
+            this.btnAlterarUsuario.Size = new System.Drawing.Size(104, 23);
+            this.btnAlterarUsuario.TabIndex = 29;
+            this.btnAlterarUsuario.Text = "Alterar Usuário";
+            this.btnAlterarUsuario.UseVisualStyleBackColor = true;
+            this.btnAlterarUsuario.Click += new System.EventHandler(this.btnAlterarUsuario_Click);
+            // 
+            // txtUsuarioNovo
+            // 
+            this.txtUsuarioNovo.Location = new System.Drawing.Point(6, 38);
+            this.txtUsuarioNovo.Name = "txtUsuarioNovo";
+            this.txtUsuarioNovo.Size = new System.Drawing.Size(241, 20);
+            this.txtUsuarioNovo.TabIndex = 17;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(3, 22);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(85, 13);
+            this.label18.TabIndex = 16;
+            this.label18.Text = "Usuário Novo (*)";
+            // 
+            // dgvHistoricoUsuarios
+            // 
+            this.dgvHistoricoUsuarios.AllowUserToAddRows = false;
+            this.dgvHistoricoUsuarios.AllowUserToDeleteRows = false;
+            this.dgvHistoricoUsuarios.AllowUserToOrderColumns = true;
+            this.dgvHistoricoUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvHistoricoUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvHistoricoUsuarios.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvHistoricoUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHistoricoUsuarios.Location = new System.Drawing.Point(3, 77);
+            this.dgvHistoricoUsuarios.MultiSelect = false;
+            this.dgvHistoricoUsuarios.Name = "dgvHistoricoUsuarios";
+            this.dgvHistoricoUsuarios.ReadOnly = true;
+            this.dgvHistoricoUsuarios.Size = new System.Drawing.Size(613, 156);
+            this.dgvHistoricoUsuarios.TabIndex = 15;
             // 
             // FrmComputadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnAtualizarDados);
             this.Controls.Add(this.btnAssociar);
@@ -622,6 +691,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiscos)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLicencas)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistoricoUsuarios)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -675,5 +747,10 @@
         private System.Windows.Forms.DataGridView dgvLicencas;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtObservacoes;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DataGridView dgvHistoricoUsuarios;
+        private System.Windows.Forms.TextBox txtUsuarioNovo;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button btnAlterarUsuario;
     }
 }
