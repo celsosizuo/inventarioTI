@@ -108,6 +108,8 @@
     <Compile Include="Class\DetalheFaturaTelefoniaMovel.cs" />
     <Compile Include="Class\DispositivoAlugado.cs" />
     <Compile Include="Class\DispositivoAlugadoRepository.cs" />
+    <Compile Include="Class\HistoricoUsuariosComputadores.cs" />
+    <Compile Include="Class\HistoricoUsuariosComputadoresRepository.cs" />
     <Compile Include="Class\Module1.cs" />
     <Compile Include="Class\ParametrosRelatorio.cs" />
     <Compile Include="Class\PrecoContaEMail.cs" />

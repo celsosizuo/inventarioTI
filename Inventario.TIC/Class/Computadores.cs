@@ -22,12 +22,15 @@ namespace Inventario.TIC.Class
         public string TemLigacaoComOCS { get; set; }
         public ComputadoresOCS ComputadoresOCS { get; set; }
         public List<Disco> Discos { get; set; }
+        public List<HistoricoUsuariosComputadores> HistoricoUsuarios { get; set; }
         public string Observacoes { get; set; }
+
 
         public Computadores()
         {
             ComputadoresOCS = new ComputadoresOCS();
             Discos = new List<Disco>();
+            HistoricoUsuarios = new List<HistoricoUsuariosComputadores>();
             ValidationResult = new ValidationResult();
         }
 
