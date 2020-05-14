@@ -88,6 +88,7 @@ namespace Inventario.TIC.Forms
             this.txtDepartamento.Text = "";
             this.cboStatus.SelectedValue = "";
             this.txtObservacoes.Text = "";
+            this.txtUsuario.ReadOnly = false;
 
             // Limpando os dados do OCS
             this.txtOCSId.Text = "";
@@ -140,6 +141,28 @@ namespace Inventario.TIC.Forms
                         c.Id = int.Parse(retorno);
                         c.TemLigacaoComOCS = "Não";
                         _computadores.Add(c);
+
+                        HistoricoUsuariosComputadores h = new HistoricoUsuariosComputadores()
+                        {
+                            ComputadoresId = int.Parse(retorno),
+                            DataMudanca = DateTime.Now,
+                            Usuario = this.txtUsuario.Text
+                        };
+
+                        HistoricoUsuariosComputadoresRepository hRepos = new HistoricoUsuariosComputadoresRepository();
+                        hRepos.Add(h);
+
+                        // Carregando o histórico
+                        List<HistoricoUsuariosComputadores> hList = hRepos.Get(h.ComputadoresId);
+
+                        hList = hList.OrderByDescending(x => x.DataMudanca).ToList();
+
+                        this.dgvHistoricoUsuarios.DataSource = hList;
+                        this.dgvHistoricoUsuarios.Columns["Id"].Visible = false;
+                        this.dgvHistoricoUsuarios.Columns["ComputadoresId"].Visible = false;
+
+                        this.txtUsuario.ReadOnly = true;
+
                         MessageBox.Show("Inclusão efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                     else
@@ -169,12 +192,26 @@ namespace Inventario.TIC.Forms
             {
                 if(MessageBox.Show("Você tem certeza que deseja excluir o registro selecionado?", "Confirmação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+
+                    HistoricoUsuariosComputadoresRepository hRepos = new HistoricoUsuariosComputadoresRepository();
+
+                    hRepos.Delete(int.Parse(this.txtId.Text));
+
                     ComputadoresRepository cRepository = new ComputadoresRepository();
                     int id = this.txtId.Text == "" ? 0 : int.Parse(this.txtId.Text);
                     cRepository.Delete(id);
 
                     _computadores.Remove(_computadores.Find(c => c.Id == id));
                     this.AtualizaDataGridView();
+
+                    // Carregando o histórico
+                    List<HistoricoUsuariosComputadores> hList = hRepos.Get(id);
+
+                    hList = hList.OrderByDescending(x => x.DataMudanca).ToList();
+
+                    this.dgvHistoricoUsuarios.DataSource = hList;
+                    this.dgvHistoricoUsuarios.Columns["Id"].Visible = false;
+                    this.dgvHistoricoUsuarios.Columns["ComputadoresId"].Visible = false;
 
                     this.limparCampos();
 
@@ -379,6 +416,7 @@ namespace Inventario.TIC.Forms
                 this.txtDepartamento.Text = _computadores[e.RowIndex].Departamento.ToString();
                 this.cboStatus.SelectedValue = _computadores[e.RowIndex].Status1.ToString();
                 this.txtObservacoes.Text = _computadores[e.RowIndex].Observacoes == null ? "" : _computadores[e.RowIndex].Observacoes.ToString();
+                this.txtUsuario.ReadOnly = true;
 
                 //carregando os controles do OCS
                 if (_computadores[e.RowIndex].ComputadoresOCS == null)
@@ -402,8 +440,8 @@ namespace Inventario.TIC.Forms
                     this.txtOCSUserId.Text = _computadores[e.RowIndex].ComputadoresOCS.UserId == null ? "" : _computadores[e.RowIndex].ComputadoresOCS.UserId.ToString();
                     this.txtOCSWorkGroup.Text = _computadores[e.RowIndex].ComputadoresOCS.WorkGroup.ToString();
                     this.txtOCSOsName.Text = _computadores[e.RowIndex].ComputadoresOCS.OsName.ToString();
-                    this.txtOCSWinProdId.Text = _computadores[e.RowIndex].ComputadoresOCS.WinProdId.ToString();
-                    this.txtOCSWinProdKey.Text = _computadores[e.RowIndex].ComputadoresOCS.WinProdKey.ToString();
+                    this.txtOCSWinProdId.Text = _computadores[e.RowIndex].ComputadoresOCS.WinProdId == null ? "" : _computadores[e.RowIndex].ComputadoresOCS.WinProdId.ToString();
+                    this.txtOCSWinProdKey.Text = _computadores[e.RowIndex].ComputadoresOCS.WinProdKey == null ? "" : _computadores[e.RowIndex].ComputadoresOCS.WinProdKey.ToString();
                     this.txtOCSProcessorT.Text = _computadores[e.RowIndex].ComputadoresOCS.ProcessorT.ToString();
                     this.txtOCSMemory.Text = _computadores[e.RowIndex].ComputadoresOCS.Memory.ToString();
 

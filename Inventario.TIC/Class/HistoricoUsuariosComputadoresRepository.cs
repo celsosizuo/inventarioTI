@@ -35,6 +35,29 @@ namespace Inventario.TIC.Class
             }
         }
 
+        public void Delete(int computadoresId)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand()
+                {
+                    Connection = new SqlConnection(Properties.Settings.Default.conSQL),
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "DELETEHISTORICOUSUARIOCOMPUTADORES",
+                };
+
+                command.Parameters.AddWithValue("@ComputadoresId", computadoresId);
+
+                command.Connection.Open();
+                command.ExecuteScalar();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public List<HistoricoUsuariosComputadores> Get(int computadoresId)
         {
             try
