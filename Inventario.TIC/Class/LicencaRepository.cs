@@ -219,5 +219,21 @@ namespace Inventario.TIC.Class
             List<LicencasResponse> ret = licencas.Select(li => (LicencasResponse)li).ToList();
             return ret;
         }
+
+        public List<LicencasResponse> GetLicencasDispositivoAlugadoResponses(int dispositivoAlugadoId)
+        {
+            DispositivoAlugadoLicencaRepository dispositivoAlugadoLicencaRepository = new DispositivoAlugadoLicencaRepository();
+            List<DispositivoAlugadoLicencas> dispositivoAlugadoLicencas = dispositivoAlugadoLicencaRepository.Get().ToList();
+            dispositivoAlugadoLicencas = dispositivoAlugadoLicencas.Where(cl => cl.DispositivoAlugadoId == dispositivoAlugadoId).ToList();
+            List<Licenca> licencas = new List<Licenca>();
+
+            dispositivoAlugadoLicencas.ForEach(c => c.Licencas.ForEach(l =>
+            {
+                licencas.Add(l);
+            }));
+
+            List<LicencasResponse> ret = licencas.Select(li => (LicencasResponse)li).ToList();
+            return ret;
+        }
     }
 }

@@ -467,5 +467,12 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void associarLicençaAoDispositivoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAssociarLicencaNoDispositivoAlugado newMDIChild = new FrmAssociarLicencaNoDispositivoAlugado();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }
