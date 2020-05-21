@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLinha));
             this.txtChip = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPuk = new System.Windows.Forms.TextBox();
@@ -236,6 +237,7 @@
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.dgvLinhas);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmLinha";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

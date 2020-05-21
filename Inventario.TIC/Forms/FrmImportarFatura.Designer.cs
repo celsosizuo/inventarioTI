@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmImportarFatura));
             this.txtArquivo = new System.Windows.Forms.TextBox();
             this.btnFind = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -134,6 +135,7 @@
             this.Controls.Add(this.btnImportar);
             this.Controls.Add(this.btnFind);
             this.Controls.Add(this.txtArquivo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmImportarFatura";

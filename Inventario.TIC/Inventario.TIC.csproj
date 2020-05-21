@@ -52,7 +52,7 @@
     <StartupObject>Inventario.TIC.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>tasks-solid.ico</ApplicationIcon>
+    <ApplicationIcon>computer_1_32x32.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -550,6 +550,31 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="computer_1_32x32.ico" />
+    <None Include="icones\computer_1_32x32.ico" />
+    <None Include="icones\Licenca_32x32.ico" />
+    <None Include="icones\software_32x32.ico" />
+    <None Include="icones\Licença_32x32.ico" />
+    <None Include="icones\TipoDispositivo_32x32.ico" />
+    <None Include="icones\Licenca.Computador_32x32.ico" />
+    <None Include="icones\rateio_32x32.ico" />
+    <None Include="icones\telefone.celular_32x32.ico" />
+    <None Include="icones\cadastros_32x32.ico" />
+    <None Include="icones\Linha_16x16.ico" />
+    <None Include="icones\aparelho_16x16.ico" />
+    <None Include="icones\aparelho_32x32.ico" />
+    <None Include="icones\carregador_32x32.ico" />
+    <None Include="icones\usuario_32x32.ico" />
+    <None Include="icones\gestor_32x32.ico" />
+    <None Include="icones\termo_32x32.ico" />
+    <None Include="icones\fatura_32x32.ico" />
+    <None Include="icones\importar.fatura_32x32.ico" />
+    <None Include="icones\excluir.fatura_32x32.ico" />
+    <None Include="icones\lancamento.manual_32x32.ico" />
+    <None Include="icones\telefone.fixo_32x32.ico" />
+    <None Include="icones\sincronizar_32x32.ico" />
+    <None Include="icones\relatorio_16x16.ico" />
+    <None Include="icones\relatorio_32x32.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -571,5 +596,6 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\TOTVS.DataServer\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

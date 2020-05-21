@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDispositivoAlugado));
             this.btnAssociar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
@@ -39,6 +40,8 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.dgvComputadores = new System.Windows.Forms.DataGridView();
             this.grpDadosComputadores = new System.Windows.Forms.GroupBox();
+            this.txtDepartamento = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.chkAvulso = new System.Windows.Forms.CheckBox();
             this.txtValor = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -87,8 +90,6 @@
             this.label19 = new System.Windows.Forms.Label();
             this.txtOCSId = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.txtDepartamento = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputadores)).BeginInit();
             this.grpDadosComputadores.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -189,6 +190,23 @@
             this.grpDadosComputadores.TabIndex = 34;
             this.grpDadosComputadores.TabStop = false;
             this.grpDadosComputadores.Text = "Dados Gerais";
+            // 
+            // txtDepartamento
+            // 
+            this.txtDepartamento.Location = new System.Drawing.Point(267, 78);
+            this.txtDepartamento.Name = "txtDepartamento";
+            this.txtDepartamento.Size = new System.Drawing.Size(245, 20);
+            this.txtDepartamento.TabIndex = 19;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(264, 62);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(87, 13);
+            this.label21.TabIndex = 18;
+            this.label21.Text = "Departamento (*)";
             // 
             // chkAvulso
             // 
@@ -710,23 +728,6 @@
             this.label20.TabIndex = 1;
             this.label20.Text = "ID";
             // 
-            // txtDepartamento
-            // 
-            this.txtDepartamento.Location = new System.Drawing.Point(267, 78);
-            this.txtDepartamento.Name = "txtDepartamento";
-            this.txtDepartamento.Size = new System.Drawing.Size(245, 20);
-            this.txtDepartamento.TabIndex = 19;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(264, 62);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(87, 13);
-            this.label21.TabIndex = 18;
-            this.label21.Text = "Departamento (*)";
-            // 
             // FrmDispositivoAlugado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -741,6 +742,7 @@
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.dgvComputadores);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDispositivoAlugado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dispositivos Alugados";

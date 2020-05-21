@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRateioTelefoniaMovel));
             this.label1 = new System.Windows.Forms.Label();
             this.cboReferencia = new System.Windows.Forms.ComboBox();
             this.dgvRateios = new System.Windows.Forms.DataGridView();
@@ -385,6 +386,7 @@
             this.Controls.Add(this.lblTotalRateado);
             this.Controls.Add(this.btnLancarRateio);
             this.Controls.Add(this.dgvRateios);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmRateioTelefoniaMovel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
