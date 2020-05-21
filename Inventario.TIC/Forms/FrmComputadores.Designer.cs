@@ -678,7 +678,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmComputadores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Computadores";
+            this.Text = "Computadores Próprios";
             this.Load += new System.EventHandler(this.FrmComputadores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputadores)).EndInit();
             this.grpDadosComputadores.ResumeLayout(false);

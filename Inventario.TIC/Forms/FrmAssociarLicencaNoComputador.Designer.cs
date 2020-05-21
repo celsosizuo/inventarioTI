@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAssociarLicencaNoComputador));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtNotaFiscalIdReadOnly = new System.Windows.Forms.TextBox();
             this.txtLinkReadOnly = new System.Windows.Forms.TextBox();
@@ -454,6 +455,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAssociarLicencaNoComputador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Associação de Licenças no Computador";

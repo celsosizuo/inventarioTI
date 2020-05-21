@@ -465,6 +465,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.txtOCSWorkGroup);
             this.groupBox2.Controls.Add(this.label9);

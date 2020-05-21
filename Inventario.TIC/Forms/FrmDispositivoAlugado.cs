@@ -378,8 +378,8 @@ namespace Inventario.TIC.Forms
                     this.txtOCSUserId.Text = _dispositivosAlugado[e.RowIndex].ComputadoresOCS.UserId == null ? "" : _dispositivosAlugado[e.RowIndex].ComputadoresOCS.UserId.ToString();
                     this.txtOCSWorkGroup.Text = _dispositivosAlugado[e.RowIndex].ComputadoresOCS.WorkGroup.ToString();
                     this.txtOCSOsName.Text = _dispositivosAlugado[e.RowIndex].ComputadoresOCS.OsName.ToString();
-                    this.txtOCSWinProdId.Text = _dispositivosAlugado[e.RowIndex].ComputadoresOCS.WinProdId.ToString();
-                    this.txtOCSWinProdKey.Text = _dispositivosAlugado[e.RowIndex].ComputadoresOCS.WinProdKey.ToString();
+                    this.txtOCSWinProdId.Text = _dispositivosAlugado[e.RowIndex].ComputadoresOCS.WinProdId == null ? "" : _dispositivosAlugado[e.RowIndex].ComputadoresOCS.WinProdId.ToString();
+                    this.txtOCSWinProdKey.Text = _dispositivosAlugado[e.RowIndex].ComputadoresOCS.WinProdKey == null ? "" : _dispositivosAlugado[e.RowIndex].ComputadoresOCS.WinProdKey.ToString();
                     this.txtOCSProcessorT.Text = _dispositivosAlugado[e.RowIndex].ComputadoresOCS.ProcessorT.ToString();
                     this.txtOCSMemory.Text = _dispositivosAlugado[e.RowIndex].ComputadoresOCS.Memory.ToString();
 

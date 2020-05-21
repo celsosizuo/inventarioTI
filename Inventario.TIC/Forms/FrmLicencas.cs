@@ -54,7 +54,7 @@ namespace Inventario.TIC.Forms
         private void FrmLicencas_Load(object sender, EventArgs e)
         {
             SoftwareRepository softwareRepository = new SoftwareRepository();
-            _softwares = softwareRepository.Get();
+            _softwares = softwareRepository.Get().OrderBy(s => s.Nome).ToList();
 
             Software soft = new Software()
             {
@@ -64,6 +64,8 @@ namespace Inventario.TIC.Forms
                 Versao = ""
             };
             _softwares.Insert(0, soft);
+
+            
 
             this.cboSoftware.DataSource = _softwares;
             this.cboSoftware.ValueMember = "Id";

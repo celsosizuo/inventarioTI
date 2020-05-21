@@ -30,53 +30,6 @@ namespace Inventario.TIC
             childForm.Show();
         }
 
-        private void OpenFile(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Filter = "Arquivos de texto (*.txt)|*.txt|Todos os arquivos (*.*)|*.*";
-            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = openFileDialog.FileName;
-            }
-        }
-
-        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            saveFileDialog.Filter = "Arquivos de texto (*.txt)|*.txt|Todos os arquivos (*.*)|*.*";
-            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = saveFileDialog.FileName;
-            }
-        }
-
-        private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LayoutMdi(MdiLayout.Cascade);
@@ -110,59 +63,6 @@ namespace Inventario.TIC
 
         }
 
-        private void computadoresToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            int w = Screen.PrimaryScreen.Bounds.Width;
-            // int h = Screen.PrimaryScreen.Bounds.Height;
-            FrmComputadores newMDIChild = new FrmComputadores();
-            newMDIChild.MdiParent = this;
-
-            if (w == 1366)
-                newMDIChild.WindowState = FormWindowState.Maximized;
-            else
-                newMDIChild.WindowState = FormWindowState.Normal;
-
-            newMDIChild.Show();
-
-        }
-
-        private void notaFiscalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmNotaFiscal newMDIChild = new FrmNotaFiscal();
-            newMDIChild.MdiParent = this;
-            newMDIChild.Show();
-        }
-
-        private void softwareToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmSoftware newMDIChild = new FrmSoftware();
-            newMDIChild.MdiParent = this;
-            newMDIChild.Show();
-        }
-
-        private void licençasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void licençasNFXSoftwareToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void associarLicençaNoComputadorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmAssociarLicencaNoComputador newMDIChild = new FrmAssociarLicencaNoComputador();
-            newMDIChild.MdiParent = this;
-
-            int w = Screen.PrimaryScreen.Bounds.Width;
-            if (w == 1366)
-                newMDIChild.WindowState = FormWindowState.Maximized;
-            else
-                newMDIChild.WindowState = FormWindowState.Normal;
-
-            newMDIChild.Show();
-        }
-
         private void gerenciamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //var text = "";
@@ -172,18 +72,6 @@ namespace Inventario.TIC
             //});
 
             //MessageBox.Show(text.ToString());
-        }
-
-        private void licençasNFXSoftwareToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void licençasNFXSoftwareToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            FrmLicencas newMDIChild = new FrmLicencas();
-            newMDIChild.MdiParent = this;
-            newMDIChild.Show();
         }
 
         private void licençasUtilizadasXNãoUtilizadasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -207,83 +95,6 @@ namespace Inventario.TIC
             List<ParametrosRelatorio> parametros = new List<ParametrosRelatorio>();
             FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Computadores.Licencas", parametros);
             // newMDIChild.MdiParent = this;
-            newMDIChild.Show();
-        }
-
-        private void linhasToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            FrmLinha newMDIChild = new FrmLinha();
-            newMDIChild.MdiParent = this;
-            newMDIChild.Show();
-        }
-
-        private void aparelhosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmAparelho newMDIChild = new FrmAparelho();
-            newMDIChild.MdiParent = this;
-            newMDIChild.Show();
-        }
-
-        private void carregadoresToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmCarregador newMDIChild = new FrmCarregador();
-            newMDIChild.MdiParent = this;
-            newMDIChild.Show();
-        }
-
-        private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmUsuarios newMDIChild = new FrmUsuarios();
-            newMDIChild.MdiParent = this;
-            newMDIChild.Show();
-        }
-
-        private void gestoresToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmGestores newMDIChild = new FrmGestores();
-            newMDIChild.MdiParent = this;
-            newMDIChild.Show();
-        }
-
-        private void celularesTermosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmTermoCelular newMDIChild = new FrmTermoCelular();
-            newMDIChild.MdiParent = this;
-            newMDIChild.Show();
-        }
-
-        private void importarFaturaToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            FrmImportarFatura newMDIChild = new FrmImportarFatura();
-            newMDIChild.MdiParent = this;
-            newMDIChild.Show();
-        }
-
-        private void excluirFaturaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmExcluirFatura newMDIChild = new FrmExcluirFatura();
-            newMDIChild.MdiParent = this;
-            newMDIChild.Show();
-        }
-
-        private void lançamentosManuaisToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmDetalheFatura newMDIChild = new FrmDetalheFatura();
-            newMDIChild.MdiParent = this;
-            newMDIChild.Show();
-        }
-
-        private void lançamentoDeRateioDoTOTVSToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmRateioTelefoniaMovel newMDIChild = new FrmRateioTelefoniaMovel();
-            newMDIChild.MdiParent = this;
-            newMDIChild.Show();
-        }
-
-        private void lançamentoDeRateioTOTVSToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmRateioLinkInternet newMDIChild = new FrmRateioLinkInternet();
-            newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
 
@@ -319,20 +130,6 @@ namespace Inventario.TIC
             this.toolStripStatusLabel.Text = tipoBase[1].ToString().Replace("Initial Catalog", "Database") + " - Versão: " + version;
 
             this.Text = "ARTFIX TIC - Sistema de Gerenciamento - Versão " + version;
-        }
-
-        private void importarFaturaToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            FrmImportarFaturaTelefoniaFixa newMDIChild = new FrmImportarFaturaTelefoniaFixa();
-            newMDIChild.MdiParent = this;
-            newMDIChild.Show();
-        }
-
-        private void lançamentoDeRateioTOTVSToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            FrmRateioTelefoniaFixa newMDIChild = new FrmRateioTelefoniaFixa();
-            newMDIChild.MdiParent = this;
-            newMDIChild.Show();
         }
 
         private void linhasToolStripMenuItem1_Click_1(object sender, EventArgs e)
@@ -375,6 +172,7 @@ namespace Inventario.TIC
             FrmTermoCelular newMDIChild = new FrmTermoCelular();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
+            LayoutMdi(MdiLayout.TileVertical);
         }
 
         private void importarFaturaToolStripMenuItem2_Click_1(object sender, EventArgs e)
@@ -447,15 +245,12 @@ namespace Inventario.TIC
             newMDIChild.Show();
         }
 
-        private void cadastroDeDispositivosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
         private void dispositivosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmDispositivoAlugado newMDIChild = new FrmDispositivoAlugado();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
+            LayoutMdi(MdiLayout.TileVertical);
         }
 
         private void lançamentoDeRateioTOTVSToolStripMenuItem3_Click(object sender, EventArgs e)
@@ -470,6 +265,7 @@ namespace Inventario.TIC
             FrmAssociarLicencaNoDispositivoAlugado newMDIChild = new FrmAssociarLicencaNoDispositivoAlugado();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
+            LayoutMdi(MdiLayout.TileVertical);
         }
 
         private void notaFiscalToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -485,7 +281,6 @@ namespace Inventario.TIC
             FrmSoftware newMDIChild = new FrmSoftware();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
-
         }
 
         private void licençasToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -493,22 +288,23 @@ namespace Inventario.TIC
             FrmLicencas newMDIChild = new FrmLicencas();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
-
+            LayoutMdi(MdiLayout.TileVertical);
         }
 
         private void cadastroDeComputadoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int w = Screen.PrimaryScreen.Bounds.Width;
-            // int h = Screen.PrimaryScreen.Bounds.Height;
+            //int w = Screen.PrimaryScreen.Bounds.Width;
+            //// int h = Screen.PrimaryScreen.Bounds.Height;
             FrmComputadores newMDIChild = new FrmComputadores();
             newMDIChild.MdiParent = this;
-
-            if (w == 1366)
-                newMDIChild.WindowState = FormWindowState.Maximized;
-            else
-                newMDIChild.WindowState = FormWindowState.Normal;
-
             newMDIChild.Show();
+            LayoutMdi(MdiLayout.TileVertical);
+
+
+            //if (w == 1366)
+            //    newMDIChild.WindowState = FormWindowState.Maximized;
+            //else
+            //    newMDIChild.WindowState = FormWindowState.Normal;
 
         }
 
@@ -517,14 +313,15 @@ namespace Inventario.TIC
             FrmAssociarLicencaNoComputador newMDIChild = new FrmAssociarLicencaNoComputador();
             newMDIChild.MdiParent = this;
 
-            int w = Screen.PrimaryScreen.Bounds.Width;
-            if (w == 1366)
-                newMDIChild.WindowState = FormWindowState.Maximized;
-            else
-                newMDIChild.WindowState = FormWindowState.Normal;
+            //int w = Screen.PrimaryScreen.Bounds.Width;
+            //if (w == 1366)
+            //    newMDIChild.WindowState = FormWindowState.Maximized;
+            //else
+            //    newMDIChild.WindowState = FormWindowState.Normal;
 
             newMDIChild.Show();
-
+            LayoutMdi(MdiLayout.TileVertical);
+            LayoutMdi(MdiLayout.ArrangeIcons);
         }
 
         private void tiposDeDispositivoToolStripMenuItem_Click(object sender, EventArgs e)
