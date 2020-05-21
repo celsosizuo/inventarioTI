@@ -112,18 +112,18 @@ namespace Inventario.TIC
 
         private void computadoresToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
             int w = Screen.PrimaryScreen.Bounds.Width;
             // int h = Screen.PrimaryScreen.Bounds.Height;
             FrmComputadores newMDIChild = new FrmComputadores();
             newMDIChild.MdiParent = this;
 
-            if(w == 1366)
+            if (w == 1366)
                 newMDIChild.WindowState = FormWindowState.Maximized;
             else
                 newMDIChild.WindowState = FormWindowState.Normal;
 
             newMDIChild.Show();
+
         }
 
         private void notaFiscalToolStripMenuItem_Click(object sender, EventArgs e)
@@ -449,9 +449,6 @@ namespace Inventario.TIC
 
         private void cadastroDeDispositivosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmTipoDispositivo newMDIChild = new FrmTipoDispositivo();
-            newMDIChild.MdiParent = this;
-            newMDIChild.Show();
         }
 
         private void dispositivosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -466,6 +463,76 @@ namespace Inventario.TIC
             FrmRateioDispositivoAlugado newMDIChild = new FrmRateioDispositivoAlugado();
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
+        }
+
+        private void associarLicençaAoDispositivoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAssociarLicencaNoDispositivoAlugado newMDIChild = new FrmAssociarLicencaNoDispositivoAlugado();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void notaFiscalToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmNotaFiscal newMDIChild = new FrmNotaFiscal();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+
+        }
+
+        private void softwareToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmSoftware newMDIChild = new FrmSoftware();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+
+        }
+
+        private void licençasToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FrmLicencas newMDIChild = new FrmLicencas();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+
+        }
+
+        private void cadastroDeComputadoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int w = Screen.PrimaryScreen.Bounds.Width;
+            // int h = Screen.PrimaryScreen.Bounds.Height;
+            FrmComputadores newMDIChild = new FrmComputadores();
+            newMDIChild.MdiParent = this;
+
+            if (w == 1366)
+                newMDIChild.WindowState = FormWindowState.Maximized;
+            else
+                newMDIChild.WindowState = FormWindowState.Normal;
+
+            newMDIChild.Show();
+
+        }
+
+        private void associarLicençaDoComputadorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAssociarLicencaNoComputador newMDIChild = new FrmAssociarLicencaNoComputador();
+            newMDIChild.MdiParent = this;
+
+            int w = Screen.PrimaryScreen.Bounds.Width;
+            if (w == 1366)
+                newMDIChild.WindowState = FormWindowState.Maximized;
+            else
+                newMDIChild.WindowState = FormWindowState.Normal;
+
+            newMDIChild.Show();
+
+        }
+
+        private void tiposDeDispositivoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmTipoDispositivo newMDIChild = new FrmTipoDispositivo();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+
         }
     }
 }

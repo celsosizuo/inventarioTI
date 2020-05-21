@@ -118,7 +118,82 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lancamento.manual_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\lancamento.manual_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="aparelho_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\aparelho_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="telefone.fixo_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\telefone.fixo_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="relatorio_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\relatorio_16x16.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rateio_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\rateio_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="aparelho_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\aparelho_16x16.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="usuario_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\usuario_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="computer_1_32x321" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\computer_1_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="software_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\software_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="importar.fatura_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\importar.fatura_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="computer_1_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\computer_1_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Linha_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\Linha_16x16.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gestor_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\gestor_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="termo_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\termo_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Clear-Search-595b40b75ba036ed117d594d" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Clear-Search-595b40b75ba036ed117d594d.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="excluir.fatura_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\excluir.fatura_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Licença_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\Licença_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fatura_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\fatura_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cadastros_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\cadastros_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carregador_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\carregador_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Licenca_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\Licenca_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sincronizar_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\sincronizar_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TipoDispositivo_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\TipoDispositivo_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="telefone.celular_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\telefone.celular_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Licenca.Computador_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\Licenca.Computador_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="relatorio_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\relatorio_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

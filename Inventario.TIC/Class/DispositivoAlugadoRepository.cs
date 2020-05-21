@@ -157,8 +157,31 @@ namespace Inventario.TIC.Class
                             return dispositivoAlugado;
 
                         }, splitOn: "ID, ID, ID, ID, DISCOID").AsList();
-                    return ret;
                 }
+
+                var list = new List<DispositivoAlugado>();
+                var numItemGuardado = 0;
+
+                ret.ToList().ForEach(it =>
+                {
+                    if (it.Id != numItemGuardado)
+                    {
+                        if (it.Discos.FirstOrDefault() == null)
+                            it.Discos.Remove(it.Discos.FirstOrDefault());
+
+                        list.Add(it);
+
+
+                    }
+                    //else if (it.idDocFornecItem == it.RefacaoItens.FirstOrDefault().idDocFornecItem)
+                    //    list.LastOrDefault().RefacaoItens.Add(it.RefacaoItens.FirstOrDefault());
+                    else
+                        list.LastOrDefault().Discos.Add(it.Discos.FirstOrDefault());
+
+                    numItemGuardado = it.Id;
+                });
+
+                return list;
             }
             catch (Exception ex)
             {

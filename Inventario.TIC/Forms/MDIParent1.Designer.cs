@@ -31,16 +31,19 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIParent1));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.cadastrosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.notaFiscalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.softwareToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.licençasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tiposDeDispositivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.computadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.computadoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.compToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroDeComputadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.associarLicençaDoComputadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.equipamentosAlugadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastroDeDispositivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dispositivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.notaFiscalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.softwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.licençasNFXSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.associarLicençaNoComputadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lançamentoDeRateioTOTVSToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.associarLicençaAoDispositivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventárioCelularesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.telefoniaMóvelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,7 +91,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.lançamentoDeRateioTOTVSToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -96,6 +98,7 @@
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastrosToolStripMenuItem1,
             this.computadoresToolStripMenuItem,
             this.inventárioCelularesToolStripMenuItem,
             this.telefoniaFixaToolStripMenuItem,
@@ -111,84 +114,119 @@
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
+            // cadastrosToolStripMenuItem1
+            // 
+            this.cadastrosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.notaFiscalToolStripMenuItem1,
+            this.softwareToolStripMenuItem1,
+            this.licençasToolStripMenuItem,
+            this.tiposDeDispositivoToolStripMenuItem});
+            this.cadastrosToolStripMenuItem1.Name = "cadastrosToolStripMenuItem1";
+            this.cadastrosToolStripMenuItem1.Size = new System.Drawing.Size(71, 20);
+            this.cadastrosToolStripMenuItem1.Text = "Cadastros";
+            // 
+            // notaFiscalToolStripMenuItem1
+            // 
+            this.notaFiscalToolStripMenuItem1.Image = global::Inventario.TIC.Properties.Resources.Licenca_32x32;
+            this.notaFiscalToolStripMenuItem1.Name = "notaFiscalToolStripMenuItem1";
+            this.notaFiscalToolStripMenuItem1.Size = new System.Drawing.Size(203, 22);
+            this.notaFiscalToolStripMenuItem1.Text = "Nota Fiscal";
+            this.notaFiscalToolStripMenuItem1.Click += new System.EventHandler(this.notaFiscalToolStripMenuItem1_Click);
+            // 
+            // softwareToolStripMenuItem1
+            // 
+            this.softwareToolStripMenuItem1.Image = global::Inventario.TIC.Properties.Resources.software_32x32;
+            this.softwareToolStripMenuItem1.Name = "softwareToolStripMenuItem1";
+            this.softwareToolStripMenuItem1.Size = new System.Drawing.Size(203, 22);
+            this.softwareToolStripMenuItem1.Text = "Software";
+            this.softwareToolStripMenuItem1.Click += new System.EventHandler(this.softwareToolStripMenuItem1_Click);
+            // 
+            // licençasToolStripMenuItem
+            // 
+            this.licençasToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.Licença_32x32;
+            this.licençasToolStripMenuItem.Name = "licençasToolStripMenuItem";
+            this.licençasToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.licençasToolStripMenuItem.Text = "Licenças (NF x Software)";
+            this.licençasToolStripMenuItem.Click += new System.EventHandler(this.licençasToolStripMenuItem_Click_1);
+            // 
+            // tiposDeDispositivoToolStripMenuItem
+            // 
+            this.tiposDeDispositivoToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.TipoDispositivo_32x32;
+            this.tiposDeDispositivoToolStripMenuItem.Name = "tiposDeDispositivoToolStripMenuItem";
+            this.tiposDeDispositivoToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.tiposDeDispositivoToolStripMenuItem.Text = "Tipos de Dispositivo";
+            this.tiposDeDispositivoToolStripMenuItem.Click += new System.EventHandler(this.tiposDeDispositivoToolStripMenuItem_Click);
+            // 
             // computadoresToolStripMenuItem
             // 
             this.computadoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.computadoresToolStripMenuItem1,
-            this.equipamentosAlugadosToolStripMenuItem,
-            this.notaFiscalToolStripMenuItem,
-            this.softwareToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.licençasNFXSoftwareToolStripMenuItem,
-            this.associarLicençaNoComputadorToolStripMenuItem});
+            this.compToolStripMenuItem,
+            this.equipamentosAlugadosToolStripMenuItem});
             this.computadoresToolStripMenuItem.Name = "computadoresToolStripMenuItem";
             this.computadoresToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
             this.computadoresToolStripMenuItem.Text = "Computadores";
             this.computadoresToolStripMenuItem.Click += new System.EventHandler(this.computadoresToolStripMenuItem_Click);
             // 
-            // computadoresToolStripMenuItem1
+            // compToolStripMenuItem
             // 
-            this.computadoresToolStripMenuItem1.Name = "computadoresToolStripMenuItem1";
-            this.computadoresToolStripMenuItem1.Size = new System.Drawing.Size(249, 22);
-            this.computadoresToolStripMenuItem1.Text = "Computadores";
-            this.computadoresToolStripMenuItem1.Click += new System.EventHandler(this.computadoresToolStripMenuItem1_Click);
+            this.compToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastroDeComputadoresToolStripMenuItem,
+            this.associarLicençaDoComputadorToolStripMenuItem});
+            this.compToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.computer_1_32x32;
+            this.compToolStripMenuItem.Name = "compToolStripMenuItem";
+            this.compToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.compToolStripMenuItem.Text = "Computadores Próprios";
+            // 
+            // cadastroDeComputadoresToolStripMenuItem
+            // 
+            this.cadastroDeComputadoresToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.computer_1_32x32;
+            this.cadastroDeComputadoresToolStripMenuItem.Name = "cadastroDeComputadoresToolStripMenuItem";
+            this.cadastroDeComputadoresToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.cadastroDeComputadoresToolStripMenuItem.Text = "Cadastro de Computadores";
+            this.cadastroDeComputadoresToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeComputadoresToolStripMenuItem_Click);
+            // 
+            // associarLicençaDoComputadorToolStripMenuItem
+            // 
+            this.associarLicençaDoComputadorToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.Licenca_Computador_32x32;
+            this.associarLicençaDoComputadorToolStripMenuItem.Name = "associarLicençaDoComputadorToolStripMenuItem";
+            this.associarLicençaDoComputadorToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.associarLicençaDoComputadorToolStripMenuItem.Text = "Associar Licença do Computador";
+            this.associarLicençaDoComputadorToolStripMenuItem.Click += new System.EventHandler(this.associarLicençaDoComputadorToolStripMenuItem_Click);
             // 
             // equipamentosAlugadosToolStripMenuItem
             // 
             this.equipamentosAlugadosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastroDeDispositivosToolStripMenuItem,
             this.dispositivosToolStripMenuItem,
-            this.lançamentoDeRateioTOTVSToolStripMenuItem3});
+            this.lançamentoDeRateioTOTVSToolStripMenuItem3,
+            this.associarLicençaAoDispositivoToolStripMenuItem});
+            this.equipamentosAlugadosToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.computer_1_32x32;
             this.equipamentosAlugadosToolStripMenuItem.Name = "equipamentosAlugadosToolStripMenuItem";
-            this.equipamentosAlugadosToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.equipamentosAlugadosToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.equipamentosAlugadosToolStripMenuItem.Text = "Equipamentos Alugados";
-            // 
-            // cadastroDeDispositivosToolStripMenuItem
-            // 
-            this.cadastroDeDispositivosToolStripMenuItem.Name = "cadastroDeDispositivosToolStripMenuItem";
-            this.cadastroDeDispositivosToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-            this.cadastroDeDispositivosToolStripMenuItem.Text = "Cadastro Tipo de Dispositivos";
-            this.cadastroDeDispositivosToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeDispositivosToolStripMenuItem_Click);
             // 
             // dispositivosToolStripMenuItem
             // 
+            this.dispositivosToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.computer_1_32x321;
             this.dispositivosToolStripMenuItem.Name = "dispositivosToolStripMenuItem";
-            this.dispositivosToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.dispositivosToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
             this.dispositivosToolStripMenuItem.Text = "Dispositivos";
             this.dispositivosToolStripMenuItem.Click += new System.EventHandler(this.dispositivosToolStripMenuItem_Click);
             // 
-            // notaFiscalToolStripMenuItem
+            // lançamentoDeRateioTOTVSToolStripMenuItem3
             // 
-            this.notaFiscalToolStripMenuItem.Name = "notaFiscalToolStripMenuItem";
-            this.notaFiscalToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.notaFiscalToolStripMenuItem.Text = "Nota Fiscal";
-            this.notaFiscalToolStripMenuItem.Click += new System.EventHandler(this.notaFiscalToolStripMenuItem_Click);
+            this.lançamentoDeRateioTOTVSToolStripMenuItem3.Image = global::Inventario.TIC.Properties.Resources.rateio_32x32;
+            this.lançamentoDeRateioTOTVSToolStripMenuItem3.Name = "lançamentoDeRateioTOTVSToolStripMenuItem3";
+            this.lançamentoDeRateioTOTVSToolStripMenuItem3.Size = new System.Drawing.Size(238, 22);
+            this.lançamentoDeRateioTOTVSToolStripMenuItem3.Text = "Lançamento de Rateio TOTVS";
+            this.lançamentoDeRateioTOTVSToolStripMenuItem3.Click += new System.EventHandler(this.lançamentoDeRateioTOTVSToolStripMenuItem3_Click);
             // 
-            // softwareToolStripMenuItem
+            // associarLicençaAoDispositivoToolStripMenuItem
             // 
-            this.softwareToolStripMenuItem.Name = "softwareToolStripMenuItem";
-            this.softwareToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.softwareToolStripMenuItem.Text = "Software";
-            this.softwareToolStripMenuItem.Click += new System.EventHandler(this.softwareToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(246, 6);
-            // 
-            // licençasNFXSoftwareToolStripMenuItem
-            // 
-            this.licençasNFXSoftwareToolStripMenuItem.Name = "licençasNFXSoftwareToolStripMenuItem";
-            this.licençasNFXSoftwareToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.licençasNFXSoftwareToolStripMenuItem.Text = "Licenças (NF x Software)";
-            this.licençasNFXSoftwareToolStripMenuItem.Click += new System.EventHandler(this.licençasNFXSoftwareToolStripMenuItem_Click_1);
-            // 
-            // associarLicençaNoComputadorToolStripMenuItem
-            // 
-            this.associarLicençaNoComputadorToolStripMenuItem.Name = "associarLicençaNoComputadorToolStripMenuItem";
-            this.associarLicençaNoComputadorToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
-            this.associarLicençaNoComputadorToolStripMenuItem.Text = "Associar Licença no Computador";
-            this.associarLicençaNoComputadorToolStripMenuItem.Click += new System.EventHandler(this.associarLicençaNoComputadorToolStripMenuItem_Click);
+            this.associarLicençaAoDispositivoToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.Licenca_Computador_32x32;
+            this.associarLicençaAoDispositivoToolStripMenuItem.Name = "associarLicençaAoDispositivoToolStripMenuItem";
+            this.associarLicençaAoDispositivoToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.associarLicençaAoDispositivoToolStripMenuItem.Text = "Associar Licença ao Dispositivo";
+            this.associarLicençaAoDispositivoToolStripMenuItem.Click += new System.EventHandler(this.associarLicençaAoDispositivoToolStripMenuItem_Click);
             // 
             // inventárioCelularesToolStripMenuItem
             // 
@@ -205,6 +243,7 @@
             this.telefoniaMóvelToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrosToolStripMenuItem,
             this.faturaToolStripMenuItem});
+            this.telefoniaMóvelToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.telefone_celular_32x32;
             this.telefoniaMóvelToolStripMenuItem.Name = "telefoniaMóvelToolStripMenuItem";
             this.telefoniaMóvelToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.telefoniaMóvelToolStripMenuItem.Text = "Telefonia Móvel";
@@ -218,49 +257,56 @@
             this.usuáriosToolStripMenuItem,
             this.gestoresToolStripMenuItem,
             this.celularesTermosToolStripMenuItem});
+            this.cadastrosToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.cadastros_32x32;
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
             // linhasToolStripMenuItem1
             // 
+            this.linhasToolStripMenuItem1.Image = global::Inventario.TIC.Properties.Resources.Linha_16x16;
             this.linhasToolStripMenuItem1.Name = "linhasToolStripMenuItem1";
-            this.linhasToolStripMenuItem1.Size = new System.Drawing.Size(144, 22);
+            this.linhasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.linhasToolStripMenuItem1.Text = "Linhas";
             this.linhasToolStripMenuItem1.Click += new System.EventHandler(this.linhasToolStripMenuItem1_Click_1);
             // 
             // aparelhosToolStripMenuItem
             // 
+            this.aparelhosToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.aparelho_32x32;
             this.aparelhosToolStripMenuItem.Name = "aparelhosToolStripMenuItem";
-            this.aparelhosToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.aparelhosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aparelhosToolStripMenuItem.Text = "Aparelhos";
             this.aparelhosToolStripMenuItem.Click += new System.EventHandler(this.aparelhosToolStripMenuItem_Click_1);
             // 
             // carregadoresToolStripMenuItem
             // 
+            this.carregadoresToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.carregador_32x32;
             this.carregadoresToolStripMenuItem.Name = "carregadoresToolStripMenuItem";
-            this.carregadoresToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.carregadoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.carregadoresToolStripMenuItem.Text = "Carregadores";
             this.carregadoresToolStripMenuItem.Click += new System.EventHandler(this.carregadoresToolStripMenuItem_Click_1);
             // 
             // usuáriosToolStripMenuItem
             // 
+            this.usuáriosToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.usuario_32x32;
             this.usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
-            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuáriosToolStripMenuItem.Text = "Usuários";
             this.usuáriosToolStripMenuItem.Click += new System.EventHandler(this.usuáriosToolStripMenuItem_Click_1);
             // 
             // gestoresToolStripMenuItem
             // 
+            this.gestoresToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.gestor_32x32;
             this.gestoresToolStripMenuItem.Name = "gestoresToolStripMenuItem";
-            this.gestoresToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.gestoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gestoresToolStripMenuItem.Text = "Gestores";
             this.gestoresToolStripMenuItem.Click += new System.EventHandler(this.gestoresToolStripMenuItem_Click_1);
             // 
             // celularesTermosToolStripMenuItem
             // 
+            this.celularesTermosToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.termo_32x32;
             this.celularesTermosToolStripMenuItem.Name = "celularesTermosToolStripMenuItem";
-            this.celularesTermosToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.celularesTermosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.celularesTermosToolStripMenuItem.Text = "Termos";
             this.celularesTermosToolStripMenuItem.Click += new System.EventHandler(this.celularesTermosToolStripMenuItem_Click_1);
             // 
@@ -271,12 +317,14 @@
             this.excluirFaturaToolStripMenuItem,
             this.lançamentosManuaisToolStripMenuItem,
             this.lançamentoDeRateioDoTOTVSToolStripMenuItem});
+            this.faturaToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.fatura_32x32;
             this.faturaToolStripMenuItem.Name = "faturaToolStripMenuItem";
-            this.faturaToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.faturaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.faturaToolStripMenuItem.Text = "Fatura";
             // 
             // importarFaturaToolStripMenuItem1
             // 
+            this.importarFaturaToolStripMenuItem1.Image = global::Inventario.TIC.Properties.Resources.importar_fatura_32x32;
             this.importarFaturaToolStripMenuItem1.Name = "importarFaturaToolStripMenuItem1";
             this.importarFaturaToolStripMenuItem1.Size = new System.Drawing.Size(227, 22);
             this.importarFaturaToolStripMenuItem1.Text = "Importar Fatura";
@@ -284,6 +332,7 @@
             // 
             // excluirFaturaToolStripMenuItem
             // 
+            this.excluirFaturaToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.excluir_fatura_32x32;
             this.excluirFaturaToolStripMenuItem.Name = "excluirFaturaToolStripMenuItem";
             this.excluirFaturaToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.excluirFaturaToolStripMenuItem.Text = "Excluir Fatura";
@@ -291,6 +340,7 @@
             // 
             // lançamentosManuaisToolStripMenuItem
             // 
+            this.lançamentosManuaisToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.lancamento_manual_32x32;
             this.lançamentosManuaisToolStripMenuItem.Name = "lançamentosManuaisToolStripMenuItem";
             this.lançamentosManuaisToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.lançamentosManuaisToolStripMenuItem.Text = "Lançamentos Manuais";
@@ -298,6 +348,7 @@
             // 
             // lançamentoDeRateioDoTOTVSToolStripMenuItem
             // 
+            this.lançamentoDeRateioDoTOTVSToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.rateio_32x32;
             this.lançamentoDeRateioDoTOTVSToolStripMenuItem.Name = "lançamentoDeRateioDoTOTVSToolStripMenuItem";
             this.lançamentoDeRateioDoTOTVSToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.lançamentoDeRateioDoTOTVSToolStripMenuItem.Text = "Lançamento de Rateio TOTVS";
@@ -308,12 +359,14 @@
             this.telefoniaFizaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.importarFaturaToolStripMenuItem2,
             this.lançamentoDeRateioTOTVSToolStripMenuItem1});
+            this.telefoniaFizaToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.telefone_fixo_32x32;
             this.telefoniaFizaToolStripMenuItem.Name = "telefoniaFizaToolStripMenuItem";
             this.telefoniaFizaToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.telefoniaFizaToolStripMenuItem.Text = "Telefonia Fixa";
             // 
             // importarFaturaToolStripMenuItem2
             // 
+            this.importarFaturaToolStripMenuItem2.Image = global::Inventario.TIC.Properties.Resources.importar_fatura_32x32;
             this.importarFaturaToolStripMenuItem2.Name = "importarFaturaToolStripMenuItem2";
             this.importarFaturaToolStripMenuItem2.Size = new System.Drawing.Size(227, 22);
             this.importarFaturaToolStripMenuItem2.Text = "Importar Fatura";
@@ -321,6 +374,7 @@
             // 
             // lançamentoDeRateioTOTVSToolStripMenuItem1
             // 
+            this.lançamentoDeRateioTOTVSToolStripMenuItem1.Image = global::Inventario.TIC.Properties.Resources.rateio_32x32;
             this.lançamentoDeRateioTOTVSToolStripMenuItem1.Name = "lançamentoDeRateioTOTVSToolStripMenuItem1";
             this.lançamentoDeRateioTOTVSToolStripMenuItem1.Size = new System.Drawing.Size(227, 22);
             this.lançamentoDeRateioTOTVSToolStripMenuItem1.Text = "Lançamento de Rateio TOTVS";
@@ -328,6 +382,7 @@
             // 
             // sincronizaçãoDaListaDeRamaisToolStripMenuItem
             // 
+            this.sincronizaçãoDaListaDeRamaisToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.sincronizar_32x32;
             this.sincronizaçãoDaListaDeRamaisToolStripMenuItem.Name = "sincronizaçãoDaListaDeRamaisToolStripMenuItem";
             this.sincronizaçãoDaListaDeRamaisToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
             this.sincronizaçãoDaListaDeRamaisToolStripMenuItem.Text = "Sincronização da Lista de Ramais";
@@ -343,6 +398,7 @@
             // 
             // lançamentoDeRateioTOTVSToolStripMenuItem
             // 
+            this.lançamentoDeRateioTOTVSToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.rateio_32x32;
             this.lançamentoDeRateioTOTVSToolStripMenuItem.Name = "lançamentoDeRateioTOTVSToolStripMenuItem";
             this.lançamentoDeRateioTOTVSToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.lançamentoDeRateioTOTVSToolStripMenuItem.Text = "Lançamento de Rateio TOTVS";
@@ -360,6 +416,7 @@
             // 
             // valoresContasToolStripMenuItem
             // 
+            this.valoresContasToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.fatura_32x32;
             this.valoresContasToolStripMenuItem.Name = "valoresContasToolStripMenuItem";
             this.valoresContasToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.valoresContasToolStripMenuItem.Text = "Valores Contas";
@@ -367,6 +424,7 @@
             // 
             // importarFaturaToolStripMenuItem
             // 
+            this.importarFaturaToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.importar_fatura_32x32;
             this.importarFaturaToolStripMenuItem.Name = "importarFaturaToolStripMenuItem";
             this.importarFaturaToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.importarFaturaToolStripMenuItem.Text = "Importar Fatura";
@@ -374,6 +432,7 @@
             // 
             // lançamentoDeRateioNoTOTVSToolStripMenuItem
             // 
+            this.lançamentoDeRateioNoTOTVSToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.rateio_32x32;
             this.lançamentoDeRateioNoTOTVSToolStripMenuItem.Name = "lançamentoDeRateioNoTOTVSToolStripMenuItem";
             this.lançamentoDeRateioNoTOTVSToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.lançamentoDeRateioNoTOTVSToolStripMenuItem.Text = "Lançamento de Rateio TOTVS";
@@ -390,6 +449,7 @@
             // 
             // importarFaturaToolStripMenuItem3
             // 
+            this.importarFaturaToolStripMenuItem3.Image = global::Inventario.TIC.Properties.Resources.importar_fatura_32x32;
             this.importarFaturaToolStripMenuItem3.Name = "importarFaturaToolStripMenuItem3";
             this.importarFaturaToolStripMenuItem3.Size = new System.Drawing.Size(227, 22);
             this.importarFaturaToolStripMenuItem3.Text = "Importar Fatura";
@@ -397,6 +457,7 @@
             // 
             // lançamentoDeRateioTOTVSToolStripMenuItem2
             // 
+            this.lançamentoDeRateioTOTVSToolStripMenuItem2.Image = global::Inventario.TIC.Properties.Resources.rateio_32x32;
             this.lançamentoDeRateioTOTVSToolStripMenuItem2.Name = "lançamentoDeRateioTOTVSToolStripMenuItem2";
             this.lançamentoDeRateioTOTVSToolStripMenuItem2.Size = new System.Drawing.Size(227, 22);
             this.lançamentoDeRateioTOTVSToolStripMenuItem2.Text = "Lançamento de Rateio TOTVS";
@@ -415,6 +476,7 @@
             // 
             // computadoresXLicençasToolStripMenuItem
             // 
+            this.computadoresXLicençasToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.relatorio_32x32;
             this.computadoresXLicençasToolStripMenuItem.Name = "computadoresXLicençasToolStripMenuItem";
             this.computadoresXLicençasToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.computadoresXLicençasToolStripMenuItem.Text = "Computadores x Licenças";
@@ -422,6 +484,7 @@
             // 
             // licençasUtilizadasXNãoUtilizadasToolStripMenuItem
             // 
+            this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.relatorio_32x32;
             this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem.Name = "licençasUtilizadasXNãoUtilizadasToolStripMenuItem";
             this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem.Text = "Licenças Não Utilizadas";
@@ -429,6 +492,7 @@
             // 
             // listaDeRamaisToolStripMenuItem
             // 
+            this.listaDeRamaisToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.relatorio_32x32;
             this.listaDeRamaisToolStripMenuItem.Name = "listaDeRamaisToolStripMenuItem";
             this.listaDeRamaisToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.listaDeRamaisToolStripMenuItem.Text = "Computadores";
@@ -551,13 +615,6 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // lançamentoDeRateioTOTVSToolStripMenuItem3
-            // 
-            this.lançamentoDeRateioTOTVSToolStripMenuItem3.Name = "lançamentoDeRateioTOTVSToolStripMenuItem3";
-            this.lançamentoDeRateioTOTVSToolStripMenuItem3.Size = new System.Drawing.Size(229, 22);
-            this.lançamentoDeRateioTOTVSToolStripMenuItem3.Text = "Lançamento de Rateio TOTVS";
-            this.lançamentoDeRateioTOTVSToolStripMenuItem3.Click += new System.EventHandler(this.lançamentoDeRateioTOTVSToolStripMenuItem3_Click);
-            // 
             // MDIParent1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -596,13 +653,7 @@
         private System.Windows.Forms.ToolStripMenuItem closeAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem arrangeIconsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem computadoresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem computadoresToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem notaFiscalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem softwareToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gerenciamentoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem associarLicençaNoComputadorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem licençasNFXSoftwareToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem licençasUtilizadasXNãoUtilizadasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listaDeRamaisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem computadoresXLicençasToolStripMenuItem;
@@ -640,9 +691,17 @@
         private System.Windows.Forms.ToolStripMenuItem lançamentoDeRateioTOTVSToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem sincronizaçãoDaListaDeRamaisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem equipamentosAlugadosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cadastroDeDispositivosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dispositivosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lançamentoDeRateioTOTVSToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem associarLicençaAoDispositivoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastrosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem notaFiscalToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem softwareToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem licençasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem compToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroDeComputadoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem associarLicençaDoComputadorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tiposDeDispositivoToolStripMenuItem;
     }
 }
 

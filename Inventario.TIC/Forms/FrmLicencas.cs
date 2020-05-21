@@ -231,7 +231,7 @@ namespace Inventario.TIC.Forms
 
                         MessageBox.Show("Atualização efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
-                    this.AtualizaDataGridView();
+                    this.CarregarDataGridView();
                 }
                 else
                 {

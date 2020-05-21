@@ -254,6 +254,9 @@ namespace Inventario.TIC.Forms
             // Limpando grid dos discos
             this.dgvDiscos.DataSource = null;
 
+            // Limpando o grid de licenças
+            this.dgvLicencas.DataSource = null;
+
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -392,6 +395,19 @@ namespace Inventario.TIC.Forms
                 this.dgvDiscos.Columns["Volumn"].HeaderText = "Volume";
                 this.dgvDiscos.Columns["Total"].HeaderText = "Espaço Total (MB)";
                 this.dgvDiscos.Columns["Free"].HeaderText = "Espaço Livre (MB)";
+
+                //Carregando as licenças
+                LicencaRepository l = new LicencaRepository();
+                List<LicencasResponse> licencas = l.GetLicencasDispositivoAlugadoResponses(int.Parse(this.txtId.Text));
+
+                this.dgvLicencas.DataSource = licencas;
+                this.dgvLicencas.Columns["NotaFiscalId"].Visible = false;
+                this.dgvLicencas.Columns["SoftwareId"].Visible = false;
+                this.dgvLicencas.Columns["Software"].Visible = false;
+                this.dgvLicencas.Columns["NotaFiscal"].Visible = false;
+                this.dgvLicencas.Columns["SoftwareEChave"].Visible = false;
+                this.dgvLicencas.Columns["Quantidade"].Visible = false;
+
 
             }
             catch (Exception ex)
