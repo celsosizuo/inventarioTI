@@ -90,6 +90,8 @@
             this.label19 = new System.Windows.Forms.Label();
             this.txtOCSId = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.dgvLicencas = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputadores)).BeginInit();
             this.grpDadosComputadores.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -97,6 +99,8 @@
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiscos)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLicencas)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAssociar
@@ -479,7 +483,7 @@
             this.groupBox2.Controls.Add(this.txtOCSId);
             this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(607, 12);
+            this.groupBox2.Location = new System.Drawing.Point(607, 188);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(729, 301);
             this.groupBox2.TabIndex = 36;
@@ -728,11 +732,42 @@
             this.label20.TabIndex = 1;
             this.label20.Text = "ID";
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.dgvLicencas);
+            this.groupBox4.Location = new System.Drawing.Point(613, 6);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(723, 176);
+            this.groupBox4.TabIndex = 37;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Licenças (Somente Visualização)";
+            // 
+            // dgvLicencas
+            // 
+            this.dgvLicencas.AllowUserToAddRows = false;
+            this.dgvLicencas.AllowUserToDeleteRows = false;
+            this.dgvLicencas.AllowUserToOrderColumns = true;
+            this.dgvLicencas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvLicencas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvLicencas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvLicencas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLicencas.Location = new System.Drawing.Point(3, 21);
+            this.dgvLicencas.MultiSelect = false;
+            this.dgvLicencas.Name = "dgvLicencas";
+            this.dgvLicencas.ReadOnly = true;
+            this.dgvLicencas.Size = new System.Drawing.Size(714, 148);
+            this.dgvLicencas.TabIndex = 15;
+            // 
             // FrmDispositivoAlugado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1338, 753);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpDadosComputadores);
@@ -758,6 +793,8 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiscos)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLicencas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -821,5 +858,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox txtDepartamento;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DataGridView dgvLicencas;
     }
 }
