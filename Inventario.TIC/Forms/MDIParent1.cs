@@ -534,5 +534,12 @@ namespace Inventario.TIC
             newMDIChild.Show();
 
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox1 newMDIChild = new AboutBox1();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }

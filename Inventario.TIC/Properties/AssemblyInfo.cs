@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // As informações gerais sobre um assembly são controladas por
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
 // associada a um assembly.
-[assembly: AssemblyTitle("Inventario.TIC")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Sistema de Gerenciamento - TIC")]
+[assembly: AssemblyDescription("Sistema com objetivo de organizar recursos do TIC como inventário de computadores e telefones móveis, lançamento de rateios de NF")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Artfix Indústria Gráfica LTDA")]
-[assembly: AssemblyProduct("Inventario.TIC")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyProduct("Sistema de Gerenciamento - TIC")]
+[assembly: AssemblyCopyright("Copyright Artfix ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

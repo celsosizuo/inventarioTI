@@ -7,7 +7,7 @@
     <ProjectGuid>{C80B10FD-273A-47FD-9C39-F93E7F6FD09F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Inventario.TIC</RootNamespace>
-    <AssemblyName>Inventario.TIC</AssemblyName>
+    <AssemblyName>Sistema de Gerenciamento - TIC</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -155,6 +155,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AboutBox1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutBox1.Designer.cs">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmAparelho.cs">
       <SubType>Form</SubType>
@@ -369,6 +375,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Forms\AboutBox1.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAparelho.resx">
       <DependentUpon>FrmAparelho.cs</DependentUpon>
     </EmbeddedResource>
@@ -575,6 +584,7 @@
     <None Include="icones\sincronizar_32x32.ico" />
     <None Include="icones\relatorio_16x16.ico" />
     <None Include="icones\relatorio_32x32.ico" />
+    <None Include="icones\sobre_32x32.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
