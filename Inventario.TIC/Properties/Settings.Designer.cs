@@ -25,9 +25,8 @@ namespace Inventario.TIC.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SVDB01;Initial Catalog=INVTIC_TESTE;Persist Security Info=False;Trust" +
-            "ed_Connection=False;MultipleActiveResultSets=True;User ID=invtic;Password=q1Q!q1" +
-            "Q!")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SVDB01;Initial Catalog=INVTIC;Persist Security Info=False;Trusted_Con" +
+            "nection=False;MultipleActiveResultSets=True;User ID=invtic;Password=q1Q!q1Q!")]
         public string conSQL {
             get {
                 return ((string)(this["conSQL"]));
