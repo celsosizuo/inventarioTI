@@ -82,6 +82,7 @@
             this.txtUsuarioNovo = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.dgvHistoricoUsuarios = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputadores)).BeginInit();
             this.grpDadosComputadores.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -659,11 +660,22 @@
             this.dgvHistoricoUsuarios.Size = new System.Drawing.Size(613, 156);
             this.dgvHistoricoUsuarios.TabIndex = 15;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1254, 465);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(104, 23);
+            this.button1.TabIndex = 31;
+            this.button1.Text = "Teste";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmComputadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnAtualizarDados);
@@ -751,5 +763,6 @@
         private System.Windows.Forms.TextBox txtUsuarioNovo;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button btnAlterarUsuario;
+        private System.Windows.Forms.Button button1;
     }
 }
