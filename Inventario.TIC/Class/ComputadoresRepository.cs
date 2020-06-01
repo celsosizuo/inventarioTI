@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -222,6 +223,81 @@ namespace Inventario.TIC.Class
             }
         }
 
+        public List<Computadores> Get1()
+        {
+            try
+            {
+                string strSql = @"GETCOMPUTADORES";
 
+                List<Computadores> ret;
+
+                using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.conSQL))
+                {
+                    ret = connection.Query(strSql,
+                        new[]
+                        {
+                            typeof(Computadores),
+                            typeof(ComputadoresOCS),
+                            typeof(Disco),
+
+                        }, objects =>
+                        {
+                            var item = objects[0] as Computadores;
+                            var subItem = objects[1] as ComputadoresOCS;
+                            var subSubItem = objects[2] as Disco;
+
+                            item.ComputadoresOCS = subItem;
+
+                            if (subSubItem != null)
+                                item.Discos.Add(subSubItem);
+                            else
+                                item.Discos = new List<Disco>();
+
+                            return item;
+                        }, splitOn: "ID, ID, DISCOID").AsList();
+                }
+
+                var list = new List<Computadores>();
+                var numItemGuardado = 0;
+
+                ret.ToList().ForEach(it =>
+                {
+                    if (it.Id != numItemGuardado)
+                    {
+                        if (it.Discos.FirstOrDefault() == null)
+                            it.Discos.Remove(it.Discos.FirstOrDefault());
+
+                        list.Add(it);
+
+
+                    }
+                    else
+                        list.LastOrDefault().Discos.Add(it.Discos.FirstOrDefault());
+
+                    numItemGuardado = it.Id;
+                });
+
+                List<HistoricoUsuariosComputadores> historicoUsuarios = new List<HistoricoUsuariosComputadores>();
+
+                using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.conSQL))
+                {
+                   historicoUsuarios = connection.Query<HistoricoUsuariosComputadores>("GETHISTORICOUSUARIOCOMPUTADORES1", null, commandType: CommandType.StoredProcedure).ToList();
+                }
+
+                list.ForEach(l =>
+                {
+                    var hist = historicoUsuarios.Where(h => h.ComputadoresId == l.Id).OrderByDescending(i => i.DataMudanca).ToList();
+
+                    l.HistoricoUsuarios = hist;
+                });
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
     }
 }

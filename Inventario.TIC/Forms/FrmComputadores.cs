@@ -37,6 +37,7 @@ namespace Inventario.TIC.Forms
             this.dgvComputadores.Columns["Status1"].Visible = false;
             this.dgvComputadores.Columns["CascadeMode"].Visible = false;
             this.dgvComputadores.Columns["Observacoes"].Visible = false;
+            this.dgvComputadores.Columns["LinhaSelecionada"].Visible = false;
         }
 
         private void FrmComputadores_Load(object sender, EventArgs e)
@@ -68,7 +69,8 @@ namespace Inventario.TIC.Forms
             // Carregando a lista de computadores
             ComputadoresRepository c = new ComputadoresRepository();
             _computadores = null;
-            _computadores = c.Get();
+            _computadores = c.Get1();
+            _computadoresOriginal = _computadores;
             this.dgvComputadores.DataSource = _computadores;
             this.AtualizaDataGridView();
         }
@@ -153,13 +155,13 @@ namespace Inventario.TIC.Forms
                         hRepos.Add(h);
 
                         // Carregando o histórico
-                        List<HistoricoUsuariosComputadores> hList = hRepos.Get(h.ComputadoresId);
+                        //List<HistoricoUsuariosComputadores> hList = hRepos.Get(h.ComputadoresId);
 
-                        hList = hList.OrderByDescending(x => x.DataMudanca).ToList();
+                        //hList = hList.OrderByDescending(x => x.DataMudanca).ToList();
 
-                        this.dgvHistoricoUsuarios.DataSource = hList;
-                        this.dgvHistoricoUsuarios.Columns["Id"].Visible = false;
-                        this.dgvHistoricoUsuarios.Columns["ComputadoresId"].Visible = false;
+                        //this.dgvHistoricoUsuarios.DataSource = hList;
+                        //this.dgvHistoricoUsuarios.Columns["Id"].Visible = false;
+                        //this.dgvHistoricoUsuarios.Columns["ComputadoresId"].Visible = false;
 
                         this.txtUsuario.ReadOnly = true;
 
@@ -205,13 +207,13 @@ namespace Inventario.TIC.Forms
                     this.AtualizaDataGridView();
 
                     // Carregando o histórico
-                    List<HistoricoUsuariosComputadores> hList = hRepos.Get(id);
+                    //List<HistoricoUsuariosComputadores> hList = hRepos.Get(id);
 
-                    hList = hList.OrderByDescending(x => x.DataMudanca).ToList();
+                    //hList = hList.OrderByDescending(x => x.DataMudanca).ToList();
 
-                    this.dgvHistoricoUsuarios.DataSource = hList;
-                    this.dgvHistoricoUsuarios.Columns["Id"].Visible = false;
-                    this.dgvHistoricoUsuarios.Columns["ComputadoresId"].Visible = false;
+                    //this.dgvHistoricoUsuarios.DataSource = hList;
+                    //this.dgvHistoricoUsuarios.Columns["Id"].Visible = false;
+                    //this.dgvHistoricoUsuarios.Columns["ComputadoresId"].Visible = false;
 
                     this.limparCampos();
 
@@ -291,6 +293,9 @@ namespace Inventario.TIC.Forms
                                 computador.OCSId = (int)computadoresOCS.FirstOrDefault().Id;
                                 c.AssociarOCS(computador.Id, computador.OCSId);
                                 this.CarregarDataGridView();
+
+
+
                                 MessageBox.Show("Associação efetuada com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                             }
                         }
@@ -407,6 +412,7 @@ namespace Inventario.TIC.Forms
             {
 
                 _computadorSelecionado = _computadores[e.RowIndex];
+                _computadorSelecionado.LinhaSelecionada = e.RowIndex;
 
                 // carregando os controles do computador
                 this.txtId.Text = _computadores[e.RowIndex].Id.ToString();
@@ -471,13 +477,15 @@ namespace Inventario.TIC.Forms
                 this.dgvLicencas.Columns["Quantidade"].Visible = false;
 
                 // Carregando o histórico
-                HistoricoUsuariosComputadoresRepository hRepos = new HistoricoUsuariosComputadoresRepository();
+                //HistoricoUsuariosComputadoresRepository hRepos = new HistoricoUsuariosComputadoresRepository();
 
-                List<HistoricoUsuariosComputadores> h = hRepos.Get(_computadores[e.RowIndex].Id);
+                //List<HistoricoUsuariosComputadores> h = hRepos.Get(_computadores[e.RowIndex].Id);
 
-                h = h.OrderByDescending(x => x.DataMudanca).ToList();
+                //h = h.OrderByDescending(x => x.DataMudanca).ToList();
 
-                this.dgvHistoricoUsuarios.DataSource = h;
+
+
+                this.dgvHistoricoUsuarios.DataSource = _computadores[e.RowIndex].HistoricoUsuarios;
                 this.dgvHistoricoUsuarios.Columns["Id"].Visible = false;
                 this.dgvHistoricoUsuarios.Columns["ComputadoresId"].Visible = false;
 
@@ -541,11 +549,17 @@ namespace Inventario.TIC.Forms
                 this.AtualizaDataGridView();
 
                 // Carregando o histórico
-                List<HistoricoUsuariosComputadores> hList = hRepos.Get(h.ComputadoresId);
+                //List<HistoricoUsuariosComputadores> hList = hRepos.Get(h.ComputadoresId);
 
-                hList = hList.OrderByDescending(x => x.DataMudanca).ToList();
+                //hList = hList.OrderByDescending(x => x.DataMudanca).ToList();
 
-                this.dgvHistoricoUsuarios.DataSource = hList;
+                _computadores[_computadorSelecionado.LinhaSelecionada].HistoricoUsuarios.Add(h);
+
+                this.dgvHistoricoUsuarios.DataSource = null;
+                var historico = _computadores[_computadorSelecionado.LinhaSelecionada].HistoricoUsuarios;
+                historico = historico.OrderByDescending(hist => hist.DataMudanca).ToList();
+
+                this.dgvHistoricoUsuarios.DataSource = historico;
                 this.dgvHistoricoUsuarios.Columns["Id"].Visible = false;
                 this.dgvHistoricoUsuarios.Columns["ComputadoresId"].Visible = false;
 
@@ -558,6 +572,18 @@ namespace Inventario.TIC.Forms
             {
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ComputadoresRepository c = new ComputadoresRepository();
+
+            List<Computadores> comput = new List<Computadores>();
+
+            comput = c.Get1();
+
+            string s = "Teste";
+
         }
     }
 }

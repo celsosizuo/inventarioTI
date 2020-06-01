@@ -24,7 +24,7 @@ namespace Inventario.TIC.Class
         public List<Disco> Discos { get; set; }
         public List<HistoricoUsuariosComputadores> HistoricoUsuarios { get; set; }
         public string Observacoes { get; set; }
-
+        public int LinhaSelecionada { get; set; }
 
         public Computadores()
         {
