@@ -582,7 +582,6 @@ namespace Inventario.TIC.Forms
 
             comput = c.Get1();
 
-            string s = "Teste";
 
         }
     }

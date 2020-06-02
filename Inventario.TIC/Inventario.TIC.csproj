@@ -113,9 +113,13 @@
     <Compile Include="Class\HistoricoUsuariosComputadores.cs" />
     <Compile Include="Class\HistoricoUsuariosComputadoresRepository.cs" />
     <Compile Include="Class\Module1.cs" />
+    <Compile Include="Class\MovimentoRepository.cs" />
+    <Compile Include="Class\Movimentos.cs" />
     <Compile Include="Class\ParametrosRelatorio.cs" />
     <Compile Include="Class\PrecoContaEMail.cs" />
     <Compile Include="Class\PrecoContaEMailRepository.cs" />
+    <Compile Include="Class\Produto.cs" />
+    <Compile Include="Class\ProdutoRepository.cs" />
     <Compile Include="Class\RateioCentroCusto.cs" />
     <Compile Include="Class\LancarRateioTOTVS.cs" />
     <Compile Include="Class\ServicosFatura.cs" />
@@ -252,11 +256,23 @@
     <Compile Include="Forms\FrmListaRamais.Designer.cs">
       <DependentUpon>FrmListaRamais.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmMovimentoEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMovimentoEstoque.designer.cs">
+      <DependentUpon>FrmMovimentoEstoque.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmPrecoContaEMail.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FrmPrecoContaEMail.Designer.cs">
       <DependentUpon>FrmPrecoContaEMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmProdutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmProdutos.designer.cs">
+      <DependentUpon>FrmProdutos.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmRateioDispositivoAlugado.cs">
       <SubType>Form</SubType>
@@ -423,8 +439,14 @@
     <EmbeddedResource Include="Forms\FrmListaRamais.resx">
       <DependentUpon>FrmListaRamais.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMovimentoEstoque.resx">
+      <DependentUpon>FrmMovimentoEstoque.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmPrecoContaEMail.resx">
       <DependentUpon>FrmPrecoContaEMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmProdutos.resx">
+      <DependentUpon>FrmProdutos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmRateioDispositivoAlugado.resx">
       <DependentUpon>FrmRateioDispositivoAlugado.cs</DependentUpon>
@@ -585,6 +607,8 @@
     <None Include="icones\relatorio_16x16.ico" />
     <None Include="icones\relatorio_32x32.ico" />
     <None Include="icones\sobre_32x32.ico" />
+    <None Include="icones\produto_32x32.ico" />
+    <None Include="icones\movimento_32x32.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
