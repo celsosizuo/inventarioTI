@@ -89,6 +89,7 @@
             this.licençasUtilizadasXNãoUtilizadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeRamaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.movimentaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -264,7 +265,8 @@
             // estoqueToolStripMenuItem
             // 
             this.estoqueToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastroDeProdutosToolStripMenuItem});
+            this.cadastroDeProdutosToolStripMenuItem,
+            this.movimentaçãoToolStripMenuItem});
             this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
             this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.estoqueToolStripMenuItem.Text = "Estoque";
@@ -600,6 +602,13 @@
             this.aboutToolStripMenuItem.Text = "&Sobre";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // movimentaçãoToolStripMenuItem
+            // 
+            this.movimentaçãoToolStripMenuItem.Name = "movimentaçãoToolStripMenuItem";
+            this.movimentaçãoToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.movimentaçãoToolStripMenuItem.Text = "Movimentação";
+            this.movimentaçãoToolStripMenuItem.Click += new System.EventHandler(this.movimentaçãoToolStripMenuItem_Click);
+            // 
             // MDIParent1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -685,6 +694,7 @@
         private System.Windows.Forms.ToolStripMenuItem tiposDeDispositivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estoqueToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroDeProdutosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem movimentaçãoToolStripMenuItem;
     }
 }
 

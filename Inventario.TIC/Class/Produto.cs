@@ -14,7 +14,7 @@ namespace Inventario.TIC.Class
 
         public int Id { get; set; }
         public string Nome { get; set; }
-        public List<Movimentos> Movimentos { get; set; }
+        public decimal QtdeEstoque { get; set; }
 
         public Produto()
         {
@@ -32,11 +32,17 @@ namespace Inventario.TIC.Class
         private void Validar()
         {
             ValidarNome();
+            ValidarQtdeEstoque();
         }
 
         private void ValidarNome()
         {
             RuleFor(a => a.Nome).NotEmpty().WithMessage("- Campo Nome é obrigatório");
+        }
+
+        private void ValidarQtdeEstoque()
+        {
+            RuleFor(a => a.QtdeEstoque).GreaterThan(-1).WithMessage("- Campo Quantidade Estoque tem que ser maior que zero");
         }
 
         public string GetErros()

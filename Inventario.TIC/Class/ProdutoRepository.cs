@@ -117,5 +117,25 @@ namespace Inventario.TIC.Class
                 throw new Exception(ex.Message);
             }
         }
+
+        public Produto GetOne(int produtoId)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.conSQL))
+                {
+                    var parametros = new DynamicParameters();
+                    parametros.Add("@PRODUTOID", produtoId);
+
+                    var produto = connection.Query<Produto>("GETONEPRODUTO", parametros, commandType: CommandType.StoredProcedure).FirstOrDefault();
+
+                    return produto;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

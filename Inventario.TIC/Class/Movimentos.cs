@@ -12,7 +12,7 @@ namespace Inventario.TIC.Class
     {
         protected ValidationResult ValidationResult { get; set; }
         public int Id { get; set; }
-        public int ProdutoId { get; set; }
+        public string NomeProduto { get; set; }
         public DateTime Data { get; set; }
         public string Solicitante { get; set; }
         public string Tipo { get; set; }
@@ -37,28 +37,35 @@ namespace Inventario.TIC.Class
             ValidarProduto();
             ValidarData();
             ValidarSolicitante();
+            ValidarQuantidade();
         }
 
         private void ValidarProduto()
         {
-            RuleFor(a => a.ProdutoId).NotEmpty().WithMessage("- Campo Produto é obrigatório");
+            RuleFor(a => a.Produto)
+                .NotNull().WithMessage("- Campo Produto é obrigatório");
         }
 
         private void ValidarData()
         {
             RuleFor(a => a.Data)
-                .NotEmpty().WithMessage("- Campo Data é obrigatório")
-                .GreaterThanOrEqualTo(DateTime.Now).WithMessage("- Campo data tem que ser maior ou igual a data atual");
+                .NotEmpty().WithMessage("- Campo Data é obrigatório");
+                // .GreaterThanOrEqualTo(DateTime.Now).WithMessage("- Campo data tem que ser maior ou igual a data atual");
         }
 
         private void ValidarSolicitante()
         {
-            RuleFor(a => a.Solicitante).NotEmpty().WithMessage("- Campo Solicitante é obrigatório");
+            RuleFor(a => a.Solicitante)
+                .NotEmpty().WithMessage("- Campo Solicitante é obrigatório");
         }
 
         private void ValidarQuantidade()
         {
-            RuleFor(a => a.Quantidade).NotEmpty().WithMessage("- Campo Quantidade é obrigatório");
+            RuleFor(a => a.Quantidade)
+                .NotEmpty().WithMessage("- Campo Quantidade é obrigatório");
+                
+                // .GreaterThan(0).WithMessage("- Campo Quantidade tem que ser maior que zero");
+            
         }
 
         public string GetErros()

@@ -113,6 +113,8 @@
     <Compile Include="Class\HistoricoUsuariosComputadores.cs" />
     <Compile Include="Class\HistoricoUsuariosComputadoresRepository.cs" />
     <Compile Include="Class\Module1.cs" />
+    <Compile Include="Class\MovimentoRepository.cs" />
+    <Compile Include="Class\Movimentos.cs" />
     <Compile Include="Class\ParametrosRelatorio.cs" />
     <Compile Include="Class\PrecoContaEMail.cs" />
     <Compile Include="Class\PrecoContaEMailRepository.cs" />
@@ -253,6 +255,12 @@
     </Compile>
     <Compile Include="Forms\FrmListaRamais.Designer.cs">
       <DependentUpon>FrmListaRamais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMovimentoEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMovimentoEstoque.designer.cs">
+      <DependentUpon>FrmMovimentoEstoque.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmPrecoContaEMail.cs">
       <SubType>Form</SubType>
@@ -430,6 +438,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmListaRamais.resx">
       <DependentUpon>FrmListaRamais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMovimentoEstoque.resx">
+      <DependentUpon>FrmMovimentoEstoque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmPrecoContaEMail.resx">
       <DependentUpon>FrmPrecoContaEMail.cs</DependentUpon>

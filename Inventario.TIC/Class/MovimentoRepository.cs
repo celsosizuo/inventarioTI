@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -108,13 +109,34 @@ namespace Inventario.TIC.Class
             }
         }
 
-        public List<Produto> Get()
+        public List<Movimentos> Get()
         {
             try
             {
+                string strSql = @"GETMOVIMENTOSESTOQUE";
 
+                List<Movimentos> ret;
 
+                using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.conSQL))
+                {
+                    ret = connection.Query(strSql,
+                        new[]
+                        {
+                            typeof(Movimentos),
+                            typeof(Produto),
 
+                        }, objects =>
+                        {
+                            var item = objects[0] as Movimentos;
+                            var subItem = objects[1] as Produto;
+
+                            item.Produto = subItem;
+
+                            return item;
+                        }, splitOn: "ID, ID").AsList();
+
+                    return ret;
+                }
             }
             catch (Exception ex)
             {

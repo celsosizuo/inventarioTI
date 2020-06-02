@@ -345,5 +345,12 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void movimentaçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMovimentoEstoque newMDIChild = new FrmMovimentoEstoque();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }
