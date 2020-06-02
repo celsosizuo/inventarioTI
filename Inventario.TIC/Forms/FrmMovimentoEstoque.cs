@@ -17,13 +17,16 @@ namespace Inventario.TIC.Forms
         private List<Movimentos> _movimentos;
         private List<Movimentos> _movimentosOriginal;
         private string _colunaSelecionada;
-        private MovimentoRepository movimentoRepository = new MovimentoRepository();
+        private MovimentoRepository _movimentoRepository;
         private Produto _produtoSelecionado;
+        private List<Produto> _produtos;
 
         public FrmMovimentoEstoque()
         {
             _movimentos = new List<Movimentos>();
             _produtoSelecionado = new Produto();
+            _movimentoRepository = new MovimentoRepository();
+            _produtos = new List<Produto>();
             InitializeComponent();
         }
 
@@ -37,28 +40,36 @@ namespace Inventario.TIC.Forms
             this.dgvMovimentos.Columns["CascadeMode"].Visible = false;
             this.dgvMovimentos.Columns["Produto"].Visible = false;
             this.dgvMovimentos.Columns["Tipo"].Visible = false;
+
+            this.cboProduto.DataSource = _produtos;
+            this.cboProduto.DisplayMember = "nome";
+            this.cboProduto.ValueMember = "id";
+        }
+
+        private void CarregaComboProduto()
+        {
+            ProdutoRepository produtoRepository = new ProdutoRepository();
+
+            _produtos = produtoRepository.Get();
+            _produtos = _produtos.OrderBy(p => p.Nome).ToList();
+
+            _produtos.Insert(0, new Produto { Id = 0, Nome = "", QtdeEstoque = 0 });
+
+            this.txtData.Value = DateTime.Now;
+
+            this.cboProduto.DataSource = null;
+            this.cboProduto.DataSource = _produtos;
+            this.cboProduto.DisplayMember = "nome";
+            this.cboProduto.ValueMember = "id";
         }
 
         private void FrmProdutos_Load(object sender, EventArgs e)
         {
-            _movimentos = movimentoRepository.Get();
+            _movimentos = _movimentoRepository.Get();
             _movimentosOriginal = _movimentos;
             this.dgvMovimentos.DataSource = _movimentos;
             this.AtualizaDataGridView();
-
-            ProdutoRepository produtoRepository = new ProdutoRepository();
-
-            List<Produto> produtos = produtoRepository.Get();
-            produtos = produtos.OrderBy(p => p.Nome).ToList();
-
-            produtos.Insert(0, new Produto { Id = 0, Nome = "", QtdeEstoque = 0 });
-
-            this.txtData.Value = DateTime.Now;
-
-            this.cboProduto.DataSource = produtos;
-            this.cboProduto.DisplayMember = "nome";
-            this.cboProduto.ValueMember = "id";
-
+            this.CarregaComboProduto();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -95,15 +106,22 @@ namespace Inventario.TIC.Forms
 
                     if (movimento.Id == 0)
                     {
-                        string retorno = movimentoRepository.Add(movimento);
+                        string retorno = _movimentoRepository.Add(movimento);
                         this.txtId.Text = retorno.ToString();
                         movimento.Id = int.Parse(retorno);
                         _movimentos.Add(movimento);
+
+                        decimal saldoAtual = decimal.Parse(this.txtSaldoAtual.Text);
+                        decimal qtdeBaixada = decimal.Parse(this.txtQuantidadeEfetivada.Text);
+
+                        this.txtSaldoAtual.Text = (saldoAtual + qtdeBaixada).ToString();
+                        _produtos.Find(r => r.Id == _produtoSelecionado.Id).QtdeEstoque = (saldoAtual + qtdeBaixada);
+
                         MessageBox.Show("Inclusão efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                     else
                     {
-                        movimentoRepository.Update(movimento);
+                        _movimentoRepository.Update(movimento);
                         MessageBox.Show("Atualização efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                     this.AtualizaDataGridView();
@@ -140,7 +158,9 @@ namespace Inventario.TIC.Forms
                 if (MessageBox.Show("Você tem certeza que deseja excluir o registro selecionado?", "Confirmação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     int id = this.txtId.Text == "" ? 0 : int.Parse(this.txtId.Text);
-                    movimentoRepository.Delete(id);
+                    _movimentoRepository.Delete(id);
+
+                    this.CarregaComboProduto();
 
                     _movimentos.Remove(_movimentos.Find(c => c.Id == id));
                     this.AtualizaDataGridView();
@@ -169,6 +189,7 @@ namespace Inventario.TIC.Forms
                 this.cboProduto.SelectedValue = _movimentos[e.RowIndex].Produto.Id;
                 this.txtData.Value = _movimentos[e.RowIndex].Data;
                 this.txtSolicitante.Text = _movimentos[e.RowIndex].Solicitante.ToString();
+                this.txtQuantidade.Text = _movimentos[e.RowIndex].Quantidade.ToString();
                 if (_movimentos[e.RowIndex].Tipo == "E") { this.rdoEntrada.Checked = true; } else { this.rdoSaida.Checked = true; }
                 this.txtQuantidadeEfetivada.Text = _movimentos[e.RowIndex].Quantidade.ToString();
             }
@@ -299,43 +320,74 @@ namespace Inventario.TIC.Forms
         private void txtQuantidade_Leave(object sender, EventArgs e)
         {
             decimal valor = this.txtQuantidade.Text == "" ? 0 : decimal.Parse(this.txtQuantidade.Text);
-            this.txtQuantidade.Text = valor.ToString("N2");
+            this.txtQuantidade.Text = valor == 0 ? "" : valor.ToString("N2");
         }
 
         private void cboProduto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _produtoSelecionado = (Produto)this.cboProduto.Items[this.cboProduto.SelectedIndex];
+            if(this.cboProduto.SelectedIndex > -1)
+            {
+                _produtoSelecionado = (Produto)this.cboProduto.Items[this.cboProduto.SelectedIndex];
+                this.txtSaldoAtual.Text = _produtoSelecionado.Id == 0 ? "" : _produtoSelecionado.QtdeEstoque.ToString();
+            }
         }
 
         private void rdoEntrada_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.txtQuantidade.Text == "")
-            {
-                MessageBox.Show("Favor digitar a quantidade", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.rdoEntrada.Checked = false;
-                this.txtQuantidade.Focus();
-            }
-            else
-            {
-                decimal quantidade = rdoEntrada.Checked ? decimal.Parse(this.txtQuantidade.Text) : decimal.Parse(this.txtQuantidadeEfetivada.Text) * -1;
-                this.txtQuantidadeEfetivada.Text = quantidade.ToString();
-            }
+
+
         }
 
         private void rdoSaida_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.txtQuantidade.Text == "")
+            //if (this.rdoSaida.Checked)
+            //{
+            //    if (this.txtQuantidade.Text == "")
+            //    {
+            //        MessageBox.Show("Favor digitar a quantidade", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //        this.rdoSaida.Checked = false;
+            //        this.txtQuantidade.Focus();
+            //    }
+            //    else
+            //    {
+            //        decimal quantidade = rdoSaida.Checked ? decimal.Parse(this.txtQuantidade.Text) * -1 : decimal.Parse(this.txtQuantidadeEfetivada.Text);
+            //        this.txtQuantidadeEfetivada.Text = quantidade.ToString();
+            //    }
+            //}
+            //else
+            //    this.rdoSaida.Checked = false;
+        }
+
+        private void rdoEntrada_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (this.txtQuantidade.Text == "" && this.rdoEntrada.Checked)
+            {
+                MessageBox.Show("Favor digitar a quantidade", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.rdoEntrada.Checked = false;
+                this.txtQuantidade.Focus();
+                this.txtQuantidadeEfetivada.Clear();
+            }
+            else
+            {
+                decimal quantidade = rdoEntrada.Checked ? decimal.Parse(this.txtQuantidade.Text) : decimal.Parse(this.txtQuantidade.Text) * -1;
+                this.txtQuantidadeEfetivada.Text = quantidade.ToString();
+            }
+        }
+
+        private void rdoSaida_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (this.txtQuantidade.Text == "" && this.rdoSaida.Checked)
             {
                 MessageBox.Show("Favor digitar a quantidade", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.rdoSaida.Checked = false;
                 this.txtQuantidade.Focus();
+                this.txtQuantidadeEfetivada.Clear();
             }
             else
             {
-                decimal quantidade = rdoSaida.Checked ? decimal.Parse(this.txtQuantidade.Text) * -1 : decimal.Parse(this.txtQuantidadeEfetivada.Text);
+                decimal quantidade = rdoEntrada.Checked ? decimal.Parse(this.txtQuantidade.Text) : decimal.Parse(this.txtQuantidade.Text) * -1;
                 this.txtQuantidadeEfetivada.Text = quantidade.ToString();
             }
-
         }
     }
 }

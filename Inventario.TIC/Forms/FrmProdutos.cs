@@ -32,7 +32,7 @@ namespace Inventario.TIC.Forms
             this.dgvProdutos.Columns["CascadeMode"].Visible = false;
         }
 
-        private void FrmProdutos_Load(object sender, EventArgs e)
+        private void CarregaDataGrid()
         {
             ProdutoRepository produto = new ProdutoRepository();
 
@@ -40,6 +40,12 @@ namespace Inventario.TIC.Forms
             _produtosOriginal = _produtos;
             this.dgvProdutos.DataSource = _produtos;
             this.AtualizaDataGridView();
+
+        }
+
+        private void FrmProdutos_Load(object sender, EventArgs e)
+        {
+            this.CarregaDataGrid();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -192,6 +198,11 @@ namespace Inventario.TIC.Forms
                     break;
             }
             this.AtualizaDataGridView();
+        }
+
+        private void btnAtualizarSaldos_Click(object sender, EventArgs e)
+        {
+            this.CarregaDataGrid();
         }
     }
 }
