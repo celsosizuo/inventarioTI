@@ -46,7 +46,7 @@
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(443, 81);
+            this.btnPesquisar.Location = new System.Drawing.Point(406, 81);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
             this.btnPesquisar.TabIndex = 87;
@@ -56,7 +56,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(281, 81);
+            this.btnExcluir.Location = new System.Drawing.Point(244, 81);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 86;
@@ -66,7 +66,7 @@
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(362, 81);
+            this.btnLimpar.Location = new System.Drawing.Point(325, 81);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpar.TabIndex = 85;
@@ -76,7 +76,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(200, 81);
+            this.btnSalvar.Location = new System.Drawing.Point(163, 81);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 84;
@@ -160,7 +160,7 @@
             // 
             // btnAtualizarSaldos
             // 
-            this.btnAtualizarSaldos.Location = new System.Drawing.Point(524, 81);
+            this.btnAtualizarSaldos.Location = new System.Drawing.Point(487, 81);
             this.btnAtualizarSaldos.Name = "btnAtualizarSaldos";
             this.btnAtualizarSaldos.Size = new System.Drawing.Size(101, 23);
             this.btnAtualizarSaldos.TabIndex = 88;

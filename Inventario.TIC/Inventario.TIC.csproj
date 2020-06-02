@@ -608,6 +608,7 @@
     <None Include="icones\relatorio_32x32.ico" />
     <None Include="icones\sobre_32x32.ico" />
     <None Include="icones\produto_32x32.ico" />
+    <None Include="icones\movimento_32x32.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

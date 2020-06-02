@@ -62,7 +62,7 @@
             this.btnPesquisar.Location = new System.Drawing.Point(404, 131);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
-            this.btnPesquisar.TabIndex = 87;
+            this.btnPesquisar.TabIndex = 11;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
@@ -72,7 +72,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(242, 131);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 86;
+            this.btnExcluir.TabIndex = 9;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -82,7 +82,7 @@
             this.btnLimpar.Location = new System.Drawing.Point(323, 131);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpar.TabIndex = 85;
+            this.btnLimpar.TabIndex = 10;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
@@ -92,7 +92,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(161, 131);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 84;
+            this.btnSalvar.TabIndex = 8;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -103,7 +103,7 @@
             this.txtSolicitante.MaxLength = 500;
             this.txtSolicitante.Name = "txtSolicitante";
             this.txtSolicitante.Size = new System.Drawing.Size(163, 20);
-            this.txtSolicitante.TabIndex = 83;
+            this.txtSolicitante.TabIndex = 2;
             // 
             // label1
             // 
@@ -177,7 +177,7 @@
             this.cboProduto.Location = new System.Drawing.Point(99, 38);
             this.cboProduto.Name = "cboProduto";
             this.cboProduto.Size = new System.Drawing.Size(207, 21);
-            this.cboProduto.TabIndex = 88;
+            this.cboProduto.TabIndex = 0;
             this.cboProduto.SelectedIndexChanged += new System.EventHandler(this.cboProduto_SelectedIndexChanged);
             // 
             // label3
@@ -207,7 +207,7 @@
             this.groupBox1.Location = new System.Drawing.Point(239, 72);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(159, 37);
-            this.groupBox1.TabIndex = 93;
+            this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tipo";
             // 
@@ -217,7 +217,7 @@
             this.rdoSaida.Location = new System.Drawing.Point(88, 15);
             this.rdoSaida.Name = "rdoSaida";
             this.rdoSaida.Size = new System.Drawing.Size(54, 17);
-            this.rdoSaida.TabIndex = 1;
+            this.rdoSaida.TabIndex = 6;
             this.rdoSaida.TabStop = true;
             this.rdoSaida.Text = "Saída";
             this.rdoSaida.UseVisualStyleBackColor = true;
@@ -230,7 +230,7 @@
             this.rdoEntrada.Location = new System.Drawing.Point(20, 15);
             this.rdoEntrada.Name = "rdoEntrada";
             this.rdoEntrada.Size = new System.Drawing.Size(62, 17);
-            this.rdoEntrada.TabIndex = 0;
+            this.rdoEntrada.TabIndex = 5;
             this.rdoEntrada.TabStop = true;
             this.rdoEntrada.Text = "Entrada";
             this.rdoEntrada.UseVisualStyleBackColor = true;
@@ -243,7 +243,7 @@
             this.txtQuantidade.MaxLength = 500;
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(86, 20);
-            this.txtQuantidade.TabIndex = 95;
+            this.txtQuantidade.TabIndex = 3;
             this.txtQuantidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantidade_KeyPress);
             this.txtQuantidade.Leave += new System.EventHandler(this.txtQuantidade_Leave);
             // 
@@ -263,7 +263,7 @@
             this.txtData.Location = new System.Drawing.Point(376, 39);
             this.txtData.Name = "txtData";
             this.txtData.Size = new System.Drawing.Size(98, 20);
-            this.txtData.TabIndex = 96;
+            this.txtData.TabIndex = 1;
             // 
             // txtQuantidadeEfetivada
             // 
@@ -272,7 +272,7 @@
             this.txtQuantidadeEfetivada.Name = "txtQuantidadeEfetivada";
             this.txtQuantidadeEfetivada.ReadOnly = true;
             this.txtQuantidadeEfetivada.Size = new System.Drawing.Size(86, 20);
-            this.txtQuantidadeEfetivada.TabIndex = 98;
+            this.txtQuantidadeEfetivada.TabIndex = 7;
             // 
             // label5
             // 
