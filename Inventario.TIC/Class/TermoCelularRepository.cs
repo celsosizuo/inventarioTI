@@ -88,7 +88,7 @@ namespace Inventario.TIC.Class
             }
         }
 
-        public void UpdateLinkTermoEntrega(TermoCelular celular)
+        public void UpdateLinkTermoEntrega(TermoCelularUsuarios celular)
         {
             try
             {
@@ -99,8 +99,8 @@ namespace Inventario.TIC.Class
                     CommandText = "PATHTERMOCELULARUSUARIOENTREGA",
                 };
 
-                command.Parameters.AddWithValue("@TermoCelularId", celular.Id);
-                command.Parameters.AddWithValue("@UsuarioId", celular.Usuario[0].Id);
+                command.Parameters.AddWithValue("@TermoCelularId", celular.TermoCelularId);
+                command.Parameters.AddWithValue("@UsuarioId", celular.UsuarioId);
                 command.Parameters.AddWithValue("@LinkEntrega", celular.LinkEntrega);
 
                 command.Connection.Open();
@@ -113,7 +113,7 @@ namespace Inventario.TIC.Class
             }
         }
 
-        public void UpdateLinkTermoDevolucao(TermoCelular celular)
+        public void UpdateLinkTermoDevolucao(TermoCelularUsuarios celular)
         {
             try
             {
@@ -125,8 +125,8 @@ namespace Inventario.TIC.Class
                 };
 
 
-                command.Parameters.AddWithValue("@TermoCelularId", celular.Id);
-                command.Parameters.AddWithValue("@UsuarioId", celular.Usuario[0].Id);
+                command.Parameters.AddWithValue("@TermoCelularId", celular.TermoCelularId);
+                command.Parameters.AddWithValue("@UsuarioId", celular.UsuarioId);
                 command.Parameters.AddWithValue("@LinkDevolucao", celular.LinkDevolucao);
 
                 command.Connection.Open();

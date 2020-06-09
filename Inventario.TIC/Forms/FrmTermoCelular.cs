@@ -24,6 +24,8 @@ namespace Inventario.TIC.Forms
         private List<TermoCelularResponse> _termoCelularesResponse;
         private TermoCelular _termoCelular;
         private string _colunaSelecionada;
+        private TermoCelularUsuarios _termoCelularUsuarios;
+        
 
         public FrmTermoCelular()
         {
@@ -37,6 +39,7 @@ namespace Inventario.TIC.Forms
             _usuariosAdicionados = new List<Usuario>();
             _termoCelularesResponse = new List<TermoCelularResponse>();
             _termoCelular = new TermoCelular();
+            _termoCelularUsuarios = new TermoCelularUsuarios();
             InitializeComponent();
         }
 
@@ -668,9 +671,9 @@ namespace Inventario.TIC.Forms
                 this.txtLinkTermoEntrega.Text = this.opdTermoEntrega.FileName.ToString();
                 TermoCelularRepository termoRepository = new TermoCelularRepository();
 
-                _termoCelular.LinkEntrega = this.txtLinkTermoEntrega.Text;
-
-                termoRepository.UpdateLinkTermoEntrega(_termoCelular);
+                _termoCelularUsuarios.LinkEntrega = this.txtLinkTermoEntrega.Text;
+                
+                termoRepository.UpdateLinkTermoEntrega(_termoCelularUsuarios);
                 _usuariosAdicionados[this.dgvUsuariosAdicionados.CurrentRow.Index].LinkEntrega = this.txtLinkTermoEntrega.Text;
 
                 MessageBox.Show("Inclusão do link do termo efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -710,8 +713,8 @@ namespace Inventario.TIC.Forms
                 this.txtLinkTermoDevolucao.Text = this.opdTermoDevolucao.FileName.ToString();
                 TermoCelularRepository termoRepository = new TermoCelularRepository();
 
-                _termoCelular.LinkDevolucao = this.txtLinkTermoDevolucao.Text;
-                termoRepository.UpdateLinkTermoDevolucao(_termoCelular);
+                _termoCelularUsuarios.LinkDevolucao = this.txtLinkTermoDevolucao.Text;
+                termoRepository.UpdateLinkTermoDevolucao(_termoCelularUsuarios);
                 _usuariosAdicionados[this.dgvUsuariosAdicionados.CurrentRow.Index].LinkDevolucao = this.txtLinkTermoDevolucao.Text;
 
                 MessageBox.Show("Inclusão do link do termo de devolução efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -746,9 +749,9 @@ namespace Inventario.TIC.Forms
                     this.txtLinkTermoEntrega.Text = "";
                     TermoCelularRepository termoRepository = new TermoCelularRepository();
 
-                    _termoCelular.LinkEntrega = this.txtLinkTermoEntrega.Text;
-
-                    termoRepository.UpdateLinkTermoEntrega(_termoCelular);
+                    _termoCelularUsuarios.LinkEntrega = this.txtLinkTermoEntrega.Text;
+                    
+                    termoRepository.UpdateLinkTermoEntrega(_termoCelularUsuarios);
 
                     _usuariosAdicionados[this.dgvUsuariosAdicionados.CurrentRow.Index].LinkEntrega = null;
 
@@ -773,9 +776,9 @@ namespace Inventario.TIC.Forms
                     this.txtLinkTermoDevolucao.Text = "";
                     TermoCelularRepository termoRepository = new TermoCelularRepository();
 
-                    _termoCelular.LinkDevolucao = this.txtLinkTermoDevolucao.Text;
+                    _termoCelularUsuarios.LinkDevolucao = this.txtLinkTermoDevolucao.Text;
 
-                    termoRepository.UpdateLinkTermoDevolucao(_termoCelular);
+                    termoRepository.UpdateLinkTermoDevolucao(_termoCelularUsuarios);
 
                     _usuariosAdicionados[this.dgvUsuariosAdicionados.CurrentRow.Index].LinkDevolucao = null;
 
@@ -1077,7 +1080,8 @@ namespace Inventario.TIC.Forms
             this.txtCpfReadOnly.Text = _usuariosAdicionados[e.RowIndex].Cpf;
             this.txtChapaReadOnly.Text = _usuariosAdicionados[e.RowIndex].Chapa;
 
-
+            _termoCelularUsuarios.TermoCelularId = int.Parse(this.txtId.Text);
+            _termoCelularUsuarios.UsuarioId = int.Parse(this.txtUsuarioIdReadOnly.Text);
         }
 
         private void btnDevolver_Click_1(object sender, EventArgs e)
