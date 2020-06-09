@@ -23,6 +23,26 @@ namespace Inventario.TIC.Class
 
                 command.Parameters.AddWithValue("@TermoCelularId", termoUsuario.TermoCelularId);
                 command.Parameters.AddWithValue("@UsuarioId", termoUsuario.UsuarioId);
+                
+                if(termoUsuario.DataDevolucao == null)
+                    command.Parameters.AddWithValue("@DataDevolucao", DBNull.Value);
+                else
+                    command.Parameters.AddWithValue("@DataDevolucao", termoUsuario.DataDevolucao);
+
+                if(termoUsuario.Motivo == null)
+                    command.Parameters.AddWithValue("@Motivo", DBNull.Value);
+                else
+                    command.Parameters.AddWithValue("@Motivo", termoUsuario.Motivo);
+
+                if(termoUsuario.LinkEntrega == null)
+                    command.Parameters.AddWithValue("@LinkEntrega", DBNull.Value);
+                else
+                    command.Parameters.AddWithValue("@LinkEntrega", termoUsuario.LinkEntrega);
+
+                if(termoUsuario.LinkDevolucao == null)
+                    command.Parameters.AddWithValue("@LinkDevolucao", DBNull.Value);
+                else
+                    command.Parameters.AddWithValue("@LinkDevolucao", termoUsuario.LinkDevolucao);
 
                 command.Connection.Open();
                 command.ExecuteScalar();
