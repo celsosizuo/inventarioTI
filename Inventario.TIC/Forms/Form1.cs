@@ -11,11 +11,13 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using Dapper;
 using Inventario.TIC.Class;
+using System.Security.Cryptography;
 
 namespace Inventario.TIC
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
@@ -195,6 +197,103 @@ namespace Inventario.TIC
             }
         }
 
-       
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.txtTextoCriptografado.Text = StringCrypt.Encrypt(this.txtTextoACriptografar.Text, this.txtChavePrivada.Text);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.txtTextoDecriptado.Text = StringCrypt.Decrypt(this.txtTextoCriptografado.Text, this.txtChavePrivada.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.txtHashGerado.Text = Codifica(this.txtGerarHash.Text);
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string senhaCodificada = Codifica(this.txtGerarHash.Text);
+
+            if (Compara(txtGerarHash.Text, this.txtHashGerado.Text))
+                this.label10.Text = "Senha OK";
+            else
+                this.label10.Text = "Senha incorreta";
+
+
+        }
+
+        public static string Codifica(string senha)
+        {
+            byte[] keyBytes = Encoding.ASCII.GetBytes(senha);
+            string crypt = CryptSharp.Crypter.Blowfish.Crypt(keyBytes, CryptSharp.Crypter.Blowfish.GenerateSalt(6));
+            return crypt;
+        }
+
+        public static bool Compara(string senha, string crypted)
+        {
+            byte[] bytes = Encoding.ASCII.GetBytes(senha);
+            return CryptSharp.Crypter.CheckPassword(crypted, crypted); // CryptSharp.Crypter.Blowfish.Crypt(bytes, crypted));
+        }
+
+
+    }
+
+    public class Hash
+    {
+        private HashAlgorithm _algoritmo;
+
+        public Hash(HashAlgorithm algoritmo)
+        {
+            _algoritmo = algoritmo;
+        }
+
+        public string CriptografarSenha(string senha)
+        {
+            var encodedValue = Encoding.UTF8.GetBytes(senha);
+            var encryptedPassword = _algoritmo.ComputeHash(encodedValue);
+
+            var sb = new StringBuilder();
+            foreach (var caracter in encryptedPassword)
+            {
+                sb.Append(caracter.ToString("X2"));
+            }
+
+            return sb.ToString();
+        }
+
+        public bool VerificarSenha(string senhaDigitada, string senhaCadastrada)
+        {
+            if (string.IsNullOrEmpty(senhaCadastrada))
+                throw new NullReferenceException("Cadastre uma senha.");
+
+            var encryptedPassword = _algoritmo.ComputeHash(Encoding.UTF8.GetBytes(senhaDigitada));
+
+            var sb = new StringBuilder();
+            foreach (var caractere in encryptedPassword)
+            {
+                sb.Append(caractere.ToString("X2"));
+            }
+
+            return sb.ToString() == senhaCadastrada;
+        }
     }
 }
