@@ -352,5 +352,19 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void testeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 newMDIChild = new Form1();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void gerenciarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAccess newMDIChild = new FrmAccess();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }

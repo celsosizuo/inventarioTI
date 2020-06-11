@@ -55,6 +55,9 @@
     <ApplicationIcon>computer_1_32x32.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CryptSharp, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CryptSharpOfficial.2.1.0.0\lib\CryptSharp.dll</HintPath>
+    </Reference>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.30\lib\net461\Dapper.dll</HintPath>
     </Reference>
@@ -99,6 +102,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\Access.cs" />
+    <Compile Include="Class\AccessRepository.cs" />
     <Compile Include="Class\Carregador.cs" />
     <Compile Include="Class\AparelhoRepository.cs" />
     <Compile Include="Class\CarregadorRepository.cs" />
@@ -123,6 +128,7 @@
     <Compile Include="Class\RateioCentroCusto.cs" />
     <Compile Include="Class\LancarRateioTOTVS.cs" />
     <Compile Include="Class\ServicosFatura.cs" />
+    <Compile Include="Class\StringCrypt.cs" />
     <Compile Include="Class\TermoCelular.cs" />
     <Compile Include="Class\TermoCelularRepository.cs" />
     <Compile Include="Class\TermoCelularResponse.cs" />
@@ -165,6 +171,12 @@
     </Compile>
     <Compile Include="Forms\AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmAccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAccess.designer.cs">
+      <DependentUpon>FrmAccess.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmAparelho.cs">
       <SubType>Form</SubType>
@@ -394,6 +406,9 @@
     <EmbeddedResource Include="Forms\AboutBox1.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAccess.resx">
+      <DependentUpon>FrmAccess.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAparelho.resx">
       <DependentUpon>FrmAparelho.cs</DependentUpon>
     </EmbeddedResource>
@@ -609,6 +624,7 @@
     <None Include="icones\sobre_32x32.ico" />
     <None Include="icones\produto_32x32.ico" />
     <None Include="icones\movimento_32x32.ico" />
+    <None Include="icones\Access_32x32.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

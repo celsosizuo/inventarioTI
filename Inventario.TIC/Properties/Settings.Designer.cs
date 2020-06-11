@@ -25,19 +25,6 @@ namespace Inventario.TIC.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SVDB01;Initial Catalog=INVTIC;Persist Security Info=False;Trusted_Con" +
-            "nection=False;MultipleActiveResultSets=True;User ID=invtic;Password=q1Q!q1Q!")]
-        public string conSQL {
-            get {
-                return ((string)(this["conSQL"]));
-            }
-            set {
-                this["conSQL"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("producao")]
         public string tipoBase {
             get {
@@ -45,6 +32,27 @@ namespace Inventario.TIC.Properties {
             }
             set {
                 this["tipoBase"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("@rtFix2020!")]
+        public string SecretPass {
+            get {
+                return ((string)(this["SecretPass"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SVDB01;Initial Catalog=INVTIC;Persist Security Info=False;Trusted_Con" +
+            "nection=False;MultipleActiveResultSets=True;User ID=invtic;Password=q1Q!q1Q!")]
+        public string conSQL {
+            get {
+                return ((string)(this["conSQL"]));
             }
         }
     }
