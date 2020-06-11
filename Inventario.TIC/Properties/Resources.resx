@@ -118,17 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="produto_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icones\produto_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="rateio_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icones\rateio_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="gestor_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icones\gestor_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="aparelho_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icones\aparelho_16x16.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="produto_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\produto_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="importar.fatura_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icones\importar.fatura_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,6 +160,9 @@
   <data name="cadastros_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icones\cadastros_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="aparelho_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\aparelho_16x16.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="lancamento.manual_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icones\lancamento.manual_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -184,6 +184,9 @@
   <data name="Linha_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icones\Linha_16x16.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="movimento_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\movimento_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Licenca_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icones\Licenca_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -202,7 +205,7 @@
   <data name="carregador_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\icones\carregador_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="movimento_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\icones\movimento_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Access_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\icones\Access_32x32.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -63,6 +63,16 @@ namespace Inventario.TIC.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Access_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Access_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap aparelho_16x16 {
             get {
                 object obj = ResourceManager.GetObject("aparelho_16x16", resourceCulture);
