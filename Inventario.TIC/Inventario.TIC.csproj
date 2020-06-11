@@ -102,6 +102,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\Access.cs" />
+    <Compile Include="Class\AccessRepository.cs" />
     <Compile Include="Class\Carregador.cs" />
     <Compile Include="Class\AparelhoRepository.cs" />
     <Compile Include="Class\CarregadorRepository.cs" />
@@ -169,6 +171,12 @@
     </Compile>
     <Compile Include="Forms\AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmAccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAccess.designer.cs">
+      <DependentUpon>FrmAccess.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmAparelho.cs">
       <SubType>Form</SubType>
@@ -397,6 +405,9 @@
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="Forms\AboutBox1.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAccess.resx">
+      <DependentUpon>FrmAccess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAparelho.resx">
       <DependentUpon>FrmAparelho.cs</DependentUpon>

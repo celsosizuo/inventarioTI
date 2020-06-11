@@ -10,7 +10,7 @@ USE INVTIC
 GO
 
 /***************************************************************************************************************************************************************/
-												/*********   INÕCIO DO M”DULO DE COMPUTADORES   *********/
+												/*********   INÔøΩCIO DO MÔøΩDULO DE COMPUTADORES   *********/
 /***************************************************************************************************************************************************************/
 
 IF NOT EXISTS (SELECT * fROM SYS.objects WHERE type = 'U' AND name = 'NOTAFISCAL')
@@ -135,7 +135,7 @@ END END END AS STATUS, C.STATUS AS STATUS1,
 CASE WHEN OCS.ID IS NOT NULL THEN
 	'Sim'
 ELSE
-	'N„o'
+	'NÔøΩo'
 END AS TEMLIGACAOCOMOCS, C.OBSERVACOES,
 C.OCSID, 
 OCS.ID, OCS.name, OCS.IPADDR, OCS.OSNAME, OCS.USERID, OCS.WINPRODID, OCS.WINPRODKEY, OCS.WORKGROUP, OCS.PROCESSORT, OCS.MEMORY, OCS.LASTDATE, OCS.LASTCOME, 
@@ -506,7 +506,7 @@ GO
 
 CREATE PROCEDURE GETCONFRONTOLICENCASCOMPUTADORES
 AS
-/*CONTINUAR BATENDO AS LICEN«AS DE WINDOWS E OFFICE COLETADAS DA PLANILHA DO MICHEL COM O OCS*/
+/*CONTINUAR BATENDO AS LICENÔøΩAS DE WINDOWS E OFFICE COLETADAS DA PLANILHA DO MICHEL COM O OCS*/
 --DROP TABLE #TMPLICENCAS
 
 SELECT C.ID, C.ATIVOANTIGO, C.ATIVONOVO, C.USUARIO, C.DEPARTAMENTO, C.STATUS, C.OCSID, WINDOWS.NOME AS WINDOWS, OFFICE.NOME AS OFFICE
@@ -544,18 +544,18 @@ LEFT OUTER JOIN
 ) AS OFFICE ON OFFICE.ID = h.ID')
 									 
 SELECT CASE WHEN A.WINDOWS = B.WINDOWS THEN --CASE WHEN LTRIM(RTRIM(SUBSTRING(A.WINDOWS, 0, LEN(A.WINDOWS) -3))) = LTRIM(RTRIM(B.WINDOWS)) THEN
-	'LICEN«A WINDOWS OK COM O OCS'
+	'LICENÔøΩA WINDOWS OK COM O OCS'
 ELSE CASE WHEN A.WINDOWS IS NULL THEN
-	'N√O EXISTE NF DO WINDOWS'
+	'NÔøΩO EXISTE NF DO WINDOWS'
 ELSE
-	'LICEN«A COM PROBLEMA'
+	'LICENÔøΩA COM PROBLEMA'
 END END AS STATUSLICENCAWINDOWS,
 CASE WHEN A.OFFICE = B.OFFICE THEN --CASE WHEN SUBSTRING(A.OFFICE, 0, LEN(A.OFFICE) -3) = B.OFFICE THEN
-	'LICEN«A OFFICE OK COM O OCS'
+	'LICENÔøΩA OFFICE OK COM O OCS'
 ELSE CASE WHEN A.OFFICE IS NULL THEN
-	'N√O TEM OFFICE INSTALADO'
+	'NÔøΩO TEM OFFICE INSTALADO'
 ELSE
-	'LICEN«A COM PROBLEMA'
+	'LICENÔøΩA COM PROBLEMA'
 END END AS STATUSLICENCAOFFICE, *
 FROM #TMPLICENCAS A
 INNER JOIN #TMPOCS B ON A.ATIVONOVO = B.NAME
@@ -588,14 +588,14 @@ ORDER BY NF.NUMNF
 
 
 /***************************************************************************************************************************************************************/
-												/*********   FINAL DO M”DULO DE COMPUTADORES   *********/
+												/*********   FINAL DO MÔøΩDULO DE COMPUTADORES   *********/
 /***************************************************************************************************************************************************************/
 
 GO
 
 
 /***************************************************************************************************************************************************************/
-												/*********   INÕCIO DO M”DULO DE CELULARES   *********/
+												/*********   INÔøΩCIO DO MÔøΩDULO DE CELULARES   *********/
 /***************************************************************************************************************************************************************/
 
 IF NOT EXISTS (SELECT * FROM SYS.objects WHERE TYPE = 'U' AND NAME = 'LINHA')
@@ -768,7 +768,7 @@ AS
 
 	SELECT *,
 	CASE WHEN TERCEIRO = 1 THEN
-		'N„o'
+		'NÔøΩo'
 	ELSE
 		'Sim'
 	END AS TERCEIRODESCRICAO
@@ -785,7 +785,7 @@ CREATE PROCEDURE GETUSUARIOS
 AS
 	SELECT *,
 	CASE WHEN TERCEIRO = 1 THEN
-		'N„o'
+		'NÔøΩo'
 	ELSE
 		'Sim'
 	END AS TERCEIRODESCRICAO
@@ -1220,7 +1220,7 @@ GO
 
 CREATE PROCEDURE GETTERMOCELULAR
 AS
-	SELECT C.*, CASE WHEN C.FONEOUVIDO = 0 THEN 'Sim' ELSE 'N„o' END AS FONEOUVIDODESCRICAO, 
+	SELECT C.*, CASE WHEN C.FONEOUVIDO = 0 THEN 'Sim' ELSE 'NÔøΩo' END AS FONEOUVIDODESCRICAO, 
 	CASE WHEN TCU.DATADEVOLUCAO IS NULL AND TCU.LINKENTREGA IS NULL THEN
 		'Ativo Sem Termo Escaneado'
 	ELSE CASE WHEN TCU.DATADEVOLUCAO IS NULL AND TCU.LINKENTREGA IS NOT NULL THEN
@@ -1287,7 +1287,7 @@ AS
 	A.MODELO AS APARELHOMODELO, L.NUMERO AS LINHANUMERO, A.IMEI1 AS APARELHOIMEI1, L.CHIP AS LINHACHIP, A.VALOR AS APARELHOVALOR,
 	CA.MARCA AS CARREGADORMARCA, CA.NUMSERIE AS CARREGADORNUMSERIE, CA.VALOR AS CARREGADORVALOR,
 	G.NOME AS GESTORNOME, C.FONEOUVIDO, C.DATAENTREGA, TCU.DATADEVOLUCAO, TCU.MOTIVO, C.ID AS TERMNOID
-	--C.*, CASE WHEN C.FONEOUVIDO = 0 THEN 'Sim' ELSE 'N„o' END AS FONEOUVIDODESCRICAO, L.*, A.*, CA.*, G.*, U.*
+	--C.*, CASE WHEN C.FONEOUVIDO = 0 THEN 'Sim' ELSE 'NÔøΩo' END AS FONEOUVIDODESCRICAO, L.*, A.*, CA.*, G.*, U.*
 	FROM TERMOCELULAR C
 	LEFT JOIN LINHA L ON L.ID = C.LINHAID
 	LEFT JOIN APARELHO A ON A.ID = C.APARELHOID
@@ -1315,7 +1315,7 @@ AS
 	A.MODELO AS APARELHOMODELO, L.NUMERO AS LINHANUMERO, A.IMEI1 AS APARELHOIMEI1, L.CHIP AS LINHACHIP, A.VALOR AS APARELHOVALOR,
 	CA.MARCA AS CARREGADORMARCA, CA.NUMSERIE AS CARREGADORNUMSERIE, CA.VALOR AS CARREGADORVALOR,
 	G.NOME AS GESTORNOME, C.FONEOUVIDO, C.DATAENTREGA, TCU.DATADEVOLUCAO, TCU.MOTIVO
-	--C.*, CASE WHEN C.FONEOUVIDO = 0 THEN 'Sim' ELSE 'N„o' END AS FONEOUVIDODESCRICAO, L.*, A.*, CA.*, G.*, U.*
+	--C.*, CASE WHEN C.FONEOUVIDO = 0 THEN 'Sim' ELSE 'NÔøΩo' END AS FONEOUVIDODESCRICAO, L.*, A.*, CA.*, G.*, U.*
 	FROM TERMOCELULAR C
 	LEFT JOIN LINHA L ON L.ID = C.LINHAID
 	LEFT JOIN APARELHO A ON A.ID = C.APARELHOID
@@ -1746,7 +1746,7 @@ AS
 	) AS SERVICO ON FATURA.LINHANUMERO = SERVICO.LINHANUMERO
 	LEFT OUTER JOIN
 	(
-		--PEGANDO OS LAN«AMENTOS MANUAIS
+		--PEGANDO OS LANÔøΩAMENTOS MANUAIS
 		SELECT LINHANUMERO, SUM(VALOR) AS VALOR
 		FROM DETALHEFATURA
 		WHERE UNIDADE = 'MANUAL' AND
@@ -1757,7 +1757,7 @@ AS
 
 
 	--POR CENTRO DE CUSTO
-	SELECT A.REFERENCIA, ISNULL(USUARIO.CODCCUSTO, '2.02.03') AS CODCCUSTO, ISNULL(USUARIO.CENTROCUSTO, 'Tecnologia da InformaÁ„o e ComunicaÁ„o') AS CENTROCUSTO, SUM(A.VALOR) AS VALOR
+	SELECT A.REFERENCIA, ISNULL(USUARIO.CODCCUSTO, '2.02.03') AS CODCCUSTO, ISNULL(USUARIO.CENTROCUSTO, 'Tecnologia da InformaÔøΩÔøΩo e ComunicaÔøΩÔøΩo') AS CENTROCUSTO, SUM(A.VALOR) AS VALOR
 	FROM #TMPFATURAVIVO A
 	LEFT JOIN LINHA L ON L.NUMERO = A.LINHANUMERO
 	LEFT OUTER JOIN 
@@ -1774,7 +1774,7 @@ AS
 		) AS USUARIOTERMO ON A.ID = USUARIOTERMO.TERMOCELULARID
 		LEFT JOIN USUARIO U ON U.ID = USUARIOTERMO.USUARIOID
 	) USUARIO ON USUARIO.NUMERO = L.NUMERO
-	GROUP BY ISNULL(USUARIO.CODCCUSTO, '2.02.03'), ISNULL(USUARIO.CENTROCUSTO, 'Tecnologia da InformaÁ„o e ComunicaÁ„o'), A.REFERENCIA
+	GROUP BY ISNULL(USUARIO.CODCCUSTO, '2.02.03'), ISNULL(USUARIO.CENTROCUSTO, 'Tecnologia da InformaÔøΩÔøΩo e ComunicaÔøΩÔøΩo'), A.REFERENCIA
 	--ORDER BY ISNULL(USUARIO.NOME, 'TIC')
 
 
@@ -1948,7 +1948,7 @@ GO
 
 /********************************************************************************************************************************************************/
 
--- INICIO DA IMPORTA«√O DAS CONTAS DE E-MAIL
+-- INICIO DA IMPORTAÔøΩÔøΩO DAS CONTAS DE E-MAIL
 
 IF NOT EXISTS (SELECT * FROM SYS.objects WHERE TYPE = 'U' AND NAME = 'DETALHEFATURAEMAIL')
 CREATE TABLE DETALHEFATURAEMAIL
@@ -2126,7 +2126,7 @@ AS
 	UPDATE DETALHEFATURAEMAIL
 	SET VALOR = B.VALORUNITCOMIMPOSTO
 	FROM DETALHEFATURAEMAIL A
-	INNER JOIN PRECOCONTAEMAIL B ON B.TIPOCONTA = 'Usu·rios Maiex'
+	INNER JOIN PRECOCONTAEMAIL B ON B.TIPOCONTA = 'UsuÔøΩrios Maiex'
 	WHERE TIPOREGISTRO = 'Maiex' AND
 	TIPO <> 'contato' and
 	POLITICA <> 'internal' AND
@@ -2216,7 +2216,7 @@ AS
 	/* ADICIONANDO O VALOR DO DOMINIO NOS CENTROS DE CUSTO */
 	SELECT @VALORDOMINIO = VALORUNITCOMIMPOSTO
 	FROM PRECOCONTAEMAIL
-	WHERE TIPOCONTA = 'DomÌnio'
+	WHERE TIPOCONTA = 'DomÔøΩnio'
 
 	SELECT @BOLETORATEADO = (@VALORBOLETO / CONVERT(DECIMAL(18,4), COUNT(*))),
 		   @DOMINIORATEADO = (@VALORDOMINIO / CONVERT(DECIMAL(18,4), COUNT(*)))
@@ -2232,7 +2232,7 @@ GO
 
 /********************************************************************************************************************************************************/
 
--- INICIO DA IMPORTA«√O DAS CONTAS DE TELEFONIA FIXA
+-- INICIO DA IMPORTAÔøΩÔøΩO DAS CONTAS DE TELEFONIA FIXA
 
 IF NOT EXISTS (SELECT * FROM SYS.objects WHERE TYPE = 'U' AND NAME = 'DETALHEFATURATELFIXA')
 CREATE TABLE DETALHEFATURATELFIXA
@@ -2320,7 +2320,7 @@ GO
 
 /********************************************************************************************************************************************************/
 
--- INICIO DA IMPORTA«√O DAS CONTAS DE IMPRESSORAS
+-- INICIO DA IMPORTAÔøΩÔøΩO DAS CONTAS DE IMPRESSORAS
 
 IF NOT EXISTS (SELECT * FROM SYS.objects WHERE TYPE = 'U' AND NAME = 'DETALHEFATURAIMPRESSORAS')
 CREATE TABLE DETALHEFATURAIMPRESSORAS
@@ -2596,7 +2596,7 @@ CREATE PROCEDURE GETDISPOSITIVOALUGADO
 AS
 	SELECT D.*, 
 	CASE WHEN D.OCSID IS NULL THEN
-		'N„o'
+		'NÔøΩo'
 	ELSE
 		'Sim'
 	END AS TEMLIGACAOCOMOCS,
@@ -2659,7 +2659,7 @@ GO
 
 /********************************************************************************************************************************************************/
 
--- INICIO DO HIST”RICO DE USU¡RIOS DOS COMPUTADORES
+-- INICIO DO HISTÔøΩRICO DE USUÔøΩRIOS DOS COMPUTADORES
 
 IF NOT EXISTS (SELECT * FROM SYS.objects WHERE TYPE = 'U' AND NAME = 'HISTORICOUSUARIOSCOMPUTADORES')
 	CREATE TABLE HISTORICOUSUARIOSCOMPUTADORES
@@ -2730,7 +2730,7 @@ AS
 GO
 
 /***************************************************************************************************************************************************************/
-											/*********   INÕCIO DO M”DULO DE LICENCAS DISPOSITIVOS ALUGADOS   *********/
+											/*********   INÔøΩCIO DO MÔøΩDULO DE LICENCAS DISPOSITIVOS ALUGADOS   *********/
 /***************************************************************************************************************************************************************/
 
 IF NOT EXISTS (SELECT * fROM SYS.objects WHERE type = 'U' AND name = 'DISPOSITIVOALUGADOLICENCAS')
@@ -2800,7 +2800,7 @@ order by c.ID
 GO
 
 /***************************************************************************************************************************************************************/
-														/*********   INÕCIO DO M”DULO ESTOQUE TIC   *********/
+														/*********   INÔøΩCIO DO MÔøΩDULO ESTOQUE TIC   *********/
 /***************************************************************************************************************************************************************/
 
 IF NOT EXISTS (SELECT * fROM SYS.objects WHERE type = 'U' AND name = 'PRODUTO')
@@ -2967,4 +2967,89 @@ AS
 	INNER JOIN PRODUTO P ON A.PRODUTOID = P.ID
 
 GO
+
+/***************************************************************************************************************************************************************/
+											/*********   IN√çCIO DO M√ìDULO GERENCIAMENTO DE SENHAS   *********/
+/***************************************************************************************************************************************************************/
+
+IF NOT EXISTS (SELECT * fROM SYS.objects WHERE type = 'U' AND name = 'ACCESS')
+	CREATE TABLE ACCESS
+	(
+		ID					INT IDENTITY,
+		DESCRICAO			VARCHAR(200),
+		ENDERECOACESSO		VARCHAR(200),
+		OBSERVACAO			VARCHAR(MAX),
+		USUARIO				VARCHAR(100),
+		SENHA				VARCHAR(MAX)
+
+		PRIMARY KEY (ID)
+	)
+
+GO
+
+IF EXISTS (SELECT * fROM SYS.objects WHERE type = 'P' AND name = 'POSTACCESS')
+	DROP PROCEDURE POSTACCESS
+
+GO
+
+CREATE PROCEDURE POSTACCESS
+	@DESCRICAO			VARCHAR(200),
+	@ENDERECOACESSO		VARCHAR(200),
+	@OBSERVACAO			VARCHAR(MAX),
+	@USUARIO			VARCHAR(100),
+	@SENHA				VARCHAR(MAX)
+AS
+	INSERT ACCESS VALUES (@DESCRICAO, @ENDERECOACESSO, @OBSERVACAO, @USUARIO, @SENHA)
+
+	SELECT SCOPE_IDENTITY();
+
+GO
+
+IF EXISTS (SELECT * fROM SYS.objects WHERE type = 'P' AND name = 'PUTACCESS')
+	DROP PROCEDURE PUTACCESS
+
+GO
+
+CREATE PROCEDURE PUTACCESS
+	@DESCRICAO			VARCHAR(200),
+	@ENDERECOACESSO		VARCHAR(200),
+	@OBSERVACAO			VARCHAR(MAX),	
+	@USUARIO			VARCHAR(100),
+	@SENHA				VARCHAR(MAX),
+	@ID					INT
+AS
+	UPDATE ACCESS SET
+	DESCRICAO = @DESCRICAO, 
+	ENDERECOACESSO = @ENDERECOACESSO,
+	OBSERVACAO = @OBSERVACAO, 
+	USUARIO = @USUARIO, 
+	SENHA = @SENHA
+	WHERE ID = @ID
+
+GO
+
+IF EXISTS (SELECT * fROM SYS.objects WHERE type = 'P' AND name = 'DELETEACCESS')
+	DROP PROCEDURE DELETEACCESS
+
+GO
+
+CREATE PROCEDURE DELETEACCESS
+	@ID				INT
+AS
+	DELETE ACCESS
+	WHERE ID = @ID
+
+GO
+
+IF EXISTS (SELECT * fROM SYS.objects WHERE type = 'P' AND name = 'GETACCESS')
+	DROP PROCEDURE GETACCESS
+
+GO
+
+CREATE PROCEDURE GETACCESS
+AS
+	SELECT * FROM ACCESS
+
+
+
 
