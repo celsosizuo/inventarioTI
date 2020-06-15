@@ -156,6 +156,8 @@
     <Compile Include="Class\Aparelho.cs" />
     <Compile Include="Class\TermoCelularUsuarioRepository.cs" />
     <Compile Include="Class\TermoCelularUsuarios.cs" />
+    <Compile Include="Class\TermoComputador.cs" />
+    <Compile Include="Class\TermoComputadorRepository.cs" />
     <Compile Include="Class\TipoDispositivo.cs" />
     <Compile Include="Class\TipoDispositivoRepository.cs" />
     <Compile Include="Class\Totvs.cs" />
@@ -370,6 +372,12 @@
     <Compile Include="Forms\FrmSoftware.Designer.cs">
       <DependentUpon>FrmSoftware.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmTermoComputador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTermoComputador.Designer.cs">
+      <DependentUpon>FrmTermoComputador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmTipoDispositivo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -400,6 +408,7 @@
     <Compile Include="Forms\MDIParent1.Designer.cs">
       <DependentUpon>MDIParent1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\TermoComputadorResponse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -504,6 +513,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmSoftware.resx">
       <DependentUpon>FrmSoftware.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTermoComputador.resx">
+      <DependentUpon>FrmTermoComputador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmTipoDispositivo.resx">
       <DependentUpon>FrmTipoDispositivo.cs</DependentUpon>

@@ -366,5 +366,12 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void termosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmTermoComputador newMDIChild = new FrmTermoComputador();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }
