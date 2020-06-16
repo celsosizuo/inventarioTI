@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Inventario.TIC.Class
@@ -20,7 +21,6 @@ namespace Inventario.TIC.Class
         public int GestorId { get; set; }
         public DateTime DataEntrega { get; set; }
         public decimal ValorDispositivo { get; set; }
-        public decimal ValorMaleta { get; set; }
         public DateTime? DataDevolucao { get; set; }
         public string Motivo { get; set; }
         public string LinkEntrega { get; set; }
@@ -31,6 +31,18 @@ namespace Inventario.TIC.Class
         public DispositivoAlugado DispositivoAlugado { get; set; }
         public Carregador Carregador { get; set; }
         public Gestor Gestor { get; set; }
+        public List<TermoComputadorAcessorio> TermoComputadorAcessorio { get; set; }
+
+        public TermoComputador()
+        {
+            ValidationResult = new ValidationResult();
+            TermoComputadorAcessorio = new List<TermoComputadorAcessorio>();
+            Usuario = new Usuario();
+            Computador = new Computadores();
+            DispositivoAlugado = new DispositivoAlugado();
+            Carregador = new Carregador();
+            Gestor = new Gestor();
+        }
 
         public bool EhValido()
         {
@@ -47,7 +59,6 @@ namespace Inventario.TIC.Class
             ValidarGestor();
             ValidarDataEntrega();
             ValidarValorDispositivo();
-            ValidarValorMaleta();
         }
 
         private void ValidarCarregador()
@@ -72,11 +83,6 @@ namespace Inventario.TIC.Class
         private void ValidarValorDispositivo()
         {
             RuleFor(a => a.ValorDispositivo).NotEmpty().WithMessage("- Campo Valor do Dispositivo é obrigatório");
-        }
-
-        private void ValidarValorMaleta()
-        {
-            RuleFor(a => a.ValorMaleta).NotNull().WithMessage("- Campo Valor da Maleta é obrigatório");
         }
 
         public string GetErros()

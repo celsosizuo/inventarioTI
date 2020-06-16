@@ -40,7 +40,6 @@ namespace Inventario.TIC.Class
                     command.Parameters.AddWithValue("@GestorId", termoComputador.Gestor.Id);
                     command.Parameters.AddWithValue("@DataEntrega", termoComputador.DataEntrega);
                     command.Parameters.AddWithValue("@ValorDispositivo", termoComputador.ValorDispositivo);
-                    command.Parameters.AddWithValue("@ValorMaleta", termoComputador.ValorMaleta);
 
                     if (termoComputador.DataDevolucao == null)
                         command.Parameters.AddWithValue("@DataDevolucao", DBNull.Value);
@@ -107,15 +106,27 @@ namespace Inventario.TIC.Class
                     command.Parameters.AddWithValue("@GestorId", termoComputador.Gestor.Id);
                     command.Parameters.AddWithValue("@DataEntrega", termoComputador.DataEntrega);
                     command.Parameters.AddWithValue("@ValorDispositivo", termoComputador.ValorDispositivo);
-                    command.Parameters.AddWithValue("@ValorMaleta", termoComputador.ValorMaleta);
 
                     if (termoComputador.DataDevolucao == null)
                         command.Parameters.AddWithValue("@DataDevolucao", DBNull.Value);
                     else
                         command.Parameters.AddWithValue("@DataDevolucao", termoComputador.DataDevolucao);
 
-                    command.Parameters.AddWithValue("@Motivo", termoComputador.Motivo);
-                    command.Parameters.AddWithValue("@DataEntrega", termoComputador.DataEntrega);
+                    if (termoComputador.Motivo == null)
+                        command.Parameters.AddWithValue("@Motivo", DBNull.Value);
+                    else
+                        command.Parameters.AddWithValue("@Motivo", termoComputador.Motivo);
+
+                    if (termoComputador.LinkEntrega == null)
+                        command.Parameters.AddWithValue("@LinkEntrega", DBNull.Value);
+                    else
+                        command.Parameters.AddWithValue("@LinkEntrega", termoComputador.LinkEntrega);
+
+                    if (termoComputador.LinkDevolucao == null)
+                        command.Parameters.AddWithValue("@LinkDevolucao", DBNull.Value);
+                    else
+                        command.Parameters.AddWithValue("@LinkDevolucao", termoComputador.LinkDevolucao);
+
                     command.Parameters.AddWithValue("@Id", termoComputador.Id);
 
                     command.Connection.Open();
@@ -180,6 +191,7 @@ namespace Inventario.TIC.Class
                             typeof(DispositivoAlugado),
                             typeof(Carregador),
                             typeof(Gestor),
+                            typeof(TermoComputadorAcessorio),
 
                         }, objects =>
                         {
@@ -189,6 +201,7 @@ namespace Inventario.TIC.Class
                             var dispositivoAlugado = objects[3] as DispositivoAlugado;
                             var carregador = objects[4] as Carregador;
                             var gestor = objects[5] as Gestor;
+                            var acessorios = objects[6] as TermoComputadorAcessorio;
 
                             termoComputador.Usuario = usuarios;
                             termoComputador.Computador = computadores;
@@ -196,35 +209,42 @@ namespace Inventario.TIC.Class
                             termoComputador.Carregador = carregador;
                             termoComputador.Gestor = gestor;
 
+                            if (acessorios != null)
+                                termoComputador.TermoComputadorAcessorio.Add(acessorios);
+                            else
+                                termoComputador.TermoComputadorAcessorio = new List<TermoComputadorAcessorio>();
+
+
                             return termoComputador;
 
-                        }, splitOn: "ID, ID, ID, ID, ID, ID").AsList(); //, TERMOCELULARID").AsList();
+                        }, splitOn: "ID, ID, ID, ID, ID, ID, ID").AsList(); //, TERMOCELULARID").AsList();
 
                     // return ret;
                 }
 
-                //var list = new List<TermoComputador>();
-                //var numItemGuardado = 0;
+                var list = new List<TermoComputador>();
+                var numItemGuardado = 0;
 
-                //ret.ToList().ForEach(it =>
-                //{
-                //    if (it.Id != numItemGuardado)
-                //        list.Add(it);
-                //    else
-                //        list.LastOrDefault().Usuario.Add(it.Usuario.FirstOrDefault());
+                ret.ToList().ForEach(it =>
+                {
+                    if (it.Id != numItemGuardado)
+                        list.Add(it);
+                    else
+                        list.LastOrDefault().TermoComputadorAcessorio.Add(it.TermoComputadorAcessorio.FirstOrDefault());
 
-                //    numItemGuardado = it.Id;
-                //});
+                    numItemGuardado = it.Id;
+                });
 
-                //return list;
+                return list;
 
-                return ret;
+                // return ret;
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
         }
+
         public void UpdateLinkTermoEntrega(TermoComputador termoComputador)
         {
             try

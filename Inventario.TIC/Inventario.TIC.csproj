@@ -157,6 +157,8 @@
     <Compile Include="Class\TermoCelularUsuarioRepository.cs" />
     <Compile Include="Class\TermoCelularUsuarios.cs" />
     <Compile Include="Class\TermoComputador.cs" />
+    <Compile Include="Class\TermoComputadorAcessorio.cs" />
+    <Compile Include="Class\TermoComputadorAcessorioRepository.cs" />
     <Compile Include="Class\TermoComputadorRepository.cs" />
     <Compile Include="Class\TipoDispositivo.cs" />
     <Compile Include="Class\TipoDispositivoRepository.cs" />

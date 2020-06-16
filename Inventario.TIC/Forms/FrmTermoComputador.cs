@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace Inventario.TIC.Forms
     public partial class FrmTermoComputador : Form
     {
         private TermoComputadorRepository _termoRepository;
+        private TermoComputadorAcessorioRepository _acessorioRepository;
         private List<Usuario> _usuarios;
         private List<Gestor> _gestores;
         private List<TermoComputadorResponse> _termoComputadorResponse;
@@ -22,6 +24,7 @@ namespace Inventario.TIC.Forms
         private List<Computadores> _computadores;
         private List<DispositivoAlugado> _dispositivoAlugado;
         private List<TermoComputador> _termoComputadorOriginal;
+        private List<TermoComputadorAcessorio> _acessorios;
         
         private Usuario _usuarioSelecionado;
         private Carregador _carregadorSelecionado;
@@ -31,9 +34,11 @@ namespace Inventario.TIC.Forms
         private TermoComputador _termoComputador;
 
 
+
         public FrmTermoComputador()
         {
             _termoRepository = new TermoComputadorRepository();
+            _acessorioRepository = new TermoComputadorAcessorioRepository();
             _usuarios = new List<Usuario>();
             _gestores = new List<Gestor>();
             _termoComputadorResponse = new List<TermoComputadorResponse>();
@@ -48,6 +53,7 @@ namespace Inventario.TIC.Forms
             _gestorSelecionado = new Gestor();
             _termoComputadorOriginal = new List<TermoComputador>();
             _termoComputador = new TermoComputador();
+            _acessorios = new List<TermoComputadorAcessorio>();
 
             InitializeComponent();
         }
@@ -465,7 +471,6 @@ namespace Inventario.TIC.Forms
                 termo.Gestor = _gestorSelecionado;
                 termo.DataEntrega = DateTime.Parse(this.txtDataEntrega.Text);
                 termo.ValorDispositivo = decimal.Parse(this.txtValorDispositivo.Text);
-                termo.ValorMaleta = decimal.Parse(this.txtValorMaleta.Text);
                 termo.DataDevolucao = null;
                 termo.Motivo = null;
                 termo.LinkEntrega = null;
@@ -480,13 +485,32 @@ namespace Inventario.TIC.Forms
                         termo.Id = int.Parse(retorno);
                         _termoComputadores.Add(termo);
 
+                        _acessorios.ForEach(a =>
+                        {
+                            a.TermoComputadorId = int.Parse(retorno);
+                            _acessorioRepository.Add(a);
+                        });
+                        
                         MessageBox.Show("Inclusão efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
                     }
                     else
                     {
                         _termoRepository.Update(termo);
-                        
+
+                        _acessorios.ForEach(a =>
+                        {
+                            if(a.Id == 0)
+                            {
+                                a.TermoComputadorId = termo.Id;
+                                _acessorioRepository.Add(a);
+                            }
+                            else
+                            {
+                                _acessorioRepository.Update(a);
+                            }
+                        });
+
+
                         MessageBox.Show("Atualização efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                     this.CarregaDataGridView();
@@ -526,7 +550,6 @@ namespace Inventario.TIC.Forms
             this.txtDataEntrega.Text = _termoComputador.DataEntrega.ToString();
             this.cboGestores.SelectedValue = _termoComputador.Gestor.Id;
             this.txtValorDispositivo.Text = _termoComputador.ValorDispositivo.ToString("N2");
-            this.txtValorMaleta.Text = _termoComputador.ValorMaleta.ToString("N2");
             this.txtLinkTermoEntrega.Text = _termoComputador.LinkEntrega;
             this.txtLinkTermoDevolucao.Text = _termoComputador.LinkDevolucao;
 
@@ -537,6 +560,7 @@ namespace Inventario.TIC.Forms
             this.txtCpfReadOnly.Text = _termoComputador.Usuario.Cpf;
             this.txtChapaReadOnly.Text = _termoComputador.Usuario.Chapa;
             this.txtUsuario.Text = _termoComputador.Usuario.Nome;
+            _usuarioSelecionado = _termoComputador.Usuario;
 
             // Carregador
             this.txtCarregador.Enabled = false;
@@ -544,6 +568,7 @@ namespace Inventario.TIC.Forms
             this.txtCarregadorIdReadOnly.Text = _termoComputador.Carregador.Id.ToString();
             this.txtCarregadorMarcaReadOnly.Text = _termoComputador.Carregador.Marca.ToString();
             this.txtNumSerieReadOnly.Text = _termoComputador.Carregador.NumSerie.ToString();
+            _carregadorSelecionado = _termoComputador.Carregador;
 
             // Computador
             this.txtAtivo.Enabled = false;
@@ -551,6 +576,15 @@ namespace Inventario.TIC.Forms
             this.txtAtivo.Text = _termoComputador.Computador == null ? _termoComputador.DispositivoAlugado.Ativo : _termoComputador.Computador.AtivoNovo.ToString();
             this.txtAtivoReadOnly.Text = _termoComputador.Computador == null ? _termoComputador.DispositivoAlugado.Ativo : _termoComputador.Computador.AtivoNovo.ToString();
             this.txtDepartamentoReadOnly.Text = _termoComputador.Computador == null ? _termoComputador.DispositivoAlugado.Departamento : _termoComputador.Computador.Departamento.ToString();
+
+            _computadorSelecionado = _termoComputador.Computador;
+            _dispositivoAlugadoSelecionado = _termoComputador.DispositivoAlugado;
+            
+
+            // Acessorios
+            _acessorios = _termoComputador.TermoComputadorAcessorio;
+            this.AtualizarDataGridViewAcessorios();
+
 
             if (_termoComputador.Computador == null)
                 this.rdoAlugado.Checked = true;
@@ -565,7 +599,6 @@ namespace Inventario.TIC.Forms
             this.txtDataEntrega.Clear();
             this.cboGestores.SelectedValue = 0;
             this.txtValorDispositivo.Clear();
-            this.txtValorMaleta.Clear();
             this.txtLinkTermoEntrega.Clear();
             this.txtLinkTermoDevolucao.Clear();
 
@@ -593,6 +626,17 @@ namespace Inventario.TIC.Forms
             this.rdoAlugado.Checked = false;
             this.rdoProprio.Checked = false;
 
+            // Acessórios
+            this.txtNomeAcessorio.Clear();
+            this.txtValorAcessorio.Clear();
+            this.dgvAcessorios.DataSource = null;
+
+            _acessorios = new List<TermoComputadorAcessorio>();
+            _computadorSelecionado = new Computadores();
+            _carregadorSelecionado = new Carregador();
+            _dispositivoAlugadoSelecionado = new DispositivoAlugado();
+            _usuarioSelecionado = new Usuario();
+            _gestorSelecionado = new Gestor();
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -627,12 +671,6 @@ namespace Inventario.TIC.Forms
             {
                 e.Handled = true;
             }
-        }
-
-        private void txtValorMaleta_Leave(object sender, EventArgs e)
-        {
-            decimal valor = this.txtValorMaleta.Text == "" ? 0 : decimal.Parse(this.txtValorMaleta.Text);
-            this.txtValorMaleta.Text = valor.ToString("N2");
         }
 
         private void lnkAddTermo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -683,6 +721,190 @@ namespace Inventario.TIC.Forms
             {
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void AtualizarDataGridViewAcessorios()
+        {
+            this.dgvAcessorios.DataSource = null;
+            this.dgvAcessorios.DataSource = _acessorios;
+            this.dgvAcessorios.Columns["CascadeMode"].Visible = false;
+            this.dgvAcessorios.Columns["TermoComputadorId"].Visible = false;
+            this.dgvAcessorios.Columns["Id"].Visible = false;
+        }
+
+        private void btnAddAcessorio_Click(object sender, EventArgs e)
+        {
+            TermoComputadorAcessorio acessorio = new TermoComputadorAcessorio()
+            {
+                TermoComputadorId = 0,
+                NomeAcessorio = this.txtNomeAcessorio.Text,
+                Valor = decimal.Parse(this.txtValorAcessorio.Text)
+            };
+
+            this.txtNomeAcessorio.Clear();
+            this.txtValorAcessorio.Clear();
+
+            _acessorios.Add(acessorio);
+            this.AtualizarDataGridViewAcessorios();
+        }
+
+        private void btnDelAcessorio_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.dgvAcessorios.Rows.Count > 0)
+                {
+                    int RowIndex = this.dgvAcessorios.CurrentRow == null ? -1 : this.dgvAcessorios.CurrentRow.Index;
+                    if (RowIndex < 0)
+                    {
+                        MessageBox.Show("Favor selecionar um acessório na lista", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        if(MessageBox.Show("Você tem certeza que deseja excluir o registro " + _acessorios[RowIndex].NomeAcessorio + "?", "Confirmação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question ) == DialogResult.Yes)
+                        {
+                            int id = _acessorios[RowIndex].Id;
+
+                            _acessorios.RemoveAt(RowIndex);
+
+                            _acessorioRepository.Delete(id);
+
+                            this.AtualizarDataGridViewAcessorios();
+
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtValorAcessorio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtValorAcessorio_Leave(object sender, EventArgs e)
+        {
+            decimal valor = this.txtValorAcessorio.Text == "" ? 0 : decimal.Parse(this.txtValorAcessorio.Text);
+            this.txtValorAcessorio.Text = valor.ToString("N2");
+        }
+
+        private void lnkAbrirTermoEntrega_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (this.txtLinkTermoEntrega.Text != "")
+            {
+                string link = this.txtLinkTermoEntrega.Text;
+
+                FrmVisualizadorAdobe frmVisualizadorAdobe = new FrmVisualizadorAdobe(link);
+                // frmVisualizadorAdobe.MdiParent = MdiParent;
+                frmVisualizadorAdobe.Show();
+            }
+        }
+
+        private void lnkAbrirTermoDevolucao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (this.txtLinkTermoDevolucao.Text != "")
+            {
+                string link = this.txtLinkTermoDevolucao.Text;
+
+                FrmVisualizadorAdobe frmVisualizadorAdobe = new FrmVisualizadorAdobe(link);
+                // frmVisualizadorAdobe.MdiParent = MdiParent;
+                frmVisualizadorAdobe.Show();
+            }
+        }
+
+        private void lnkRemoverTermoEntrega_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Você tem certeza que deseja excluir o link do termo de entrega?", "Confirmação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    this.txtLinkTermoEntrega.Text = "";
+                    TermoCelularRepository termoRepository = new TermoCelularRepository();
+
+                    _termoComputador.LinkEntrega = this.txtLinkTermoEntrega.Text;
+
+                    _termoRepository.UpdateLinkTermoEntrega(_termoComputador);
+
+                    MessageBox.Show("Exclusão do link do termo de entrega efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                    this.CarregaDataGridView();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void lnkRemoverTermoDevolucao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Você tem certeza que deseja excluir o link do termo de devolução?", "Confirmação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    this.txtLinkTermoDevolucao.Text = "";
+                    TermoCelularRepository termoRepository = new TermoCelularRepository();
+
+                    _termoComputador.LinkDevolucao = this.txtLinkTermoDevolucao.Text;
+
+                    _termoRepository.UpdateLinkTermoDevolucao(_termoComputador);
+
+                    MessageBox.Show("Exclusão do link do termo de devolução efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                    this.CarregaDataGridView();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void Pesquisar(string coluna, string texto)
+        {
+            switch (coluna)
+            {
+                case "Usuario":
+                    _termoComputadores = _termoComputadorOriginal.Where(c => c.Usuario.Nome.ToUpper().Contains(texto.ToUpper())).ToList();
+                    break;
+                case "Computador":
+                    _termoComputadores = _termoComputadorOriginal.Where(c => c.Computador != null && c.Computador.AtivoNovo.Contains(texto)).ToList();
+                    break;
+                case "Alugado":
+                    _termoComputadores = _termoComputadorOriginal.Where(c => c.DispositivoAlugado != null && c.DispositivoAlugado.Ativo.Contains(texto)).ToList();
+                    break;
+                default:
+                    _termoComputadores = _termoComputadorOriginal;
+                    break;
+            }
+            _termoComputadorResponse = _termoComputadores.Select(t => (TermoComputadorResponse)t).ToList();
+            this.AtualizaDataGridView();
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            if (this.txtNomeReadOnly.Text != "")
+                this.Pesquisar("Usuario", this.txtNomeReadOnly.Text);
+            else if (this.txtAtivoReadOnly.Text != "" && this.rdoProprio.Checked)
+                this.Pesquisar("Computador", this.txtAtivoReadOnly.Text);
+            else if (this.txtAtivoReadOnly.Text != "" && this.rdoAlugado.Checked)
+                this.Pesquisar("Alugado", this.txtAtivoReadOnly.Text);
+            else
+                this.Pesquisar("", "");
+
         }
     }
 }
