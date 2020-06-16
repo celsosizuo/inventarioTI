@@ -24,31 +24,43 @@ namespace Inventario.TIC.Class
                         CommandText = "POSTTERMOCOMPUTADOR",
                     };
 
-                    command.Parameters.AddWithValue("@UsuarioId", termoComputador.UsuarioId);
+                    command.Parameters.AddWithValue("@UsuarioId", termoComputador.Usuario.Id);
 
-                    if(termoComputador.Computador == null)
+                    if (termoComputador.Computador.Id == 0)
                         command.Parameters.AddWithValue("@ComputadorId", DBNull.Value);
                     else
-                        command.Parameters.AddWithValue("@ComputadorId", termoComputador.ComputadorId);
-                    
-                    if(termoComputador.DispositivoAlugado == null)
+                        command.Parameters.AddWithValue("@ComputadorId", termoComputador.Computador.Id);
+
+                    if (termoComputador.DispositivoAlugado.Id == 0)
                         command.Parameters.AddWithValue("@DispositivoAlugadoId", DBNull.Value);
                     else
-                        command.Parameters.AddWithValue("@DispositivoAlugadoId", termoComputador.DispositivoAlugadoId);
+                        command.Parameters.AddWithValue("@DispositivoAlugadoId", termoComputador.DispositivoAlugado.Id);
 
-                    command.Parameters.AddWithValue("@CarregadorId", termoComputador.CarregadorId);
-                    command.Parameters.AddWithValue("@GestorId", termoComputador.GestorId);
+                    command.Parameters.AddWithValue("@CarregadorId", termoComputador.Carregador.Id);
+                    command.Parameters.AddWithValue("@GestorId", termoComputador.Gestor.Id);
                     command.Parameters.AddWithValue("@DataEntrega", termoComputador.DataEntrega);
                     command.Parameters.AddWithValue("@ValorDispositivo", termoComputador.ValorDispositivo);
                     command.Parameters.AddWithValue("@ValorMaleta", termoComputador.ValorMaleta);
 
-                    if(termoComputador.DataDevolucao == null)
+                    if (termoComputador.DataDevolucao == null)
                         command.Parameters.AddWithValue("@DataDevolucao", DBNull.Value);
                     else
                         command.Parameters.AddWithValue("@DataDevolucao", termoComputador.DataDevolucao);
 
-                    command.Parameters.AddWithValue("@Motivo", termoComputador.Motivo);
-                    command.Parameters.AddWithValue("@DataEntrega", termoComputador.DataEntrega);
+                    if (termoComputador.Motivo == null)
+                        command.Parameters.AddWithValue("@Motivo", DBNull.Value);
+                    else
+                        command.Parameters.AddWithValue("@Motivo", termoComputador.Motivo);
+
+                    if (termoComputador.LinkEntrega == null)
+                        command.Parameters.AddWithValue("@LinkEntrega", DBNull.Value);
+                    else
+                        command.Parameters.AddWithValue("@LinkEntrega", termoComputador.LinkEntrega);
+
+                    if (termoComputador.LinkDevolucao == null)
+                        command.Parameters.AddWithValue("@LinkDevolucao", DBNull.Value);
+                    else
+                        command.Parameters.AddWithValue("@LinkDevolucao", termoComputador.LinkDevolucao);
 
                     command.Connection.Open();
                     string retorno = command.ExecuteScalar().ToString();
@@ -79,20 +91,20 @@ namespace Inventario.TIC.Class
                         CommandText = "PUTTERMOCOMPUTADOR",
                     };
 
-                    command.Parameters.AddWithValue("@UsuarioId", termoComputador.UsuarioId);
+                    command.Parameters.AddWithValue("@UsuarioId", termoComputador.Usuario.Id);
 
                     if (termoComputador.Computador == null)
                         command.Parameters.AddWithValue("@ComputadorId", DBNull.Value);
                     else
-                        command.Parameters.AddWithValue("@ComputadorId", termoComputador.ComputadorId);
+                        command.Parameters.AddWithValue("@ComputadorId", termoComputador.Computador.Id);
 
                     if (termoComputador.DispositivoAlugado == null)
                         command.Parameters.AddWithValue("@DispositivoAlugadoId", DBNull.Value);
                     else
-                        command.Parameters.AddWithValue("@DispositivoAlugadoId", termoComputador.DispositivoAlugadoId);
+                        command.Parameters.AddWithValue("@DispositivoAlugadoId", termoComputador.DispositivoAlugado.Id);
 
-                    command.Parameters.AddWithValue("@CarregadorId", termoComputador.CarregadorId);
-                    command.Parameters.AddWithValue("@GestorId", termoComputador.GestorId);
+                    command.Parameters.AddWithValue("@CarregadorId", termoComputador.Carregador.Id);
+                    command.Parameters.AddWithValue("@GestorId", termoComputador.Gestor.Id);
                     command.Parameters.AddWithValue("@DataEntrega", termoComputador.DataEntrega);
                     command.Parameters.AddWithValue("@ValorDispositivo", termoComputador.ValorDispositivo);
                     command.Parameters.AddWithValue("@ValorMaleta", termoComputador.ValorMaleta);
@@ -207,6 +219,53 @@ namespace Inventario.TIC.Class
                 //return list;
 
                 return ret;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public void UpdateLinkTermoEntrega(TermoComputador termoComputador)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand()
+                {
+                    Connection = new SqlConnection(Properties.Settings.Default.conSQL),
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "PATHTERMOCOMPUTADORENTREGA",
+                };
+
+                command.Parameters.AddWithValue("@TERMOCOMPUTADORID", termoComputador.Id);
+                command.Parameters.AddWithValue("@LinkEntrega", termoComputador.LinkEntrega);
+
+                command.Connection.Open();
+                command.ExecuteScalar();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public void UpdateLinkTermoDevolucao(TermoComputador termoComputador)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand()
+                {
+                    Connection = new SqlConnection(Properties.Settings.Default.conSQL),
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "PATHTERMOCOMPUTADORDEVOLUCAO",
+                };
+
+                command.Parameters.AddWithValue("@TERMOCOMPUTADORID", termoComputador.Id);
+                command.Parameters.AddWithValue("@LinkDevolucao", termoComputador.LinkDevolucao);
+
+                command.Connection.Open();
+                command.ExecuteScalar();
+
             }
             catch (Exception ex)
             {

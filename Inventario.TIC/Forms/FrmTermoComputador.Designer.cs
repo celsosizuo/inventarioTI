@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.dgvTermoComputador = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -77,12 +77,12 @@
             this.txtIdReadOnly = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtAtivo = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvComputadores = new System.Windows.Forms.DataGridView();
             this.txtDepartamentoReadOnly = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtAtivoReadOnly = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnNovaPesquisaComputador = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.rdoAlugado = new System.Windows.Forms.RadioButton();
             this.rdoProprio = new System.Windows.Forms.RadioButton();
@@ -92,6 +92,13 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtValorMaleta = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtValorDispositivo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.opdTermoEntrega = new System.Windows.Forms.OpenFileDialog();
+            this.opdTermoDevolucao = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTermoComputador)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -99,12 +106,13 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvComputadores)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1008, 314);
+            this.button1.Location = new System.Drawing.Point(1008, 400);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -129,6 +137,7 @@
             this.dgvTermoComputador.ReadOnly = true;
             this.dgvTermoComputador.Size = new System.Drawing.Size(1071, 364);
             this.dgvTermoComputador.TabIndex = 61;
+            this.dgvTermoComputador.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTermoComputador_CellDoubleClick);
             // 
             // groupBox5
             // 
@@ -200,6 +209,7 @@
             this.cboGestores.Name = "cboGestores";
             this.cboGestores.Size = new System.Drawing.Size(170, 21);
             this.cboGestores.TabIndex = 8;
+            this.cboGestores.SelectedIndexChanged += new System.EventHandler(this.cboGestores_SelectedIndexChanged);
             // 
             // groupBox4
             // 
@@ -395,8 +405,8 @@
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.RowHeadersVisible = false;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuarios.Size = new System.Drawing.Size(307, 69);
             this.dgvUsuarios.TabIndex = 11;
@@ -484,7 +494,7 @@
             // 
             // btnCancelarDevolucao
             // 
-            this.btnCancelarDevolucao.Location = new System.Drawing.Point(886, 244);
+            this.btnCancelarDevolucao.Location = new System.Drawing.Point(888, 327);
             this.btnCancelarDevolucao.Name = "btnCancelarDevolucao";
             this.btnCancelarDevolucao.Size = new System.Drawing.Size(121, 23);
             this.btnCancelarDevolucao.TabIndex = 116;
@@ -493,7 +503,7 @@
             // 
             // btnDevolver
             // 
-            this.btnDevolver.Location = new System.Drawing.Point(886, 213);
+            this.btnDevolver.Location = new System.Drawing.Point(811, 327);
             this.btnDevolver.Name = "btnDevolver";
             this.btnDevolver.Size = new System.Drawing.Size(70, 23);
             this.btnDevolver.TabIndex = 115;
@@ -503,7 +513,7 @@
             // lnkAbrirTermoEntrega
             // 
             this.lnkAbrirTermoEntrega.AutoSize = true;
-            this.lnkAbrirTermoEntrega.Location = new System.Drawing.Point(550, 202);
+            this.lnkAbrirTermoEntrega.Location = new System.Drawing.Point(772, 211);
             this.lnkAbrirTermoEntrega.Name = "lnkAbrirTermoEntrega";
             this.lnkAbrirTermoEntrega.Size = new System.Drawing.Size(176, 13);
             this.lnkAbrirTermoEntrega.TabIndex = 100;
@@ -513,16 +523,17 @@
             // lnkAddTermo
             // 
             this.lnkAddTermo.AutoSize = true;
-            this.lnkAddTermo.Location = new System.Drawing.Point(809, 208);
+            this.lnkAddTermo.Location = new System.Drawing.Point(1031, 217);
             this.lnkAddTermo.Name = "lnkAddTermo";
             this.lnkAddTermo.Size = new System.Drawing.Size(51, 13);
             this.lnkAddTermo.TabIndex = 98;
             this.lnkAddTermo.TabStop = true;
             this.lnkAddTermo.Text = "Adicionar";
+            this.lnkAddTermo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkAddTermo_LinkClicked);
             // 
             // txtLinkTermoEntrega
             // 
-            this.txtLinkTermoEntrega.Location = new System.Drawing.Point(553, 217);
+            this.txtLinkTermoEntrega.Location = new System.Drawing.Point(775, 226);
             this.txtLinkTermoEntrega.MaxLength = 15;
             this.txtLinkTermoEntrega.Name = "txtLinkTermoEntrega";
             this.txtLinkTermoEntrega.ReadOnly = true;
@@ -531,7 +542,7 @@
             // 
             // txtLinkTermoDevolucao
             // 
-            this.txtLinkTermoDevolucao.Location = new System.Drawing.Point(553, 270);
+            this.txtLinkTermoDevolucao.Location = new System.Drawing.Point(775, 279);
             this.txtLinkTermoDevolucao.MaxLength = 15;
             this.txtLinkTermoDevolucao.Name = "txtLinkTermoDevolucao";
             this.txtLinkTermoDevolucao.ReadOnly = true;
@@ -541,17 +552,18 @@
             // lnkTermoDevolucao
             // 
             this.lnkTermoDevolucao.AutoSize = true;
-            this.lnkTermoDevolucao.Location = new System.Drawing.Point(805, 259);
+            this.lnkTermoDevolucao.Location = new System.Drawing.Point(1027, 268);
             this.lnkTermoDevolucao.Name = "lnkTermoDevolucao";
             this.lnkTermoDevolucao.Size = new System.Drawing.Size(51, 13);
             this.lnkTermoDevolucao.TabIndex = 102;
             this.lnkTermoDevolucao.TabStop = true;
             this.lnkTermoDevolucao.Text = "Adicionar";
+            this.lnkTermoDevolucao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkTermoDevolucao_LinkClicked);
             // 
             // lnkAbrirTermoDevolucao
             // 
             this.lnkAbrirTermoDevolucao.AutoSize = true;
-            this.lnkAbrirTermoDevolucao.Location = new System.Drawing.Point(550, 254);
+            this.lnkAbrirTermoDevolucao.Location = new System.Drawing.Point(772, 263);
             this.lnkAbrirTermoDevolucao.Name = "lnkAbrirTermoDevolucao";
             this.lnkAbrirTermoDevolucao.Size = new System.Drawing.Size(191, 13);
             this.lnkAbrirTermoDevolucao.TabIndex = 103;
@@ -561,7 +573,7 @@
             // lnkRemoverTermoEntrega
             // 
             this.lnkRemoverTermoEntrega.AutoSize = true;
-            this.lnkRemoverTermoEntrega.Location = new System.Drawing.Point(810, 225);
+            this.lnkRemoverTermoEntrega.Location = new System.Drawing.Point(1032, 234);
             this.lnkRemoverTermoEntrega.Name = "lnkRemoverTermoEntrega";
             this.lnkRemoverTermoEntrega.Size = new System.Drawing.Size(50, 13);
             this.lnkRemoverTermoEntrega.TabIndex = 104;
@@ -571,7 +583,7 @@
             // lnkRemoverTermoDevolucao
             // 
             this.lnkRemoverTermoDevolucao.AutoSize = true;
-            this.lnkRemoverTermoDevolucao.Location = new System.Drawing.Point(806, 276);
+            this.lnkRemoverTermoDevolucao.Location = new System.Drawing.Point(1028, 285);
             this.lnkRemoverTermoDevolucao.Name = "lnkRemoverTermoDevolucao";
             this.lnkRemoverTermoDevolucao.Size = new System.Drawing.Size(50, 13);
             this.lnkRemoverTermoDevolucao.TabIndex = 105;
@@ -583,25 +595,25 @@
             this.groupBox1.Controls.Add(this.txtIdReadOnly);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtAtivo);
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.dgvComputadores);
             this.groupBox1.Controls.Add(this.txtDepartamentoReadOnly);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtAtivoReadOnly);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btnNovaPesquisaComputador);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.rdoAlugado);
             this.groupBox1.Controls.Add(this.rdoProprio);
             this.groupBox1.Location = new System.Drawing.Point(546, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(537, 168);
+            this.groupBox1.Size = new System.Drawing.Size(537, 187);
             this.groupBox1.TabIndex = 117;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Computador";
             // 
             // txtIdReadOnly
             // 
-            this.txtIdReadOnly.Location = new System.Drawing.Point(395, 67);
+            this.txtIdReadOnly.Location = new System.Drawing.Point(395, 45);
             this.txtIdReadOnly.MaxLength = 9;
             this.txtIdReadOnly.Name = "txtIdReadOnly";
             this.txtIdReadOnly.ReadOnly = true;
@@ -612,7 +624,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(339, 70);
+            this.label1.Location = new System.Drawing.Point(339, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(20, 13);
             this.label1.TabIndex = 92;
@@ -620,38 +632,42 @@
             // 
             // txtAtivo
             // 
-            this.txtAtivo.Location = new System.Drawing.Point(15, 67);
+            this.txtAtivo.Location = new System.Drawing.Point(15, 48);
             this.txtAtivo.MaxLength = 500;
             this.txtAtivo.Name = "txtAtivo";
             this.txtAtivo.Size = new System.Drawing.Size(208, 20);
             this.txtAtivo.TabIndex = 82;
+            this.txtAtivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAtivo_KeyPress);
             // 
-            // dataGridView1
+            // dgvComputadores
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvComputadores.AllowUserToAddRows = false;
+            this.dgvComputadores.AllowUserToDeleteRows = false;
+            this.dgvComputadores.AllowUserToOrderColumns = true;
+            this.dgvComputadores.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 96);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(309, 60);
-            this.dataGridView1.TabIndex = 83;
-            this.dataGridView1.Visible = false;
+            this.dgvComputadores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvComputadores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvComputadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvComputadores.Location = new System.Drawing.Point(15, 76);
+            this.dgvComputadores.MultiSelect = false;
+            this.dgvComputadores.Name = "dgvComputadores";
+            this.dgvComputadores.ReadOnly = true;
+            this.dgvComputadores.RowHeadersVisible = false;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvComputadores.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvComputadores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvComputadores.Size = new System.Drawing.Size(309, 99);
+            this.dgvComputadores.TabIndex = 83;
+            this.dgvComputadores.Visible = false;
+            this.dgvComputadores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvComputadores_CellDoubleClick);
+            this.dgvComputadores.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvComputadores_KeyDown);
+            this.dgvComputadores.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvComputadores_KeyPress);
             // 
             // txtDepartamentoReadOnly
             // 
-            this.txtDepartamentoReadOnly.Location = new System.Drawing.Point(395, 119);
+            this.txtDepartamentoReadOnly.Location = new System.Drawing.Point(395, 97);
             this.txtDepartamentoReadOnly.MaxLength = 9;
             this.txtDepartamentoReadOnly.Name = "txtDepartamentoReadOnly";
             this.txtDepartamentoReadOnly.ReadOnly = true;
@@ -662,7 +678,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(339, 122);
+            this.label7.Location = new System.Drawing.Point(339, 100);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 13);
             this.label7.TabIndex = 88;
@@ -670,7 +686,7 @@
             // 
             // txtAtivoReadOnly
             // 
-            this.txtAtivoReadOnly.Location = new System.Drawing.Point(395, 93);
+            this.txtAtivoReadOnly.Location = new System.Drawing.Point(395, 71);
             this.txtAtivoReadOnly.MaxLength = 9;
             this.txtAtivoReadOnly.Name = "txtAtivoReadOnly";
             this.txtAtivoReadOnly.ReadOnly = true;
@@ -681,26 +697,27 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(339, 96);
+            this.label8.Location = new System.Drawing.Point(339, 74);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(36, 13);
             this.label8.TabIndex = 86;
             this.label8.Text = "Ativo";
             // 
-            // button2
+            // btnNovaPesquisaComputador
             // 
-            this.button2.Location = new System.Drawing.Point(229, 64);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(95, 25);
-            this.button2.TabIndex = 85;
-            this.button2.Text = "Nova Pesquisa";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnNovaPesquisaComputador.Location = new System.Drawing.Point(229, 45);
+            this.btnNovaPesquisaComputador.Name = "btnNovaPesquisaComputador";
+            this.btnNovaPesquisaComputador.Size = new System.Drawing.Size(95, 25);
+            this.btnNovaPesquisaComputador.TabIndex = 85;
+            this.btnNovaPesquisaComputador.Text = "Nova Pesquisa";
+            this.btnNovaPesquisaComputador.UseVisualStyleBackColor = true;
+            this.btnNovaPesquisaComputador.Click += new System.EventHandler(this.btnNovaPesquisaComputador_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(12, 51);
+            this.label9.Location = new System.Drawing.Point(12, 32);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(44, 13);
             this.label9.TabIndex = 84;
@@ -709,7 +726,7 @@
             // rdoAlugado
             // 
             this.rdoAlugado.AutoSize = true;
-            this.rdoAlugado.Location = new System.Drawing.Point(285, 26);
+            this.rdoAlugado.Location = new System.Drawing.Point(285, 14);
             this.rdoAlugado.Name = "rdoAlugado";
             this.rdoAlugado.Size = new System.Drawing.Size(64, 17);
             this.rdoAlugado.TabIndex = 1;
@@ -720,7 +737,7 @@
             // rdoProprio
             // 
             this.rdoProprio.AutoSize = true;
-            this.rdoProprio.Location = new System.Drawing.Point(167, 26);
+            this.rdoProprio.Location = new System.Drawing.Point(167, 14);
             this.rdoProprio.Name = "rdoProprio";
             this.rdoProprio.Size = new System.Drawing.Size(58, 17);
             this.rdoProprio.TabIndex = 0;
@@ -774,6 +791,7 @@
             this.btnLimpar.TabIndex = 119;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnSalvar
             // 
@@ -783,12 +801,77 @@
             this.btnSalvar.TabIndex = 118;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtValorMaleta);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.txtValorDispositivo);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Location = new System.Drawing.Point(546, 205);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(212, 67);
+            this.groupBox3.TabIndex = 124;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Valores";
+            // 
+            // txtValorMaleta
+            // 
+            this.txtValorMaleta.Location = new System.Drawing.Point(107, 36);
+            this.txtValorMaleta.MaxLength = 500;
+            this.txtValorMaleta.Name = "txtValorMaleta";
+            this.txtValorMaleta.Size = new System.Drawing.Size(95, 20);
+            this.txtValorMaleta.TabIndex = 87;
+            this.txtValorMaleta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorMaleta_KeyPress);
+            this.txtValorMaleta.Leave += new System.EventHandler(this.txtValorMaleta_Leave);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(104, 21);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(79, 13);
+            this.label10.TabIndex = 88;
+            this.label10.Text = "Valor Maleta (*)";
+            // 
+            // txtValorDispositivo
+            // 
+            this.txtValorDispositivo.Location = new System.Drawing.Point(6, 36);
+            this.txtValorDispositivo.MaxLength = 500;
+            this.txtValorDispositivo.Name = "txtValorDispositivo";
+            this.txtValorDispositivo.Size = new System.Drawing.Size(95, 20);
+            this.txtValorDispositivo.TabIndex = 85;
+            this.txtValorDispositivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorDispositivo_KeyPress);
+            this.txtValorDispositivo.Leave += new System.EventHandler(this.txtValorDispositivo_Leave);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 13);
+            this.label3.TabIndex = 86;
+            this.label3.Text = "Valor Dispositivo (*)";
+            // 
+            // opdTermoEntrega
+            // 
+            this.opdTermoEntrega.FileName = "openFileDialog1";
+            this.opdTermoEntrega.FileOk += new System.ComponentModel.CancelEventHandler(this.opdTermoEntrega_FileOk);
+            // 
+            // opdTermoDevolucao
+            // 
+            this.opdTermoDevolucao.FileName = "openFileDialog1";
+            this.opdTermoDevolucao.FileOk += new System.ComponentModel.CancelEventHandler(this.opdTermoDevolucao_FileOk);
             // 
             // FrmTermoComputador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1095, 805);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.lnkRelTermoDevolucao);
             this.Controls.Add(this.lnkRelTermoEntrega);
@@ -826,7 +909,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvComputadores)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -883,12 +968,12 @@
         private System.Windows.Forms.TextBox txtIdReadOnly;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtAtivo;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvComputadores;
         private System.Windows.Forms.TextBox txtDepartamentoReadOnly;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtAtivoReadOnly;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnNovaPesquisaComputador;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.LinkLabel lnkRelTermoDevolucao;
@@ -896,5 +981,12 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox txtValorMaleta;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtValorDispositivo;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.OpenFileDialog opdTermoEntrega;
+        private System.Windows.Forms.OpenFileDialog opdTermoDevolucao;
     }
 }

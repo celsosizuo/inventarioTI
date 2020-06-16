@@ -76,7 +76,7 @@ namespace Inventario.TIC.Class
 
         private void ValidarValorMaleta()
         {
-            RuleFor(a => a.ValorMaleta).NotEmpty().WithMessage("- Campo Valor da Maleta é obrigatório");
+            RuleFor(a => a.ValorMaleta).NotNull().WithMessage("- Campo Valor da Maleta é obrigatório");
         }
 
         public string GetErros()

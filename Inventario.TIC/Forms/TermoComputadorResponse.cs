@@ -22,8 +22,8 @@ namespace Inventario.TIC.Forms
             {
                 Id = entity.Id,
                 Usuario = entity.Usuario.Nome,
-                AtivoAntigo = entity.Computador.AtivoAntigo,
-                AtivoNovo = entity.Computador.AtivoNovo,
+                AtivoAntigo = entity.Computador == null ? entity.DispositivoAlugado.Ativo : entity.Computador.AtivoAntigo,
+                AtivoNovo = entity.Computador == null ? entity.DispositivoAlugado.Ativo : entity.Computador.AtivoNovo,
                 DataEntrega = entity.DataEntrega,
                 ValorDispositivo = entity.ValorDispositivo,
             };
