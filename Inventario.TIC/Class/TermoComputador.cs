@@ -25,6 +25,7 @@ namespace Inventario.TIC.Class
         public string Motivo { get; set; }
         public string LinkEntrega { get; set; }
         public string LinkDevolucao { get; set; }
+        public string Status { get; set; }
 
         public Usuario Usuario { get; set; }
         public Computadores Computador { get; set; }

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvTermoComputador = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -401,8 +401,8 @@
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.RowHeadersVisible = false;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuarios.Size = new System.Drawing.Size(307, 69);
             this.dgvUsuarios.TabIndex = 11;
@@ -496,6 +496,7 @@
             this.btnCancelarDevolucao.TabIndex = 116;
             this.btnCancelarDevolucao.Text = "Cancelar Devolução";
             this.btnCancelarDevolucao.UseVisualStyleBackColor = true;
+            this.btnCancelarDevolucao.Click += new System.EventHandler(this.btnCancelarDevolucao_Click);
             // 
             // btnDevolver
             // 
@@ -505,6 +506,7 @@
             this.btnDevolver.TabIndex = 115;
             this.btnDevolver.Text = "Devolver";
             this.btnDevolver.UseVisualStyleBackColor = true;
+            this.btnDevolver.Click += new System.EventHandler(this.btnDevolver_Click);
             // 
             // lnkAbrirTermoEntrega
             // 
@@ -677,8 +679,8 @@
             this.dgvComputadores.Name = "dgvComputadores";
             this.dgvComputadores.ReadOnly = true;
             this.dgvComputadores.RowHeadersVisible = false;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvComputadores.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvComputadores.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvComputadores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvComputadores.Size = new System.Drawing.Size(309, 68);
             this.dgvComputadores.TabIndex = 83;
@@ -786,6 +788,7 @@
             this.lnkRelTermoDevolucao.TabIndex = 122;
             this.lnkRelTermoDevolucao.TabStop = true;
             this.lnkRelTermoDevolucao.Text = "Gerar Relatório do Termo de Devolução";
+            this.lnkRelTermoDevolucao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRelTermoDevolucao_LinkClicked);
             // 
             // lnkRelTermoEntrega
             // 
@@ -796,6 +799,7 @@
             this.lnkRelTermoEntrega.TabIndex = 121;
             this.lnkRelTermoEntrega.TabStop = true;
             this.lnkRelTermoEntrega.Text = "Gerar Relatório do Termo de Entrega";
+            this.lnkRelTermoEntrega.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRelTermoEntrega_LinkClicked);
             // 
             // btnLimpar
             // 

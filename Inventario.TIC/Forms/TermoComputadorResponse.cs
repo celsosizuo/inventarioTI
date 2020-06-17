@@ -15,6 +15,7 @@ namespace Inventario.TIC.Forms
         public string AtivoNovo { get; set; }
         public DateTime DataEntrega { get; set; }
         public decimal ValorDispositivo { get; set; }
+        public string Status { get; set; }
 
         public static explicit operator TermoComputadorResponse(TermoComputador entity)
         {
@@ -26,6 +27,7 @@ namespace Inventario.TIC.Forms
                 AtivoNovo = entity.Computador == null ? entity.DispositivoAlugado.Ativo : entity.Computador.AtivoNovo,
                 DataEntrega = entity.DataEntrega,
                 ValorDispositivo = entity.ValorDispositivo,
+                Status = entity.Status,
             };
 
             return termoComputadorResponse;

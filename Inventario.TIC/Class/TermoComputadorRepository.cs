@@ -292,5 +292,51 @@ namespace Inventario.TIC.Class
                 throw new Exception(ex.Message);
             }
         }
+
+        public void DevolverTermo(TermoComputador termoComputador)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand()
+                {
+                    Connection = new SqlConnection(Properties.Settings.Default.conSQL),
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "PATHTERMOCOMPUTADORDEVOLUCAO",
+                };
+
+                command.Parameters.AddWithValue("@DataDevolucao", termoComputador.DataDevolucao);
+                command.Parameters.AddWithValue("@Motivo", termoComputador.Motivo);
+                command.Parameters.AddWithValue("@TermoComputadorId", termoComputador.Id);
+
+                command.Connection.Open();
+                command.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public void CancelarDevolucaoTermo(TermoComputador termoComputador)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand()
+                {
+                    Connection = new SqlConnection(Properties.Settings.Default.conSQL),
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "PATHTERMOCOMPUTADORCANCELARDEVOLUCAO",
+                };
+
+                command.Parameters.AddWithValue("@TermoComputadorId", termoComputador.Id);
+
+                command.Connection.Open();
+                command.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

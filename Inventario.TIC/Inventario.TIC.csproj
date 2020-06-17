@@ -380,6 +380,12 @@
     <Compile Include="Forms\FrmTermoComputador.Designer.cs">
       <DependentUpon>FrmTermoComputador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmTermoComputadorDevolucao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTermoComputadorDevolucao.Designer.cs">
+      <DependentUpon>FrmTermoComputadorDevolucao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmTipoDispositivo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -518,6 +524,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmTermoComputador.resx">
       <DependentUpon>FrmTermoComputador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTermoComputadorDevolucao.resx">
+      <DependentUpon>FrmTermoComputadorDevolucao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmTipoDispositivo.resx">
       <DependentUpon>FrmTipoDispositivo.cs</DependentUpon>

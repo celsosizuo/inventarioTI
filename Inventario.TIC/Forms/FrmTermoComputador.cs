@@ -32,6 +32,7 @@ namespace Inventario.TIC.Forms
         private DispositivoAlugado _dispositivoAlugadoSelecionado;
         private Gestor _gestorSelecionado;
         private TermoComputador _termoComputador;
+        private TermoComputadorResponse _termoResponse;
 
 
 
@@ -54,6 +55,7 @@ namespace Inventario.TIC.Forms
             _termoComputadorOriginal = new List<TermoComputador>();
             _termoComputador = new TermoComputador();
             _acessorios = new List<TermoComputadorAcessorio>();
+            _termoResponse = new TermoComputadorResponse();
 
             InitializeComponent();
         }
@@ -544,6 +546,7 @@ namespace Inventario.TIC.Forms
             this.LimparCampos();
             int id = _termoComputadorResponse[e.RowIndex].Id;
             _termoComputador = _termoComputadorOriginal.Find(t => t.Id == id);
+            _termoResponse = _termoComputadorResponse[e.RowIndex];
 
             // Dados gerais
             this.txtId.Text = _termoComputador.Id.ToString();
@@ -905,6 +908,67 @@ namespace Inventario.TIC.Forms
             else
                 this.Pesquisar("", "");
 
+        }
+
+        private void btnDevolver_Click(object sender, EventArgs e)
+        {
+            if(this.txtId.Text != "")
+            {
+                int id = int.Parse(this.txtId.Text);
+                FrmTermoComputadorDevolucao newMdiChild = new FrmTermoComputadorDevolucao(_termoResponse, _termoComputador, this);
+                newMdiChild.Show();
+            }
+            else
+                MessageBox.Show("Favor selecionar um termo.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        }
+
+        private void btnCancelarDevolucao_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Você tem certeza que deseja cancelar a devolução do termo selecionado?", "Confirmação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                _termoRepository.CancelarDevolucaoTermo(_termoComputador);
+                MessageBox.Show("Cancelamento efetuado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                this.CarregaDataGridView();
+                this.AtualizaDataGridView();
+            }
+        }
+
+        private void lnkRelTermoEntrega_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (this.txtId.Text == "")
+                MessageBox.Show("Favor selecionar um termo para ser gerado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                List<ParametrosRelatorio> parametros = new List<ParametrosRelatorio>();
+                parametros.Add(new ParametrosRelatorio
+                {
+                    Parametro = "TERMOCOMPUTADORID",
+                    Valor = this.txtId.Text,
+                });
+
+                FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Termo.Entrega.Computador", parametros);
+                newMDIChild.Show();
+            }
+        }
+
+        private void lnkRelTermoDevolucao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (this.txtId.Text == "")
+                MessageBox.Show("Para gerar o relatório de termo de devolução, favor selecionar um termo", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                List<ParametrosRelatorio> parametros = new List<ParametrosRelatorio>();
+                parametros.Add(new ParametrosRelatorio
+                {
+                    Parametro = "TERMOCOMPUTADORID",
+                    Valor = this.txtId.Text,
+                });
+
+                FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Termo.Devolucao.Computador", parametros);
+                newMDIChild.Show();
+            }
         }
     }
 }
