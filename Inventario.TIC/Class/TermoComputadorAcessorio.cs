@@ -16,6 +16,7 @@ namespace Inventario.TIC.Class
         public int TermoComputadorId { get; set; }
         public string NomeAcessorio { get; set; }
         public decimal Valor { get; set; }
+        public int LinhaSelecionada { get; set; }
 
         public bool EhValido()
         {

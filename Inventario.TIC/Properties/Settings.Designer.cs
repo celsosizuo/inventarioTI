@@ -12,7 +12,7 @@ namespace Inventario.TIC.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.5.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.6.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -48,8 +48,9 @@ namespace Inventario.TIC.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SVDB01;Initial Catalog=INVTIC;Persist Security Info=False;Trusted_Con" +
-            "nection=False;MultipleActiveResultSets=True;User ID=invtic;Password=q1Q!q1Q!")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SVDB01;Initial Catalog=INVTIC_TESTE;Persist Security Info=False;Trust" +
+            "ed_Connection=False;MultipleActiveResultSets=True;User ID=invtic;Password=q1Q!q1" +
+            "Q!")]
         public string conSQL {
             get {
                 return ((string)(this["conSQL"]));

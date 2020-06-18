@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTermoComputador));
             this.dgvTermoComputador = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -131,7 +132,7 @@
             this.dgvTermoComputador.MultiSelect = false;
             this.dgvTermoComputador.Name = "dgvTermoComputador";
             this.dgvTermoComputador.ReadOnly = true;
-            this.dgvTermoComputador.Size = new System.Drawing.Size(1071, 333);
+            this.dgvTermoComputador.Size = new System.Drawing.Size(1071, 217);
             this.dgvTermoComputador.TabIndex = 61;
             this.dgvTermoComputador.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTermoComputador_CellDoubleClick);
             // 
@@ -175,7 +176,7 @@
             this.txtDataEntrega.Mask = "00/00/0000";
             this.txtDataEntrega.Name = "txtDataEntrega";
             this.txtDataEntrega.Size = new System.Drawing.Size(86, 20);
-            this.txtDataEntrega.TabIndex = 6;
+            this.txtDataEntrega.TabIndex = 10;
             this.txtDataEntrega.ValidatingType = typeof(System.DateTime);
             // 
             // label20
@@ -204,7 +205,7 @@
             this.cboGestores.Location = new System.Drawing.Point(172, 39);
             this.cboGestores.Name = "cboGestores";
             this.cboGestores.Size = new System.Drawing.Size(170, 21);
-            this.cboGestores.TabIndex = 8;
+            this.cboGestores.TabIndex = 11;
             this.cboGestores.SelectedIndexChanged += new System.EventHandler(this.cboGestores_SelectedIndexChanged);
             // 
             // groupBox4
@@ -222,7 +223,7 @@
             this.groupBox4.Location = new System.Drawing.Point(12, 168);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(528, 169);
-            this.groupBox4.TabIndex = 87;
+            this.groupBox4.TabIndex = 994;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Selecionar Carregador";
             // 
@@ -256,7 +257,7 @@
             this.txtCarregador.MaxLength = 500;
             this.txtCarregador.Name = "txtCarregador";
             this.txtCarregador.Size = new System.Drawing.Size(208, 20);
-            this.txtCarregador.TabIndex = 2;
+            this.txtCarregador.TabIndex = 5;
             this.txtCarregador.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCarregador_KeyPress);
             // 
             // txtCarregadorIdReadOnly
@@ -382,7 +383,7 @@
             this.txtUsuario.MaxLength = 500;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(208, 20);
-            this.txtUsuario.TabIndex = 10;
+            this.txtUsuario.TabIndex = 0;
             this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             // 
             // dgvUsuarios
@@ -401,8 +402,8 @@
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.RowHeadersVisible = false;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuarios.Size = new System.Drawing.Size(307, 69);
             this.dgvUsuarios.TabIndex = 11;
@@ -493,7 +494,7 @@
             this.btnCancelarDevolucao.Location = new System.Drawing.Point(344, 431);
             this.btnCancelarDevolucao.Name = "btnCancelarDevolucao";
             this.btnCancelarDevolucao.Size = new System.Drawing.Size(121, 23);
-            this.btnCancelarDevolucao.TabIndex = 116;
+            this.btnCancelarDevolucao.TabIndex = 16;
             this.btnCancelarDevolucao.Text = "Cancelar Devolução";
             this.btnCancelarDevolucao.UseVisualStyleBackColor = true;
             this.btnCancelarDevolucao.Click += new System.EventHandler(this.btnCancelarDevolucao_Click);
@@ -503,7 +504,7 @@
             this.btnDevolver.Location = new System.Drawing.Point(261, 431);
             this.btnDevolver.Name = "btnDevolver";
             this.btnDevolver.Size = new System.Drawing.Size(77, 23);
-            this.btnDevolver.TabIndex = 115;
+            this.btnDevolver.TabIndex = 15;
             this.btnDevolver.Text = "Devolver";
             this.btnDevolver.UseVisualStyleBackColor = true;
             this.btnDevolver.Click += new System.EventHandler(this.btnDevolver_Click);
@@ -611,7 +612,7 @@
             this.groupBox1.Location = new System.Drawing.Point(546, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(537, 150);
-            this.groupBox1.TabIndex = 117;
+            this.groupBox1.TabIndex = 998;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Computador/Notebook";
             // 
@@ -622,7 +623,7 @@
             this.txtIdReadOnly.Name = "txtIdReadOnly";
             this.txtIdReadOnly.ReadOnly = true;
             this.txtIdReadOnly.Size = new System.Drawing.Size(131, 20);
-            this.txtIdReadOnly.TabIndex = 93;
+            this.txtIdReadOnly.TabIndex = 997;
             // 
             // label1
             // 
@@ -640,7 +641,7 @@
             this.txtValorDispositivo.MaxLength = 500;
             this.txtValorDispositivo.Name = "txtValorDispositivo";
             this.txtValorDispositivo.Size = new System.Drawing.Size(131, 20);
-            this.txtValorDispositivo.TabIndex = 85;
+            this.txtValorDispositivo.TabIndex = 4;
             this.txtValorDispositivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorDispositivo_KeyPress);
             this.txtValorDispositivo.Leave += new System.EventHandler(this.txtValorDispositivo_Leave);
             // 
@@ -660,7 +661,7 @@
             this.txtAtivo.MaxLength = 500;
             this.txtAtivo.Name = "txtAtivo";
             this.txtAtivo.Size = new System.Drawing.Size(208, 20);
-            this.txtAtivo.TabIndex = 82;
+            this.txtAtivo.TabIndex = 3;
             this.txtAtivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAtivo_KeyPress);
             // 
             // dgvComputadores
@@ -679,8 +680,8 @@
             this.dgvComputadores.Name = "dgvComputadores";
             this.dgvComputadores.ReadOnly = true;
             this.dgvComputadores.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvComputadores.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvComputadores.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvComputadores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvComputadores.Size = new System.Drawing.Size(309, 68);
             this.dgvComputadores.TabIndex = 83;
@@ -696,7 +697,7 @@
             this.txtDepartamentoReadOnly.Name = "txtDepartamentoReadOnly";
             this.txtDepartamentoReadOnly.ReadOnly = true;
             this.txtDepartamentoReadOnly.Size = new System.Drawing.Size(131, 20);
-            this.txtDepartamentoReadOnly.TabIndex = 89;
+            this.txtDepartamentoReadOnly.TabIndex = 995;
             // 
             // label7
             // 
@@ -715,7 +716,7 @@
             this.txtAtivoReadOnly.Name = "txtAtivoReadOnly";
             this.txtAtivoReadOnly.ReadOnly = true;
             this.txtAtivoReadOnly.Size = new System.Drawing.Size(131, 20);
-            this.txtAtivoReadOnly.TabIndex = 87;
+            this.txtAtivoReadOnly.TabIndex = 996;
             // 
             // label8
             // 
@@ -732,7 +733,7 @@
             this.btnNovaPesquisaComputador.Location = new System.Drawing.Point(229, 45);
             this.btnNovaPesquisaComputador.Name = "btnNovaPesquisaComputador";
             this.btnNovaPesquisaComputador.Size = new System.Drawing.Size(95, 25);
-            this.btnNovaPesquisaComputador.TabIndex = 85;
+            this.btnNovaPesquisaComputador.TabIndex = 999;
             this.btnNovaPesquisaComputador.Text = "Nova Pesquisa";
             this.btnNovaPesquisaComputador.UseVisualStyleBackColor = true;
             this.btnNovaPesquisaComputador.Click += new System.EventHandler(this.btnNovaPesquisaComputador_Click);
@@ -753,7 +754,7 @@
             this.rdoAlugado.Location = new System.Drawing.Point(149, 23);
             this.rdoAlugado.Name = "rdoAlugado";
             this.rdoAlugado.Size = new System.Drawing.Size(64, 17);
-            this.rdoAlugado.TabIndex = 1;
+            this.rdoAlugado.TabIndex = 2;
             this.rdoAlugado.TabStop = true;
             this.rdoAlugado.Text = "Alugado";
             this.rdoAlugado.UseVisualStyleBackColor = true;
@@ -764,7 +765,7 @@
             this.rdoProprio.Location = new System.Drawing.Point(85, 23);
             this.rdoProprio.Name = "rdoProprio";
             this.rdoProprio.Size = new System.Drawing.Size(58, 17);
-            this.rdoProprio.TabIndex = 0;
+            this.rdoProprio.TabIndex = 1;
             this.rdoProprio.TabStop = true;
             this.rdoProprio.Text = "Próprio";
             this.rdoProprio.UseVisualStyleBackColor = true;
@@ -774,7 +775,7 @@
             this.btnPesquisar.Location = new System.Drawing.Point(180, 431);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
-            this.btnPesquisar.TabIndex = 123;
+            this.btnPesquisar.TabIndex = 14;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
@@ -785,7 +786,7 @@
             this.lnkRelTermoDevolucao.Location = new System.Drawing.Point(657, 436);
             this.lnkRelTermoDevolucao.Name = "lnkRelTermoDevolucao";
             this.lnkRelTermoDevolucao.Size = new System.Drawing.Size(196, 13);
-            this.lnkRelTermoDevolucao.TabIndex = 122;
+            this.lnkRelTermoDevolucao.TabIndex = 18;
             this.lnkRelTermoDevolucao.TabStop = true;
             this.lnkRelTermoDevolucao.Text = "Gerar Relatório do Termo de Devolução";
             this.lnkRelTermoDevolucao.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRelTermoDevolucao_LinkClicked);
@@ -796,7 +797,7 @@
             this.lnkRelTermoEntrega.Location = new System.Drawing.Point(470, 436);
             this.lnkRelTermoEntrega.Name = "lnkRelTermoEntrega";
             this.lnkRelTermoEntrega.Size = new System.Drawing.Size(181, 13);
-            this.lnkRelTermoEntrega.TabIndex = 121;
+            this.lnkRelTermoEntrega.TabIndex = 17;
             this.lnkRelTermoEntrega.TabStop = true;
             this.lnkRelTermoEntrega.Text = "Gerar Relatório do Termo de Entrega";
             this.lnkRelTermoEntrega.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkRelTermoEntrega_LinkClicked);
@@ -806,7 +807,7 @@
             this.btnLimpar.Location = new System.Drawing.Point(99, 431);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpar.TabIndex = 119;
+            this.btnLimpar.TabIndex = 13;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
@@ -816,7 +817,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(18, 431);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 118;
+            this.btnSalvar.TabIndex = 12;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -849,6 +850,7 @@
             this.dgvAcessorios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvAcessorios.Size = new System.Drawing.Size(520, 94);
             this.dgvAcessorios.TabIndex = 4;
+            this.dgvAcessorios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAcessorios_CellDoubleClick);
             // 
             // label11
             // 
@@ -866,7 +868,7 @@
             this.txtNomeAcessorio.MaxLength = 500;
             this.txtNomeAcessorio.Name = "txtNomeAcessorio";
             this.txtNomeAcessorio.Size = new System.Drawing.Size(208, 20);
-            this.txtNomeAcessorio.TabIndex = 85;
+            this.txtNomeAcessorio.TabIndex = 6;
             // 
             // label12
             // 
@@ -884,7 +886,7 @@
             this.txtValorAcessorio.MaxLength = 500;
             this.txtValorAcessorio.Name = "txtValorAcessorio";
             this.txtValorAcessorio.Size = new System.Drawing.Size(95, 20);
-            this.txtValorAcessorio.TabIndex = 89;
+            this.txtValorAcessorio.TabIndex = 7;
             this.txtValorAcessorio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorAcessorio_KeyPress);
             this.txtValorAcessorio.Leave += new System.EventHandler(this.txtValorAcessorio_Leave);
             // 
@@ -893,7 +895,7 @@
             this.btnAddAcessorio.Location = new System.Drawing.Point(331, 32);
             this.btnAddAcessorio.Name = "btnAddAcessorio";
             this.btnAddAcessorio.Size = new System.Drawing.Size(42, 25);
-            this.btnAddAcessorio.TabIndex = 91;
+            this.btnAddAcessorio.TabIndex = 8;
             this.btnAddAcessorio.Text = "Add";
             this.btnAddAcessorio.UseVisualStyleBackColor = true;
             this.btnAddAcessorio.Click += new System.EventHandler(this.btnAddAcessorio_Click);
@@ -903,7 +905,7 @@
             this.btnDelAcessorio.Location = new System.Drawing.Point(379, 32);
             this.btnDelAcessorio.Name = "btnDelAcessorio";
             this.btnDelAcessorio.Size = new System.Drawing.Size(42, 25);
-            this.btnDelAcessorio.TabIndex = 92;
+            this.btnDelAcessorio.TabIndex = 9;
             this.btnDelAcessorio.Text = "Del";
             this.btnDelAcessorio.UseVisualStyleBackColor = true;
             this.btnDelAcessorio.Click += new System.EventHandler(this.btnDelAcessorio_Click);
@@ -920,7 +922,7 @@
             this.groupBox6.Location = new System.Drawing.Point(546, 168);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(537, 169);
-            this.groupBox6.TabIndex = 125;
+            this.groupBox6.TabIndex = 993;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Acessórios";
             // 
@@ -945,7 +947,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1095, 805);
+            this.ClientSize = new System.Drawing.Size(1095, 689);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.btnPesquisar);
@@ -960,6 +962,7 @@
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.dgvTermoComputador);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmTermoComputador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Termo de Computadores";

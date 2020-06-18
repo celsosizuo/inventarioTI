@@ -1,4 +1,5 @@
 ﻿using Inventario.TIC.Class;
+using Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execution;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +15,6 @@ namespace Inventario.TIC.Forms
 {
     public partial class FrmTermoComputador : Form
     {
-        private TermoComputadorRepository _termoRepository;
-        private TermoComputadorAcessorioRepository _acessorioRepository;
         private List<Usuario> _usuarios;
         private List<Gestor> _gestores;
         private List<TermoComputadorResponse> _termoComputadorResponse;
@@ -26,6 +25,8 @@ namespace Inventario.TIC.Forms
         private List<TermoComputador> _termoComputadorOriginal;
         private List<TermoComputadorAcessorio> _acessorios;
         
+        private TermoComputadorRepository _termoRepository;
+        private TermoComputadorAcessorioRepository _acessorioRepository;
         private Usuario _usuarioSelecionado;
         private Carregador _carregadorSelecionado;
         private Computadores _computadorSelecionado;
@@ -33,8 +34,7 @@ namespace Inventario.TIC.Forms
         private Gestor _gestorSelecionado;
         private TermoComputador _termoComputador;
         private TermoComputadorResponse _termoResponse;
-
-
+        private TermoComputadorAcessorio _acessorioSelecionado;
 
         public FrmTermoComputador()
         {
@@ -56,6 +56,10 @@ namespace Inventario.TIC.Forms
             _termoComputador = new TermoComputador();
             _acessorios = new List<TermoComputadorAcessorio>();
             _termoResponse = new TermoComputadorResponse();
+            _acessorioSelecionado = new TermoComputadorAcessorio()
+            {
+                LinhaSelecionada = -1,
+            };
 
             InitializeComponent();
         }
@@ -76,15 +80,7 @@ namespace Inventario.TIC.Forms
             this.dgvTermoComputador.DataSource = null;
             this.dgvTermoComputador.DataSource = _termoComputadorResponse;
 
-            // Ocultando colunas desnecessárias
-            //this.dgvTermoComputador.Columns["LinhaId"].Visible = false;
-            //this.dgvTermoComputador.Columns["AparelhoId"].Visible = false;
-            //this.dgvTermoComputador.Columns["CarregadorId"].Visible = false;
-            //this.dgvTermoComputador.Columns["GestorId"].Visible = false;
-            //this.dgvTermoComputador.Columns["FoneOuvido"].Visible = false;
-            //this.dgvTermoComputador.Columns["LinkEntrega"].Visible = false;
-            //this.dgvTermoComputador.Columns["LinkDevolucao"].Visible = false;
-            //this.dgvTermoComputador.Columns["Usuario"].Visible = false;
+            this.dgvTermoComputador.Columns["ValorDispositivo"].DefaultCellStyle.Format = "N2";
         }
 
 
@@ -149,7 +145,7 @@ namespace Inventario.TIC.Forms
 
                 _usuarioSelecionado = _usuarios[e.RowIndex];
 
-                // this.txtImei1.Focus();
+                this.txtAtivo.Focus();
             }
             catch (Exception ex)
             {
@@ -182,7 +178,7 @@ namespace Inventario.TIC.Forms
 
                     _usuarioSelecionado = _usuarios[RowIndex];
 
-                    // this.btnAddUsuario.Focus();
+                    this.txtAtivo.Focus();
                     this.dgvUsuarios.Visible = false;
                 }
             }
@@ -246,7 +242,7 @@ namespace Inventario.TIC.Forms
 
                 this.dgvCarregadores.Visible = false;
                 _carregadorSelecionado = _carregadores[e.RowIndex];
-                // this.txtImei1.Focus();
+                this.txtNomeAcessorio.Focus();
             }
             catch (Exception ex)
             {
@@ -278,7 +274,7 @@ namespace Inventario.TIC.Forms
 
                         this.dgvCarregadores.Visible = false;
                         _carregadorSelecionado = _carregadores[RowIndex];
-                        this.txtUsuario.Focus();
+                        this.txtNomeAcessorio.Focus();
                     }
                     catch (Exception ex)
                     {
@@ -371,7 +367,7 @@ namespace Inventario.TIC.Forms
 
                     _dispositivoAlugadoSelecionado = _dispositivoAlugado[e.RowIndex];
 
-                    // this.txtImei1.Focus();
+                    this.txtValorDispositivo.Focus();
 
                 }
                 else if (this.rdoProprio.Checked)
@@ -433,6 +429,7 @@ namespace Inventario.TIC.Forms
                         {
                             throw new Exception("Favor selecionar um registro.");
                         }
+                        this.txtValorDispositivo.Focus();
                     }
                 }
             }
@@ -473,10 +470,10 @@ namespace Inventario.TIC.Forms
                 termo.Gestor = _gestorSelecionado;
                 termo.DataEntrega = DateTime.Parse(this.txtDataEntrega.Text);
                 termo.ValorDispositivo = decimal.Parse(this.txtValorDispositivo.Text);
-                termo.DataDevolucao = null;
-                termo.Motivo = null;
-                termo.LinkEntrega = null;
-                termo.LinkDevolucao = null;
+                termo.DataDevolucao = termo.DataDevolucao;
+                termo.Motivo = termo.Motivo;
+                termo.LinkEntrega = termo.LinkEntrega;
+                termo.LinkDevolucao = termo.LinkDevolucao;
 
                 if (termo.EhValido())
                 {
@@ -733,21 +730,33 @@ namespace Inventario.TIC.Forms
             this.dgvAcessorios.Columns["CascadeMode"].Visible = false;
             this.dgvAcessorios.Columns["TermoComputadorId"].Visible = false;
             this.dgvAcessorios.Columns["Id"].Visible = false;
+            this.dgvAcessorios.Columns["LinhaSelecionada"].Visible = false;
         }
 
         private void btnAddAcessorio_Click(object sender, EventArgs e)
         {
-            TermoComputadorAcessorio acessorio = new TermoComputadorAcessorio()
+            if (_acessorioSelecionado.LinhaSelecionada == -1)
             {
-                TermoComputadorId = 0,
-                NomeAcessorio = this.txtNomeAcessorio.Text,
-                Valor = decimal.Parse(this.txtValorAcessorio.Text)
-            };
+                TermoComputadorAcessorio acessorio = new TermoComputadorAcessorio()
+                {
+                    Id = 0,
+                    TermoComputadorId = 0,
+                    NomeAcessorio = this.txtNomeAcessorio.Text,
+                    Valor = decimal.Parse(this.txtValorAcessorio.Text),
+                    LinhaSelecionada = -1,
+                };
 
+
+                _acessorios.Add(acessorio);
+            }
+            else
+            {
+                _acessorios[_acessorioSelecionado.LinhaSelecionada].NomeAcessorio = this.txtNomeAcessorio.Text;
+                _acessorios[_acessorioSelecionado.LinhaSelecionada].Valor = decimal.Parse(this.txtValorAcessorio.Text);
+            }
+        
             this.txtNomeAcessorio.Clear();
-            this.txtValorAcessorio.Clear();
-
-            _acessorios.Add(acessorio);
+             this.txtValorAcessorio.Clear();
             this.AtualizarDataGridViewAcessorios();
         }
 
@@ -769,11 +778,11 @@ namespace Inventario.TIC.Forms
                             int id = _acessorios[RowIndex].Id;
 
                             _acessorios.RemoveAt(RowIndex);
-
                             _acessorioRepository.Delete(id);
 
+                            this.txtNomeAcessorio.Clear();
+                            this.txtValorAcessorio.Clear();
                             this.AtualizarDataGridViewAcessorios();
-
                         }
                     }
                 }
@@ -969,6 +978,15 @@ namespace Inventario.TIC.Forms
                 FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Termo.Devolucao.Computador", parametros);
                 newMDIChild.Show();
             }
+        }
+
+        private void dgvAcessorios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.txtNomeAcessorio.Text = _acessorios[e.RowIndex].NomeAcessorio;
+            this.txtValorAcessorio.Text = _acessorios[e.RowIndex].Valor.ToString("N2");
+
+            _acessorioSelecionado = _acessorios[e.RowIndex];
+            _acessorioSelecionado.LinhaSelecionada = e.RowIndex;
         }
     }
 }

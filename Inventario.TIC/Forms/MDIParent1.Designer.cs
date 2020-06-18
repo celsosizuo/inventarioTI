@@ -45,6 +45,7 @@
             this.dispositivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lançamentoDeRateioTOTVSToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.associarLicençaAoDispositivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.termosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventárioCelularesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.telefoniaMóvelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,7 +93,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.termosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -240,6 +240,14 @@
             this.associarLicençaAoDispositivoToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
             this.associarLicençaAoDispositivoToolStripMenuItem.Text = "Associar Licença ao Dispositivo";
             this.associarLicençaAoDispositivoToolStripMenuItem.Click += new System.EventHandler(this.associarLicençaAoDispositivoToolStripMenuItem_Click);
+            // 
+            // termosToolStripMenuItem
+            // 
+            this.termosToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.termo_32x321;
+            this.termosToolStripMenuItem.Name = "termosToolStripMenuItem";
+            this.termosToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.termosToolStripMenuItem.Text = "Termos";
+            this.termosToolStripMenuItem.Click += new System.EventHandler(this.termosToolStripMenuItem_Click);
             // 
             // inventárioCelularesToolStripMenuItem
             // 
@@ -630,13 +638,6 @@
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
-            // 
-            // termosToolStripMenuItem
-            // 
-            this.termosToolStripMenuItem.Name = "termosToolStripMenuItem";
-            this.termosToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.termosToolStripMenuItem.Text = "Termos";
-            this.termosToolStripMenuItem.Click += new System.EventHandler(this.termosToolStripMenuItem_Click);
             // 
             // MDIParent1
             // 
