@@ -373,5 +373,13 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void usuáriosDoRateioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<ParametrosRelatorio> parametros = new List<ParametrosRelatorio>();
+            FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Usuarios.Rateio.Internet", parametros);
+            // newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }

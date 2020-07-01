@@ -93,6 +93,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.usuáriosDoRateioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -412,7 +413,8 @@
             // telefoniaFixaToolStripMenuItem
             // 
             this.telefoniaFixaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lançamentoDeRateioTOTVSToolStripMenuItem});
+            this.lançamentoDeRateioTOTVSToolStripMenuItem,
+            this.usuáriosDoRateioToolStripMenuItem});
             this.telefoniaFixaToolStripMenuItem.Name = "telefoniaFixaToolStripMenuItem";
             this.telefoniaFixaToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
             this.telefoniaFixaToolStripMenuItem.Text = "Link Internet";
@@ -639,6 +641,14 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
+            // usuáriosDoRateioToolStripMenuItem
+            // 
+            this.usuáriosDoRateioToolStripMenuItem.Image = global::Inventario.TIC.Properties.Resources.relatorio_32x32;
+            this.usuáriosDoRateioToolStripMenuItem.Name = "usuáriosDoRateioToolStripMenuItem";
+            this.usuáriosDoRateioToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.usuáriosDoRateioToolStripMenuItem.Text = "Usuários do Rateio";
+            this.usuáriosDoRateioToolStripMenuItem.Click += new System.EventHandler(this.usuáriosDoRateioToolStripMenuItem_Click);
+            // 
             // MDIParent1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -728,6 +738,7 @@
         private System.Windows.Forms.ToolStripMenuItem testeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gerenciarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem termosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuáriosDoRateioToolStripMenuItem;
     }
 }
 
