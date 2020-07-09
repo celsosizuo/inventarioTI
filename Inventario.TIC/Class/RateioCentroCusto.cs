@@ -186,5 +186,24 @@ namespace Inventario.TIC.Class
                 throw new Exception(ex.Message);
             }
         }
+
+        public void SetLastIdMovRatCCu(int idMovRatCcu)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.conSQL))
+                {
+                    var parametros = new DynamicParameters();
+                    parametros.Add("@IDMOVRATCCU", idMovRatCcu);
+
+                    connection.Query("SETLASTIDMOVRATCCU", parametros, commandType: CommandType.StoredProcedure);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
     }
 }

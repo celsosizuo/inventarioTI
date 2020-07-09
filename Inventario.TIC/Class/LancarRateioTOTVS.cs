@@ -68,6 +68,12 @@ namespace Inventario.TIC.Class
                 OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = CreateBasicAuthorizationMessageProperty(userTOTVS, password);
                 retorno = client.SaveRecord("MovMovimentoTBCData", xmlString, "CODCOLIGADA=5");
 
+                if (retorno.Contains(';'))
+                {
+                    RateioCentroCusto rateio = new RateioCentroCusto();
+                    rateio.SetLastIdMovRatCCu((int)listaRateio.Select(l => l).Last().IdMovRatCcu);
+                }
+
                 return retorno;
             }
             catch (Exception ex)
