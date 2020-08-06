@@ -711,6 +711,8 @@ namespace Inventario.TIC.Forms
             {
                 this.txtLinkTermoDevolucao.Text = this.opdTermoDevolucao.FileName.ToString();
                 _termoComputador.LinkDevolucao = this.txtLinkTermoDevolucao.Text;
+                
+                
                 _termoRepository.UpdateLinkTermoDevolucao(_termoComputador);
 
                 MessageBox.Show("Inclusão do link do termo efetuada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);

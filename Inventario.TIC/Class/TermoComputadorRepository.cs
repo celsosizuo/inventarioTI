@@ -277,7 +277,7 @@ namespace Inventario.TIC.Class
                 {
                     Connection = new SqlConnection(Properties.Settings.Default.conSQL),
                     CommandType = CommandType.StoredProcedure,
-                    CommandText = "PATHTERMOCOMPUTADORDEVOLUCAO",
+                    CommandText = "PATHLINKTERMOCOMPUTADORDEVOLUCAO",
                 };
 
                 command.Parameters.AddWithValue("@TERMOCOMPUTADORID", termoComputador.Id);
