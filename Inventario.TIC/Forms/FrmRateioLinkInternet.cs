@@ -133,7 +133,8 @@ namespace Inventario.TIC.Forms
                     {
                         r.CodColigada = _dadosPedido[0].CODCOLIGADA;
                         r.IdMov = _dadosPedido[0].IDMOV;
-                        r.NSeqItMMov = _dadosPedido[0].NSEQITMMOV;
+                        //r.NSeqItMMov = _dadosPedido[0].NSEQITMMOV;
+                        r.NSeqItMMov = 2;
                         r.IdMovRatCcu = idMovRatCcu;
                         idMovRatCcu++;
                     });
@@ -161,10 +162,10 @@ namespace Inventario.TIC.Forms
         {
             try
             {
-                if (decimal.Round(_diferenca, 2) != 0)
-                    throw new Exception("Existe diferença de " + _diferenca.ToString("C2") + " entre o valor do pedido e o rateio calculado. Favor corrigir o rateio ou alterar o valor do pedido no TOTVS.");
-                else
-                {
+                //if (decimal.Round(_diferenca, 2) != 0)
+                //    throw new Exception("Existe diferença de " + _diferenca.ToString("C2") + " entre o valor do pedido e o rateio calculado. Favor corrigir o rateio ou alterar o valor do pedido no TOTVS.");
+                //else
+                //{
                     using (FrmWaitingForm frm = new FrmWaitingForm(LancarRateio))
                     {
                         try
@@ -178,7 +179,7 @@ namespace Inventario.TIC.Forms
                             MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                }
+                //}
             }
             catch (Exception ex)
             {
