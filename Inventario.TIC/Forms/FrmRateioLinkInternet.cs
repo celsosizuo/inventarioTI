@@ -69,7 +69,12 @@ namespace Inventario.TIC.Forms
 
                 _dadosPedido = dadosPedido;
 
-                _valorTotalPedido = dadosPedido[0].VALORLIQUIDO;
+                dadosPedido.ForEach(dados =>
+                {
+                    this.cboNumItem.Items.Add(dados.NSEQITMMOV);
+                });
+
+                // _valorTotalPedido = dadosPedido[0].VALORLIQUIDO;
 
                 this.txtNumPedido.ReadOnly = true;
 
@@ -134,7 +139,7 @@ namespace Inventario.TIC.Forms
                         r.CodColigada = _dadosPedido[0].CODCOLIGADA;
                         r.IdMov = _dadosPedido[0].IDMOV;
                         //r.NSeqItMMov = _dadosPedido[0].NSEQITMMOV;
-                        r.NSeqItMMov = 2;
+                        r.NSeqItMMov = int.Parse(this.cboNumItem.Text);
                         r.IdMovRatCcu = idMovRatCcu;
                         idMovRatCcu++;
                     });
@@ -196,7 +201,7 @@ namespace Inventario.TIC.Forms
             this.txtValorReadOnly.Clear();
             this.txtNumPedido.Clear();
             this.txtNumPedido.ReadOnly = false;
-
+            this.cboNumItem.Items.Clear();
         }
 
         private void dgvRateios_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -227,6 +232,17 @@ namespace Inventario.TIC.Forms
 
             decimal valor = this.txtValorFatura.Text == "" ? 0 : decimal.Parse(this.txtValorFatura.Text);
             this.txtValorFatura.Text = valor.ToString("N2");
+        }
+
+        private void cboNumItem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int numItem = int.Parse(this.cboNumItem.Text);
+
+            _valorTotalPedido = _dadosPedido[numItem-1].PRECOUNITARIO;
+
+            this.txtNumPedido.ReadOnly = true;
+
+            this.CalcularDiferenca();
         }
     }
 }

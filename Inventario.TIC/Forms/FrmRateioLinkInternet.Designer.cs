@@ -58,12 +58,16 @@
             this.btnListar = new System.Windows.Forms.Button();
             this.txtValorFatura = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cboNumItem = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRateios)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.cboNumItem);
             this.groupBox1.Controls.Add(this.btnLimparDadosPedido);
             this.groupBox1.Controls.Add(this.txtValorReadOnly);
             this.groupBox1.Controls.Add(this.label9);
@@ -87,7 +91,7 @@
             // 
             // btnLimparDadosPedido
             // 
-            this.btnLimparDadosPedido.Location = new System.Drawing.Point(370, 115);
+            this.btnLimparDadosPedido.Location = new System.Drawing.Point(370, 111);
             this.btnLimparDadosPedido.Name = "btnLimparDadosPedido";
             this.btnLimparDadosPedido.Size = new System.Drawing.Size(81, 23);
             this.btnLimparDadosPedido.TabIndex = 40;
@@ -345,6 +349,25 @@
             this.label1.TabIndex = 41;
             this.label1.Text = "Valor da Fatura";
             // 
+            // cboNumItem
+            // 
+            this.cboNumItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboNumItem.FormattingEnabled = true;
+            this.cboNumItem.Location = new System.Drawing.Point(258, 111);
+            this.cboNumItem.Name = "cboNumItem";
+            this.cboNumItem.Size = new System.Drawing.Size(106, 21);
+            this.cboNumItem.TabIndex = 41;
+            this.cboNumItem.SelectedIndexChanged += new System.EventHandler(this.cboNumItem_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(221, 115);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(27, 13);
+            this.label10.TabIndex = 42;
+            this.label10.Text = "Item";
+            // 
             // FrmRateioLinkInternet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -405,5 +428,7 @@
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.TextBox txtValorFatura;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cboNumItem;
     }
 }
