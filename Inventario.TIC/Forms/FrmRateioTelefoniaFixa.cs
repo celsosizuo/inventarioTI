@@ -85,24 +85,24 @@ namespace Inventario.TIC.Forms
         {
             try
             {
-                if (this.cboReferencia.Text == "")
-                    throw new Exception("Favor selecionar uma referência");
+                //if (this.cboReferencia.Text == "")
+                //    throw new Exception("Favor selecionar uma referência");
 
-                if (this.txtValorFatura.Text == "")
-                    throw new Exception("Valor da fatura tem que ser informado.");
+                //if (this.txtValorFatura.Text == "")
+                //    throw new Exception("Valor da fatura tem que ser informado.");
 
                 RateioCentroCusto rateio = new RateioCentroCusto();
                
                 _rateios = rateio.GetRateioTelefoniaFixa(this.cboReferencia.Text);
-               
+
                 decimal totalUsuarios = _rateios.Sum(r => r.Qtde ?? 0);
                 decimal totalFatura = decimal.Parse(this.txtValorFatura.Text);
 
                 _valorTotalRateio = 0;
 
-                _rateios.ForEach(x => {
+                _rateios.ForEach(x =>{
                     x.Porcentagem = decimal.Round(((x.Qtde / totalUsuarios) * 100) ?? 0, 4);
-                    x.Valor = decimal.Round((((x.Porcentagem / 100) * totalFatura) ?? 0), 4);
+                    // x.Valor = decimal.Round((((x.Porcentagem / 100) * totalFatura) ?? 0), 4);
                     _valorTotalRateio += x.Valor;
                 });
 

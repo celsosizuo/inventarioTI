@@ -3358,3 +3358,24 @@ LEFT JOIN CARREGADOR CA ON CA.ID = T.CARREGADORID
 LEFT JOIN GESTOR G ON G.ID = T.GESTORID
 LEFT JOIN TERMOCOMPUTADORACESSORIO TA ON TA.TERMOCOMPUTADORID = T.ID 
 WHERE T.ID = @TERMOCOMPUTADORID
+
+GO
+
+ALTER PROCEDURE GETNOVORATEIOTELEFONIAFIXA
+AS
+SELECT '' AS REFERENCIA, isnull(company, 'vazio') as CODCCUSTO,  ipPhone, 23.25 as valor
+    into #tmpItens
+	FROM   Openquery(ADSI, 'SELECT displayName, givenName, userPrincipalName, sAMAccountName, mail, company, userAccountControl, ipPhone
+	FROM ''LDAP://DC=artfix,DC=local'' 
+	WHERE objectCategory=''person'' 
+	AND objectClass=''user''
+    ') 
+    WHERE [dbo].[fn_AD_UserAccountControlDetails] (userAccountControl) NOT LIKE '%ACCOUNTDISABLE%' AND
+    ipPhone is not null
+    
+    
+    SELECT '' AS REFERENCIA, A.CODCCUSTO, G.NOME AS CENTROCUSTO, SUM(VALOR) AS VALOR 
+	FROM #tmpItens A
+	LEFT JOIN GCCUSTO G ON A.CODCCUSTO COLLATE SQL_Latin1_General_CP1_CI_AS = G.CODCCUSTO COLLATE SQL_Latin1_General_CP1_CI_AS
+    GROUP BY A.CODCCUSTO, G.NOME
+    
