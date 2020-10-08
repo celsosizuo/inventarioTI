@@ -46,7 +46,7 @@ namespace Inventario.TIC.Class
                     CommandText = "DELETEHISTORICOUSUARIOCOMPUTADORES",
                 };
 
-                command.Parameters.AddWithValue("@ComputadoresId", computadoresId);
+                command.Parameters.AddWithValue("@COMPUTADORID", computadoresId);
 
                 command.Connection.Open();
                 command.ExecuteScalar();

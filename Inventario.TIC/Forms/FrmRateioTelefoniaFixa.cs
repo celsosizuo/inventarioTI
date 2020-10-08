@@ -96,7 +96,7 @@ namespace Inventario.TIC.Forms
                 _rateios = rateio.GetRateioTelefoniaFixa(this.cboReferencia.Text);
 
                 decimal totalUsuarios = _rateios.Sum(r => r.Qtde ?? 0);
-                decimal totalFatura = decimal.Parse(this.txtValorFatura.Text);
+                // decimal totalFatura = decimal.Parse(this.txtValorFatura.Text);
 
                 _valorTotalRateio = 0;
 

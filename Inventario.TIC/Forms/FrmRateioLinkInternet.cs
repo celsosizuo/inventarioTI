@@ -238,7 +238,7 @@ namespace Inventario.TIC.Forms
         {
             int numItem = int.Parse(this.cboNumItem.Text);
 
-            _valorTotalPedido = _dadosPedido[numItem].PRECOUNITARIO;
+            _valorTotalPedido = _dadosPedido[numItem-1].PRECOUNITARIO;
 
             this.txtNumPedido.ReadOnly = true;
 
