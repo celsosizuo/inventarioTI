@@ -139,10 +139,10 @@ namespace Inventario.TIC.Class
             {
                 using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.conSQL))
                 {
-                    var parametros = new DynamicParameters();
-                    parametros.Add("@REFERENCIA", referencia);
+                    // var parametros = new DynamicParameters();
+                    // parametros.Add("@REFERENCIA", referencia);
 
-                    var rateios = connection.Query<RateioCentroCusto>("GETRATEIOTELEFONIAFIXA", parametros, commandType: CommandType.StoredProcedure).ToList();
+                    var rateios = connection.Query<RateioCentroCusto>("GETNOVORATEIOTELEFONIAFIXA", null, commandType: CommandType.StoredProcedure).ToList();
                     return rateios;
                 }
             }

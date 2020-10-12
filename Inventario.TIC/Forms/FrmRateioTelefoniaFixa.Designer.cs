@@ -342,6 +342,7 @@
             this.groupBox2.TabIndex = 36;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Selecionar Referência";
+            this.groupBox2.Visible = false;
             // 
             // label1
             // 
@@ -371,6 +372,7 @@
             this.groupBox3.TabIndex = 37;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Valor";
+            this.groupBox3.Visible = false;
             // 
             // label10
             // 
