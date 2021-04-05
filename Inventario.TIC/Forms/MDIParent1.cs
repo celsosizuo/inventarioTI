@@ -381,5 +381,12 @@ namespace Inventario.TIC
             // newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void pensoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRateioEMailPenso newMDIChild = new FrmRateioEMailPenso();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }

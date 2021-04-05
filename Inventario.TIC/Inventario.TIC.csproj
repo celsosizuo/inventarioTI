@@ -107,6 +107,7 @@
     <Compile Include="Class\Carregador.cs" />
     <Compile Include="Class\AparelhoRepository.cs" />
     <Compile Include="Class\CarregadorRepository.cs" />
+    <Compile Include="Class\DetalheFaturaEmailPenso.cs" />
     <Compile Include="Class\DispositivoAlugadoLicencaRepository.cs" />
     <Compile Include="Class\DispositivoAlugadoLicencas.cs" />
     <Compile Include="Class\DetalheFaturaEMail.cs" />
@@ -302,6 +303,12 @@
     <Compile Include="Forms\FrmRateioEMail.designer.cs">
       <DependentUpon>FrmRateioEMail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmRateioEMailPenso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmRateioEMailPenso.designer.cs">
+      <DependentUpon>FrmRateioEMailPenso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmRateioImpressoras.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -485,6 +492,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmRateioEMail.resx">
       <DependentUpon>FrmRateioEMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmRateioEMailPenso.resx">
+      <DependentUpon>FrmRateioEMailPenso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmRateioImpressoras.resx">
       <DependentUpon>FrmRateioImpressoras.cs</DependentUpon>

@@ -62,30 +62,91 @@ namespace Inventario.TIC.Forms
             }
         }
 
+        void ImportarPenso()
+        {
+            try
+            {
+                if (this.txtArquivo.Text != "")
+                {
+                    if (this.txtReferencia.Text == "  /")
+                    {
+                        MessageBox.Show("Favor digitar uma referência válida", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        int ret = 0;
+                        DetalheFaturaEmailPenso a = new DetalheFaturaEmailPenso();
+                        ret = Convert.ToInt32(a.ImportarDados(this.txtArquivo.Text, this.txtReferencia.Text));
+                        retorno = ret.ToString();
+
+                        sucesso = true;
+                    }
+                }
+                else
+                    MessageBox.Show("Favor selecionar um arquivo", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            catch (Exception ex)
+            {
+                sucesso = false;
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnImportar_Click(object sender, EventArgs e)
         {
+            
             this.lblQtdeRegistros.Text = "";
             this.lblTempo.Text = "";
 
             try
             {
-                using (FrmWaitingForm frm = new FrmWaitingForm(Importar))
+                if(this.rdoI3SI.Checked == false && this.rdoPenso.Checked == false)
                 {
-                    try
-                    {
-                        frm.ShowDialog(this);
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception(ex.Message);
-                    }
+                    throw new Exception("Favor selecionar um tipo de importação");
                 }
 
-                if (sucesso)
+                if (this.rdoI3SI.Checked)
                 {
-                    MessageBox.Show("Importação finalizada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    this.lblQtdeRegistros.Text = retorno;
-                    this.lblTempo.Text = Module1.tempoImportacao;
+                    using (FrmWaitingForm frm = new FrmWaitingForm(Importar))
+                    {
+                        try
+                        {
+                            frm.ShowDialog(this);
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception(ex.Message);
+                        }
+                    }
+
+                    if (sucesso)
+                    {
+                        MessageBox.Show("Importação finalizada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        this.lblQtdeRegistros.Text = retorno;
+                        this.lblTempo.Text = Module1.tempoImportacao;
+                    }
+                }
+                else if (this.rdoPenso.Checked)
+                {
+                    using (FrmWaitingForm frm = new FrmWaitingForm(ImportarPenso))
+                    {
+                        try
+                        {
+                            frm.ShowDialog(this);
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception(ex.Message);
+                        }
+                    }
+
+                    if (sucesso)
+                    {
+                        MessageBox.Show("Importação finalizada com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        this.lblQtdeRegistros.Text = retorno;
+                        this.lblTempo.Text = Module1.tempoImportacao;
+                    }
                 }
             }
             catch (Exception ex)
@@ -93,7 +154,5 @@ namespace Inventario.TIC.Forms
                 MessageBox.Show(ex.Message);
             }
         }
-
-
     }
 }

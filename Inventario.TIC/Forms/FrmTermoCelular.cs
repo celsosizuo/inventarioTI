@@ -953,6 +953,12 @@ namespace Inventario.TIC.Forms
                     Valor = this.txtUsuarioIdReadOnly.Text,
                 });
 
+                parametros.Add(new ParametrosRelatorio
+                {
+                    Parametro = "TERMOID",
+                    Valor = this.txtId.Text,
+                });
+
                 FrmRelatorios newMDIChild = new FrmRelatorios("Rel.Termo.Devolucao.Celular", parametros);
                 newMDIChild.Show();
             }

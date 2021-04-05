@@ -40,6 +40,8 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label4 = new System.Windows.Forms.Label();
             this.txtReferencia = new System.Windows.Forms.MaskedTextBox();
+            this.rdoI3SI = new System.Windows.Forms.RadioButton();
+            this.rdoPenso = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // lblTempo
@@ -142,11 +144,35 @@
             this.txtReferencia.TabIndex = 18;
             this.txtReferencia.ValidatingType = typeof(System.DateTime);
             // 
+            // rdoI3SI
+            // 
+            this.rdoI3SI.AutoSize = true;
+            this.rdoI3SI.Location = new System.Drawing.Point(144, 74);
+            this.rdoI3SI.Name = "rdoI3SI";
+            this.rdoI3SI.Size = new System.Drawing.Size(44, 17);
+            this.rdoI3SI.TabIndex = 19;
+            this.rdoI3SI.TabStop = true;
+            this.rdoI3SI.Text = "I3SI";
+            this.rdoI3SI.UseVisualStyleBackColor = true;
+            // 
+            // rdoPenso
+            // 
+            this.rdoPenso.AutoSize = true;
+            this.rdoPenso.Location = new System.Drawing.Point(233, 75);
+            this.rdoPenso.Name = "rdoPenso";
+            this.rdoPenso.Size = new System.Drawing.Size(112, 17);
+            this.rdoPenso.TabIndex = 20;
+            this.rdoPenso.TabStop = true;
+            this.rdoPenso.Text = "Penso Mail Zimbra";
+            this.rdoPenso.UseVisualStyleBackColor = true;
+            // 
             // FrmImportarFaturaEMail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 166);
+            this.Controls.Add(this.rdoPenso);
+            this.Controls.Add(this.rdoI3SI);
             this.Controls.Add(this.txtReferencia);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblTempo);
@@ -181,5 +207,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MaskedTextBox txtReferencia;
+        private System.Windows.Forms.RadioButton rdoI3SI;
+        private System.Windows.Forms.RadioButton rdoPenso;
     }
 }

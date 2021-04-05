@@ -1,6 +1,6 @@
 ﻿namespace Inventario.TIC.Forms
 {
-    partial class FrmRateioEMail
+    partial class FrmRateioEMailPenso
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRateioEMail));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRateioEMailPenso));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnLimparDadosPedido = new System.Windows.Forms.Button();
             this.txtValorReadOnly = new System.Windows.Forms.TextBox();
@@ -59,13 +59,9 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cboReferencia = new System.Windows.Forms.ComboBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.rdoMaiex = new System.Windows.Forms.RadioButton();
-            this.rdoExchange = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRateios)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -361,45 +357,11 @@
             this.cboReferencia.Size = new System.Drawing.Size(138, 21);
             this.cboReferencia.TabIndex = 0;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.rdoMaiex);
-            this.groupBox3.Controls.Add(this.rdoExchange);
-            this.groupBox3.Location = new System.Drawing.Point(483, 73);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(228, 85);
-            this.groupBox3.TabIndex = 37;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Tipo da Conta";
-            // 
-            // rdoMaiex
-            // 
-            this.rdoMaiex.AutoSize = true;
-            this.rdoMaiex.Location = new System.Drawing.Point(59, 48);
-            this.rdoMaiex.Name = "rdoMaiex";
-            this.rdoMaiex.Size = new System.Drawing.Size(53, 17);
-            this.rdoMaiex.TabIndex = 1;
-            this.rdoMaiex.TabStop = true;
-            this.rdoMaiex.Text = "Maiex";
-            this.rdoMaiex.UseVisualStyleBackColor = true;
-            // 
-            // rdoExchange
-            // 
-            this.rdoExchange.AutoSize = true;
-            this.rdoExchange.Location = new System.Drawing.Point(59, 25);
-            this.rdoExchange.Name = "rdoExchange";
-            this.rdoExchange.Size = new System.Drawing.Size(73, 17);
-            this.rdoExchange.TabIndex = 0;
-            this.rdoExchange.TabStop = true;
-            this.rdoExchange.Text = "Exchange";
-            this.rdoExchange.UseVisualStyleBackColor = true;
-            // 
-            // FrmRateioEMail
+            // FrmRateioEMailPenso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(867, 562);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.lblDiferenca);
@@ -414,17 +376,15 @@
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "FrmRateioEMail";
+            this.Name = "FrmRateioEMailPenso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Lançar Rateio E-mail I3SI";
+            this.Text = "Lançar Rateio E-mail Penso";
             this.Load += new System.EventHandler(this.FrmRateioEMail_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRateios)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -460,8 +420,5 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboReferencia;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton rdoMaiex;
-        private System.Windows.Forms.RadioButton rdoExchange;
     }
 }
