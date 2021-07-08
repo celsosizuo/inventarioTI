@@ -43,6 +43,8 @@ namespace Inventario.TIC.Forms
 
             // Adicionando os valores no combobox
             this.cboStatus.DataSource = referencia.GetReferenciaStatus();
+            this.cboStatus.DisplayMember = "DESCRICAO";
+            this.cboStatus.ValueMember = "CODIGO";
 
         }
 
