@@ -12,6 +12,8 @@ using System.Data.SqlClient;
 using Dapper;
 using Inventario.TIC.Class;
 using System.Security.Cryptography;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace Inventario.TIC
 {
@@ -25,21 +27,21 @@ namespace Inventario.TIC
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            try
-            {
-                this.drpAtivoNovo.DataSource = this.GetComputadores();
-                this.drpAtivoNovo.DisplayMember = "ATIVONOVO";
-                this.drpAtivoNovo.ValueMember = "ID";
+            //try
+            //{
+            //    this.drpAtivoNovo.DataSource = this.GetComputadores();
+            //    this.drpAtivoNovo.DisplayMember = "ATIVONOVO";
+            //    this.drpAtivoNovo.ValueMember = "ID";
 
-                this.drpNotaFiscal.DataSource = this.GetNotaFiscal();
-                this.drpNotaFiscal.DisplayMember = "NUMNF";
-                this.drpNotaFiscal.ValueMember = "NUMNF";
+            //    this.drpNotaFiscal.DataSource = this.GetNotaFiscal();
+            //    this.drpNotaFiscal.DisplayMember = "NUMNF";
+            //    this.drpNotaFiscal.ValueMember = "NUMNF";
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         private void drpNotaFiscal_SelectedIndexChanged(object sender, EventArgs e)
@@ -255,7 +257,65 @@ namespace Inventario.TIC
         }
 
 
+
+
+
+
+        private void btnXML_Click(object sender, EventArgs e)
+        {
+            //StringBuilder xml = new StringBuilder();
+            //XmlWriter writer = XmlWriter.Create(xml);
+
+            //XNamespace ns1 = "http://example.com/ns1";
+            //string prefix = "pf1";
+            //string localName = "foo";
+            //XElement el = new XElement(ns1 + localName, new XAttribute(XNamespace.Xmlns + prefix, ns1));
+            //Console.WriteLine(el);
+
+
+            ////// MONTANDO O XML
+            ////writer.WriteStartElement("MovConcluirPedidoProcParams"); //ABRINDO A TAG MovConcluirPedidoProcParams
+            ////writer.WriteAttributeString("z:Id", "i1");
+            ////writer.WriteStartElement("TPRODUTO"); //ABRINDO A TAG TPRODUTO
+            ////writer.WriteElementString("CODCOLPRD", "");
+            ////writer.WriteElementString("CODCOLIGADA", "");
+            ////writer.WriteElementString("IDPRD", "");
+            ////writer.WriteEndElement(); //FECHANDO A TAG TPRODUTO
+            ////writer.WriteEndElement(); //FECHANDO A TAG EstPrdBR
+
+            ////FECHANDO O ARQUIVO XML
+            //writer.Flush();
+            //writer.Close();
+
+            //string xmlString = xml.ToString().Replace("<?xml version=\"1.0\" encoding=\"utf-16\"?>", "").Replace(@"\", "");
+
+            //txtXML.Text = xmlString;
+
+
+            string x = "55";
+
+            XNamespace aw = "http://m.xyz.com/rss/";
+            XDocument document = new XDocument(
+                       new XDeclaration("1.0", "utf-8", "yes"), new XElement("MovConcluirPedidoProcParams", new XAttribute(XNamespace.Xmlns + "media", "http://m.xyz.com/rss/"), new XAttribute("version", "2.0"),
+
+                           new XElement("channel",
+                               new XAttribute("vendor", "ABC"),
+                               new XAttribute("lastpublishdate", DateTime.Now.ToString("dd/MM/yyyy hh:mm"))),
+
+                               new XElement("title", "Videos"),
+                               new XElement(aw + "thumbnail", new XAttribute("width", x.Trim()), new XAttribute("height", x.Trim()))
+                   )
+            );
+
+            this.txtXML.Text = document.ToString();
+
+        }
     }
+
+
+
+
+
 
     public class Hash
     {

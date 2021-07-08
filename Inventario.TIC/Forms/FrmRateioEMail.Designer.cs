@@ -290,7 +290,6 @@
             // 
             this.dgvRateios.AllowDrop = true;
             this.dgvRateios.AllowUserToAddRows = false;
-            this.dgvRateios.AllowUserToDeleteRows = false;
             this.dgvRateios.AllowUserToOrderColumns = true;
             this.dgvRateios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 

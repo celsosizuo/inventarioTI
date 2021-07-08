@@ -56,6 +56,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtGuidGerado = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.btnXML = new System.Windows.Forms.Button();
+            this.txtXML = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,7 +112,7 @@
             this.drpSoftware.FormattingEnabled = true;
             this.drpSoftware.Location = new System.Drawing.Point(196, 88);
             this.drpSoftware.Name = "drpSoftware";
-            this.drpSoftware.Size = new System.Drawing.Size(684, 21);
+            this.drpSoftware.Size = new System.Drawing.Size(115, 21);
             this.drpSoftware.TabIndex = 4;
             // 
             // button1
@@ -142,14 +144,14 @@
             // 
             // txtTextoACriptografar
             // 
-            this.txtTextoACriptografar.Location = new System.Drawing.Point(439, 146);
+            this.txtTextoACriptografar.Location = new System.Drawing.Point(269, 211);
             this.txtTextoACriptografar.Name = "txtTextoACriptografar";
             this.txtTextoACriptografar.Size = new System.Drawing.Size(122, 20);
             this.txtTextoACriptografar.TabIndex = 9;
             // 
             // txtChavePrivada
             // 
-            this.txtChavePrivada.Location = new System.Drawing.Point(439, 190);
+            this.txtChavePrivada.Location = new System.Drawing.Point(269, 255);
             this.txtChavePrivada.Name = "txtChavePrivada";
             this.txtChavePrivada.Size = new System.Drawing.Size(145, 20);
             this.txtChavePrivada.TabIndex = 10;
@@ -157,7 +159,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(641, 130);
+            this.label4.Location = new System.Drawing.Point(419, 195);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 13);
             this.label4.TabIndex = 11;
@@ -166,7 +168,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(641, 174);
+            this.label5.Location = new System.Drawing.Point(419, 239);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 13);
             this.label5.TabIndex = 12;
@@ -174,7 +176,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(439, 235);
+            this.button2.Location = new System.Drawing.Point(269, 300);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(122, 23);
             this.button2.TabIndex = 13;
@@ -185,7 +187,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(436, 130);
+            this.label6.Location = new System.Drawing.Point(266, 195);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(125, 13);
             this.label6.TabIndex = 14;
@@ -194,7 +196,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(436, 174);
+            this.label7.Location = new System.Drawing.Point(266, 239);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(148, 13);
             this.label7.TabIndex = 15;
@@ -202,21 +204,21 @@
             // 
             // txtTextoCriptografado
             // 
-            this.txtTextoCriptografado.Location = new System.Drawing.Point(644, 146);
+            this.txtTextoCriptografado.Location = new System.Drawing.Point(422, 211);
             this.txtTextoCriptografado.Name = "txtTextoCriptografado";
             this.txtTextoCriptografado.Size = new System.Drawing.Size(221, 20);
             this.txtTextoCriptografado.TabIndex = 16;
             // 
             // txtTextoDecriptado
             // 
-            this.txtTextoDecriptado.Location = new System.Drawing.Point(644, 190);
+            this.txtTextoDecriptado.Location = new System.Drawing.Point(422, 255);
             this.txtTextoDecriptado.Name = "txtTextoDecriptado";
             this.txtTextoDecriptado.Size = new System.Drawing.Size(221, 20);
             this.txtTextoDecriptado.TabIndex = 17;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(567, 235);
+            this.button3.Location = new System.Drawing.Point(397, 300);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(122, 23);
             this.button3.TabIndex = 18;
@@ -227,7 +229,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(436, 314);
+            this.label8.Location = new System.Drawing.Point(266, 379);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(98, 13);
             this.label8.TabIndex = 20;
@@ -235,14 +237,14 @@
             // 
             // txtGerarHash
             // 
-            this.txtGerarHash.Location = new System.Drawing.Point(439, 330);
+            this.txtGerarHash.Location = new System.Drawing.Point(269, 395);
             this.txtGerarHash.Name = "txtGerarHash";
             this.txtGerarHash.Size = new System.Drawing.Size(145, 20);
             this.txtGerarHash.TabIndex = 19;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(439, 356);
+            this.button4.Location = new System.Drawing.Point(269, 421);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(122, 23);
             this.button4.TabIndex = 21;
@@ -252,7 +254,7 @@
             // 
             // txtHashGerado
             // 
-            this.txtHashGerado.Location = new System.Drawing.Point(590, 330);
+            this.txtHashGerado.Location = new System.Drawing.Point(420, 395);
             this.txtHashGerado.Name = "txtHashGerado";
             this.txtHashGerado.Size = new System.Drawing.Size(221, 20);
             this.txtHashGerado.TabIndex = 23;
@@ -260,7 +262,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(587, 314);
+            this.label9.Location = new System.Drawing.Point(417, 379);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(68, 13);
             this.label9.TabIndex = 22;
@@ -268,7 +270,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(439, 385);
+            this.button5.Location = new System.Drawing.Point(269, 450);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(122, 23);
             this.button5.TabIndex = 24;
@@ -279,7 +281,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(567, 390);
+            this.label10.Location = new System.Drawing.Point(397, 455);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(68, 13);
             this.label10.TabIndex = 25;
@@ -287,7 +289,7 @@
             // 
             // txtGuidGerado
             // 
-            this.txtGuidGerado.Location = new System.Drawing.Point(817, 330);
+            this.txtGuidGerado.Location = new System.Drawing.Point(420, 432);
             this.txtGuidGerado.Name = "txtGuidGerado";
             this.txtGuidGerado.Size = new System.Drawing.Size(145, 20);
             this.txtGuidGerado.TabIndex = 26;
@@ -295,17 +297,37 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(814, 314);
+            this.label11.Location = new System.Drawing.Point(417, 416);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(67, 13);
             this.label11.TabIndex = 27;
             this.label11.Text = "Guid Gerado";
             // 
+            // btnXML
+            // 
+            this.btnXML.Location = new System.Drawing.Point(597, 160);
+            this.btnXML.Name = "btnXML";
+            this.btnXML.Size = new System.Drawing.Size(75, 23);
+            this.btnXML.TabIndex = 29;
+            this.btnXML.Text = "XML";
+            this.btnXML.UseVisualStyleBackColor = true;
+            this.btnXML.Click += new System.EventHandler(this.btnXML_Click);
+            // 
+            // txtXML
+            // 
+            this.txtXML.Location = new System.Drawing.Point(678, 9);
+            this.txtXML.Name = "txtXML";
+            this.txtXML.Size = new System.Drawing.Size(767, 481);
+            this.txtXML.TabIndex = 30;
+            this.txtXML.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(972, 502);
+            this.ClientSize = new System.Drawing.Size(1457, 502);
+            this.Controls.Add(this.txtXML);
+            this.Controls.Add(this.btnXML);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtGuidGerado);
             this.Controls.Add(this.label10);
@@ -373,6 +395,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtGuidGerado;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnXML;
+        private System.Windows.Forms.RichTextBox txtXML;
     }
 }
 

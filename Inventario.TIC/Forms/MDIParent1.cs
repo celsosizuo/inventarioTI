@@ -388,5 +388,19 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void cadastroDeTipoDeImpressãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmTipoImpressao newMDIChild = new FrmTipoImpressao();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
+
+        private void cadastroDeReferênciasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReferencia newMDIChild = new FrmReferencia();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }
