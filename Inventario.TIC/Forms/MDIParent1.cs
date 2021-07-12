@@ -409,5 +409,13 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void cadastroDeImpressorasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmImpressoras newMDIChild = new FrmImpressoras();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+
+        }
     }
 }
