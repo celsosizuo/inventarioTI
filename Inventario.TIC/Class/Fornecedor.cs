@@ -14,7 +14,7 @@ namespace Inventario.TIC.Class
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Cnpj { get; set; }
-        public DateTime DataInicioContrato { get; set; }
+        public DateTime DataIniContrato { get; set; }
         public DateTime DataFimContrato { get; set; }
 
 
@@ -51,7 +51,7 @@ namespace Inventario.TIC.Class
 
         private void ValidarDataInicioContrato()
         {
-            RuleFor(a => a.DataInicioContrato).NotEmpty().WithMessage("- Campo Data de Início do Contrato é obrigatório");
+            RuleFor(a => a.DataIniContrato).NotEmpty().WithMessage("- Campo Data de Início do Contrato é obrigatório");
         }
 
         private void ValidarDataFimContrato()

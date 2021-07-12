@@ -57,7 +57,7 @@ namespace Inventario.TIC.Forms
                 fornecedor.Id = this.txtId.Text == "" ? 0 : Convert.ToInt32(this.txtId.Text);
                 fornecedor.Nome = this.txtNome.Text;
                 fornecedor.Cnpj = this.txtCnpj.Text;
-                fornecedor.DataInicioContrato = DateTime.Parse(this.txtDataIniContrato.Text);
+                fornecedor.DataIniContrato = DateTime.Parse(this.txtDataIniContrato.Text);
                 fornecedor.DataFimContrato = DateTime.Parse(this.txtDataFimContrato.Text);
 
                 if (fornecedor.EhValido())
@@ -136,7 +136,7 @@ namespace Inventario.TIC.Forms
             {
                 this.txtId.Text = _fornecedores[e.RowIndex].Id.ToString();
                 this.txtNome.Text = _fornecedores[e.RowIndex].Nome.ToString();
-                this.txtDataIniContrato.Text = _fornecedores[e.RowIndex].DataInicioContrato.ToString();
+                this.txtDataIniContrato.Text = _fornecedores[e.RowIndex].DataIniContrato.ToString();
                 this.txtDataFimContrato.Text = _fornecedores[e.RowIndex].DataFimContrato.ToString();
                 this.txtCnpj.Text = _fornecedores[e.RowIndex].Cnpj.ToString();
             }
@@ -171,7 +171,7 @@ namespace Inventario.TIC.Forms
                     _fornecedores = _fornecedoresOriginal.Where(c => c.Cnpj.ToUpper().Contains(texto.ToUpper())).ToList();
                     break;
                 case "DataInicioContrato":
-                    _fornecedores = _fornecedoresOriginal.Where(c => c.DataInicioContrato.Equals(texto.ToUpper())).ToList();
+                    _fornecedores = _fornecedoresOriginal.Where(c => c.DataIniContrato.Equals(texto.ToUpper())).ToList();
                     break;
                 case "DataFimContrato":
                     _fornecedores = _fornecedoresOriginal.Where(c => c.DataFimContrato.Equals(texto.ToUpper())).ToList();
@@ -217,11 +217,11 @@ namespace Inventario.TIC.Forms
                     if (colunaSelecionada != this._colunaSelecionada)
                     {
                         this._colunaSelecionada = colunaSelecionada;
-                        _fornecedores = _fornecedores.OrderBy(x => x.DataInicioContrato).ToList();
+                        _fornecedores = _fornecedores.OrderBy(x => x.DataIniContrato).ToList();
                     }
                     else
                     {
-                        _fornecedores = _fornecedores.OrderByDescending(x => x.DataInicioContrato).ToList();
+                        _fornecedores = _fornecedores.OrderByDescending(x => x.DataIniContrato).ToList();
                         this._colunaSelecionada = "";
                     }
                     break;

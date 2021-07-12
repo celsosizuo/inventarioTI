@@ -83,7 +83,7 @@
             this.dgvFornecedores.ReadOnly = true;
             this.dgvFornecedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvFornecedores.Size = new System.Drawing.Size(697, 281);
-            this.dgvFornecedores.TabIndex = 2;
+            this.dgvFornecedores.TabIndex = 9;
             this.dgvFornecedores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFornecedors_CellDoubleClick);
             this.dgvFornecedores.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvFornecedors_ColumnHeaderMouseClick);
             // 
@@ -93,7 +93,7 @@
             this.txtNome.MaxLength = 200;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(321, 20);
-            this.txtNome.TabIndex = 37;
+            this.txtNome.TabIndex = 1;
             // 
             // label1
             // 
@@ -128,7 +128,7 @@
             this.btnPesquisar.Location = new System.Drawing.Point(449, 118);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
-            this.btnPesquisar.TabIndex = 41;
+            this.btnPesquisar.TabIndex = 8;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
@@ -138,7 +138,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(287, 118);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 40;
+            this.btnExcluir.TabIndex = 6;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -148,7 +148,7 @@
             this.btnLimpar.Location = new System.Drawing.Point(368, 118);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpar.TabIndex = 39;
+            this.btnLimpar.TabIndex = 7;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
@@ -158,7 +158,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(206, 118);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 38;
+            this.btnSalvar.TabIndex = 5;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -189,7 +189,7 @@
             this.txtCnpj.MaxLength = 200;
             this.txtCnpj.Name = "txtCnpj";
             this.txtCnpj.Size = new System.Drawing.Size(113, 20);
-            this.txtCnpj.TabIndex = 47;
+            this.txtCnpj.TabIndex = 2;
             // 
             // label4
             // 
@@ -207,7 +207,7 @@
             this.txtDataFimContrato.Mask = "00/00/0000";
             this.txtDataFimContrato.Name = "txtDataFimContrato";
             this.txtDataFimContrato.Size = new System.Drawing.Size(123, 20);
-            this.txtDataFimContrato.TabIndex = 49;
+            this.txtDataFimContrato.TabIndex = 4;
             this.txtDataFimContrato.ValidatingType = typeof(System.DateTime);
             // 
             // txtDataIniContrato
@@ -216,7 +216,7 @@
             this.txtDataIniContrato.Mask = "00/00/0000";
             this.txtDataIniContrato.Name = "txtDataIniContrato";
             this.txtDataIniContrato.Size = new System.Drawing.Size(113, 20);
-            this.txtDataIniContrato.TabIndex = 48;
+            this.txtDataIniContrato.TabIndex = 3;
             this.txtDataIniContrato.ValidatingType = typeof(System.DateTime);
             // 
             // FrmFornecedor

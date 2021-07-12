@@ -26,7 +26,7 @@ namespace Inventario.TIC.Class
 
                     command.Parameters.AddWithValue("@Nome", fornecedor.Nome);
                     command.Parameters.AddWithValue("@Cnpj", fornecedor.Cnpj);
-                    command.Parameters.AddWithValue("@DataInicioContrato", fornecedor.DataInicioContrato);
+                    command.Parameters.AddWithValue("@DataIniContrato", fornecedor.DataIniContrato);
                     command.Parameters.AddWithValue("@DataFimContrato", fornecedor.DataFimContrato);
 
                     command.Connection.Open();
@@ -60,7 +60,7 @@ namespace Inventario.TIC.Class
 
                     command.Parameters.AddWithValue("@Nome", fornecedor.Nome);
                     command.Parameters.AddWithValue("@Cnpj", fornecedor.Cnpj);
-                    command.Parameters.AddWithValue("@DataInicioContrato", fornecedor.DataInicioContrato);
+                    command.Parameters.AddWithValue("@DataIniContrato", fornecedor.DataIniContrato);
                     command.Parameters.AddWithValue("@DataFimContrato", fornecedor.DataFimContrato);
                     command.Parameters.AddWithValue("@ID", fornecedor.Id);
 
