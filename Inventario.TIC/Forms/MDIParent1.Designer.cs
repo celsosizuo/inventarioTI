@@ -76,6 +76,7 @@
             this.importarFaturaToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.lançamentoDeRateioTOTVSToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeTipoDeImpressãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroDeReferênciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDeProdutosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.movimentaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,7 +97,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.cadastroDeReferênciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroDeFornecedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -487,7 +488,8 @@
             this.importarFaturaToolStripMenuItem3,
             this.lançamentoDeRateioTOTVSToolStripMenuItem2,
             this.cadastroDeTipoDeImpressãoToolStripMenuItem,
-            this.cadastroDeReferênciasToolStripMenuItem});
+            this.cadastroDeReferênciasToolStripMenuItem,
+            this.cadastroDeFornecedoresToolStripMenuItem});
             this.impressorasToolStripMenuItem.Name = "impressorasToolStripMenuItem";
             this.impressorasToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
             this.impressorasToolStripMenuItem.Text = "Impressoras";
@@ -514,6 +516,13 @@
             this.cadastroDeTipoDeImpressãoToolStripMenuItem.Size = new System.Drawing.Size(236, 22);
             this.cadastroDeTipoDeImpressãoToolStripMenuItem.Text = "Cadastro de Tipo de Impressão";
             this.cadastroDeTipoDeImpressãoToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeTipoDeImpressãoToolStripMenuItem_Click);
+            // 
+            // cadastroDeReferênciasToolStripMenuItem
+            // 
+            this.cadastroDeReferênciasToolStripMenuItem.Name = "cadastroDeReferênciasToolStripMenuItem";
+            this.cadastroDeReferênciasToolStripMenuItem.Size = new System.Drawing.Size(236, 22);
+            this.cadastroDeReferênciasToolStripMenuItem.Text = "Cadastro de Referências";
+            this.cadastroDeReferênciasToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeReferênciasToolStripMenuItem_Click);
             // 
             // estoqueToolStripMenuItem
             // 
@@ -670,12 +679,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // cadastroDeReferênciasToolStripMenuItem
+            // cadastroDeFornecedoresToolStripMenuItem
             // 
-            this.cadastroDeReferênciasToolStripMenuItem.Name = "cadastroDeReferênciasToolStripMenuItem";
-            this.cadastroDeReferênciasToolStripMenuItem.Size = new System.Drawing.Size(236, 22);
-            this.cadastroDeReferênciasToolStripMenuItem.Text = "Cadastro de Referências";
-            this.cadastroDeReferênciasToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeReferênciasToolStripMenuItem_Click);
+            this.cadastroDeFornecedoresToolStripMenuItem.Name = "cadastroDeFornecedoresToolStripMenuItem";
+            this.cadastroDeFornecedoresToolStripMenuItem.Size = new System.Drawing.Size(236, 22);
+            this.cadastroDeFornecedoresToolStripMenuItem.Text = "Cadastro de Fornecedores";
+            this.cadastroDeFornecedoresToolStripMenuItem.Click += new System.EventHandler(this.cadastroDeFornecedoresToolStripMenuItem_Click);
             // 
             // MDIParent1
             // 
@@ -770,6 +779,7 @@
         private System.Windows.Forms.ToolStripMenuItem pensoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroDeTipoDeImpressãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroDeReferênciasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroDeFornecedoresToolStripMenuItem;
     }
 }
 

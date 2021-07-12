@@ -402,5 +402,12 @@ namespace Inventario.TIC
             newMDIChild.MdiParent = this;
             newMDIChild.Show();
         }
+
+        private void cadastroDeFornecedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmFornecedor newMDIChild = new FrmFornecedor();
+            newMDIChild.MdiParent = this;
+            newMDIChild.Show();
+        }
     }
 }

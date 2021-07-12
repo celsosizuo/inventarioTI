@@ -116,6 +116,8 @@
     <Compile Include="Class\DetalheFaturaTelefoniaMovel.cs" />
     <Compile Include="Class\DispositivoAlugado.cs" />
     <Compile Include="Class\DispositivoAlugadoRepository.cs" />
+    <Compile Include="Class\Fornecedor.cs" />
+    <Compile Include="Class\FornecedorRepository.cs" />
     <Compile Include="Class\HistoricoUsuariosComputadores.cs" />
     <Compile Include="Class\HistoricoUsuariosComputadoresRepository.cs" />
     <Compile Include="Class\Module1.cs" />
@@ -246,6 +248,12 @@
     </Compile>
     <Compile Include="Forms\FrmExcluirFatura.Designer.cs">
       <DependentUpon>FrmExcluirFatura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmFornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmFornecedor.designer.cs">
+      <DependentUpon>FrmFornecedor.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmImportarFatura.cs">
       <SubType>Form</SubType>
@@ -478,6 +486,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmExcluirFatura.resx">
       <DependentUpon>FrmExcluirFatura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmFornecedor.resx">
+      <DependentUpon>FrmFornecedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmImportarFatura.resx">
       <DependentUpon>FrmImportarFatura.cs</DependentUpon>
